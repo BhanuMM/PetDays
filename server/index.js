@@ -1,12 +1,12 @@
 const express = require ("express");
 const app = express();
-
+app.use(express.json());
 
 const db = require("./models");
 
 //Routers will be list down here
-// const usersRouter = require("./routes/Users");
-// app.use("/auth", usersRouter);
+const usersRouter = require("./routes/Users");
+app.use("/auth", usersRouter);
 
 
 db.sequelize.sync().then(() => {
