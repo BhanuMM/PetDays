@@ -9,10 +9,10 @@ function signin() {
          <div class="container mt-5">
             <div class="row ">
               
-              <div class="col ">
+              <div class="col-6 ">
                 <img src="https://img.freepik.com/free-vector/cute-cat-dog-cartoon_138676-3018.jpg?t=st=1658050339~exp=1658050939~hmac=a9a863f9e060b519e5d41888e63db171a90c569e04ed3de7b5c807e00e006c2b&w=740" class="rounded float-start img-fluid " alt="..."/>
               </div>
-              <div class="col-4  mt-5 ">
+              <div class="col-6  mt-5 ">
                 
                 <div class="mb-3">
                   
