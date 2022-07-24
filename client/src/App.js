@@ -27,7 +27,10 @@
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Signin from './pages/signin';
+
+import Landing from './pages/landing';
 import Signup from './pages/signup';
+
 // import Fotter from './components/fotter';
 // import Signinform from './components/signinform';
 
@@ -37,8 +40,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<Signin/>} />
+
+          <Route path="/landing" element={<Landing/>} />
           <Route path="/signup" element={<Signup/>} />
-         
+
           
         </Routes>
        
