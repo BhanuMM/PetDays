@@ -27,7 +27,7 @@
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Signin from './pages/signin';
-// import Signup from './pages/signup';
+import Signup from './pages/signup';
 // import Fotter from './components/fotter';
 // import Signinform from './components/signinform';
 
@@ -37,11 +37,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<Signin/>} />
-          {/* <Route path="/signup" element={<Signup/>} /> */}
+          <Route path="/signup" element={<Signup/>} />
+         
           
         </Routes>
-        {/* <Fotter/> */}
-
+       
       </Router></div>
   );
 }
