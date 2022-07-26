@@ -1,0 +1,61 @@
+.main-footer{
+    color: red;
+    background-color: #99CD4E;
+}
+body{
+    background-color: #FFF;
+}
+.nav-link{
+    color: #fb9b04;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.container{
+    display: flex;
+}
+
+#land{
+    padding-left: 100px;
+}
+
+.col-8 img{
+    
+    height: 650px;
+    width: 700px;
+}
+.col-6 img{
+    height: 500px;
+    width: 700px;
+}
+
+#learn{
+    background-color: transparent;
+    color: #FFF;
+}
+
+.jumbotron{
+    background-color: #FFF;
+}
+
+.cont-footer{
+    background-color: black;
+}
+.footer-image{
+    width: 600px;
+    padding: 0px;
+}
+.footer-text{
+    color: #FFF;
+    font-size: 10px;
+}
+.row-fluid{
+    align-items: center;
+    text-align: center;
+}
+.footer-topics{
+    color: black;
+}
+.para{
+    color: #FFF;
+}
