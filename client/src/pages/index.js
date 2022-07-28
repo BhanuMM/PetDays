@@ -1,5 +1,5 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/nav.css';
 import '../styles/footer.css';
 import mew from '../images/mew.png';
@@ -17,8 +17,8 @@ function index() {
             <div className="row">
                 <div className="col-sm-5">
                     <div className="jumbotron">
-                        <h1 className="display-4">PetDays</h1>
-                    <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <h1 className="display-4 mt-5" >Pet Days</h1>
+                    <p className="lead">loremEnim culpa irure ex minim ad labore ad pariatur qui do laboris ad quis. Id in in incididunt ex pariatur proident. Esse non esse tempor cupidatat eiusmod esse sint enim ut elit veniam et ex. Consectetur tempor consequat dolore qui do id dolor Lorem tempo</p>
                     <hr
                       style={{
                         background: '#fff',
@@ -85,7 +85,7 @@ function index() {
                       }}
                     />
                     <p className="lead">
-                      <a className="btn btn-md" id ="learn" href="#" role="button"><img src= {paw} className="rounded float-start img-fluid btn-image" alt="dog"/></a>
+                      <a className="btn btn-md" id ="learn" href="signup" role="button"><img src= {paw} className="rounded float-start img-fluid btn-image" alt="dog"/></a>
                     </p>
                     </div>
                 </div>
@@ -157,7 +157,7 @@ function index() {
                       }}
                     />
                     <p className="lead">
-                      <a className="btn btn-md" id ="learn" href="#" role="button"><img src= {paw} className="rounded float-start img-fluid btn-image" alt="dog"/></a>
+                      <a className="btn btn-md" id ="learn" href="signup"  role="button"><img src= {paw} className="rounded float-start img-fluid btn-image" alt="dog"/></a>
                     </p>
                     </div>
                 </div>
