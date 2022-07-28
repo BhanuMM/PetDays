@@ -1,10 +1,10 @@
+
 const express = require("express");
 const router = express.Router();
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 
-router.post("/", async (req, res) => {
-    // res.json("Hello Gih");
+router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
@@ -24,18 +24,18 @@ router.post("/", async (req, res) => {
 
 // });
 
-// router.post("/login", async (req, res) => {
-//   const { username, password } = req.body;
+router.post("/login", async (req, res) => {
+  const {email, password } = req.body;
 
-//   const user = await Users.findOne({ where: { username: username } });
+  const uemail = await Users.findOne({ where: { email: email } });
 
-//   if (!user) res.json({ error: "User Doesn't Exist" });
+  if (!uemail) res.json({ error: "User Doesn't Exist" });
 
-//   bcrypt.compare(password, user.password).then((match) => {
-//     if (!match) res.json({ error: "Wrong Username And Password Combination" });
+  bcrypt.compare(password, uemail.password).then((match) => {
+    if (!match) res.json({ error: "Wrong Username And Password Combination" });
 
-//     res.json("YOU LOGGED IN!!!");
-//   });
-// });
+    res.json("YOU LOGGED IN!!!");
+  });
+});
 
 module.exports = router;

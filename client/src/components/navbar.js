@@ -14,13 +14,13 @@ function navbar() {
                     <a className="nav-link" href="index"><h4>Home</h4></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#"><h4>PetMart</h4></a>
+                    <a className="nav-link" href="signup"><h4>Pet Mart</h4></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="#"><h4>PetTalk</h4></a>
+                    <a className="nav-link" href="signup"><h4>Pet Talk</h4></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="signup"><h4>Signup</h4></a>
+                    <a className="nav-link" href="signup"><h4>Register</h4></a>
                 </li>
                 <li className="nav-item active">
                     <a className="nav-link" href="signin"><h4>Login</h4></a>

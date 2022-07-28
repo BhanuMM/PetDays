@@ -1,20 +1,22 @@
 .logo{
-    height: 150px;
-    width: 150px;
-    background-size: cover;
+    width: 100px;
+    /* background-size: cover; */
+    margin-left: 150px;
+    margin-right: 750px;
 }
 
 .nav-link h4{
-    color: #fb9b04;
+    color: #ca8403;
     font-size: 18px;
     text-transform: uppercase;
 }
 .nav-link h4:hover{
-    color: #ecd7b3;  
+    color: #000000;  
 }
 
 .navbar{
-    background-color: transparent;
+    background-color: #51515108;
+    margin-bottom: 30px;
 }
 .btn-image{
     height: 70px;
