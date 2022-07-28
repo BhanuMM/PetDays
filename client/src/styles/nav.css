@@ -1,0 +1,31 @@
+.logo{
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+}
+
+.nav-link h4{
+    color: #fb9b04;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.nav-link h4:hover{
+    color: #ecd7b3;  
+}
+
+.navbar{
+    background-color: transparent;
+}
+.btn-image{
+    height: 70px;
+    width: 70px;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    0%{
+        filter: hue-rotate(360deg);
+    }
+}
