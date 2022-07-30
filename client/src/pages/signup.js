@@ -1,6 +1,9 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
+import '../styles/nav.css';
+import '../styles/footer.css';
+import Signupimage from '../images/signup.png';
 
 function signup() {
 
@@ -18,6 +21,7 @@ function signup() {
 
   return (
     <div className="Signup">
+      <header className="header"/> 
       <div className="container mt-5 ">
         <div className="col-6 align-self-center">
           <h1>Okay,Lets Register</h1>
@@ -111,13 +115,7 @@ function signup() {
           </div>
 
           <div className="col-6">
-            <img
-              className="image-petrounded float-start img-fluid"
-              src="https://img.freepik.com/free-vector/cute-cat-playing-hand-phone-cartoon-vector-icon-illustration-animal-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4231.jpg?t=st=1658073104~exp=1658073704~hmac=806ac1bf6b177f402049c9d368ef654bedfa7ccbbb6e3843cc0bf51a6bdd851a&w=740"
-              alt="..."
-            />
-
-            {/* <!-- <img class="rounded float-start img-fluid" src="https://img.freepik.com/free-vector/cute-cat-playing-hand-phone-cartoon-vector-icon-illustration-animal-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4231.jpg?t=st=1658073104~exp=1658073704~hmac=806ac1bf6b177f402049c9d368ef654bedfa7ccbbb6e3843cc0bf51a6bdd851a&w=740"  alt="..."> --> */}
+          <img src= {Signupimage} className="rounded float-start img-fluid" alt="Signupimage"/>
           </div>
         </div>
       </div>
