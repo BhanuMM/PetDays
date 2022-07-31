@@ -1,41 +1,99 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate  } from "react-router-dom";
+import { Formik, Form, Field ,ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from 'yup';
+
 import '../styles/nav.css';
 import '../styles/footer.css';
 import Signinimage from '../images/signin.png';
 
 
 function signin() {
+  const initialValues = {
+    email:"",
+    password: "",
+  };
+
+  const Schema = Yup.object().shape({
+    email: Yup.string().email('Not a proper email address'),
+    password: Yup.string().required("This field is required"),
+   
+  });
+
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    axios.post("http://localhost:3001/auth/login", data).then((response) => {
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        navigate('/admin');
+      }
+    });
+  };
+
   return (
     <div className='Signin'>
       <header className="header"/> 
       <div className="Signinform">
-         <div class="container mt-5">
-            <div class="row ">
+         <div className="container mt-5">
+            <div className="row ">
               
-              <div class="col-6 ">
-              <img src={Signinimage} className="rounded float-start img-fluid" alt="signin"/>
+              <div className="col-6 mr-5">
+              <img src={Signinimage}   className="mr-5" alt="signin"/>
               </div>
-              <div class="col-6  mt-5 ">
-                
-                <div class="mb-3">
-                  
-                    <h1 class=" mt-5">Wellcome To PetDays</h1>
-                    <div class="mt-5">
-                      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exmailaddress" placeholder="name@example.com"/>
-                    </div>
+              <div className="col-6  mt-5 mr-5 ">
+              <h1 className=" mt-5">Welcome To Pet Days</h1>
+              <Formik
+              initialValues={initialValues}
+              onSubmit={onSubmit}
+              validationSchema={Schema}
+            >
+              <Form>
+              <div className="mb-3">
+                <label className="form-label">
+                  Email
+                </label>
+                <div className="col">
+                <ErrorMessage name="email" component="span" />
                 </div>
-                  <div class="mb-3">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"/>
-                    <div id="passwordHelpBlock" class="form-text">
-                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                    </div>
-                    
+                <Field className="form-control"
+                  id="email"
+                  autocomplete="off"
+                  name="email"
+                  placeholder="wolf@gmail.com"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">
+                  Password
+                </label>
+                
+                <div className="row">
+                <ErrorMessage name="password" component="span" />
+                  <div className="col">
+                  <Field className="form-control"
+                  type = "password"
+                  autocomplete="off"
+                  id="password"
+                  name="password"
+                />
                   </div>
-                  <div class="col pl-3 pt-5">
-                    <button type="submit" class="btn btn-warning start-50 end-50" >Sign in</button>
+                </div>
+              </div>
+              <div className="col pl-3 pb-5">
+                  <button
+                  type="submit"
+                  className="btn btn-warning start-50 end-50"
+                >
+                  Login
+                </button>
                   </div>
+              </Form>
+            </Formik>
+               
+                  
                   
             
               </div>
