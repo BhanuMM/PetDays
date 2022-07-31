@@ -6,6 +6,12 @@ const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
+  const uemail = await Users.findOne({ where: { email: email } });
+  const uname = await Users.findOne({ where: { username: username } });
+
+  if (uemail) res.json({ error: "Email is already registered" });
+  if (uname) res.json({ error: "Username is already taken" });
+
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
