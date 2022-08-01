@@ -5,7 +5,7 @@ const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password ,userrole } = req.body;
   const uemail = await Users.findOne({ where: { email: email } });
   const uname = await Users.findOne({ where: { username: username } });
 
@@ -17,6 +17,7 @@ router.post("/register", async (req, res) => {
       username: username,
       email: email,
       password: hash,
+      userrole : "service"
     });
     res.json("SUCCESS");
   });
@@ -40,7 +41,7 @@ router.post("/login", async (req, res) => {
   bcrypt.compare(password, uemail.password).then((match) => {
     if (!match) res.json({ error: "Wrong Username And Password Combination" });
 
-    res.json("YOU LOGGED IN!!!");
+    res.json({ email: email, role: uemail.userrole });
   });
 });
 
