@@ -28,7 +28,16 @@ function signin() {
       if (response.data.error) {
         alert(response.data.error);
       } else {
+        if (response.data.role === "admin")
         navigate('/admin');
+        else if (response.data.role === "service")
+        navigate('/serviceprovider');
+        else if (response.data.role === "moderator")
+        navigate('/moderator');
+        else if (response.data.role === "user")
+        navigate('/userprofile');
+        else 
+        navigate('/signin');
       }
     });
   };

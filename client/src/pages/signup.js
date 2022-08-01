@@ -19,7 +19,10 @@ function signup() {
 
   const Schema = Yup.object().shape({
     email: Yup.string().email('Not a proper email address'),
-    password: Yup.string().required("This field is required"),
+    password: Yup.string().min(5).max(12).required("This field is required").matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+      "Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+    ),
     confirmpassword: Yup.string().when("password", {
       is: val => (val && val.length > 0 ? true : false),
       then: Yup.string().oneOf(
@@ -106,7 +109,7 @@ function signup() {
                 />
                   </div>
                   <div id="passwordHelpBlock" class="form-text">
-                    Your password must be 5-12 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    Your password must be 5-12 characters long, must contain Uppercase and Lowercase letters ,numbers and Special Case characters.
                     </div>
                   {/* <div class="col">
                             <input type="text" className="form-control" placeholder="Confirm Password" aria-label="Last name"/>

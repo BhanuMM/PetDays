@@ -12,6 +12,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      userrole: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      isVerified: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     });
   
     // Users.associate = (models) => {
