@@ -39,7 +39,7 @@ function signup() {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        navigate('/signin');
+        navigate('/verifyemail');
       }
     });
   };
@@ -154,6 +154,7 @@ function signup() {
                     </select>
                   </div> */}
               <div className="col pl-1 pt-3">
+                
                 <button
                   type="submit"
                   className="btn btn-warning start-50 end-50"
