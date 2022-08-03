@@ -1,9 +1,12 @@
 require('dotenv').config();
 const express = require("express");
 const router = express.Router();
+const bodyParser = require('body-parser');
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
+
+router.use(bodyParser.json());
 
 router.post("/register", async (req, res) => {
   const { username, email, password ,userrole } = req.body;
@@ -11,9 +14,9 @@ router.post("/register", async (req, res) => {
   const uname = await Users.findOne({ where: { username: username } });
 
   if (uemail) res.json({ error: "Email is already registered" });
-  if (uname) res.json({ error: "Username is already taken" });
-
-  await sendConfirmationEmail({toUser: uemail, hash: uemail})
+  if (uname) {res.json({ error: "Username is already taken" });}
+  else{
+  await sendConfirmationEmail({hash: username})
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
@@ -24,15 +27,28 @@ router.post("/register", async (req, res) => {
     });
     res.json("SUCCESS");
   });
+}
+  
+  
+});
+
+router.get('/activate/:hash', async (req, res) => {
+  const { hash } = req.params;
+  // var hash = req.params.hash;
+  // res.json({message: `User ${hash} has been activated`})
+  try {
+    const uname = await Users.findOne({ where: { username: hash } });
+    // const user = await PendingUser.findOne({_id: hash});
+    await Users.update({isVerified : 'yes'} ,{ where: { username: uname.username }} );
+    // res.json({message: `User has been activated`})
+    res.redirect('http://localhost:3000/signin');
+  } catch {
+    res.status(422).send('User cannot be activated!');
+  }
+  return res.redirect('http://localhost:3000/signin');
 });
 
 
-// router.post("/", async (req, res) => {
-//     const user = req.body;
-//     await Users.create(user);
-//     res.json(user);
-
-// });
 
 router.post("/login", async (req, res) => {
   const {email, password } = req.body;
