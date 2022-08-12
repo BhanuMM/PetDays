@@ -11,7 +11,7 @@ import Pg1 from '../images/pg1.jpg';
 
 function petmart() {
   return (
-    // <div className='Petmart'>
+    <div className='Petmart'>
         <header className="header"/> 
         <div class="container text-center">
             <div class="row">
@@ -21,7 +21,7 @@ function petmart() {
                         <img src={Pg1} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
-                            <a href="#" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ function petmart() {
                         <img src={Pg1} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
-                            <a href="#" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ function petmart() {
                         <img src={Pg1} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
-                            <a href="#" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ function petmart() {
                         <img src={Pg1} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
-                            <a href="#" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ function petmart() {
                         <img src={Pg1} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
-                            <a href="#" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
                         </div>
                     </div>
                 </div>
