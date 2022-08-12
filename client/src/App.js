@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Signin from './pages/signin';
+import Petmart from './pages/petmart';
 import Index from './pages/index';
 import Signup from './pages/signup';
 import Admin from './pages/admin';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/userprofile" element={<Userprofile/>} /> 
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} /> 
+          <Route path="/petmart" element={<Petmart/>} />
         </Routes>   
       </Router>          
       </div>
