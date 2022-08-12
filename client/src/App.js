@@ -5,6 +5,7 @@ import Signin from './pages/signin';
 import Index from './pages/index';
 import Signup from './pages/signup';
 import Admin from './pages/admin';
+import Petmart from './pages/petmart';
 import Serviceprovider from './pages/serviceprovider';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
@@ -23,7 +24,8 @@ function App() {
           <Route path="/index" element={<Index/>} />
           <Route path="/" element={<Index/>} />
           <Route path="/signup" element={<Signup/>} />  
-          <Route path="/admin" element={<Admin/>} /> 
+          <Route path="/admin" element={<Admin/>} />
+          <Route path="/petmart" element={<Petmart/>} />
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
         </Routes>   
       </Router>          

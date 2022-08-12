@@ -37,19 +37,18 @@ function signin() {
     <div className='Signin'>
       <header className="header"/> 
       <div className="Signinform">
-         <div className="container mt-5">
+         <div className="container">
             <div className="row ">
               
               <div className="col-6 mr-5">
-              <img src={Signinimage}   className="mr-5" alt="signin"/>
+              <img src={Signinimage}   className="rounded mx-auto d-block" alt="signin"/>
               </div>
               <div className="col-6  mt-5 mr-5 ">
               <h1 className=" mt-5">Welcome To Pet Days</h1>
               <Formik
               initialValues={initialValues}
               onSubmit={onSubmit}
-              validationSchema={Schema}
-            >
+              validationSchema={Schema}>
               <Form>
               <div className="mb-3">
                 <label className="form-label">
