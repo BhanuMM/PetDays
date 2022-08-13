@@ -7,10 +7,10 @@ function footer() {
      <div className="container-fluid">
         <div className="row mx-auto">
           <div className="col-md-6 mt-5 pl-5">
-          <h5 className="text-uppercase footer-topics text-left fs-6">our services</h5>
-          <ul className="list-unstyled text-left">
+          <h5 className="text-uppercase footer-topics text-center fs-6">our services</h5>
+          <ul className="list-unstyled text-center ">
               <li>
-                <a href="#!" className="text-white">Pet days</a>
+                <a href="#!" className="text-white ">Pet days</a>
               </li>
               <li>
                 <a href="#!" className="text-white">Pet talk</a>

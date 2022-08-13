@@ -1,26 +1,28 @@
 import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/nav.css';
 import '../styles/footer.css';
 import mew from '../images/mew.png';
 import cat from '../images/cat.png';
 import paw from '../images/paw.png';
-
+import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 function index() {
   return (
     <div className='index'>
-      
-      {/* <Navbar/> */}
-
+      <Navbar />
       <header className="header"/> 
       <div className="container" id="para">
             <div className="row">
                 <div className="col-sm-5">
                     <div className="jumbotron">
                         <h1 className="display-4 mt-5" >Pet Days</h1>
+
+                    <p className="lead">loremEnim culpa irure ex minim ad labore ad pariatur qui do laboris ad quis. Id in in incididunt ex pariatur proident. </p>
+
                     <p className="lead">Pet Days is a web and mobile application that centralizes all the needs of a pet owner living in
 Sri Lanka. Pet Days provide the necessary health care details and help you keep track of all the
 medication, vaccines, and dietary needs of your pet.</p>
+
                     <hr
                       style={{
                         background: '#fff',
@@ -108,7 +110,7 @@ medication, vaccines, and dietary needs of your pet.</p>
                         padding: '10px'
                       }}
                     />
-                    <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.It uses utility classNamees for typography and spacing to space content out within the larger container.</p> 
+                    <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> 
                     <hr
                       style={{
                         background: '#fff',
@@ -213,8 +215,7 @@ the questions.</p>
             </div>
         </div>
         
-         {/* <Footer/> */}
-
+         <Footer />
     </div>
   )
 }
