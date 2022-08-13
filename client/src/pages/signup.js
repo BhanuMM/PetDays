@@ -1,6 +1,12 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { useNavigate  } from "react-router-dom";
+import { Formik, Form, Field ,ErrorMessage } from "formik";
 import axios from "axios";
+import * as Yup from 'yup';
+
+import '../styles/nav.css';
+import '../styles/footer.css';
+import Signupimage from '../images/signup.png';
 
 function signup() {
 
@@ -8,19 +14,42 @@ function signup() {
     username: "",
     email:"",
     password: "",
+    confirmpassword: "",
   };
 
+  const Schema = Yup.object().shape({
+    email: Yup.string().email('Not a proper email address'),
+    password: Yup.string().min(5).max(12).required("This field is required").matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+      "Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+    ),
+    confirmpassword: Yup.string().when("password", {
+      is: val => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf(
+        [Yup.ref("password")],
+        "Passwords does not match"
+      )
+    })
+  });
+
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth/register", data).then(() => {
-      console.log(data);
+    axios.post("http://localhost:3001/auth/register", data).then((response) => {
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        navigate('/verifyemail');
+      }
     });
   };
 
   return (
     <div className="Signup">
+      <header className="header"/> 
       <div className="container mt-5 ">
         <div className="col-6 align-self-center">
-          <h1>Okay,Lets Register</h1>
+          <h1>Okay, Let's Register !</h1>
         </div>
       </div>
 
@@ -30,6 +59,7 @@ function signup() {
             <Formik
               initialValues={initialValues}
               onSubmit={onSubmit}
+              validationSchema={Schema}
             >
               <Form>
               <div className="mb-3">
@@ -53,6 +83,9 @@ function signup() {
                 <label className="form-label">
                   Email
                 </label>
+                <div className="col">
+                <ErrorMessage name="email" component="span" />
+                </div>
                 <Field className="form-control"
                   id="email"
                   autocomplete="off"
@@ -64,7 +97,9 @@ function signup() {
                 <label className="form-label">
                   Password
                 </label>
+                
                 <div className="row">
+                <ErrorMessage name="password" component="span" />
                   <div className="col">
                   <Field className="form-control"
                   type = "password"
@@ -73,9 +108,29 @@ function signup() {
                   name="password"
                 />
                   </div>
+                  <div id="passwordHelpBlock" class="form-text">
+                    Your password must be 5-12 characters long, must contain Uppercase and Lowercase letters ,numbers and Special Case characters.
+                    </div>
                   {/* <div class="col">
                             <input type="text" className="form-control" placeholder="Confirm Password" aria-label="Last name"/>
                         </div> */}
+                </div>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">
+                  Confirm Password
+                </label>
+                
+                <div className="row">
+                <ErrorMessage name="confirmpassword" component="span" />
+                  <div className="col">
+                  <Field className="form-control"
+                  type = "password"
+                  autocomplete="off"
+                  id="confirmpassword"
+                  name="confirmpassword"
+                />
+                  </div>
                 </div>
               </div>
 
@@ -98,7 +153,8 @@ function signup() {
                         <option value="9">North Western</option>
                     </select>
                   </div> */}
-              <div className="col pl-3 pt-5">
+              <div className="col pl-1 pt-3">
+                
                 <button
                   type="submit"
                   className="btn btn-warning start-50 end-50"
@@ -111,13 +167,7 @@ function signup() {
           </div>
 
           <div className="col-6">
-            <img
-              className="image-petrounded float-start img-fluid"
-              src="https://img.freepik.com/free-vector/cute-cat-playing-hand-phone-cartoon-vector-icon-illustration-animal-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4231.jpg?t=st=1658073104~exp=1658073704~hmac=806ac1bf6b177f402049c9d368ef654bedfa7ccbbb6e3843cc0bf51a6bdd851a&w=740"
-              alt="..."
-            />
-
-            {/* <!-- <img class="rounded float-start img-fluid" src="https://img.freepik.com/free-vector/cute-cat-playing-hand-phone-cartoon-vector-icon-illustration-animal-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4231.jpg?t=st=1658073104~exp=1658073704~hmac=806ac1bf6b177f402049c9d368ef654bedfa7ccbbb6e3843cc0bf51a6bdd851a&w=740"  alt="..."> --> */}
+          <img src= {Signupimage}  alt="Signupimage"/>
           </div>
         </div>
       </div>
