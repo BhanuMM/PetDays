@@ -12,6 +12,7 @@ import Userprofile   from './pages/userprofile';
 import Serviceprovider from './pages/serviceprovider';
 import Verifyemail   from './pages/verifyemail';
 import Activateaccount   from './pages/activate';
+import Forum   from './pages/forum';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
@@ -38,6 +39,8 @@ function App() {
           <Route path="/userprofile" element={<Userprofile/>} /> 
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} /> 
+
+          <Route path="/forum" element={<Forum/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/addmoderator" element={<Addmoderator/>} />
