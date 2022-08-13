@@ -7,12 +7,16 @@ import Index from './pages/index';
 import Signup from './pages/signup';
 import Admin from './pages/admin';
 import Moderator from './pages/moderator';
+import Login from './pages/login';
 import Userprofile   from './pages/userprofile';
 import Serviceprovider from './pages/serviceprovider';
 import Verifyemail   from './pages/verifyemail';
 import Activateaccount   from './pages/activate';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
+import Addmoderator   from './pages/addmoderator';
+import Addnewmedication   from './pages/addnewmedication';
+import Addnewpetcategory   from './pages/addpetcategories';
 
 // import Signinform from './components/signinform';
 
@@ -35,6 +39,10 @@ function App() {
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/addmoderator" element={<Addmoderator/>} />
+          <Route path="/addnewmedication" element={<Addnewmedication/>} />
+          <Route path="/addnewpetcategories" element={<Addnewpetcategory/>} />
         </Routes>   
       </Router>          
       </div>
