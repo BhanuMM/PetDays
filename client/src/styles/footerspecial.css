@@ -42,8 +42,8 @@ body{
     background-color: black;
 }
 .footer-image{
-    width: 600px;
-    padding: 0px;
+    width: 350px;
+    padding-top: 10px;
 }
 .footer-text{
     color: #FFF;

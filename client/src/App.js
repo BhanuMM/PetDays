@@ -5,30 +5,28 @@ import Signin from './pages/signin';
 import Index from './pages/index';
 import Signup from './pages/signup';
 import Admin from './pages/admin';
+import Sellersdashboard from './pages/sellersdashboard';
 import Serviceprovider from './pages/serviceprovider';
-import Footer from './components/footer';
-import Navbar from './components/navbar';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 // import Signinform from './components/signinform';
 
 function App() {
   return (
-    <div className="page-container">
-      <Navbar />
+    <div className="page-container">    
       <div className="content-wrap">
         <section />
       <Router>
         <Routes>
           <Route path="/signin" element={<Signin/>} />
-          <Route path="/index" element={<Index/>} />
           <Route path="/" element={<Index/>} />
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/admin" element={<Admin/>} /> 
-          <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
+          <Route path="/serviceprovider" element={<Serviceprovider/>} />
+          <Route path="/sellersdashboard" element={<Sellersdashboard/>} /> 
         </Routes>   
       </Router>          
       </div>
-      <Footer />
       </div>
   );
 }

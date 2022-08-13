@@ -1,7 +1,7 @@
 .logo{
     width: 100px;
     /* background-size: cover; */
-    margin-left: 150px;
+    margin-left: 100px;
     margin-right: 750px;
 }
 
@@ -12,11 +12,6 @@
 }
 .nav-link h4:hover{
     color: #000000;  
-}
-
-.navbar{
-    background-color: #51515108;
-    margin-bottom: 30px;
 }
 .btn-image{
     height: 70px;
