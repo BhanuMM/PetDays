@@ -1,0 +1,12 @@
+.editpetcategory .title{
+    display: flex;
+} 
+
+/* .editpetcategory .title .content{
+    float: left;
+
+} */
+
+.editpetcategory .title .button{
+    float: left;
+}

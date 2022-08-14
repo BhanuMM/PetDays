@@ -1,0 +1,12 @@
+.editdietplan .title{
+    display: flex;
+} 
+
+/* .editpetcategory .title .content{
+    float: left;
+
+} */
+
+.editdietplan .title .button{
+    float: left;
+}

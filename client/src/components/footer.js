@@ -10,13 +10,13 @@ function footer() {
           <h5 className="text-uppercase footer-topics text-center fs-6">our services</h5>
           <ul className="list-unstyled text-center ">
               <li>
-                <a href="#!" className="text-white ">Pet days</a>
+                <a href="#!" className="text-white ">Pet Diary</a>
               </li>
               <li>
-                <a href="#!" className="text-white">Pet talk</a>
+                <a href="#!" className="text-white">Pet Talk</a>
               </li>
               <li>
-                <a href="#!" className="text-white">Pet care</a>
+                <a href="#!" className="text-white">Pet Mart</a>
               </li>
             </ul>
           </div>
