@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
+import '../styles/nav.css';
+import '../styles/footer.css';
+import Footer from '../components/footerspecial';
+import Navbar from '../components/navbar';
 
 function addnewmedication() {
   return (
     <div className='Addnewmedication'>
+        <Navbar/>
        <div className='row'>
         <div className='col-2'></div>
         <div className='col-7'>
-            <h3 className='mb-5'> + Add New Medication</h3>
+            <h3 className='mb-5'> + Add New Medication <hr/></h3>
             <form>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Drug Name</label>
@@ -18,8 +23,7 @@ function addnewmedication() {
                     <select className="form-select" aria-label="Disabled select example">
                         <option selected>Select From Here</option>
                         <option value="1">A</option>
-                        <option value="2">B</option>
-                        
+                        <option value="2">B</option>      
                     </select>
                 </div>
                 <div class="mb-3">
@@ -27,7 +31,7 @@ function addnewmedication() {
                     <input type="text" class="form-control" id="exampleInputPassword1"/>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Insstructions To Following (Cange of dosage)</label>
+                    <label for="exampleInputPassword1" class="form-label">Insstructions To Following (Change of dosage)</label>
                     <input type="text" class="form-control" id="exampleInputPassword1"/>
                 </div>
                 <div class="mb-3">
@@ -48,7 +52,7 @@ function addnewmedication() {
         <div className='col-3'></div>
 
        </div>
-      
+       <Footer/>
     </div>
   )
 }

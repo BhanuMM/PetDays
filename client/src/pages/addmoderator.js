@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
+import '../styles/nav.css';
+import '../styles/footer.css';
+import Footer from '../components/footerspecial';
+import Navbar from '../components/navbar';
 
 function addmoderator() {
   return (
     <div className='Addmoderator'>
+        <Navbar/>
        <div className='row'>
         <div className='col-2'></div>
         <div className='col-7'>
-            <h3 className='mb-5'> + Add New Moderator</h3>
+            <h3 className='mb-5'> + Add New Moderator <hr/></h3>
+          
             <form>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">First Name</label>
@@ -46,7 +52,7 @@ function addmoderator() {
         <div className='col-3'></div>
 
        </div>
-      
+       <Footer/>
     </div>
   )
 }

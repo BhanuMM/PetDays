@@ -27,6 +27,10 @@ import Petcategories   from './pages/petcategories';
 import Medications   from './pages/medications';
 import Dietplans   from './pages/dietplans';
 import Moderators   from './pages/moderators.js';
+import Editpetcategory   from './pages/editpetcategory';
+import Editdietplan   from './pages/editdietplan';
+import Editmedication   from './pages/editmedication';
+
 
 
 // import Signinform from './components/signinform';
@@ -48,6 +52,7 @@ function App() {
           <Route path="/userprofile" element={<Userprofile/>} /> 
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} /> 
+
           <Route path="/petcategories" element={<Petcategories/>} />
           <Route path="/medications" element={<Medications/>} />
           <Route path="/dietplans" element={<Dietplans/>} />
@@ -59,7 +64,9 @@ function App() {
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
           <Route path="/addnewpetcategories" element={<Addnewpetcategory/>} />
-
+          <Route path="/editpetcategory" element={<Editpetcategory/>} />
+          <Route path="/editdietplan" element={<Editdietplan/>} />
+          <Route path="/editmedication" element={<Editmedication/>} />
         </Routes>   
       </Router>          
       </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/nav.css';
 import '../styles/footer.css';
-import '../styles/editmedication.css';
+import '../styles/editdietplan.css';
 import Footer from '../components/footerspecial';
 import Navbar from '../components/navbar';
 
-function editmedication() {
+function editdietplan() {
   return (
-    <div className='editmedication'>
+    <div className='editdietplan'>
       <Navbar/>
        <div className='row'>
         <div className='col-2'></div>
@@ -15,7 +15,7 @@ function editmedication() {
             <div class='title'>
               <div class='content'>
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
-                <h3 className='mb-5'> <i class='bx bxs-edit-alt' ></i> Edit Medication Details<hr/></h3>
+                <h3 className='mb-5'> <i class='bx bxs-edit-alt' ></i> Edit Diet Plan<hr/></h3>
               </div>
               <div class='button'>
                 <button type="submit" class=" pl-5 btn btn-danger">Remove</button>
@@ -26,23 +26,19 @@ function editmedication() {
             
             <form>
                 <div class="mb-3">
-                    <label for="drugname" class="form-label">Drug Name</label>
-                    <input type="text" class="form-control" id="drugname" aria-describedby="emailHelp"/>  
+                    <label for="fooditem" class="form-label">Food Items</label>
+                    <input type="text" class="form-control" id="fooditem" aria-describedby="emailHelp"/>  
                 </div>
                 <div class="mb-3">
-                    <label for="type" class="form-label">Type of Drug</label>
-                    <select className="form-select" aria-label="Disabled select example">
-                        <option selected>Select Type From Here</option>
-                        <option value="1">Tablets</option>
-                        <option value="2">Syrup</option>      
-                    </select>  
+                    <label for="processed" class="form-label">How to processed?</label>
+                    <input type="text" class="form-control" id="processed" aria-describedby="emailHelp"/>  
                 </div>
                 <div class="mb-3">
-                    <label for="symptoms" class="form-label">Symptoms</label>
-                    <input type="text" class="form-control" id="symptoms" aria-describedby="emailHelp"/>  
+                    <label for="feed" class="form-label">How to feed?</label>
+                    <input type="text" class="form-control" id="feed" aria-describedby="emailHelp"/>  
                 </div>
                 <div class="mb-3">
-                    <label for="quantity" class="form-label">Quantity of Dosage</label>
+                    <label for="quantity" class="form-label">Alterations in quantity based on weight</label>
                     <input type="text" class="form-control" id="quantity" aria-describedby="emailHelp"/>  
                 </div>
                 <div class="mb-3">
@@ -66,4 +62,4 @@ function editmedication() {
   )
 }
 
-export default editmedication
+export default editdietplan

@@ -1,0 +1,12 @@
+.editmedication .title{
+    display: flex;
+} 
+
+/* .editmedication .title .content{
+    float: left;
+
+} */
+
+.editmedication .title .button{
+    float: left;
+}
