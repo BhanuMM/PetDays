@@ -23,6 +23,10 @@ import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
 import Addnewmedication   from './pages/addnewmedication';
 import Addnewpetcategory   from './pages/addpetcategories';
+import Petcategories   from './pages/petcategories';
+import Medications   from './pages/medications';
+import Dietplans   from './pages/dietplans';
+import Moderators   from './pages/moderators.js';
 
 
 // import Signinform from './components/signinform';
@@ -44,6 +48,10 @@ function App() {
           <Route path="/userprofile" element={<Userprofile/>} /> 
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} /> 
+          <Route path="/petcategories" element={<Petcategories/>} />
+          <Route path="/medications" element={<Medications/>} />
+          <Route path="/dietplans" element={<Dietplans/>} />
+          <Route path="/moderators" element={<Moderators/>} />
 
           <Route path="/forum" element={<Forum/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
