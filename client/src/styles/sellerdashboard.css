@@ -27,6 +27,7 @@ hr.h-color{
     color: #EEE;
 }
 
+
 /* .card{
     background-color: #000;
 } */
@@ -35,4 +36,16 @@ hr.h-color{
     height: 80px;
     width: 400px;
     min-width: 200px;
+    margin: 10px;
+    border: none;
+    color: #000;
+}
+.btn-tile h{
+    font-size: 20px;
+}
+.tile{
+    border: none;
+    color: rgb(8, 8, 8);
+    padding: 15px 32px;
+    text-align: center;
 }

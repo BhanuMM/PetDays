@@ -18,12 +18,12 @@ function sidebar() {
                         
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="../pages/petcategories" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                         <i class="fa fa-tasks" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">Pet categories</span> </a>
                         
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="../pages/petcategories" class="nav-link px-0 align-middle">
                         <i class="fa fa-medkit" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">Medications</span></a>
                     </li>
                     <li>
@@ -47,6 +47,14 @@ function sidebar() {
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
                         <i class="fa fa-users" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">Moderators</span> </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fa fa-area-chart" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">Generate Reports</span> </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fa fa-users" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline">View Users</span> </a>
                     </li>
                 </ul>
                 <hr />
