@@ -36,8 +36,10 @@ function addmoderator() {
                     <input type="text" class="form-control" id="exampleInputPassword1"/>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Add Image</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1"/>
+                    {/* <label for="exampleInputPassword1" class="form-label">Add Image</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1"/> */}
+                    <label className="form-label" for="customFile">Add Image</label>
+                    <input type="file" className="form-control" id="customFile" />
                 </div>
 
                 <div className='row'>
