@@ -22,7 +22,7 @@ import Footer from './components/footer';
 import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
 import Addnewmedication   from './pages/addnewmedication';
-import Addnewpetcategory   from './pages/addpetcategories';
+import Addpetcategory   from './pages/addpetcategories';
 import Petcategories   from './pages/petcategories';
 import Medications   from './pages/medications';
 import Dietplans   from './pages/dietplans';
@@ -30,6 +30,9 @@ import Moderators   from './pages/moderators.js';
 import Editpetcategory   from './pages/editpetcategory';
 import Editdietplan   from './pages/editdietplan';
 import Editmedication   from './pages/editmedication';
+import Viewpendingadvertisments from './pages/viewpendingadvertisments';
+import Viewpendingquestions from './pages/viewpendingquestions';
+
 
 
 
@@ -63,10 +66,12 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
-          <Route path="/addnewpetcategories" element={<Addnewpetcategory/>} />
+          <Route path="/addpetcategories" element={<Addpetcategory/>} />
           <Route path="/editpetcategory" element={<Editpetcategory/>} />
           <Route path="/editdietplan" element={<Editdietplan/>} />
           <Route path="/editmedication" element={<Editmedication/>} />
+          <Route path="/viewpendingadvertisments" element={<Viewpendingadvertisments/>}/>
+          <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
         </Routes>   
       </Router>          
       </div>

@@ -1,0 +1,79 @@
+.viewpendingadvertisments .title{
+    display: flex;
+} 
+
+/* .editpetcategory .title .content{
+    float: left;
+
+} */
+
+.viewpendingadvertisments .title .button{
+    float: left;
+}
+
+.viewpendingadvertisments .buttons{
+    display: flex;
+    padding-left: 666px;
+}
+
+.viewpendingadvertisments .buttons .button-1{
+    float: right;
+    padding-right: 10px;
+}
+.viewpendingadvertisments .buttons .button-2{
+    float: right;
+}
+
+.viewpendingadvertisments .buttons button{
+    width: 100px;
+}
+
+.viewpendingadvertisments .from{
+    display: flex;
+    padding-left: 50px;
+}
+
+.viewpendingadvertisments .from .name{
+    float: right;
+    padding-right: 150px;
+}
+.viewpendingadvertisments .from .field{
+    width: 700px;
+}
+.viewpendingadvertisments .from .field input{
+    width: 675px;
+}
+.viewpendingadvertisments .to{
+    display: flex;
+    padding-left: 50px;
+}
+
+.viewpendingadvertisments .to .name{
+    float: right;
+    padding-right: 168px;
+}
+.viewpendingadvertisments .to .field{
+    width: 700px;
+}
+.viewpendingadvertisments .to .field input{
+    width: 675px;
+}
+
+.viewpendingadvertisments .line{
+    display: flex;
+}
+
+.viewpendingadvertisments .line .field-name{
+    padding-right: 20px;
+    width: 200px;
+}
+
+.viewpendingadvertisments .from .line .field-name{
+    padding-right: 20px;
+    width: 150px;
+}
+
+.viewpendingadvertisments .to .line .field-name{
+    padding-right: 20px;
+    width: 150px;
+}
