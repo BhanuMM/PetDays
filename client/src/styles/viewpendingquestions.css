@@ -1,0 +1,43 @@
+.viewpendingquestions .title{
+    display: flex;
+} 
+
+/* .editpetcategory .title .content{
+    float: left;
+
+} */
+
+.viewpendingquestions .title .button{
+    float: left;
+}
+
+.viewpendingquestions .buttons{
+    display: flex;
+    padding-left: 666px;
+}
+
+.viewpendingquestions .buttons .button-1{
+    float: right;
+    padding-right: 10px;
+}
+.viewpendingquestions .buttons .button-2{
+    float: right;
+}
+
+.viewpendingquestions .buttons button{
+    width: 100px;
+}
+
+
+.viewpendingquestions .line{
+    display: flex;
+}
+.viewpendingquestions .line .field-name{
+    padding-right: 20px;
+    width: 150px;
+}
+
+.viewpendingquestions .line .field-value{
+    padding-right: 20px;
+    width: 550px;
+}
