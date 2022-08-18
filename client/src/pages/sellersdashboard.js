@@ -7,7 +7,7 @@ function sellersdashboard() {
   return (
 <div class="container-fluid">
     <div className="row flex-nowrap">
-       <div className='col-2 bg-dark col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
+       <div className='col-2 col-auto col-md-3 col-xl-2 px-sm-2 px-0 side-color'>
           <Sidebar />
        </div>
         <div className="col-10 py-3">

@@ -13,7 +13,7 @@ function petmart() {
   return (
     <div className='Petmart'>
         <header className="header"/> 
-        <div class="container text-center">
+        <div class="text-center">
             <div class="row">
                 <h3>GROOMING</h3>
                 <div class="col-md-4">
