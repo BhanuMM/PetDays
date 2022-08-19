@@ -13,18 +13,35 @@ function petmart() {
   return (
     <div className='Petmart'>
 
-        
-            <div class="container-fluid text-center">
+        <header className="header"/> 
+        <div class="text-center">
+            <div class="row">
+                <h3>GROOMING</h3>
+                <div class="col-md-4">
+                    <div class="card" width="18rem">
+                        <img src={Pg1} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-text">We Love Your pets</h5>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" width="18rem">
+                        <img src={Pg1} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-text">We Love Your pets</h5>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" width="18rem">
+                        <img src={Pg1} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-text">We Love Your pets</h5>
+                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
 
-                <div className="row">
-                    <div className="col"></div>
-                    <div className="col">
-                        <div className="card" width="18rem">
-                            <img src={Pg1} className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-text">We Love Your pets</h5>
-                                <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
-                            </div>
                         </div>
                     </div>
                     <div className="col">

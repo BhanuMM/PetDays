@@ -22,7 +22,7 @@ import Footer from './components/footer';
 import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
 import Addnewmedication   from './pages/addnewmedication';
-import Addnewpetcategory   from './pages/addpetcategories';
+import Addpetcategory   from './pages/addpetcategories';
 import Petcategories   from './pages/petcategories';
 import Medications   from './pages/medications';
 import Dietplans   from './pages/dietplans';
@@ -30,6 +30,12 @@ import Moderators   from './pages/moderators.js';
 import Editpetcategory   from './pages/editpetcategory';
 import Editdietplan   from './pages/editdietplan';
 import Editmedication   from './pages/editmedication';
+
+import Viewpendingadvertisments from './pages/viewpendingadvertisments';
+import Viewpendingquestions from './pages/viewpendingquestions';
+import Viewusers   from './pages/viewusers';
+import Reportgeneration   from './pages/reportgeneration';
+
 
 
 
@@ -57,16 +63,20 @@ function App() {
           <Route path="/medications" element={<Medications/>} />
           <Route path="/dietplans" element={<Dietplans/>} />
           <Route path="/moderators" element={<Moderators/>} />
+          <Route path="/viewusers" element={<Viewusers/>} />
+          <Route path="/reportgeneration" element={<Reportgeneration/>} />
 
           <Route path="/forum" element={<Forum/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
-          <Route path="/addnewpetcategories" element={<Addnewpetcategory/>} />
+          <Route path="/addpetcategories" element={<Addpetcategory/>} />
           <Route path="/editpetcategory" element={<Editpetcategory/>} />
           <Route path="/editdietplan" element={<Editdietplan/>} />
           <Route path="/editmedication" element={<Editmedication/>} />
+          <Route path="/viewpendingadvertisments" element={<Viewpendingadvertisments/>}/>
+          <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
         </Routes>   
       </Router>          
       </div>
