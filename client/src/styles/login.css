@@ -1,13 +1,48 @@
-.imagesize{
-   width: 400px;
-   height: 400px;
+.login-imagesize{
+   width: 300px;
+   height: 280px;
+   margin-left: 70px;
+   margin-top: 1px;
 }
+.login-bgimagesize{
+    width: 100%;
+    height: 100%;
+    
+ }
 .color{
     background-color: #15e676;
 }
 .logo{
-    width: 100px;
+    width: 50px;
     /* background-size: cover; */
     margin-left: 4%;
     /* margin-right: 50%; */
 }
+.login-inputfieldwidth{
+    width: 500px;
+
+}
+.login-cardsize{
+    width: 1000px;
+    height:500px;
+
+}
+.login-cardmargins{
+    margin-left:80px;
+    margin-right:80px ;
+}
+.login.loginbuttonsize{
+    width: 4cm !important;
+    height:2cm !important ;
+
+}
+.login.caption{
+    font-weight: 600;
+}
+.login.buttonmargin{
+    margin-left:80px !important;
+    margin-right:80px!important;;
+}
+
+
+
