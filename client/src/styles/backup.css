@@ -1,0 +1,79 @@
+.backup .title{
+    display: flex;
+} 
+
+/* .editpetcategory .title .content{
+    float: left;
+
+} */
+
+.backup .title .button{
+    float: left;
+}
+
+.backup .buttons{
+    display: flex;
+    padding-left: 666px;
+}
+
+.backup .buttons .button-1{
+    float: right;
+    padding-right: 10px;
+}
+.backup .buttons .button-2{
+    float: right;
+}
+
+.backup.buttons button{
+    width: 100px;
+}
+
+.backup .from{
+    display: flex;
+    padding-left: 50px;
+}
+
+.backup .from .name{
+    float: right;
+    padding-right: 150px;
+}
+.backup .from .field{
+    width: 700px;
+}
+.backup .from .field input{
+    width: 675px;
+}
+.backup .to{
+    display: flex;
+    padding-left: 50px;
+}
+
+.backup .to .name{
+    float: right;
+    padding-right: 168px;
+}
+.backup .to .field{
+    width: 700px;
+}
+.backup.to .field input{
+    width: 675px;
+}
+
+.backup .line{
+    display: flex;
+}
+
+.backup .line .field-name{
+    padding-right: 20px;
+    width: 200px;
+}
+
+.backup .from .line .field-name{
+    padding-right: 20px;
+    width: 150px;
+}
+
+.backup .to .line .field-name{
+    padding-right: 20px;
+    width: 150px;
+}

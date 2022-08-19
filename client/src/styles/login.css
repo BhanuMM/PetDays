@@ -1,11 +1,11 @@
-.imagesize{
+.login .imagesize{
    width: 400px;
    height: 400px;
 }
-.color{
+.login .color{
     background-color: #15e676;
 }
-.logo{
+.login .logo{
     width: 100px;
     /* background-size: cover; */
     margin-left: 4%;

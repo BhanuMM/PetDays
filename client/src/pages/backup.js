@@ -5,7 +5,7 @@ import '../styles/login.css';
 
 function login() {
   return (
-    <div className="login">
+    <div className="backup">
         <section className="vh-100 color">
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
@@ -39,7 +39,7 @@ function login() {
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button className ="btn btn-success btn-lg btn-block" type="button">Login</button>
+                                            <button className ="btn btn-dark btn-lg btn-block" type="button">Login</button>
                                         </div>
 
                                         <a className="small text-muted" href="#!">Forgot password?</a>
