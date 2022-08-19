@@ -1,9 +1,8 @@
-.imagesize{
+.verify-imagesize{
     width: 300px;
-   height: 280px;
-   margin-left: 40px;
-   margin-top: 1px;
-   margin-bottom: 20px;
+    height: 280px;
+    margin-left: 70px;
+    margin-top: 1px;
  }
  .color{
      background-color: #15e676;
@@ -14,29 +13,34 @@
      margin-left: 4%;
      /* margin-right: 50%; */
  }
- .register-inputfieldwidth{
+ .verify-inputfieldwidth{
      width: 500px;
  
  }
- .register-cardsize{
-     width: 1000px;
-     height:670px;
+ .verify-cardsize{
+     width: 600px;
+     height:300px;
+    
  
  }
- .register-cardmargins{
-     margin-left:30px;
-     margin-right:30px ;
+ .verify-cardmargins{
+     margin-left:250px;
+     margin-right:300px ;
  }
- .register.loginbuttonsize{
+ .verify.loginbuttonsize{
      width: 4cm;
      height:2cm ;
  
  }
- .register.caption{
+ .Verify.caption{
      font-weight: 600;
  }
+ .verify.buttonmargin{
+     margin-left:80px;
+     margin-right:80px ;
+ }
  
- .register.bgimage {
+ .Verify.bgimage {
      background-image: 
      url(
    "https://img.freepik.com/premium-vector/pets-cats-dogs-seamless-pattern-doodle-style_341076-283.jpg?w=2000");
@@ -46,4 +50,5 @@
      font-size:50px;
      background-repeat:no-repeat; 
    }
+ 
  
