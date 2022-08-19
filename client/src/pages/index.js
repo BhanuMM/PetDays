@@ -4,6 +4,7 @@ import '../styles/footer.css';
 import mew from '../images/mew.png';
 import cat from '../images/cat.png';
 import paw from '../images/paw.png';
+import '../styles/index.css';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 function index() {
@@ -15,43 +16,42 @@ function index() {
             <div className="row">
                 <div className="col-sm-5">
                     <div className="jumbotron">
-                        <h1 className="display-4 mt-5" >Pet Days</h1>
+                          <h1 className="display-4 mt-5">Pet Days</h1>
 
-                    <p className="lead">loremEnim culpa irure ex minim ad labore ad pariatur qui do laboris ad quis. Id in in incididunt ex pariatur proident. </p>
+                      {/* <p className="lead">loremEnim culpa irure ex minim ad labore ad pariatur qui do laboris ad quis. Id in in incididunt ex pariatur proident. </p> */}
+                      <br/>
+                      <p className="lead">Pet Days is a web and mobile application that <br/>centralizes all the needs of a pet owner living in
+  Sri Lanka.<br/> Pet Days provide the necessary health care details and help you keep track of all the
+  medication, vaccines, and dietary needs of your pet.</p>
 
-                    <p className="lead">Pet Days is a web and mobile application that centralizes all the needs of a pet owner living in
-Sri Lanka. Pet Days provide the necessary health care details and help you keep track of all the
-medication, vaccines, and dietary needs of your pet.</p>
-
-                    <hr
-                      style={{
-                        background: '#fff',
-                        color: '#D3D3D3',
-                        borderColor: '#D3D3D3',
-                        height: '0.5px',
-                        padding: '10px'
-                      }}
-                    />
-                    <p>Download the mobile app now to access the pet diary feature</p>
-                    <hr
-                      style={{
-                        background: '#fff',
-                        color: '#D3D3D3',
-                        borderColor: '#D3D3D3',
-                        height: '0.5px',
-                        padding: '10px'
-                      }}
-                    />
-                    <p className="lead">
-                    <img src= {paw} className="rounded float-start img-fluid btn-image" alt="dog"/>
-                    </p>
+                      <hr
+                        style={{
+                          background: '#fff',
+                          color: '#D3D3D3',
+                          borderColor: '#D3D3D3',
+                          height: '0.5px',
+                          padding: '10px'
+                        }}
+                      />
+                      <p class="fw-bolder fs-5">Download the mobile app now to access the pet diary feature</p>
+                      <p className="lead">
+                      <div className="buttons justify-content-center mt-5 d-sm-flex">
+                        <div className="col">
+                          <button className="btn btn-dark app-button"><i className="fa fa-apple fa-3x"></i><span className="text-uppercase ml-3">Apple store</span></button>
+                        </div>
+                        <div className="col" class='dow-buttons'>
+                          <button className="btn btn-dark app-button"><i className="fa fa-play fa-3x"></i><span className="text-uppercase ml-3">Google store</span></button>   
+                        </div>  
+                      </div>
+                      </p>
                     </div>
                 </div>
-                <div className="col-sm-7">
-                  <img src= "./images/dog.png" className="rounded float-start img-fluid" alt="dog"/>
+                <div className="col-sm-6">
+                  <img src= "./images/dog.png" className="rounded float-start img-fluid" alt="dog" />
                 </div>
             </div>
-        </div><hr
+        </div>
+        {/* <hr
         style={{
           background: '#fff',
           color: '#D3D3D3',
@@ -59,9 +59,12 @@ medication, vaccines, and dietary needs of your pet.</p>
           height: '0.5px',
           padding: '20px'
         }}
-      />
-      <div className="container">
-        <div className="row d-flex justify-content-center align-items-center">
+      /> */}
+      {/* <div className="container" class='petmart-sec'> */}
+
+      {/* <p class="display-5 fw-bolder">Are you looking for pet services</p> */}
+
+        {/* <div className="row d-flex justify-content-center align-items-center">
           <div className="col-md-6">
             <div className="text-center">
               <h2 className="text-uppercase ">Download App</h2>
@@ -81,8 +84,8 @@ medication, vaccines, and dietary needs of your pet.</p>
             </div>
           </div>
           
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <hr
         style={{
           background: '#fff',
@@ -94,13 +97,13 @@ medication, vaccines, and dietary needs of your pet.</p>
       />
         <div className="container" id="para">
             <div className="row">
-                <div className="col-sm-7">
+                <div className="col-sm-3">
                   <img src= {cat} className="rounded float-start img-fluid" alt="dog"/>
                   
                 </div>
                 <div className="col-sm-5">
                     <div className="jumbotron">
-                        <h1 className="display-4">About Us</h1>
+                      <p class="display-5 fw-bolder">Are you looking for Pet Services ?</p>
                         <hr
                       style={{
                         background: '#fff',
@@ -137,43 +140,7 @@ medication, vaccines, and dietary needs of your pet.</p>
           height: '0.5px',
         }}
       />
-        <div className="container" id="para">
-            <div className="row">
-                <div className="col-sm-5">
-                    <div className="jumbotron">
-                        <h1 className="display-4">Pet Mart</h1>
-                        <hr
-                      style={{
-                        background: '#fff',
-                        color: '#D3D3D3',
-                        borderColor: '#D3D3D3',
-                        height: '0.5px',
-                        padding: '10px'
-                      }}
-                    />
-                    <p className="lead">Pet Mart is a marketplace that focuses on buying and selling pets and services which relate to
-pets. These services include training, grooming, walking, and pet daycare.</p>
-                    <hr
-                      style={{
-                        background: '#fff',
-                        color: '#D3D3D3',
-                        borderColor: '#D3D3D3',
-                        height: '0.5px',
-                        padding: '10px'
-                      }}
-                    />
-                    <p className="lead">
-                      <a className="btn btn-md" id ="learn" href="signup"  role="button" style={{                       
-                        color: 'Black',
-                      }}>Visit Pet Mart</a>
-                    </p>
-                    </div>
-                </div>
-                <div className="col-sm-7">
-                  <img src= "../images/new.png" className="rounded float-start img-fluid" alt="dog"/>  
-                </div>
-            </div>
-        </div>
+
         <div className="container" id="para">
             <div className="row">
                 <div className="col-sm-7">
