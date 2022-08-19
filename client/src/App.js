@@ -35,6 +35,7 @@ import Viewpendingadvertisments from './pages/viewpendingadvertisments';
 import Viewpendingquestions from './pages/viewpendingquestions';
 import Viewusers   from './pages/viewusers';
 import Reportgeneration   from './pages/reportgeneration';
+import Register   from './pages/register';
 
 
 
@@ -65,6 +66,7 @@ function App() {
           <Route path="/moderators" element={<Moderators/>} />
           <Route path="/viewusers" element={<Viewusers/>} />
           <Route path="/reportgeneration" element={<Reportgeneration/>} />
+          <Route path="/register" element={<Register/>} />
 
           <Route path="/forum" element={<Forum/>} /> 
           <Route path="/petmart" element={<Petmart/>} />

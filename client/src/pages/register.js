@@ -1,12 +1,11 @@
 import React from 'react'
 import signin from '../images/petlv.png';
+import '../styles/register.css';
 
-import '../styles/login.css';
-
-function login() {
+function register() {
   return (
-    <div className="Login">
-        <section className="vh-100 color">
+    <div className='Register'>
+         <section className="vh-100 color">
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10">
@@ -30,23 +29,31 @@ function login() {
 
                                         <div class="form-outline mb-4">
                                             <input type="email" id="form2Example17" className="form-control form-control-lg" />
-                                            <label className="form-label" for="">Email address</label>
+                                            <label className="form-label" for="">User Name</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example17" className="form-control form-control-lg" />
+                                            <label className="form-label" for="">Email</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <input type="password" id="form2Example27" class="form-control form-control-lg" />
                                             <label class="form-label" for="form2Example27">Password</label>
                                         </div>
-
-                                        <div class="pt-1 mb-4">
-                                            <button className ="btn btn-success btn-lg btn-block" type="button">Login</button>
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form2Example27">Confirm Password</label>
                                         </div>
 
-                                        <a className="small text-muted" href="#!">Forgot password?</a>
+                                        <div class="pt-1 mb-4">
+                                            <button className ="btn btn-success btn-lg btn-block" type="button">Register</button>
+                                        </div>
+
+                                        {/* <a className="small text-muted" href="#!">Forgot password?</a>
                                         <p className="mb-5 pb-lg-2" letter-spacing="#393f81;">Don't have an account? <a href="#!"
                                             color="#393f81;">Register here</a></p>
                                         <a href="#!" className="small text-muted">Terms of use.</a>
-                                        <a href="#!" className="small text-muted">Privacy policy</a>
+                                        <a href="#!" className="small text-muted">Privacy policy</a> */}
                                         </form>
 
                                     </div>
@@ -57,9 +64,8 @@ function login() {
                 </div>
             </div>
         </section>
-     
     </div>
   )
 }
 
-export default login
+export default register
