@@ -1,0 +1,13 @@
+.imagesize{
+    width: 400px;
+    height: 400px;
+ }
+ .color{
+     background-color: #15e676;
+ }
+ .logo{
+     width: 100px;
+     /* background-size: cover; */
+     margin-left: 4%;
+     /* margin-right: 50%; */
+ }
