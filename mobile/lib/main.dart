@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/Screens/Welcome/welcome_screen.dart';
+import 'package:mobile/Screens/Login/login_screen.dart';
 import 'package:mobile/constants.dart';
 
 void main() => runApp(const MyApp());
@@ -27,17 +27,17 @@ class MyApp extends StatelessWidget {
           ),
           inputDecorationTheme: const InputDecorationTheme(
             filled: true,
-            fillColor: kPrimaryLightColor,
-            iconColor: kPrimaryColor,
-            prefixIconColor: kPrimaryColor,
+            fillColor: formBG,
+            iconColor: Colors.black,
+            prefixIconColor: Colors.black,
             contentPadding: EdgeInsets.symmetric(
                 horizontal: defaultPadding, vertical: defaultPadding),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30)),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
               borderSide: BorderSide.none,
             ),
           )),
-      home: const WelcomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }

@@ -19,16 +19,19 @@ class LoginScreen extends StatelessWidget {
               const Expanded(
                 child: LoginScreenTopImage(),
               ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    SizedBox(
-                      width: 450,
-                      child: LoginForm(),
+              Positioned(
+                  right: 0,
+                  child: Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        SizedBox(
+                          width: 500,
+                          child: LoginForm(),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  )
               ),
             ],
           ),
@@ -53,7 +56,7 @@ class MobileLoginScreen extends StatelessWidget {
           children: const [
             Spacer(),
             Expanded(
-              flex: 8,
+              flex: 11,
               child: LoginForm(),
             ),
             Spacer(),

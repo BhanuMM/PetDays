@@ -12,6 +12,7 @@ import Pg1 from '../images/pg1.jpg';
 function petmart() {
   return (
     <div className='Petmart'>
+
         <header className="header"/> 
         <div class="text-center">
             <div class="row">
@@ -40,44 +41,36 @@ function petmart() {
                         <div className="card-body">
                             <h5 className="card-text">We Love Your pets</h5>
                             <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <h3>ACCESSORIES</h3>
-                <div class="col-md-4">
-                    <div class="card" width="18rem">
-                        <img src={Pg1} className="card-img-top" alt="..."/>
-                        <div className="card-body">
-                            <h5 className="card-text">We Love Your pets</h5>
-                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                    <div className="col">
+                        <div className="card" width="18rem">
+                            <img src={Pg1} className="card-img-top" alt="..."/>
+                            <div className="card-body">
+                                <h5 className="card-text">We Love Your pets</h5>
+                                <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" width="18rem">
-                        <img src={Pg1} className="card-img-top" alt="..."/>
-                        <div className="card-body">
-                            <h5 className="card-text">We Love Your pets</h5>
-                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                    <div className="col">
+                        <div className="card" width="18rem">
+                            <img src={Pg1} className="card-img-top" alt="..."/>
+                            <div className="card-body">
+                                <h5 className="card-text">We Love Your pets</h5>
+                                <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
+                            </div>
                         </div>
                     </div>
+                    <div className="col"></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" width="18rem">
-                        <img src={Pg1} className="card-img-top" alt="..."/>
-                        <div className="card-body">
-                            <h5 className="card-text">We Love Your pets</h5>
-                            <a href="" className="btn btn-warning start-50 end-50">Service @ just LKR 1000</a>
-                        </div>
-                    </div>
+                
                 </div>
-            </div>
+                
         </div>
         
         
-    </div>
+
     
   )
 }
