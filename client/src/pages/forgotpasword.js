@@ -1,5 +1,5 @@
 import React from 'react'
-import signin from '../images/petlv.png';
+import Forgot from '../images/forgot.png';
 import '../styles/forgorpasssword.css';
 import Bgimage from '../images/bkimage.webp';
 
@@ -15,8 +15,8 @@ function forgotpasword() {
                         <div className="card forgot-cardsize flex-center forgot-cardmargins" border-radius="2rem; ">
                             <div className="row g-0">
                                 <div className="col-md-6 col-lg-5 d-none d-md-block ">
-                                    <img src={signin}
-                                    alt="login form" className="img-fluid mt-5 pt-5" border-radius="1rem 0 0 1rem;" />
+                                    <img src={Forgot}
+                                    alt="login form" className="img-fluid imagesize mt-5 pt-5" border-radius="1rem 0 0 1rem;" />
                                     <div >
                                         <h5 className='text-center'>Welcome to </h5>
                                         <h2 className='text-center forgot.caption'>PET DAYS</h2>

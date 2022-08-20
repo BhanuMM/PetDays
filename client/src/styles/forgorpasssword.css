@@ -1,6 +1,8 @@
 .imagesize{
-    width: 400px;
-    height: 400px;
+    width: 280px;
+    height: 250px;
+    margin-left: 100px;
+    margin-bottom: 40px;
  }
  .color{
      background-color: #15e676;
