@@ -7,9 +7,45 @@
 } */
 
 .index .dow-buttons{
-    padding-right: 150px;
+    padding-right: 160px;
 }
 
-.index .petmart-sec{
+/* .index .petmart-sec{
     background-color: #ffcccc;
+} */
+.index .petmart-sec{
+    display: flex;
+}
+
+.index .petmart-sec .image-sec{
+    padding-left: 70px;
+}
+
+.index .details img{
+    width: 200px;
+}
+
+.index .row .petmart-image{
+    padding-right: 20px;
+}
+
+#pet-talk-image{
+    width: 400px;
+    
+}
+
+.index .dow-button-2{
+    padding-right: 20px;
+}
+
+.index .dow-button-1{
+    padding-right: 50px;
+}
+
+.index .reg-btn{
+    width: 100px;
+}
+
+.index .sp-sec{
+    width: 300px;
 }

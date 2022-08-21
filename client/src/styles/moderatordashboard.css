@@ -1,0 +1,135 @@
+#side-nav{
+    background-color: black;
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.content{
+    min-width: 100vh;
+    height: 100%;
+}
+.fa-stream{
+    height: auto;
+    width: 20px;
+}
+hr.h-color{
+    background: #000;
+}
+.sidebar li.active{
+    background: #EEE;
+    border-radius: 8px;
+}
+.sidebar li.active a, .sidebar li.active a:hover{
+    color: #000;
+}
+
+.sidebar li a{
+    color: #EEE;
+}
+
+.btn-tile{
+    height: 80px;
+    width: 400px;
+    min-width: 200px;
+    margin: 10px;
+    border: none;
+    color: #000;
+}
+.btn-tile h{
+    font-size: 20px;
+}
+.tile{
+    border: none;
+    color: rgb(8, 8, 8);
+    padding: 15px 32px;
+    text-align: center;
+}
+.side-color{
+    background-color: #B3CF99;
+}
+
+.form-class{
+   padding-top: 50px;
+   padding-left: 50px;
+}
+.overview-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-bottom: 26px; 
+  }
+  .overview-boxes .box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 50px);
+    background: #63c44d;
+    padding: 15px 14px;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    height: 100px;
+  }
+  .overview-boxes .box2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 50px);
+    background: #28a6a8;
+    padding: 15px 14px;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    height: 100px;
+  }
+  .overview-boxes .box3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 50px);
+    background: #fec52d;
+    padding: 15px 14px;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    height: 100px;
+  }
+  .overview-boxes .box4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 50px);
+    background: #ca5e5a;
+    padding: 15px 14px;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    height: 100px;
+  }
+ .crd-rep{
+    align-items: right;
+    justify-content: center;
+     background-color: #d6ecc0;
+ }
+ .ico-edited{
+     color: rgb(255, 255, 255);
+     font-size: 30px;
+ }
+ .card-img{
+     height: 100px;
+     width: 100px;
+ }
+ .card-btn{
+
+     height: 80px !important;
+ }
+ .crd-rep a{
+    padding-top: 25px;
+ }
+ .click{
+     height: 80px;
+ }
+ .badge-light{
+     color: #355764 !important;
+     margin-left: 0px !important;
+     margin-right: 150px;
+     margin-top: 20px;
+ }

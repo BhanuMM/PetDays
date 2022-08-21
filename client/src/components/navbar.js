@@ -28,6 +28,8 @@ function navbar() {
             </ul>
             </div>
         </div>
+
+        
     </nav>
   )
 }
