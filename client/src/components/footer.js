@@ -23,7 +23,8 @@ function footer() {
           <div className="col-md-6 mt-5 pl-5">
           <h5 className="text-uppercase footer-topics fs-6 text-left">About Us</h5>
           <ul className="list-unstyled text-left">
-          <p className='para'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br />Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br /> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p className='para'>Pet Days is a web and mobile application that centralizes all the needs of a pet owner living in Sri Lanka. Pet Days provide the necessary health care details and help you keep track of all the
+  medication, vaccines, and dietary needs of your pet.</p>
             </ul>
           </div>
         </div>
