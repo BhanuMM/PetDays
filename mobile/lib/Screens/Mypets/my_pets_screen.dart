@@ -5,6 +5,7 @@ import '../../components/background.dart';
 import 'components/top_bar.dart';
 import '../../components/bottom_nav.dart';
 import 'components/content.dart';
+import '../../../constants.dart';
 
 class MyPetsScreen extends StatelessWidget {
   const MyPetsScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class MyPetsScreen extends StatelessWidget {
         children: const <Widget>[
           Expanded(
               flex: 4,
-              child: DashboardTopBanner()
+              child: MyPetsTopBanner()
           ),
           Expanded(
               flex: 12,

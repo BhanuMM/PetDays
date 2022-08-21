@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
-
+import '../dashboard_screen.dart';
 class DashboardTopBanner extends StatelessWidget {
   const DashboardTopBanner({
     Key? key,
@@ -15,6 +15,7 @@ class DashboardTopBanner extends StatelessWidget {
         Row(
           children: [
             Container(
+
                 width: MediaQuery.of(context).size.width,
                 height: 110,
                 decoration: const BoxDecoration(
@@ -50,7 +51,7 @@ class DashboardTopBanner extends StatelessWidget {
 
 
           ]
-        )
+        ),
       ],
     );
 

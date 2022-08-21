@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
+import '../../Mypets/my_pets_screen.dart';
 
 class DashboardContent extends StatelessWidget {
   const DashboardContent({
@@ -13,50 +14,62 @@ class DashboardContent extends StatelessWidget {
     return SingleChildScrollView(
         child:Column(
       children: [
-        Padding
-          (
-          padding: EdgeInsets.symmetric(vertical: 5),
-          child:Container(
-          width: 350,
-          height: 150,
-
-          decoration:  BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(25.0)),
-            color: formBGLight,
-
+        GestureDetector(
+          onTap: (){Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return MyPetsScreen();
+            },
           ),
-          child: Row(
-            children: [
-              Expanded(
+          );
+          },
+          child: Padding
+                (
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child:Container(
+                width: 350,
+                height: 150,
 
-                  child: Column(
-                    children: [
-                      Image.asset(
-                          "assets/images/petd.png",
-                        height: 150,
-                        width: 200,
+                decoration:  const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  color: formBGLight,
+
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+
+                        child: Column(
+                          children: [
+                            Image.asset(
+                                "assets/images/petd.png",
+                              height: 150,
+                              width: 200,
+                            ),
+                          ],
+                        ),
+                    ),
+                    Expanded(
+
+                      child: Column(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(25,25,60,25),
+                            child:Text("My\nPets",
+                            style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                            ),)
+                        ],
                       ),
-                    ],
-                  ),
-              ),
-              Expanded(
+                    )
 
-                child: Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(25,25,60,25),
-                      child:Text("My\nPets",
-                      style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                      ),)
+
                   ],
                 ),
-              )
+              ),
+              ),
 
-
-            ],
-          ),
-        ),
         ),
         Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
@@ -147,7 +160,8 @@ class DashboardContent extends StatelessWidget {
             )
         )
       ],
-    ))
+    )
+    )
     ;
   }
   }

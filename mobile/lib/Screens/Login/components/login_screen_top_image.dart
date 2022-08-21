@@ -16,7 +16,9 @@ class LoginScreenTopImage extends StatelessWidget {
         Row(
           children: [
             Container(
-              child: Image.asset("assets/images/welcome.png"),
+              child: Image.asset(
+                  "assets/images/welcome.png",
+              width:MediaQuery.of(context).size.width ,),
             ),
           ],
         ),
