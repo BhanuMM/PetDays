@@ -45,10 +45,6 @@ function sidebar() {
                         </ul>
                     </li>
                     <li>
-                        <a href="../moderators" class="nav-link px-0 align-middle">
-                        <i class="fa fa-users ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Moderators</span> </a>
-                    </li>
-                    <li>
                         <a href="#" class="nav-link px-0 align-middle">
                         <i class="fa fa-area-chart ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Generate Reports</span> </a>
                     </li>

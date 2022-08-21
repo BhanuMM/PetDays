@@ -1,0 +1,31 @@
+.crd-tiles{
+   width: 25rem !important;
+   padding: 10px !important;
+}
+.select-btn{
+   padding: 50px;
+
+}
+.add{
+   background: #a3c585;
+   padding: 15px 14px;
+   border-radius: 12px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   width: 200px;
+   border: none;
+   margin-right: 55px;
+}
+.edit{
+   background: #a3c585;
+   padding: 15px 14px;
+   border-radius: 12px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   width: 200px;
+   border: none;
+
+}
+.btn-link{
+   text-decoration: none;
+   color: aliceblue;
+   font-weight: 500;
+}
