@@ -1,66 +1,105 @@
 import React from 'react';
+import '../styles/viewusers.css';
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
-import birds from '../images/birds.jpg';
-import cat from '../images/cat-02.jpg';
-import cattle from '../images/cattle.jpg';
-import dog from '../images/dog-01.jpg';
-import monkey from '../images/monkey.jpg';
+import birds from '../images/user 1-01.jpg';
+import cat from '../images/user 6-01.jpg';
+import cattle from '../images/user 3-01.jpg';
+import dog from '../images/user 4-01.jpg';
+import monkey from '../images/user 5-01.jpg';
+import man from '../images/user 2-01.jpg';
 function viewusers() {
   return (
-    <div class="container-fluid">
+    <div class="container-fluid ">
        <div className='row'>
         <Navbar />
        </div>
       <div className='row'>
-        <div className="row flex-nowrap">
+        <div className='row flex-nowrap pt-5'>
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
-              <Sidebar />
-          </div>
-          <div className='col-10 g-4'>
-            <div className='col-md-12 text-right select-btn d-flex'>
+                <Sidebar />
+          </div> 
+          <div class="cards">
+          <div className='col g-4'>
+            <div className='text-right select-btn d-flex'>
               <button type="button" className="add"><a href="#" role="button" className = "btn-link" aria-disabled="true">ADD</a></button>
               <button type="button" className="edit"><a href="#" role="button" className = "btn-link" aria-disabled="true">EDIT</a></button>
+            </div></div>
+            <div class="card">
+              <img class="card-image" src={dog} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
+                </div>
+              </div>
             </div>
-          <div class="row row-cols-1 row-cols-md-2 g-4 ">
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {dog} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Dogs</h5>
-                  </div>
+            <div class="card">
+              <img class="card-image" src={cat} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {cat} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Cats</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={birds} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {birds} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Birds</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={cattle} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {cattle} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Cattles</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={monkey} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {monkey} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Monkeys</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={man} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
             </div>

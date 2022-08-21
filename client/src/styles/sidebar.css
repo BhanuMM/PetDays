@@ -7,3 +7,11 @@
 .ico{
     color: #0f3923;
 }
+.sidebar{
+    position: fixed;
+    height: 100%;
+}
+.side-color{
+    background-color: #B3CF99;
+    height: 700px;
+}
