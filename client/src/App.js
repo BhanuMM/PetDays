@@ -36,6 +36,8 @@ import Viewpendingquestions from './pages/viewpendingquestions';
 import Viewusers   from './pages/viewusers';
 import Reportgeneration   from './pages/reportgeneration';
 import Register   from './pages/register';
+import Forgotpassword   from './pages/forgotpasword';
+// import Verifyemail from './pages/verifyemail';
 
 
 
@@ -79,6 +81,8 @@ function App() {
           <Route path="/editmedication" element={<Editmedication/>} />
           <Route path="/viewpendingadvertisments" element={<Viewpendingadvertisments/>}/>
           <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
+          <Route path="/forgotpasword" element={<Forgotpassword/>}/>
+          {/* <Route path="/verifyeimai" element={<Verifyemail/>}/> */}
         </Routes>   
       </Router>          
       </div>

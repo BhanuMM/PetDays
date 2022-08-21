@@ -55,7 +55,7 @@ function editmedication() {
                 </div>
                 <div className='row'>
                     <div className='col-9'></div>
-                    <div className='col-3 mb-5 mt-5'> <button type="submit" class=" pl-5 btn btn-success">Save Changes</button></div>
+                    <div className='col-3 mb-5 mt-5'> <button type="submit" style={{width:"6cm"}} class=" pl-5 btn btn-success">Save Changes</button></div>
                 </div>
             </form>
 
