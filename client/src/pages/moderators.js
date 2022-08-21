@@ -6,12 +6,15 @@ import Navbar from '../components/navbarspecial';
 function moderators() {
   return (
     <div class="container-fluid">
-    <div className="row flex-nowrap">
+      <div className='row'>
+          <Navbar />
+      </div>
+      <div className='row'>
+      <div className="row flex-nowrap">
        <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
           <Sidebar />
        </div>
         <div className="col-10 py-3">
-          <Navbar /><hr />
           <div className='col-8 form-class'>
           <form>
             <div class="mb-3">
@@ -47,6 +50,7 @@ function moderators() {
           
       </div>
     </div>
+      </div>
 </div>
   )
 }

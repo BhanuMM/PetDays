@@ -3,8 +3,13 @@ import '../styles/footerspecial.css';
 import '../styles/sellerdashboard.css';
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
-import med from '../images/med.jpg';
-import bone from '../images/bone1.png'
+import bone from '../images/bone1.png';
+import cat from '../images/cat-01.png';
+import food from '../images/food-01.png';
+import graph from '../images/graph-01.png';
+import medical from '../images/medical-01.png';
+import women from '../images/woman-01.png';
+
 function sellersdashboard() {
   return (
 <div class="container-fluid">
@@ -57,7 +62,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
                 <h3 class="card-title"><span class="badge badge-light">Pet Categories</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="#" className=""><img src= {cat} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -67,7 +72,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Medications</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="#" className=""><img src= {medical} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -79,7 +84,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Diet Plans</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="#" className=""><img src= {food} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -89,7 +94,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Moderators</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="#" className=""><img src= {women} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -101,7 +106,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Generate Reports</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="#" className=""><img src= {graph} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
