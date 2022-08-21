@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: Colors.white,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              primary: kPrimaryColor,
-              shape: const StadiumBorder(),
-              maximumSize: const Size(double.infinity, 56),
-              minimumSize: const Size(double.infinity, 56),
-            ),
-          ),
+          // elevatedButtonTheme: ElevatedButtonThemeData(
+          //   style: ElevatedButton.styleFrom(
+          //     elevation: 0,
+          //     primary: kPrimaryColor,
+          //     shape: const StadiumBorder(),
+          //     maximumSize: const Size(double.infinity, 56),
+          //     minimumSize: const Size(double.infinity, 56),
+          //   ),
+          // ),
           inputDecorationTheme: const InputDecorationTheme(
             filled: true,
             fillColor: formBG,
