@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/responsive.dart';
 import '../../components/background.dart';
-import 'components/top_bar.dart';
+import 'component/add_pet_form.dart';
 import '../../components/bottom_nav.dart';
-import 'components/content.dart';
-import '../../../constants.dart';
 
-class MyPetsScreen extends StatelessWidget {
-  const MyPetsScreen({Key? key}) : super(key: key);
+
+class AddPetScreen extends StatelessWidget {
+  const AddPetScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -17,17 +16,10 @@ class MyPetsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: const <Widget>[
           Expanded(
-              flex: 2,
-              child: MyPetsTopBanner()
+              flex: 4,
+              child:AddPetForm(),
           ),
-          Expanded(
-              flex: 12,
-              child: MyPetContent()
-          ),
-          Expanded(
-              flex: 3,
-              child:BottomNav()
-          )
+
 
         ],
       ),

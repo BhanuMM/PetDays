@@ -13,7 +13,30 @@ router.post("/register", async (req, res) => {
   const uemail = await Users.findOne({ where: { email: email } });
   const uname = await Users.findOne({ where: { username: username } });
 
-  if (uemail) res.json({ error: "Email is already registered" });
+  // if (uemail) res.json({ error: "Email is already registered" });
+  if (uname) {res.json({ error: "Username is already taken" });}
+  else{
+  await sendConfirmationEmail({hash: username})
+  bcrypt.hash(password, 10).then((hash) => {
+    Users.create({
+      username: username,
+      email: email,
+      password: hash,
+      userrole : "user",
+      isVerified : "no"
+    });
+    res.json("SUCCESS");
+  });
+}
+  
+  
+});
+router.post("/sellerregister", async (req, res) => {
+  const { username, email, password ,userrole } = req.body;
+  const uemail = await Users.findOne({ where: { email: email } });
+  const uname = await Users.findOne({ where: { username: username } });
+
+  // if (uemail) res.json({ error: "Email is already registered" });
   if (uname) {res.json({ error: "Username is already taken" });}
   else{
   await sendConfirmationEmail({hash: username})
