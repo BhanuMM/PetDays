@@ -20,6 +20,11 @@ import Serviceprovider from './pages/serviceprovider';
 import Verifyemail   from './pages/verifyemail';
 import Activateaccount   from './pages/activate';
 import Forum   from './pages/forum';
+import Forummyposts   from './pages/forummyposts';
+import Forummylatestposts   from './pages/forummylatestposts';
+import Forumpendingposts   from './pages/forumpendingposts';
+import Forumverifiedposts   from './pages/forumverifiedposts';
+import Forumcommonissues   from './pages/forumcommonissues';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
@@ -81,7 +86,12 @@ function App() {
           <Route path="/reportgeneration" element={<Reportgeneration/>} />
           <Route path="/register" element={<Register/>} />
 
-          <Route path="/forum" element={<Forum/>} /> 
+          <Route path="/forum" element={<Forum/>} />
+          <Route path="/forummyposts" element={<Forummyposts/>} />
+          <Route path="/forummylatestposts" element={<Forummylatestposts/>} /> 
+          <Route path="/forumpendingposts" element={<Forumpendingposts/>} />  
+          <Route path="/forumverifiedposts" element={<Forumverifiedposts/>} /> 
+          <Route path="/forumcommonissues" element={<Forumcommonissues/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
           {/* <Route path="/login" element={<Login/>} /> */}
           <Route path="/addmoderator" element={<Addmoderator/>} />
