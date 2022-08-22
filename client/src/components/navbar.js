@@ -2,7 +2,7 @@ import React from 'react';
 
 function navbar() {
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top">
         <div className="container-fluid">
             <img src= "../images/PetDays.png" className="logo" alt="dog"/>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

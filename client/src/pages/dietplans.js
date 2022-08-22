@@ -3,11 +3,11 @@ import '../styles/footerspecial.css';
 import '../styles/sellerdashboard.css';
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
-import birds from '../images/birds.jpg';
-import cat from '../images/cat-02.jpg';
-import cattle from '../images/cattle.jpg';
-import dog from '../images/dog-01.jpg';
-import monkey from '../images/monkey.jpg';
+import birds from '../images/foods-01.jpg';
+import cat from '../images/foods-02.jpg';
+import cattle from '../images/foods-03.jpg';
+import dog from '../images/foods-04.jpg';
+import monkey from '../images/foods-05.jpg';
 function dietplans() {
   return (
     <div class="container-fluid">
@@ -15,54 +15,78 @@ function dietplans() {
         <Navbar />
        </div>
       <div className='row'>
-        <div className="row flex-nowrap">
+        <div className="row flex-nowrap pt-5">
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
               <Sidebar />
           </div>
-          <div className='col-10 g-4'>
-            <div className='col-md-12 text-right select-btn d-flex'>
+          <div class="cards">
+          <div className='col g-4'>
+            <div className='text-right select-btn d-flex'>
               <button type="button" className="add"><a href="#" role="button" className = "btn-link" aria-disabled="true">ADD</a></button>
               <button type="button" className="edit"><a href="#" role="button" className = "btn-link" aria-disabled="true">EDIT</a></button>
+            </div></div>
+            <div class="card">
+              <img class="card-image" src={dog} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
+                </div>
+              </div>
             </div>
-          <div class="row row-cols-1 row-cols-md-2 g-4 ">
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {dog} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Dogs</h5>
-                  </div>
+            <div class="card">
+              <img class="card-image" src={cat} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {cat} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Cats</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={birds} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {birds} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Birds</h5>
-                  </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={cattle} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {cattle} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Cattles</h5>
-                  </div>
-                </div>
+            </div>
+            <div class="card">
+              <img class="card-image" src={monkey} alt=""/>
+              <div class="card-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
               </div>
-              <div class="col-sm-1 card-wrp">
-                <div class="card crd-tiles">
-                <img src= {monkey} className="rounded float-start img-fluid" alt="dog"/>
-                  <div class="card-body">
-                    <h5 class="card-title">Monkeys</h5>
-                  </div>
+              <div class="card-info">
+                <div>
+                  <a href="./" class="card-link">View User</a>
                 </div>
               </div>
             </div>

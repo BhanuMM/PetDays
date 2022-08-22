@@ -44,9 +44,6 @@ hr.h-color{
     padding: 15px 32px;
     text-align: center;
 }
-.side-color{
-    background-color: #B3CF99;
-}
 
 .form-class{
    padding-top: 50px;
@@ -107,29 +104,18 @@ hr.h-color{
  .crd-rep{
     align-items: right;
     justify-content: center;
-     background-color: #d6ecc0;
+    background-color: #d6ecc0;
  }
  .ico-edited{
      color: rgb(255, 255, 255);
      font-size: 30px;
- }
- .card-img{
-     height: 100px;
-     width: 100px;
- }
- .card-btn{
-
-     height: 80px !important;
- }
- .crd-rep a{
-    padding-top: 25px;
- }
- .click{
-     height: 80px;
  }
  .badge-light{
      color: #0f3923 !important;
      margin-left: 0px !important;
      margin-right: 150px;
      margin-top: 20px;
+ }
+ .container-fluid .row .pt-5{
+    margin-top: 2px !important;
  }
