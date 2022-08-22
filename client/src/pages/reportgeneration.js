@@ -9,9 +9,7 @@ function reportgeneration() {
        </div>
       <div className='row'>
         <div className="row flex-nowrap pt-5">
-          <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
-              <Sidebar />
-          </div>
+        
           <div className='col-10'>
           </div>
           </div>

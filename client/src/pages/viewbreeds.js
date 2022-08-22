@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
 import '../styles/viewpets.css';
-function reportgeneration() {
+function viewbreeds() {
   return (
     <div class="container-fluid">
        <div className='row'>
@@ -16,7 +16,7 @@ function reportgeneration() {
             <div className='col-10'>
                 <div class="pt-4 search-bar">
                     <div class="topnav">
-                            <h7 className='topic'> Manage Pet Category</h7>
+                            <h7 className='topic'> Manage Breeds</h7>
                             <button type="button" class="btn btn-light btn-search">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
@@ -27,17 +27,17 @@ function reportgeneration() {
                     <table class="table align-middle table-responsive">
                         <thead  class="header-color">
                             <tr>
-                            <th scope="col">Category ID</th>
-                            <th scope="col">Category Name</th>
+                            <th scope="col">Breed ID</th>
+                            <th scope="col">Breed Name</th>
                             <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <th scope="row">1</th>
-                            <td>Dogs</td>
+                            <td>German shephard</td>
                             <td>
-                            <a href="\viewbreeds" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
+                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
                             <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
@@ -45,9 +45,9 @@ function reportgeneration() {
                             </tr>
                             <tr>
                             <th scope="row">2</th>
-                            <td>Cats</td>
+                            <td>Lion shephard</td>
                             <td>
-                            <a href="\viewbreeds" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
+                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
                             <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
@@ -63,4 +63,4 @@ function reportgeneration() {
   )
 }
 
-export default reportgeneration
+export default viewbreeds

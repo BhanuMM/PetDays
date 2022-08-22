@@ -39,6 +39,9 @@ import Reportgeneration   from './pages/reportgeneration';
 import Register   from './pages/register';
 import Forgotpassword   from './pages/forgotpasword';
 import Viewpets from './pages/viewpets';
+import Viewbreeds from './pages/viewbreeds';
+import Viewmedications from './pages/viewmedications';
+import Viewdietplans from './pages/viewdietplans';
 
 
 
@@ -85,6 +88,9 @@ function App() {
           <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
           <Route path="/forgotpasword" element={<Forgotpassword/>}/>
           <Route path="/viewpets" element={<Viewpets/>}/>
+          <Route path="/viewbreeds" element={<Viewbreeds/>}/>
+          <Route path="/viewmedications" element={<Viewmedications/>}/>
+          <Route path="/viewdietplans" element={<Viewdietplans/>}/>
         </Routes>   
       </Router>          
       </div>
