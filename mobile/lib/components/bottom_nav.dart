@@ -36,7 +36,6 @@ class _BottomNav extends State<BottomNav>{
           BottomNavigationBarItem(
             icon: new Image.asset('assets/images/home.png',width: 35,height: 35,),
             label: 'Home',
-
           ),
           BottomNavigationBarItem(
             icon: new Image.asset('assets/images/petd.png',width: 50,height: 50,),
