@@ -49,3 +49,11 @@
 .index .sp-sec{
     width: 300px;
 }
+.background-div{
+    background-image: url("../images/back.jpg");
+    height: 400px;
+    width: 100%;
+}
+.index .pt-5{
+    padding-top: 100px !important;
+}
