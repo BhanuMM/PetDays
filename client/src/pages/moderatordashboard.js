@@ -4,7 +4,6 @@ import '../styles/moderatordashboard.css';
 import Sidebar from '../components/sidebar';
 import Moderatorsidebar from '../components/moderatorsidebar';
 import Navbar from '../components/navbarspecial';
-import med from '../images/med.jpg';
 import bone from '../images/bone1.png'
 
 
@@ -13,7 +12,6 @@ function moderatordashboard() {
 <div class="container-fluid">
   <div className='row'>
     <Navbar />
-    
   </div>
   <div className='row '>
     <div className="row flex-nowrap">        
