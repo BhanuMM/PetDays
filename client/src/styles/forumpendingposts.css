@@ -27,7 +27,7 @@
     
 }
 
-.forum .forum-sidebar{
+.forumpendingposts .forumpendingposts-sidebar{
     position: fixed;
     padding-left: 80px;
 
@@ -37,20 +37,17 @@
     width: 275px;
 }
 
-.forum .forum-header{
+.forumpendingposts .forumpendingposts-header{
     display: flex;
 }
 
-.forum .forum-search{
+.forumpendingposts .forumpendingposts-search{
     float: right;
     padding-left: 300px;
     
 }
 
-.forum .forum-search input{
+.forumpendingposts .forumpendingposts-search input{
     width: 300px;
 }
 
-/* .forum .forum-header{
-    position: fixed;
-} */

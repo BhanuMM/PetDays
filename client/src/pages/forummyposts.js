@@ -1,37 +1,34 @@
 import React from 'react';
 import '../styles/nav.css';
 import '../styles/footer.css';
-import '../styles/forum.css';
+import '../styles/forummyposts.css';
 import Profilepic from '../images/profile.jpg';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 
 
-function forum() {
+function forummyposts() {
   return (
-    <div className='forum'>
+    <div className='forummypostsmyposts'>
       <Navbar/><br/><br/><br/><br/>
       <div className='container'>
-      <div className='container-fluid forum'>
+      <div className='container-fluid forummyposts'>
         <div class="row g-0 ">
           <div class="col-sm-6 col-md-8">
-            <div class='forum-header'>
-              <div class='forum-btn'>
+            <div class='forummyposts-header'>
+              <div class='forummyposts-btn'>
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
                 <p class="fw-semibold "><button type="button" class="btn btn-outline-success">Latest First <i class='bx bx-chevron-down'></i></button></p>
               </div>
-              <div class='forum-search'>  
+              <div class='forummyposts-search'>  
                 <div class="input-group rounded">
                   <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                  {/* <span class="input-group-text border-0" id="search-addon">
-                    <i class="fas fa-search"></i>
-                  </span> */}
                 </div>
               </div>
               
             </div>
             <br/><br/>      
-            <div class="card border-success">
+            <div class="card border-secondary">
             <div class="card-body">
                 <div class="prof-img">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -39,13 +36,13 @@ function forum() {
                 <div class="content">
                   <div>
                     <p class="fw-semibold fs-7">My dog's Injury</p>
-                    <p class="font-italic text-success fs-7">Latest reply is from john 5 minutes ago.</p>
+                    <p class="font-italic text-secondary fs-7">Latest reply is from john 5 minutes ago.</p>
                   </div>  
                   <div>
                     This is some text within a card body.This is some text within a card body.This is some text within a card body.
                   </div>
                   <div class='comment'>
-                    <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">25 Comments</a></p>
+                    <p class="fw-semibold fs-7"><a href="#" class="link-secondary text-decoration-none">25 Comments</a></p>
                   </div>
                 </div>
             </div>
@@ -150,4 +147,4 @@ function forum() {
   )
 }
 
-export default forum
+export default forummyposts

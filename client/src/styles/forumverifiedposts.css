@@ -27,7 +27,7 @@
     
 }
 
-.forum .forum-sidebar{
+.forumverifiedposts .forumverifiedposts-sidebar{
     position: fixed;
     padding-left: 80px;
 
@@ -37,20 +37,17 @@
     width: 275px;
 }
 
-.forum .forum-header{
+.forumverifiedposts .forumverifiedposts-header{
     display: flex;
 }
 
-.forum .forum-search{
+.forumverifiedposts .forumverifiedposts-search{
     float: right;
     padding-left: 300px;
     
 }
 
-.forum .forum-search input{
+.forumverifiedposts .forumverifiedposts-search input{
     width: 300px;
 }
 
-/* .forum .forum-header{
-    position: fixed;
-} */

@@ -1,33 +1,33 @@
 import React from 'react';
 import '../styles/nav.css';
 import '../styles/footer.css';
-import '../styles/forum.css';
+import '../styles/forummylatestposts.css';
 import Profilepic from '../images/profile.jpg';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 
 
-function forum() {
+function forummylatestposts() {
   return (
-    <div className='forum'>
+    <div className='forummylatestposts'>
       <Navbar/><br/><br/><br/><br/>
       <div className='container'>
-      <div className='container-fluid forum'>
+      <div className='container-fluid forummylatestposts'>
         <div class="row g-0 ">
           <div class="col-sm-6 col-md-8">
-            <div class='forum-header'>
-              <div class='forum-btn'>
+            <div class='forummylatestposts-header'>
+              <div class='forummylatestposts-btn'>
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
                 <p class="fw-semibold "><button type="button" class="btn btn-outline-success">Latest First <i class='bx bx-chevron-down'></i></button></p>
               </div>
-              <div class='forum-search'>  
+              {/* <div class='forummylatestposts-search'>  
                 <div class="input-group rounded">
-                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" /> */}
                   {/* <span class="input-group-text border-0" id="search-addon">
                     <i class="fas fa-search"></i>
                   </span> */}
-                </div>
-              </div>
+                {/* </div>
+              </div> */}
               
             </div>
             <br/><br/>      
@@ -51,7 +51,7 @@ function forum() {
             </div>
             </div>
             <br/>
-            <div class="card border-secondary">
+            <div class="card border-success">
             <div class="card-body">
                 <div class="prof-img">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -70,7 +70,7 @@ function forum() {
                 </div>
             </div>
             </div><br/>
-            <div class="card border-secondary">
+            <div class="card border-success">
             <div class="card-body">
                 <div class="prof-img">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -89,7 +89,7 @@ function forum() {
                 </div>
             </div>
             </div><br/> 
-            <div class="card border-secondary">
+            <div class="card border-success">
             <div class="card-body">
                 <div class="prof-img">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -100,7 +100,7 @@ function forum() {
                     <p class="fw-normal text-secondary">Latest reply is from john 5 minutes ago.</p>
                   </div>  
                   <div>
-                    This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                    This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
                   </div>
                   <div class='comment'>
                     <p class="fw-semibold fs-6"><a href="#" class="link-secondary text-decoration-none">25 Comments</a></p>
@@ -108,7 +108,7 @@ function forum() {
                 </div>
             </div>
             </div><br/> 
-            <div class="card border-secondary">
+            <div class="card border-success">
             <div class="card-body">
                 <div class="prof-img">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -119,7 +119,7 @@ function forum() {
                     <p class="fw-normal text-secondary">Latest reply is from john 5 minutes ago.</p>
                   </div>  
                   <div>
-                    This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                    This is some text within a card body.This is some text within a card body.This is some text within a card body.
                   </div>
                   <div class='comment'>
                     <p class="fw-semibold fs-6"><a href="#" class="link-secondary text-decoration-none">25 Comments</a></p>
@@ -150,4 +150,4 @@ function forum() {
   )
 }
 
-export default forum
+export default forummylatestposts
