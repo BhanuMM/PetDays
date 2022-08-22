@@ -10,7 +10,7 @@ import Navbar from '../components/navbar';
 function forum() {
   return (
     <div className='forum'>
-      <Navbar/>
+      <Navbar/><br/><br/>
       <div className='container'>
       <div className='container-fluid forum'>
         <div class="row g-0 ">
@@ -66,8 +66,8 @@ function forum() {
             <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">My Posts</a></p>
             <hr className='w-25 mx-auto'/><br/>
             <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">My Latest Posts</a></p><br/>
-            <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">Find Answers</a></p><br/>
-            <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">Give Solutions</a></p><br/>
+            <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">Pending Posts</a></p><br/>
+            <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">Verified Posts</a></p><br/>
             <p class="fw-semibold fs-5"><a href="#" class="link-secondary text-decoration-none">Common Issues</a></p><br/>
           </div>
         </div>     
