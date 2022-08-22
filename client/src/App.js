@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import Signin from './pages/signin';
+import Signin from './pages/login';
 import Petmart from './pages/petmart';
 import Index from './pages/index';
-import Signup from './pages/signup';
+import Signup from './pages/register';
+import Sellersignup from './pages/sellerregister';
 import Admin from './pages/admin';
 
 import Sellersdashboard from './pages/sellersdashboard';
@@ -13,7 +14,7 @@ import Moderatordashboard from './pages/moderatordashboard';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 import Moderator from './pages/moderator';
-import Login from './pages/login';
+// import Login from './pages/login';
 import Userprofile   from './pages/userprofile';
 import Serviceprovider from './pages/serviceprovider';
 import Verifyemail   from './pages/verifyemail';
@@ -39,6 +40,7 @@ import Reportgeneration   from './pages/reportgeneration';
 import Register   from './pages/register';
 import Forgotpassword   from './pages/forgotpasword';
 import Viewpets from './pages/viewpets';
+import Usertype from './pages/usertype';
 
 
 
@@ -55,6 +57,7 @@ function App() {
           <Route path="/signin" element={<Signin/>} />
           <Route path="/" element={<Index/>} />
           <Route path="/signup" element={<Signup/>} />  
+          <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
           <Route path="/sellersdashboard" element={<Sellersdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
@@ -74,7 +77,7 @@ function App() {
 
           <Route path="/forum" element={<Forum/>} /> 
           <Route path="/petmart" element={<Petmart/>} />
-          <Route path="/login" element={<Login/>} />
+          {/* <Route path="/login" element={<Login/>} /> */}
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
           <Route path="/addpetcategories" element={<Addpetcategory/>} />
@@ -85,6 +88,7 @@ function App() {
           <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
           <Route path="/forgotpasword" element={<Forgotpassword/>}/>
           <Route path="/viewpets" element={<Viewpets/>}/>
+          <Route path="/registertype" element={<Usertype/>}/>
         </Routes>   
       </Router>          
       </div>
