@@ -20,11 +20,6 @@ function viewusers() {
                 <Sidebar />
           </div> 
           <div class="cards">
-          <div className='col g-4'>
-            <div className='text-right select-btn d-flex'>
-              <button type="button" className="add"><a href="#" role="button" className = "btn-link" aria-disabled="true">ADD</a></button>
-              <button type="button" className="edit"><a href="#" role="button" className = "btn-link" aria-disabled="true">EDIT</a></button>
-            </div></div>
             <div class="card">
               <img class="card-image" src={dog} alt=""/>
               <div class="card-content">

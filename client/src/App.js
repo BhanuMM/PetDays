@@ -38,7 +38,7 @@ import Viewusers   from './pages/viewusers';
 import Reportgeneration   from './pages/reportgeneration';
 import Register   from './pages/register';
 import Forgotpassword   from './pages/forgotpasword';
-// import Verifyemail from './pages/verifyemail';
+import Viewpets from './pages/viewpets';
 
 
 
@@ -84,7 +84,7 @@ function App() {
           <Route path="/viewpendingadvertisments" element={<Viewpendingadvertisments/>}/>
           <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
           <Route path="/forgotpasword" element={<Forgotpassword/>}/>
-          {/* <Route path="/verifyeimai" element={<Verifyemail/>}/> */}
+          <Route path="/viewpets" element={<Viewpets/>}/>
         </Routes>   
       </Router>          
       </div>
