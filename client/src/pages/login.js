@@ -1,7 +1,7 @@
 import React from 'react'
 import signin from '../images/login.png';
-import Bgimage from '../images/bkimage.webp';
-
+import Bgimage from '../images/bkimage.jpg';
+import name from '../images/name.png';
 import '../styles/login.css';
 
 
@@ -20,10 +20,11 @@ function login() {
                             <div className="row g-0">
                                 <div className="col-md-6 col-lg-5 d-none d-md-block ">
                                     <img src={signin}
-                                    alt="login form" className="img-fluid mt-5 pt-5 login-imagesize" border-radius="1rem 0 0 1rem;" />
+                                    alt="login form" className="img-fluid mt-5 pt-2 login-imagesize" border-radius="1rem 0 0 1rem;" />
                                     <div className='mt-3' >
                                         <h5 className='text-center'>Welcome to </h5>
-                                        <h2 className='text-center login.caption'>PET DAYS</h2>
+                                        <img src= {name} className="rounded float-start img-fluid login-nameimg" alt="dog"/>
+                                        {/* <h2 className='text-center login.caption'>PET DAYS</h2> */}
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
@@ -34,8 +35,7 @@ function login() {
                                         
 
                                         <h3 className="fw-normal mb-3 pb-3 text-center text-bold login.caption" letter-spacing="1px;">LOGIN</h3>
-                                        <p className="pb-lg-2" letter-spacing="#393f81;">Don't have an account? <a href="#!"
-                                            color="#393f81;">SignUP</a></p>
+                                       
 
                                         <div class="form-outline mb-4">
                                             <label className="form-label" for="">E-mail </label>
@@ -61,9 +61,11 @@ function login() {
                                             
                                             <div className='col'>
                                                 <a className="small text-muted  ml-5" href="#!">Forgot password?</a>
-
+                                                <br></br>
+                                                <p className="pt-2 pb-lg-2" letter-spacing="#393f81;">Don't have an account? <a href="#!"
+                                            color="#393f81;">SignUP</a></p>
                                             </div>
-                                        </div>
+                                        </div> 
                                         <div class="pt-1 mb-4 mt-3 login.buttonmargin text-center">
                                             <button className ="login.loginbuttonsize login.buttonmargin btn btn-success "  type="button">LOGIN   </button>
                                         </div>
