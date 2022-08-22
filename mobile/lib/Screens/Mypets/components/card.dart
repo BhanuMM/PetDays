@@ -9,8 +9,8 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        width: 200,
-        height: 250,
+        width: 150,
+        height: 200,
         decoration:    BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
           color: formBGLight,
@@ -31,7 +31,7 @@ class ItemCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(25.0),
           child:Image.asset(
             "assets/images/roug.jpg",
-            width: 200,
+            width: 150,
           ),
         ),
           Row(
