@@ -39,7 +39,7 @@ function register() {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth/register", data).then((response) => {
+    axios.post("http://localhost:3001/auth/sellerregister", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
@@ -76,7 +76,7 @@ function register() {
                             className="fw-normal mb-3 pb-3 text-center text-bold register.caption"
                             letter-spacing="1px;"
                           >
-                            CREATE YOUR ACCOUNT
+                            CREATE YOUR SELLER ACCOUNT
                           </h3>
 
                           <div class="form-outline mb-4">

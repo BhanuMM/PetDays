@@ -1,9 +1,8 @@
-.imagesize{
-    width: 300px;
-   height: 280px;
-   margin-left: 40px;
-   margin-top: 1px;
-   margin-bottom: 20px;
+.register-imagesize{
+    width: 280px;
+   /* margin-left: 50px; */
+   /* margin-top: 1px;
+   margin-bottom: 20px; */
  }
  .color{
      background-color: #15e676;
@@ -36,6 +35,10 @@
      font-weight: 600;
  }
  
+ .register.error{
+    color: red;
+}
+
  .register.bgimage {
      background-image: 
      url(
