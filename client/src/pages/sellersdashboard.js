@@ -18,7 +18,7 @@ function sellersdashboard() {
   </div>
   <div className='row '>
     <div className="row flex-nowrap pt-5">
-        <div className='col-2 col-auto col-md-3 col-xl-2 px-sm-2 px-0 side-color'>
+        <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
             <Sidebar />
         </div>
           <div className="col-10 py-3">
@@ -50,7 +50,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
                 <h3 class="card-title"><span class="badge badge-light">Pet Categories</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {cat} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\petcategories" className=""><img src= {cat} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Medications</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {medical} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\medications" className=""><img src= {medical} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -72,7 +72,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Diet Plans</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {food} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\dietplans" className=""><img src= {food} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -82,7 +82,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Moderators</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {women} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\moderators" className=""><img src= {women} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">Generate Reports</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {graph} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\reportgeneration" className=""><img src= {graph} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ function sellersdashboard() {
               <div class="card-body crd-rep">
               <h3 class="card-title"><span class="badge badge-light">View Users</span></h3>
                 <p className="lead">
-                  <a href="#" className=""><img src= {man} className="rounded float-start img-fluid click" alt="dog"/></a>        
+                  <a href="\viewusers" className=""><img src= {man} className="rounded float-start img-fluid click" alt="dog"/></a>        
                 </p>
               </div>
             </div>

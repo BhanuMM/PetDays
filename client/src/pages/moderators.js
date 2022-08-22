@@ -11,7 +11,7 @@ function moderators() {
       </div>
       <div className='row'>
       <div className="row flex-nowrap">
-       <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
+       <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
           <Sidebar />
        </div>
         <div className="col-10 py-3">

@@ -14,7 +14,7 @@ function medications() {
        </div>
       <div className='row'>
         <div className="row flex-nowrap pt-5">
-          <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0'>
+          <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
               <Sidebar />
           </div>
           <div class="cards">
@@ -22,12 +22,15 @@ function medications() {
               <img class="card-image" src={dog} alt=""/>
               <div class="card-content">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                  <h4>
+                    Medicines
+                  </h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="./" class="card-link">View Category</a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>
@@ -35,12 +38,15 @@ function medications() {
               <img class="card-image" src={cat} alt=""/>
               <div class="card-content">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                <h4>
+                    Vaccines
+                  </h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="./" class="card-link">View Category</a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>
@@ -48,12 +54,15 @@ function medications() {
               <img class="card-image" src={cattle} alt=""/>
               <div class="card-content">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                <h4>
+                    Vitamins
+                  </h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="./" class="card-link">View Category</a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>
