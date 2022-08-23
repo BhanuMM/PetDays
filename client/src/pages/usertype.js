@@ -15,26 +15,23 @@ function usertype() {
                             <div className="row g-0">
                                
                                 <div className="col-md-6 col-lg-12 d-flex align-items-center ">
-                                    <div className="card-body p-4 p-lg-5 text-black text-center mt-3 ml-5 mr-3 pr-3">
+                                    <div className="card-body text-center ">
 
-                                        <form>
+                                    <div className="row text-center ">
 
                                         
                                         {/* <p className="pb-lg-2 text-center" letter-spacing="#393f81;">P</p> */}
-                                        <h3 className="fw-normal mb-3 pb-3 text-center text-bold login.caption" letter-spacing="1px;">Are you a</h3>
+                                        <h3 className=" login.caption" >Are you a</h3>
                                         
 
-                                        <div className="pt-1 mb-4 mt-3 text-center">
+                                         <div className="pt-1 mb-4 mt-3 text-center">
                                         <a href="signup" color="#393f81;"> <button className ="verify.loginbuttonsize btn btn-success "  type="button">USER</button></a>
                                         </div>
                                         <div className="pt-1 mb-4 mt-3 text-center">
                                         <a href="sellersignup" color="#393f81;"> <button className ="verify.loginbuttonsize btn btn-success "  type="button">Service</button></a>
                                         </div>
-
+</div>
                                        
-
-                                        </form>
-
                                     </div>
                                 </div>
                             </div>
