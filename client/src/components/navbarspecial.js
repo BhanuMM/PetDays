@@ -5,7 +5,7 @@ function navbarspecial() {
     <nav className="navbar navbar-expand-lg navspecial space-between py-3 px-4 auto-hiding-navbar fixed-top">
         <div className="container-fluid">
             <img src= "./images/PetDays.png" className="logo" alt="dog"/>
-            <ul className="navbar-nav ml-auto mb-2 mb-lg-0">      
+            <ul className="navbar-nav ml-auto mb-2 mb-lg-0">    
             </ul>
             <div class="dropdown">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
