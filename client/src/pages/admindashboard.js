@@ -10,7 +10,7 @@ import graph from '../images/graph-01.png';
 import medical from '../images/medical-01.png';
 import women from '../images/woman-01.png';
 
-function sellersdashboard() {
+function admindashboard() {
   return (
 <div class="container-fluid">
   <div className='row'>
@@ -117,4 +117,4 @@ function sellersdashboard() {
   )
 }
 
-export default sellersdashboard
+export default admindashboard

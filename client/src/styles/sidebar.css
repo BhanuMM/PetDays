@@ -11,9 +11,10 @@
     position: fixed;
     height: 100%;
 }
+
 .side-color{
     background-color: #B3CF99;
-    height: 800px;
+    height: 610px;
 }
 .col .nav .nav-item{
     height: 40px;

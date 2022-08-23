@@ -8,8 +8,10 @@ import Signup from './pages/register';
 import Sellersignup from './pages/sellerregister';
 import Admin from './pages/admin';
 
-import Sellersdashboard from './pages/sellersdashboard';
+import Dashboard from './pages/dashboard';
+import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
+import Seviceproviderdashboard from './pages/seviceproviderdashboard';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
@@ -73,7 +75,9 @@ function App() {
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
-          <Route path="/sellersdashboard" element={<Sellersdashboard/>} /> 
+          <Route path="/admindashboard" element={<Admindashboard/>} /> 
+          <Route path="/dashboard" element={<Dashboard/>} /> 
+          <Route path="/seviceproviderdashboard" element={<Seviceproviderdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
