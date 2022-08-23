@@ -1,17 +1,22 @@
 import React from 'react';
 import '../styles/nav.css';
 import '../styles/footer.css';
-import Footer from '../components/footerspecial';
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbarspecial';
+import Sidebar from '../components/moderatorsidebar';
 
 function addpetcategories() {
   return (
-    <div className='Addpetcategories'>
-      <Navbar/>
-       <div className='row'>
-        <div className='col-2'></div>
-        <div className='col-5'>
-            <h3 className='mb-5'> + Add New Pet Category<hr/></h3>
+    <div class="container-fluid">
+            <div className='row'>
+                <Navbar />
+            </div>
+            <div className='row'>
+                <div className="row flex-nowrap pt-5">
+                <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
+                    <Sidebar />
+                </div>
+                <div className='col-10 g-5'>
+            <h3 className='mb-5'> +Add New Pet Category <hr/></h3>
             <form>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Pet category</label>
@@ -23,15 +28,12 @@ function addpetcategories() {
                     <div className='col-3 mb-5 mt-5'> <button type="submit" class=" pl-5 btn btn-success">Add</button></div>
                     {/* <div className='col-3'></div> */}
                 </div>
-               
+              
             </form>
 
         </div>
-        <div className='col-5'></div>
-
-       </div>
-       <Footer/>
     </div>
+      </div></div>
   )
 }
 

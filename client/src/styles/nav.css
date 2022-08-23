@@ -6,7 +6,10 @@
     margin-right: 750px;
 
 }
-
+.navbar.scrolled{
+        background-color: #fff !important;
+        transition: background-color 200ms linear;
+}
 .nav-link h4{
     color: #ca8403;
     font-size: 18px;
