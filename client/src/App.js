@@ -53,6 +53,9 @@ import Viewmedications from './pages/viewmedications';
 import Viewdietplans from './pages/viewdietplans';
 
 import Usertype from './pages/usertype';
+import Addnewadd from './pages/addpetmartadd';
+import Newadd from './pages/newadd';
+import Editadd from './pages/editpetmartadd';
 
 
 
@@ -80,7 +83,10 @@ function App() {
           <Route path="/moderator" element={<Moderator/>} /> 
           <Route path="/userprofile" element={<Userprofile/>} /> 
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
-          <Route path="/activate/:hash" element={<Activateaccount/>} /> 
+          <Route path="/activate/:hash" element={<Activateaccount/>} />
+          <Route path="/addpetmartadd" element={<Addnewadd/>} />
+          <Route path="/newadd" element={<Newadd/>} /> 
+          <Route path="/editpetmartadd" element={<Editadd/>} />  
 
           <Route path="/petcategories" element={<Petcategories/>} />
           <Route path="/medications" element={<Medications/>} />
