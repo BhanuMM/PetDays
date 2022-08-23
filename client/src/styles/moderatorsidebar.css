@@ -1,0 +1,20 @@
+.names{
+    font-size: large;
+    color: #0f3923;
+    font-weight: 500;
+}
+
+.ico{
+    color: #0f3923;
+}
+.sidebar{
+    position: fixed;
+    height: 100%;
+}
+.side-color{
+    background-color: #B3CF99;
+    height: 800px;
+}
+.col .nav .nav-item{
+    height: 40px;
+}
