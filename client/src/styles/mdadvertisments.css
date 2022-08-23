@@ -2,19 +2,18 @@
     display: flex;
 }
 
-.card-body .prof-img{
+.mdadvertisments .card-body .add-img{
     float: right;
     width: 200px; 
-    padding-top: 20px;
-    padding-left: 5px;
-    padding-right: 15px;
+    padding: 20px;
+    padding-right: 40px;
+    padding-top: 10px;
     
 }
 
-.card-body .prof-img img{
-    height: 50px;
-    border-radius: 50%;
-    width: 50px; 
+.mdadvertisments .card-body .add-img img{
+    height: 100px;
+    width: 100px; 
 }
 
 .card-body .content{
@@ -24,6 +23,7 @@
 
 .card-body .content .comment{
     float: right;
+    padding-right: 100px;
     
 }
 
@@ -54,3 +54,6 @@
 /* .forum .forum-header{
     position: fixed;
 } */
+.mdadvertisments .des{
+    width: 400px;
+}

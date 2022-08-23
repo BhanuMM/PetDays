@@ -22,10 +22,38 @@
     padding-right: 50px;
 }
 
-.card-body .content .comment{
-    float: right;
+.mdpendingposts .card-body .content .comment{
+   
+    display: flex;
+
     
 }
+
+.card-body .content .comment .button-1{
+    float: right;
+
+}
+.card-body .content .comment .button-2{
+    float: right;
+
+    
+}
+
+.btn-link{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 500;
+ }
+
+ .comment button{
+    background: #a3c585;
+   padding: 15px 14px;
+   border-radius: 12px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   width: 200px;
+   border: none;
+   margin-right: 55px;
+ }
 
 .forum .forum-sidebar{
     position: fixed;

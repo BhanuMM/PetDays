@@ -15,7 +15,7 @@ function moderatorsidebar() {
                         <a class="nav-link" href="\petmart"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Mart</span></a>
                     </li><hr />
                     <li class="nav-item">
-                        <a class="nav-link" href="\pettalk"><i class="fa fa-medkit ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Talk</span></a>
+                        <a class="nav-link" href="\forum"><i class="fa fa-medkit ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Talk</span></a>
                     </li><hr />
                     
                 </ul>

@@ -1,140 +1,263 @@
 import React from "react";
 import "../styles/footerspecial.css";
+import "../styles/sellerdashboard.css";
 import "../styles/moderatordashboard.css";
-import Sidebar from "../components/sidebar";
-import Moderatorsidebar from "../components/moderatorsidebar";
+import Moderatorsidebar from '../components/moderatorsidebar';
 import Navbar from "../components/navbarspecial";
-
-// import med from '../images/med.jpg';
-
-import bone from "../images/bone1.png";
+import drug from "../images/drugs.png";
+import man from "../images/man-01.png";
+import cat from "../images/cat-01.png";
+import diet from "../images/health.png";
+import postmd from "../images/postsmd.png";
+import addmd from "../images/addmd.png";
 
 function moderatordashboard() {
-  return (
-    <div class="container-fluid">
-      <div className="row">
-        <Navbar />
-      </div>
-      <br />
-      <br />
-      <br />
-      <div className="row ">
-        <div className="row flex-nowrap">
-          <div className="col-2 col-auto col-md-3 col-xl-2 px-sm-2 px-0 side-color">
-            <Moderatorsidebar />
-          </div>
-          <div className="col-10 py-3">
-            <div class="overview-boxes">
-              <div class="col-sm-6 col-md-3 box1">
-                <div class="right-side">
-                  <div class="box-topic">Posts</div>
-                  <div class="indicator"></div>
-                </div>
-                {/* <i class="fa fa-cart-plus one" aria-hidden="true"></i> */}
-              </div>
-              <div class="col-sm-6 col-md-3 box2">
-                <div class="right-side">
-                  <div class="box-topic">Advertisments</div>
-                  <div class="indicator"></div>
-                </div>
-                <i class="fa fa-cart-plus two" aria-hidden="true"></i>
-              </div>
-              <div class=" col-sm-6 col-md-3 box3">
-                <div class="right-side">
-                  <div class="box-topic">Medications</div>
-                  <div class="indicator"></div>
-                </div>
-                <i class="fa fa-cart-plus three" aria-hidden="true"></i>
-              </div>
-              <div class="col-sm-6 col-md-3 box4">
-                <div class="right-side">
-                  <div class="box-topic">Diet Plans</div>
-                  <div class="indicator"></div>
-                </div>
-                <i class="fa fa-cart-plus four" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="row">
-              <div class="overview-boxes">
-                <div className="col-sm-6 col-md-3 box1">
-                  <div class="right-side">
-                    <div class="box-topic">Posts</div>
-                    <div class="indicator"></div>
-                  </div>
-                  {/* <i class="fa fa-cart-plus one" aria-hidden="true"></i> */}
-                </div>
-                <div className="col-sm-6 col-md-3 box2">
-                  <div class="right-side">
-                    <div class="box-topic">Advertisments</div>
-                    <div class="indicator"></div>
-                  </div>
-                  {/* <i class="fa fa-cart-plus two" aria-hidden="true"></i> */}
-                </div>
-                <div className=" col-sm-6 col-md-3 box3">
-                  <div class="right-side">
-                    <div class="box-topic">Medications</div>
-                    <div class="indicator"></div>
-                  </div>
-                  {/* <i class="fa fa-cart-plus three" aria-hidden="true"></i> */}
-                </div>
-                <div className="col-sm-6 col-md-3 box4">
-                  <div class="right-side">
-                    <div class="box-topic">Diet Plans</div>
-                    <div class="indicator"></div>
-                  </div>
-                  {/* <i class="fa fa-cart-plus four" aria-hidden="true"></i> */}
-                </div>
-              </div>
+	return (
+		<div class="container-fluid moderatordashboard">
+			<div className="row">
+				<Navbar />
+			</div>
+			<div className="row ">
+				<div className="row flex-nowrap pt-5">
+					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
+						<Moderatorsidebar />
+					</div>
+					<div className="col-10">
+						<main>
+							<div class="container-fluid px-4">
+								<h1 class="mt-4">Moderator Dashboard</h1><hr/>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="#" className="header-topic">Dashboard</a>
+										</li>
+									</ol>
+								</nav>
+								<div class="row">
+									<div class="col-xl-3 col-md-6">
+										<div class="card bg-primary text-white mb-4">
+											<div class="card-body">
+                        <div class='title'>
+                            Verified <br/>Posts
+                        </div><div class="vr"></div>
+                        <div class='count'>
+                          02
+                        </div>
+                      </div>
+											{/* <div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="#">
+													View Details
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div> */}
+										</div>
+									</div>
+									<div class="col-xl-3 col-md-6">
+										<div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <div class='title'>
+                            Verified<br/>Ads
+                        </div><div class="vr"></div>
+                        <div class='count'>
+                          02
+                        </div>
+                      </div>
+											
+											{/* <div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="#">
+													View Details
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div> */}
+										</div>
+									</div>
+									<div class="col-xl-3 col-md-6">
+										<div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <div class='title-med'>
+                          Published <br/>Medications
+                        </div><div class="vr"></div>
+                        <div class='count-med'>
+                          02
+                        </div>
+                      </div>
+											
+											{/* <div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="#">
+													View Details
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div> */}
+										</div>
+									</div>
+									<div class="col-xl-3 col-md-6">
+										<div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                        <div class='title-diet'>
+                          Published <br/>Diet Plans
+                        </div><div class="vr"></div>
+                        <div class='count-diet'>
+                          02
+                        </div>
+                      </div>
+											
+											{/* <div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="/petmart">
+													View Details
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div> */}
+										</div>
+									</div>
+								</div>
+								<div class="row pt-3">
+									<div class="col-xl-6 col-md-6">
+										<div class="card bg-card text-white mb-4">
+											<div class="card-body card-style">
+												<div className="col">
+													<h5 className="pt-3">Posts</h5>
+												</div>
+												<div className="col-float-right">
+													<p className="lead">
+														<img
+															src={postmd}
+															className="rounded img-fluid icon-image"
+															alt="dog"
+														/>
+													</p>
+												</div>
+											</div>
+											<div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="\mdposts">
+													See More
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-md-6">
+										<div class="card bg-card text-white mb-4">
+											<div class="card-body card-style">
+												<div className="col">
+													<h5 className="pt-3">Advertisments</h5>
+												</div>
+												<div className="col-float-right">
+													<p className="lead">
+														<img
+															src={addmd}
+															className="rounded img-fluid icon-image"
+															alt="dog"
+														/>
+													</p>
+												</div>
+											</div>
+											<div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="\mdadvertisments">
+													See More
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row pt-3">
+									<div class="col-xl-6 col-md-6">
+										<div class="card bg-card text-white mb-3">
+											<div class="card-body">
+												<div className="col">
+													<h5 className="pt-3">Medications</h5>
+												</div>
+												<div className="col-float-right">
+													<p className="lead">
+														<img
+															src={drug}
+															className="rounded img-fluid icon-image"
+															alt="dog"
+														/>
+													</p>
+												</div>
+											</div>
+											<div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="mdmedications">
+													See More
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-md-6">
+										<div class="card bg-card text-white mb-4">
+											<div class="card-body card-style">
+												<div className="col">
+													<h5 className="pt-3">Diet Plans</h5>
+												</div>
+												<div className="col-float-right">
+													<p className="lead">
+														<img
+															src={diet}
+															className="rounded img-fluid icon-image"
+															alt="dog"
+														/>
+													</p>
+												</div>
+											</div>
 
-              {/* <div class="col-sm-6"> */}
-              {/* <div class="card card-tile">
-              <div class="card-body crd-rep">
-                <h3 class="card-title"><span class="badge badge-light">Pending Forum Posts</span></h3>
-                <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
-                </p>
-              </div>
-            </div> */}
-              {/* </div> */}
-              {/* <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body crd-rep">
-              <h3 class="card-title"><span class="badge badge-light">Pending Advertisments</span></h3>
-                <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
-                </p>
-              </div>
-            </div>
-          </div> */}
-              {/* </div><hr/> */}
-              {/* <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body crd-rep">
-              <h3 class="card-title"><span class="badge badge-light">Published Forum posts</span></h3>
-                <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body crd-rep">
-              <h3 class="card-title"><span class="badge badge-light">Published Advertisments</span></h3>
-                <p className="lead">
-                  <a href="#" className=""><img src= {bone} className="rounded float-start img-fluid click" alt="dog"/></a>        
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+											<div class="card-footer d-flex align-items-center justify-content-between">
+												<a class="small text-white stretched-link" href="\mddietplans">
+													See More
+												</a>
+												<div class="small text-white">
+													<i
+														class="fa fa-angle-double-right"
+														aria-hidden="true"
+													></i>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</main>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default moderatordashboard;
