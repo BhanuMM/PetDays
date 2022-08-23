@@ -54,6 +54,7 @@ import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
+import Viewadd from './pages/viewpetmartadd';
 
 
 
@@ -82,7 +83,8 @@ function App() {
           <Route path="/activate/:hash" element={<Activateaccount/>} />
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
           <Route path="/newadd" element={<Newadd/>} /> 
-          <Route path="/editpetmartadd" element={<Editadd/>} />  
+          <Route path="/editpetmartadd" element={<Editadd/>} /> 
+          <Route path="/viewpetmartadd" element={<Viewadd/>} />  
 
           <Route path="/petcategories" element={<Petcategories/>} />
           <Route path="/medications" element={<Medications/>} />

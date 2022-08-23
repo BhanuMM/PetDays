@@ -43,3 +43,30 @@
     margin: 6px 2px;
     border-radius: 12px;
   }
+
+  .petmart.forum-header{
+    display: flex;
+}
+
+.petmart.forum-search{
+    float: right;
+    padding-left: 300px;
+    
+}
+
+.petmart.forum-search input{
+    width: 300px;
+}
+.petmart-cardmargins{
+    margin-left: 100px !important;
+    margin-right: 10px !important;
+}
+.petmart-cardspace{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* .petmart .details{
+    padding-right:300px;
+} */
