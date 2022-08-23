@@ -11,7 +11,7 @@ import Admin from './pages/admin';
 import Dashboard from './pages/dashboard';
 import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
-import Seviceproviderdashboard from './pages/seviceproviderdashboard';
+import Serviceproviderdashboard from './pages/serviceproviderdashboard';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
@@ -27,8 +27,6 @@ import Forummylatestposts   from './pages/forummylatestposts';
 import Forumpendingposts   from './pages/forumpendingposts';
 import Forumverifiedposts   from './pages/forumverifiedposts';
 import Forumcommonissues   from './pages/forumcommonissues';
-import Footer from './components/footer';
-import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
 import Addnewmedication   from './pages/addnewmedication';
 import Addpetcategory   from './pages/addpetcategories';
@@ -78,7 +76,7 @@ function App() {
           <Route path="/admin" element={<Admin/>} /> 
           <Route path="/admindashboard" element={<Admindashboard/>} /> 
           <Route path="/dashboard" element={<Dashboard/>} /> 
-          <Route path="/seviceproviderdashboard" element={<Seviceproviderdashboard/>} /> 
+          <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 

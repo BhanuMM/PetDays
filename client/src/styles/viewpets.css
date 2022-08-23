@@ -135,6 +135,9 @@ th{
       text-align: center;
       color: #FFF;
   }
+  tbody td a{
+    text-decoration: none;
+  }
   @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
       float: none;

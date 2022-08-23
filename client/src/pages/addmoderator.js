@@ -8,7 +8,6 @@ function addmoderator() {
   return (
     <div class="container-fluid">
        <div className='row'>
-
         <Navbar />
        </div>
       <div className='row'>

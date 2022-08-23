@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
+import Footer from '../components/footerspecial';
 import '../styles/viewpets.css';
 function reportgeneration() {
   return (
@@ -59,6 +60,7 @@ function reportgeneration() {
           </div>
           </div>
         </div>
+
       </div>
   )
 }
