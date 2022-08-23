@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
@@ -11,6 +12,8 @@ import Admin from './pages/admin';
 import Dashboard from './pages/dashboard';
 import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
+import Mdposts from "./pages/mdposts";
+import Mdpendingposts from "./pages/mdpendingposts";
 import Serviceproviderdashboard from './pages/serviceproviderdashboard';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
@@ -58,15 +61,14 @@ import Viewadd from './pages/viewpetmartadd';
 
 
 
-
-
 // import Signinform from './components/signinform';
 
 function App() {
   return (
-    <div className="page-container">    
+    <div className="page-container">
       <div className="content-wrap">
         <section />
+
       <Router>
         <Routes>
           <Route path="/signin" element={<Signin/>} />
@@ -78,6 +80,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>} /> 
           <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
+          <Route path="/mdposts" element={<Mdposts />} />
+          <Route path="/mdpendingposts" element={<Mdpendingposts />} />
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
           <Route path="/userprofile" element={<Userprofile/>} /> 
@@ -122,7 +126,9 @@ function App() {
         </Routes>   
       </Router>          
       </div>
+
       </div>
+    </div>
   );
 }
 
