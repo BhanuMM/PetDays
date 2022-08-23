@@ -17,6 +17,8 @@ function addmoderator() {
           </div>
           <div className='col-10 g-5'>
     <h3 className='mb-5'> + Add New Moderator <hr/></h3>
+
+
     <form>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">First Name</label>
