@@ -30,7 +30,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>

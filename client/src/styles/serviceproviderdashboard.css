@@ -1,195 +1,211 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
-*{
-    font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+* {
+	font-family: "Poppins", sans-serif;
 }
-body{
-    background-color: rgb(250, 250, 250);
+body {
+	background-color: rgb(250, 250, 250);
 }
-#dashboard{
-    max-width: 80%;
-    margin: auto;
-    margin-top: 5%;
+#dashboard {
+	max-width: 90%;
+	margin: auto;
+	margin-top: 5%;
 }
-.small-nav{
-    background-color: #fff !important;
+.small-nav {
+	background-color: #fff !important;
 }
-#profile-info-card{
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 18%;
-  height: 500px;
-  text-align: center;
-  border-radius: 5px;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
+#profile-info-card {
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 18%;
+	height: 500px;
+	text-align: center;
+	border-radius: 5px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
 }
-#profile-info-card h1{
-    font-size: 26px;
+#profile-info-card h1 {
+	font-size: 26px;
 }
-#profile-info-card h2{
-    font-size: 18px;
+#profile-info-card h2 {
+	font-size: 18px;
 }
-#profile-info-card table{
-    border-collapse: collapse;
-    border: 0px solid black;
-    margin: auto;
-    width: 90%;
-    height: 35%;
-    font-size: 18px;
+#profile-info-card table {
+	border-collapse: collapse;
+	border: 0px solid black;
+	margin: auto;
+	width: 90%;
+	height: 35%;
+	font-size: 18px;
 }
-#profile-info-card .profile-upper{
-    height: 55%;
+#profile-info-card .profile-upper {
+	height: 55%;
 }
 
-#profile-info-card table .stats-desc{
-    width: 80%;
-    text-align: left;
+#profile-info-card table .stats-desc {
+	width: 80%;
+	text-align: left;
 }
-#profile-info-card table .stat{
-    width: 20%;
-    text-align: right;
-    color: rgb(0, 212, 35);
+#profile-info-card table .stat {
+	width: 20%;
+	text-align: right;
+	color: rgb(0, 212, 35);
 }
-.profile-pic img{
-    margin-top: 10px;
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
+.profile-pic img {
+	margin-top: 10px;
+	width: 120px;
+	height: 120px;
 }
 .dash-card{
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    color: black;
-    width: 350px;
-    height: 200px;
-    text-align: center;
-    border-radius: 5px;
-    float: left;
-    transition: 0.3s;
-    margin-left: 30px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	color: black;
+	width: 350px;
+	height: 200px;
+	text-align: center;
+	border-radius: 5px;
+	float: left;
+	transition: 0.3s;
+	margin-left: 30px;
 }
-.dash-card h3{
-    text-align: left;
-    padding-left: 30px;
-    font-size: 25px;
-    margin-bottom: 4px;
-    transition: 0.3s;
+.dash-card h3 {
+	text-align: left;
+	padding-left: 30px;
+	font-size: 25px;
+	margin-bottom: 4px;
+	transition: 0.3s;
 }
-.dash-card img{
-    width: 350px;
-    height: 200px;
-    float: right;
-    margin-right: 50px;
+.card-line .dash-card img {
+	width: 300px !important;
+	height: 150px;
 }
-.card-line{
-    width: 80%;
-    height: 210px;
-    overflow: hidden;
+.card-line {
+	width: 80%;
+	height: 300px;
+	overflow: hidden;
 }
-#order-table{
-    width: 75%;
-    float: right;
-    margin-right: 60px;
+#order-table {
+	width: 75%;
+	float: right;
+	margin-right: 60px;
 }
 
-#order-table table{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 100%;
-    border-collapse: collapse;
+#order-table table {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 100%;
+	border-collapse: collapse;
+}
+#order-table table tr {
+	height: 50px;
+}
+#order-table table thead tr {
+	background-color: rgba(196, 196, 196, 1);
+	border-radius: 5px;
+}
+#order-table table tbody tr {
+	background-color: rgb(255, 255, 255);
+	border-radius: 5px;
+}
+#order-table h1 {
+	font-size: 24px;
+}
+#order-table tr:nth-child(even) {
+	background-color: rgb(226, 230, 241);
+}
+#edit-profile-card {
+	background: #11101d;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 18%;
+	height: 300px;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+#edit-profile-card h1 {
+	color: rgb(0, 212, 35);
+	font-weight: normal;
+}
+.glyphicon {
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
 
+small {
+	display: block;
+	line-height: 2;
+	color: #999;
 }
-#order-table table tr{
-    height: 50px;
-}
-#order-table table thead tr{
-    background-color: rgba(196, 196, 196, 1);
-    border-radius: 5px;
-}
-#order-table table tbody tr{
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-}
-#order-table H1{
-    font-size: 24px;
-}
-#order-table tr:nth-child(even){background-color: rgb(226, 230, 241);}
-#edit-profile-card{
-    background: #11101d;;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 18%;
-    height: 300px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    float: left;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-  }
-  #edit-profile-card h1{
-      color: rgb(0, 212, 35);
-      font-weight: normal;
-  }
 @media screen and (max-width: 1800px) {
-    .dash-card{
-        width: 300px;
-        height: 180px;
-    }
-    .dash-card h1{
-        font-size: 40px;
-    }
-    .dash-card img{
-        width: 80px;
-        height: 80px;
-    }
-  }
+	.dash-card {
+		width: 300px;
+		height: 180px;
+	}
+	.dash-card h1 {
+		font-size: 40px;
+	}
+	.dash-card img {
+		width: 80px;
+		height: 80px;
+	}
+}
 @media screen and (max-width: 1555px) {
-    .dash-card{
-        width: 250px;
-        height: 150px;
-    }
-    .dash-card h1{
-        font-size: 36px;
-    }
-    .dash-card img{
-        width: 60px;
-        height: 60px;
-    }
-    .card-line{
-        width: 73%;
-    }
-    #profile-info-card{
-        width: 24%;
-    }
-  }
+	.dash-card {
+		width: 250px;
+		height: 150px;
+	}
+	.dash-card h1 {
+		font-size: 36px;
+	}
+	.dash-card img {
+		width: 60px;
+		height: 60px;
+	}
+	.card-line {
+		width: 73%;
+	}
+	#profile-info-card {
+		width: 24%;
+	}
+}
 
 @media screen and (max-width: 1454px) {
-    .dash-card{
-        width: 230px;
-        height: 150px;
-    }
+	.dash-card {
+		width: 230px;
+		height: 150px;
+	}
 }
 @media screen and (max-width: 1352px) {
-    .dash-card{
-        width: 220px;
-        height: 150px;
-    }
+	.dash-card {
+		width: 220px;
+		height: 150px;
+	}
 }
 @media screen and (max-width: 1280px) {
-    .dash-card{
-        width: 210px;
-        height: 150px;
-    }
+	.dash-card {
+		width: 210px;
+		height: 150px;
+	}
 }
-
-.invalidFeedback{
-    color: red;
-  }
 .profile-userbuttons{
-      
-  }
-.profile-userbuttons a{
-      text-decoration: none;
-      padding-left: 100px !important;
-  }
+	align-items: center !important;
+	padding-bottom: 20px;
+}
+.profile-userbuttons a {
+	text-decoration: none;
+	padding-left: 20px !important;
+}
+a {
+	text-decoration: none;
+}
+.profile-upper h2 {
+	color: #101e53;
+	padding-top: 10px;
+	font-weight: 700;
+}
+.card-line .bread-edit {
+	padding-left: 12px !important;
+}

@@ -38,9 +38,6 @@ function viewbreeds() {
                             <td>German shephard</td>
                             <td>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
-                            <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
-                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
-                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
                             </td>
                             </tr>
                             <tr>
@@ -48,9 +45,6 @@ function viewbreeds() {
                             <td>Lion shephard</td>
                             <td>
                             <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View breeds</button></a>
-                            <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
-                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
-                            <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
                             </td>
                             </tr>
                         </tbody>
