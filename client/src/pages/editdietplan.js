@@ -9,7 +9,7 @@ function editdietplan() {
   return (
     <div className='editdietplan'>
       <Navbar/>
-       <div className='row'>
+       <div className='row mt-5 pt-5'>
         <div className='col-2'></div>
         <div className='col-8'>
             <div class='title'>

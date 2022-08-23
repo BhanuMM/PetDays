@@ -9,7 +9,7 @@ function sidebar() {
                         <a class="nav-link active" href=""><i class="fa fa-home ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Home</span></a>
                     </li><hr />
                     <li class="nav-item">
-                        <a class="nav-link" href="\admindashboard"><i class="fa fa-tachometer ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Dashboard</span></a>
+                        <a class="nav-link" href="\dashboard"><i class="fa fa-tachometer ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Dashboard</span></a>
                     </li><hr />
                     <li class="nav-item">
                         <a class="nav-link" href="\petcategories"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet categories</span></a>

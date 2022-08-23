@@ -15,3 +15,14 @@
 .bg-card{
     background-color: #758755;
 }
+.card-style{
+    display: inline-block;
+}
+.icon-image{
+    height: 50px;
+    width: 50px;
+}
+.header-topic{
+    text-decoration: none;
+    
+}
