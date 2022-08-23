@@ -7,8 +7,8 @@ import '../../components/bottom_nav.dart';
 import 'component/add_pet_topbar.dart';
 
 
-class AddPetScreen extends StatelessWidget {
-  const AddPetScreen({Key? key}) : super(key: key);
+class AddPetScreenStep2 extends StatelessWidget {
+  const AddPetScreenStep2({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Background(
