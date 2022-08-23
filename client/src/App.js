@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
@@ -8,8 +9,12 @@ import Signup from './pages/register';
 import Sellersignup from './pages/sellerregister';
 import Admin from './pages/admin';
 
-import Sellersdashboard from './pages/sellersdashboard';
+import Dashboard from './pages/dashboard';
+import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
+import Mdposts from "./pages/mdposts";
+import Mdpendingposts from "./pages/mdpendingposts";
+import Serviceproviderdashboard from './pages/serviceproviderdashboard';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
@@ -25,8 +30,6 @@ import Forummylatestposts   from './pages/forummylatestposts';
 import Forumpendingposts   from './pages/forumpendingposts';
 import Forumverifiedposts   from './pages/forumverifiedposts';
 import Forumcommonissues   from './pages/forumcommonissues';
-import Footer from './components/footer';
-import Navbar from './components/navbar';
 import Addmoderator   from './pages/addmoderator';
 import Addnewmedication   from './pages/addnewmedication';
 import Addpetcategory   from './pages/addpetcategories';
@@ -54,8 +57,7 @@ import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
-
-
+import Viewadd from './pages/viewpetmartadd';
 
 
 
@@ -63,9 +65,10 @@ import Editadd from './pages/editpetmartadd';
 
 function App() {
   return (
-    <div className="page-container">    
+    <div className="page-container">
       <div className="content-wrap">
         <section />
+
       <Router>
         <Routes>
           <Route path="/signin" element={<Signin/>} />
@@ -73,8 +76,12 @@ function App() {
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
-          <Route path="/sellersdashboard" element={<Sellersdashboard/>} /> 
+          <Route path="/admindashboard" element={<Admindashboard/>} /> 
+          <Route path="/dashboard" element={<Dashboard/>} /> 
+          <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
+          <Route path="/mdposts" element={<Mdposts />} />
+          <Route path="/mdpendingposts" element={<Mdpendingposts />} />
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
           <Route path="/userprofile" element={<Userprofile/>} /> 
@@ -82,7 +89,8 @@ function App() {
           <Route path="/activate/:hash" element={<Activateaccount/>} />
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
           <Route path="/newadd" element={<Newadd/>} /> 
-          <Route path="/editpetmartadd" element={<Editadd/>} />  
+          <Route path="/editpetmartadd" element={<Editadd/>} /> 
+          <Route path="/viewpetmartadd" element={<Viewadd/>} />  
 
           <Route path="/petcategories" element={<Petcategories/>} />
           <Route path="/medications" element={<Medications/>} />
@@ -118,7 +126,9 @@ function App() {
         </Routes>   
       </Router>          
       </div>
+
       </div>
+    </div>
   );
 }
 

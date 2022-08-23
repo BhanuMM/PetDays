@@ -44,9 +44,6 @@ hr.h-color{
     padding: 15px 32px;
     text-align: center;
 }
-.side-color{
-    background-color: #B3CF99;
-}
 
 .form-class{
    padding-top: 50px;
@@ -67,7 +64,7 @@ hr.h-color{
     width: calc(100% / 4 - 50px);
     background: #63c44d;
     padding: 15px 14px;
-    border-radius: 0px;
+    border-radius: 50px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     height: 100px;
   }
@@ -78,7 +75,7 @@ hr.h-color{
     width: calc(100% / 4 - 50px);
     background: #28a6a8;
     padding: 15px 14px;
-    border-radius: 0px;
+    border-radius: 50px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     height: 100px;
   }
@@ -89,7 +86,7 @@ hr.h-color{
     width: calc(100% / 4 - 50px);
     background: #fec52d;
     padding: 15px 14px;
-    border-radius: 0px;
+    border-radius: 50px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     height: 100px;
   }
@@ -100,36 +97,42 @@ hr.h-color{
     width: calc(100% / 4 - 50px);
     background: #ca5e5a;
     padding: 15px 14px;
-    border-radius: 0px;
+    border-radius: 50px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     height: 100px;
   }
  .crd-rep{
     align-items: right;
     justify-content: center;
-     background-color: #d6ecc0;
+    background-color: #d6ecc0;
  }
  .ico-edited{
      color: rgb(255, 255, 255);
      font-size: 30px;
  }
- .card-img{
-     height: 100px;
-     width: 100px;
- }
- .card-btn{
-
-     height: 80px !important;
- }
- .crd-rep a{
-    padding-top: 25px;
- }
- .click{
-     height: 80px;
- }
  .badge-light{
-     color: #355764 !important;
+     color: #0f3923 !important;
      margin-left: 0px !important;
      margin-right: 150px;
      margin-top: 20px;
  }
+ .container-fluid .row .pt-5{
+    margin-top: 2px !important;
+ }
+
+ .mdposts .card-1{
+    height: 500px;
+ }
+
+.mdposts .mdposts-row{
+    display: flex;
+}
+
+.mdposts .mdposts-row .card-1{
+    float: left;
+}
+
+.mdposts .mdposts-row .card-2{
+    float: left;
+    width: 300px;
+}

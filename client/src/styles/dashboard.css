@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+.bg-card{
+    background-color: #758755;
+}
+.card-style{
+    display: inline-block;
+}
+.icon-image{
+    height: 50px;
+    width: 50px;
+}
+.header-topic{
+    text-decoration: none;
+    
+}
