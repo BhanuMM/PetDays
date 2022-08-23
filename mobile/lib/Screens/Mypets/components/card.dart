@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 
 
 import '../../../constants.dart';
+import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 
 class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return PetDashboard();
+            },
+          ),
+        );
+      },
       child: Container(
         width: 150,
         height: 200,
