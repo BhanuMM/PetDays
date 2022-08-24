@@ -14,11 +14,11 @@ function viewmoderators() {
 				</div>
 				<div class="col-10 user-table">
 					<div class="col-md-10 col-md-offset-1"><br/>
-                    <h1 class="mt-4">Medications | Medicines</h1><hr/>
+                    <h1 class="mt-4">Medications | Vitamins</h1><hr/>
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item">
-											<a href="#" className="header-topic">Moderator Dashboard / Medications / Medicines</a>
+											<a href="#" className="header-topic">Moderator Dashboard / Medications / Vitamins </a>
 										</li>
 									</ol>
 								</nav>
@@ -28,8 +28,7 @@ function viewmoderators() {
 									<div class="col col-xs-6">
                                     
 									<div class="col col-xs-6 text-right">
-									<a href="\mdaddmed" className="header-topic">
-										<button
+									<a href="\mdaddvitamin" className="header-topic"><button
 											type="button"
 											class="btn btn-sm btn-primary btn-create"
 										>
@@ -42,9 +41,9 @@ function viewmoderators() {
 								<table class="table table-striped table-bordered table-list responsive">
 									<thead>
 										<tr>
-											<th class="hidden-xs text-center">Medicine ID</th>
-											<th  class="hidden-xs text-center">Medicine Name</th>
-											<th  class="hidden-xs text-center">Description</th>
+											<th class="hidden-xs text-center">Vitamin ID</th>
+											<th  class="hidden-xs text-center">Vitamin Name</th>
+											<th  class="hidden-xs text-center">Descrption</th>
 											<th  class="hidden-xs text-center">
 												<em class="fa fa-cog"></em>
 											</th>
@@ -53,8 +52,10 @@ function viewmoderators() {
 									<tbody id="myTable">
 										<tr>
 											<td class="hidden-xs">1</td>
-											<td>Marbofloxacin</td>
-											<td>Antibiotic</td>
+											<td>myMp3</td>
+											<td>amart</td>
+											
+											
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -67,8 +68,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">2</td>
-											<td>Maropitant</td>
-											<td>Antiemetic</td>
+											<td>myMp3</td>
+											<td>amart</td>
+											
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -81,8 +83,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">3</td>
-											<td>Mavacoxib</td>
-											<td>Nonsteroidal anti-inflammatory drug (NSAID)</td>
+											<td>myMp3</td>
+											<td>amart</td>
+											
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -95,8 +98,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">4</td>
-											<td>Medetomidine</td>
-											<td>Surgical anesthetic and analgesic.</td>
+											<td>myMp3</td>
+											<td>amart</td>
+											
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -109,8 +113,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">5</td>
-											<td>Meloxicam</td>
-											<td>Nonsteroidal anti-inflammatory drug (NSAID)</td>
+											<td>myMp3</td>
+											<td>amart</td>
+											
 											
 											<td align="center">
 												<a class="btn btn-default">

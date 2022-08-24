@@ -27,19 +27,19 @@ function medications() {
 									</ol>
 								</nav>
           <div class="cards">
-            <div class="card">
+          <div class="card">
               <img class="card-image" src={dog} alt=""/>
               <div class="card-content">
                 <p>
                   <h4>
                     Medicines
                   </h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\mdsinglemed" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>
@@ -50,12 +50,12 @@ function medications() {
                 <h4>
                     Vaccines
                   </h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\mdsinglevacc" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>
@@ -66,12 +66,12 @@ function medications() {
                 <h4>
                     Vitamins
                   </h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" class="card-link">View Details</a>
+                  <a href="\mdsinglevitamin" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
             </div>

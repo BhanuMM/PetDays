@@ -78,6 +78,14 @@ import Mdnewpendingposts from './pages/mdnewpendingposts';
 import Mdnewverifyposts from './pages/mdnewverifyposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
+import Mdsinglevitamin from './pages/mdsinglevitamin';
+import Mdaddmed from './pages/mdaddmed';
+import Mdaddvacc from './pages/mdaddvacc';
+import Mddogdiet from './pages/mddogdiet';
+import Mdcatdiet from './pages/mdcatdiet';
+import Mdaddvitamin from './pages/mdaddvitamin';
+import Mdadddogdiet from './pages/mdadddogdiet';
+import Mdaddcatdiet from './pages/mdaddcatdiet';
 import Editservice from './pages/editpetservice';
 import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
@@ -175,7 +183,14 @@ function App() {
           <Route path="/Mdnewverifyposts" element={<Mdnewverifyposts/>}/>
           <Route path="/Mdsinglemed" element={<Mdsinglemed/>}/>
           <Route path="/Mdsinglevacc" element={<Mdsinglevacc/>}/>
-
+          <Route path="/Mdsinglevitamin" element={<Mdsinglevitamin/>}/>
+          <Route path="/Mdaddmed" element={<Mdaddmed/>}/>
+          <Route path="/Mdaddvacc" element={<Mdaddvacc/>}/>
+          <Route path="/Mdaddvitamin" element={<Mdaddvitamin/>}/>
+          <Route path="/Mddogdiet" element={<Mddogdiet/>}/>
+          <Route path="/Mdcatdiet" element={<Mdcatdiet/>}/>
+          <Route path="/Mdadddogdiet" element={<Mdadddogdiet/>}/>
+          <Route path="/Mdaddcatdiet" element={<Mdaddcatdiet/>}/>
           <Route path="/editservice" element={<Editservice/>}/>
 
 
