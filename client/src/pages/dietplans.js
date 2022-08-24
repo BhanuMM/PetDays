@@ -12,7 +12,7 @@ function dietplans() {
 		<div className='row'>
 		 <Navbar />
 		</div>
-	   <div className='row'>
+	   <div className='row pt-0 mt-5'>
 		 <div className="row flex-nowrap pt-5">
 		   <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
 			   <Sidebar />
@@ -25,12 +25,12 @@ function dietplans() {
 				   <h4>
 					 DOGS
 				   </h4>
-				   Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				   Diet plans that are suitable for the growth of the pet
 				 </p>
 			   </div>
 			   <div class="card-info">
 				 <div>
-				 <a href="\viewdietplans" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Category</button></a>
+				 <a href="\viewdietplans" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Plans</button></a>
 				 </div>
 			   </div>
 			 </div>
@@ -41,12 +41,12 @@ function dietplans() {
 				 <h4>
 					 CATS
 				   </h4>
-				   Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				   Diet plans that are suitable for the growth of the pet
 				 </p>
 			   </div>
 			   <div class="card-info">
 				 <div>
-				   <a href="\viewdietplans" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Category</button></a>
+				   <a href="\viewdietplans" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Plans</button></a>
 				 </div>
 			   </div>
 			 </div>
