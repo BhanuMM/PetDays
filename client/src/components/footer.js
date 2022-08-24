@@ -7,21 +7,21 @@ function footer() {
      <div className="container-fluid">
         <div className="row mx-auto">
           <div className="col-md-6 mt-5 pl-5">
-          <h5 className="text-uppercase footer-topics text-center fs-6">our services</h5>
+          <h5 className="text-uppercase footer-topics text-center fs-6 paratitle">our services</h5>
           <ul className="list-unstyled text-center ">
               <li>
-                <a href="#!" className="text-white ">Pet Diary</a>
+                <a href="registertype" className="text-black ">Register</a>
               </li>
               <li>
-                <a href="#!" className="text-white">Pet Talk</a>
+                <a href="forum" className="text-black">Pet Talk</a>
               </li>
               <li>
-                <a href="#!" className="text-white">Pet Mart</a>
+                <a href="petmart" className="text-black">Pet Mart</a>
               </li>
             </ul>
           </div>
           <div className="col-md-6 mt-5 pl-5">
-          <h5 className="text-uppercase footer-topics fs-6 text-left">About Us</h5>
+          <h5 className="text-uppercase footer-topics fs-6 text-left paratitle">About Us</h5>
           <ul className="list-unstyled text-left">
           <p className='para'>Pet Days is a web and mobile application that centralizes all the needs of a pet owner living in Sri Lanka. Pet Days provide the necessary health care details and help you keep track of all the
   medication, vaccines, and dietary needs of your pet.</p>

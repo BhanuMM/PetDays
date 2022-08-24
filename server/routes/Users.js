@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
   // if (uemail) res.json({ error: "Email is already registered" });
   if (uname) {res.json({ error: "Username is already taken" });}
   else{
-  await sendConfirmationEmail({hash: username})
+  await sendConfirmationEmail({hash: username , email:email})
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
@@ -39,7 +39,7 @@ router.post("/sellerregister", async (req, res) => {
   // if (uemail) res.json({ error: "Email is already registered" });
   if (uname) {res.json({ error: "Username is already taken" });}
   else{
-  await sendConfirmationEmail({hash: username})
+  await sendConfirmationEmail({hash: username , email:email})
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
