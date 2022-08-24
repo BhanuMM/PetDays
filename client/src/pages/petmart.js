@@ -27,10 +27,10 @@ function petmart() {
        <div class='forum-header mb-3 mt-3'>
           <div className='row'>
           
-          <div className='col-1'></div>
+          <div className='col-2'></div>
               <div className='col-3 ml-5'>
              
-              <div class='forum-search'>  
+              <div class='forum-search ml-5'>  
                       <div class="input-group rounded">
                       <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                       <span class="input-group-text border-0" id="search-addon">
@@ -39,7 +39,7 @@ function petmart() {
                     </div>
                   </div>
               </div>
-              <div className='col-5'></div>
+              <div className='col-4'></div>
               <div className='col-2'>
               <div class='forum-btn'>
                       <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
@@ -52,10 +52,10 @@ function petmart() {
 
           </div> 
        </div>
-      <div className='row'>
+   
         
         
-        <div className="row flex-nowrap pt-2">
+       
           <div class="cards mb-5">
             <div class="card">
               <img class="card-image" src={A1} alt=""/>
@@ -212,8 +212,8 @@ function petmart() {
               </div>
             </div>
           </div>
-          </div>
-        </div>
+         
+        
       </div>
       <Footer />
 

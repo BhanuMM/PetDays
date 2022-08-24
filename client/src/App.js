@@ -80,6 +80,7 @@ function App() {
         <Routes>
           <Route path="/signin" element={<Signin/>} />
           <Route path="/" element={<Index/>} />
+          <Route path="/index" element={<Index/>} />
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
