@@ -10,6 +10,7 @@
 .mybar{
     background-color: rgba(218, 218, 218, 0.887);
     margin-bottom: 20px;
+}
 
 .navbar.scrolled{
         background-color: #fff !important;
