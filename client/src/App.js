@@ -83,6 +83,7 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+import Approvad from './pages/approveadd';
 
 
 
@@ -120,6 +121,7 @@ function App() {
           <Route path="/mddietplandetails" element={<Mddietplandetails />} />
           <Route path="/rejected" element={<Reject />} />
           <Route path="/approved" element={<Approved />} />
+          <Route path="/approveadd" element={<Approvad />} />
 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
