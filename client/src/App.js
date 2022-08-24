@@ -61,6 +61,8 @@ import Viewmoderators from './pages/viewmoderators';
 import Viewbreeds from './pages/viewbreeds';
 import Viewmedications from './pages/viewmedications';
 import Viewdietplans from './pages/viewdietplans';
+import Viewvaccines from './pages/viewvaccines';
+import Viewvitamins   from './pages/viewvitamins';
 
 import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
@@ -165,6 +167,8 @@ function App() {
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
+          <Route path="/viewvitamins" element={<Viewvitamins/>}/>
+          <Route path="/viewvaccines" element={<Viewvaccines/>}/>
 
           <Route path="/dashcheckup" element={<Dashcheckup/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>

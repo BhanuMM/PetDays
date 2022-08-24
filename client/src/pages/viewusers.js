@@ -10,7 +10,7 @@ function viewmoderators() {
 			<div className="row">
 				<Navbar />
 			</div>
-			<div className="row flex-nowrap pt-5">
+			<div className="row flex-nowrap pt-5 mt-5">
 				<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 					<Sidebar />
 				</div>
@@ -43,7 +43,7 @@ function viewmoderators() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmoderators" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Service Providers</button></a>
+                  <a href="\viewsellers" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Sellers</button></a>
                 </div>
               </div>
             </div>
