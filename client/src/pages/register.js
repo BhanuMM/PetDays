@@ -102,7 +102,7 @@ function register() {
                                             */}
                             <label className="form-label">Email</label>
                             <div className="col">
-                              <ErrorMessage name="email" component="span" />
+                              <ErrorMessage name="email" className="registererror" component="span" />
                             </div>
                             <Field
                               className="form-control"
@@ -121,6 +121,7 @@ function register() {
                             <div className="row">
                               <ErrorMessage
                                 name="password"
+                                className="registererror"
                                 component="span"
                               />
                               <div className="col">
@@ -132,7 +133,7 @@ function register() {
                                   name="password"
                                 />
                               </div>
-                              <div id="passwordHelpBlock" class="form-text">
+                              <div id="passwordHelpBlock" class="form-text infotext">
                                 Your password must be 5-12 characters long, must
                                 contain Uppercase and Lowercase letters ,numbers
                                 and Special Case characters.
@@ -152,6 +153,7 @@ function register() {
                             <div className="row">
                               <ErrorMessage
                                 name="confirmpassword"
+                                className="registererror"
                                 component="span"
                               />
                               <div className="col">
@@ -199,6 +201,7 @@ function register() {
                         alt="dog"
                       />
                     </div>
+                   
                   </div>
                 </div>
               </div>

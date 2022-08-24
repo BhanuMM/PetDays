@@ -85,7 +85,7 @@ function login() {
                           <div class="form-outline mb-4">
                             <label className="form-label">Email</label>
                             <div className="col">
-                              <ErrorMessage name="email" component="span" />
+                              <ErrorMessage name="email" className="registererror" component="span" />
                             </div>
                             <Field
                               className="form-control"
@@ -100,7 +100,7 @@ function login() {
                             <label className="form-label">Password</label>
 
                             <div className="row">
-                              <ErrorMessage name="password" component="span" />
+                              <ErrorMessage name="password" className="registererror" component="span" />
                               <div className="col">
                                 <Field
                                   className="form-control"

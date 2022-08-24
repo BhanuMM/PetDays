@@ -30,7 +30,7 @@ function usertype() {
                                     </a>
                                 </div>
                                 <div className="col-md-6 col-lg-6 d-none d-md-block ">
-                                    <a href='/register'>
+                                    <a href='/sellersignup'>
                                         <div className="card usertype-cardsize mt-2  ml-5 pl-5" >
                                             <img src={Service} className="card-img-top usertype-imagesize mt-3  " alt="..."/>
                                             <div className="card-body">

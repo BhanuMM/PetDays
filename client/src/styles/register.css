@@ -35,10 +35,13 @@
      font-weight: 600;
  }
  
- .register.error{
+ .registererror{
     color: red;
+    font-size: 12px;
 }
-
+.infotext{
+    font-size: 12px;
+}
  .register.bgimage {
      background-image: 
      url(

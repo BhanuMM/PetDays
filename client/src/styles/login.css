@@ -48,6 +48,9 @@
     margin-left:80px !important;
     margin-right:80px!important;;
 }
-
+.registererror{
+    color: red;
+    font-size: 12px;
+}
 
 
