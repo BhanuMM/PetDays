@@ -1,20 +1,22 @@
 .names{
     font-size: 14px;
-    color: #0f3923;
+    color: #754a00;
     font-weight: 500;
 }
 
 .ico{
-    color: #0f3923;
+    color: #040504;
 }
-.sidebar{
+/* .sidebar{
     position: fixed;
     height: 100%;
-}
+} */
 
 .side-color{
-    background-color: #B3CF99;
-    height: 100%;
+   background-color: #dddddd;
+    height: auto;
+    /* padding-left: 35px; */
+    padding-bottom: 900px;
 }
 .nav-item{
     padding: 0px;

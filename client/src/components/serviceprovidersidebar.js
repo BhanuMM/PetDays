@@ -4,9 +4,9 @@ import '../styles/serviceprovidersidebar.css';
 
 function moderatorsidebar() {
   return (
-            <nav className='col sidebar' id='sidebar'>
+            <nav className='col sidebarbm ' >
                 <ul class="nav flex-column vertical-nav "><br/><br/>
-                <li class="nav-item">
+                <li class="nav-item text-center">
                 <div class="profile-pic">
 							<img
 								src="https://github.com/mdo.png"
@@ -15,20 +15,13 @@ function moderatorsidebar() {
 							/>
 
 						</div>
-                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">Thomas Perera<br/>www.dogfriends@gmail.com<br/>+9471 56 78 345</span></p>
+                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">Malith Perera<br/>malithp@gmail.com<br/>+9471 56 78 345</span></p>
                     </li>
-                    {/* <li class="nav-item">
-                      
-                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names"></span></p>
-                    </li> */}
-                   
-                    {/* <li class="nav-item">
-                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">www.dogfriends@gmail.com</span></p>
-                    </li> */}
 
                     <hr/>
+                    
                     <li class="nav-item">
-                        <a class="nav-link active" href="/petmart"><i class="fa fa-home ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Mart</span></a>
+                        <a class="nav-link active" href="/serviceproviderdashboard"><i class="fa fa-home ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Dasboard</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/serviceprovideralladds"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">All Ads</span></a>
@@ -44,8 +37,10 @@ function moderatorsidebar() {
                         <a class="nav-link" href="\Rejected"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Rejected Ads</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fa fa-user" aria-hidden="true"></i><span class="ms-1 d-none d-sm-inline names">Edit Profile</span></a>
-                    </li>
+
+<a class="nav-link" href="\Rejected"><i class="fa fa-user ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Edit Profile</span></a>
+</li>
+                   
                     
 
                     

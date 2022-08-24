@@ -85,6 +85,7 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+import Singlead from './pages/viewsinglead';
 
 
 
@@ -181,6 +182,7 @@ function App() {
           <Route path="/Mdsinglevacc" element={<Mdsinglevacc/>}/>
 
           <Route path="/editservice" element={<Editservice/>}/>
+          <Route path="/viewad" element={<Singlead/>}/>
 
 
         </Routes>   
