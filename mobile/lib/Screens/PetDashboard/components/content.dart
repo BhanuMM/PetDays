@@ -3,10 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../Dashboard/dashboard_screen.dart';
+import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
+import '../../ViewVaccination/View_Vaccinations_Screen.dart';
+import '../../PetDiary/Pet_DIary_Screen.dart';
+import '../../Reminders/Reminders_Screen.dart';
 
 
-class PetDashboardContent extends StatelessWidget {
-  const PetDashboardContent({
+class PetDiaryContent extends StatelessWidget {
+  const PetDiaryContent({
     Key? key,
   }) : super(key: key);
 
@@ -16,62 +20,45 @@ class PetDashboardContent extends StatelessWidget {
         child:Container(
           child:Column(
               children:[
-                Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Container(
-                      width: 350,
-                      height: 150,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                        color: kPrimaryColor,
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  "assets/images/pett.png",
-                                  height: 150,
-                                  width: 200,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-
-                            child: Column(
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(20,50,60,25),
-                                  child:Text("Rougers\nDiary",
-                                    style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-
-                              ],
-                            ),
-                          )
-
-
-                        ],
-                      ),
-                    )
-                ),
-                SizedBox(height: formPadding,),
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: 'Add Vaccination Details',ado: DashboardScreen(),img: "vaccine"),
+                      PetDashboardItemCard(label: 'Rougers Diary',ado: PetDiaryScreen(),img: "pett"),
                       Spacer(),
                     ]
                 ),
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: 'Reminders',ado: DashboardScreen(),img: "reminder"),
+                      PetDashboardItemCard(label: 'Vaccination Details',ado: ViewVaccinationsScreen(),img: "vaccine"),
+                      Spacer(),
+                    ]
+                ),
+                Row(
+                    children: [
+                      Spacer(),
+                      PetDashboardItemCard(label: 'Upcoming Reminders',ado: RemindersScreen(),img: "reminder"),
+                      Spacer(),
+                    ]
+                ),
+                Row(
+                    children: [
+                      Spacer(),
+                      PetDashboardItemCard(label: 'Add Medication Details',ado: DashboardScreen(),img: "medication"),
+                      Spacer(),
+                    ]
+                ),
+                Row(
+                    children: [
+                      Spacer(),
+                      PetDashboardItemCard(label: 'Growth Chart',ado: DashboardScreen(),img: "growth"),
+                      Spacer(),
+                    ]
+                ),
+                Row(
+                    children: [
+                      Spacer(),
+                      PetDashboardItemCard(label: 'Edit profile',ado: DashboardScreen(),img: "settings"),
                       Spacer(),
                     ]
                 ),

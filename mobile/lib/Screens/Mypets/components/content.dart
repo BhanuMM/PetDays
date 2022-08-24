@@ -36,9 +36,10 @@ class MyPetContent extends StatelessWidget {
               children: [
                 Spacer(),
                 ItemCard(),
-                Spacer(),
-                ItemCard(),
-                Spacer(),
+                Spacer(
+                  flex: 7,
+                ),
+
               ]
               ),
             ]
