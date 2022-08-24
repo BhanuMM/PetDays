@@ -208,3 +208,17 @@ a {
 .card-line .bread-edit {
 	padding-left: 12px !important;
 }
+.serviceproviderdashboard-pendingtextcolor{
+	color: red;
+}
+.serviceproviderdashboard-cancledtextcolor{
+	color: brown;
+
+}
+
+.serviceproviderdashboard-cardmargins{
+	margin-left: 10px;
+	margin-right: 10px;
+	/* margin-top: 10px; */
+
+}

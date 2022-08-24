@@ -15,14 +15,21 @@ function viewpetmartadd() {
             <div class='title  viewadd-hedder '>
               <div class='content'>
                 <div className='row'>
-                  <div className='col'>
+                  <div className='col-10'>
                   <h3 className=''>DOG FRIENDS </h3>
                     <p> 22 August 2022</p>
                   </div>
-                  <div className='col'>
+                  <div className='col-2'>
                     <div class='button text-end pt-3'>
-                      <a href='/petmart' type="submit" class=" pl-5 btn btn-success">Back To Petmart</a>
+                      <div className='row'>
+                        <div className='col-6'> <a href='/editservice' type="submit" class=" pl-5 btn btn-success">Edit</a></div>
+                        <div className='col-6'> <a href='/petmart' type="submit" class=" pl-5 btn btn-danger">Delete</a></div>
+                      </div>
+                     
+                     
+                     
                     </div>
+                    
                   </div>
                   <hr/>
                 </div>
