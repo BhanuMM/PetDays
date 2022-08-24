@@ -14,7 +14,7 @@ function mdadvertisments() {
       <div className='container'>
       <div className='container-fluid forum'>
         <div class="row g-0 ">
-          <div class="col-sm-6 col-md-8">
+          <div class="col-sm-6 col-md-8"><br/><br/>
             <div class='forum-header'>
               <div class='forum-btn'>
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
@@ -45,7 +45,7 @@ function mdadvertisments() {
                     <br/><br/><p class="font-italic text-success fs-7">Published 30 minutes ago</p>
                   </div>
                   <div class='comment'>
-                  <a href="" role="button" aria-pressed="true"><button type="submit" style={{width:"3cm"}} class="pl-5 btn btn-success">View Add</button></a>
+                  <a href="" role="button" aria-pressed="true"><button type="submit" style={{width:"3cm"}} class="pl-5 btn btn-success">View Ad</button></a>
                   </div>
                 </div>
             </div>

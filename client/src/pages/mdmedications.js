@@ -17,6 +17,15 @@ function medications() {
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
               <Moderatorsidebar />
           </div>
+          <div class="container-fluid px-4">
+          <h1 class="mt-4">Medications</h1><hr/>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item">
+											<a href="#" className="header-topic">Moderator Dashboard / Medications</a>
+										</li>
+									</ol>
+								</nav>
           <div class="cards">
             <div class="card">
               <img class="card-image" src={dog} alt=""/>
@@ -66,6 +75,7 @@ function medications() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
           </div>
         </div>

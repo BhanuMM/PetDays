@@ -3,13 +3,14 @@
 }
 
 .mdadvertisments .card-body .add-img{
-    float: right;
+    float: right ;
     width: 200px; 
     padding: 20px;
     padding-right: 40px;
     padding-top: 10px;
     
 }
+
 
 .mdadvertisments .card-body .add-img img{
     height: 100px;
@@ -23,8 +24,7 @@
 
 .card-body .content .comment{
     float: right;
-    padding-right: 200px;
-    
+    padding-right: 100px;
     
 }
 

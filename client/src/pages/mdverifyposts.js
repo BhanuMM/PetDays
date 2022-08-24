@@ -14,7 +14,7 @@ function mdverifyposts() {
       <div className='container'>
       <div className='container-fluid forum'>
         <div class="row g-0 ">
-          <div class="col-sm-6 col-md-8">
+          <div class="col-sm-6 col-md-8"><br/><br/>
             <div class='forum-header'>
               <div class='forum-btn'>
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'></link> 
