@@ -41,10 +41,12 @@ function mdpendingads() {
                                     <div class="content">
                                     <div>
                                         <p class="fw-semibold fs-7">My dog's Injury</p>
-                                        <p class="fw-normal text-secondary">Latest reply is from john 5 minutes ago.</p>
+                                        <p class="fw-normal text-secondary">Posted 3 minutes ago.</p>
                                     </div>  
                                     <div>
-                                        This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                                    
+                                    I have a Labrador 5 months old, although he is retriever but he doesn't retrieve the things.
+                                    He doesn't play fetch, sometimes he fetches the toy but does not give the toy to me.
                                     </div> 
                                     <div class='comment'><br/>
                                         <a href="" role="button" aria-pressed="true">  <button type="submit" style={{width:"3cm"}} class="pl-5 btn btn-success">Approve</button></a>
@@ -62,10 +64,13 @@ function mdpendingads() {
                                     <div class="content">
                                     <div>
                                         <p class="fw-semibold fs-7">My dog's Injury</p>
-                                        <p class="fw-normal text-secondary">Latest reply is from john 5 minutes ago.</p>
+                                        <p class="fw-normal text-secondary">Posted 3 minutes ago.</p>
                                     </div>  
                                     <div>
-                                        This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                                    
+                                   
+                                    I have a Labrador 5 months old, although he is retriever but he doesn't retrieve the things.
+                                    He doesn't play fetch, sometimes he fetches the toy but does not give the toy to me.
                                     </div> 
                                     <div class='comment'><br/>
                                         <a href="" role="button" aria-pressed="true">  <button type="submit" style={{width:"3cm"}} class="pl-5 btn btn-success">Approve</button></a>
@@ -73,7 +78,9 @@ function mdpendingads() {
                                     </div>
                                     </div>
                                 </div>
-                                </div><br/>
+                                </div>
+                                
+                                <br/>
                                 <div class="card border-secondary">
                                 <div class="card-body">
                                     <div class="prof-img">
@@ -81,11 +88,12 @@ function mdpendingads() {
                                     </div>
                                     <div class="content">
                                     <div>
-                                        <p class="fw-semibold fs-7">My dog's Injury</p>
-                                        <p class="fw-normal text-secondary">Latest reply is from john 5 minutes ago.</p>
+                                        <p class="fw-semibold fs-7">Can I feed my rotweiller a royal canin giant puppy</p>
+                                        <p class="fw-normal text-secondary">Posted 30 minutes ago.</p>
                                     </div>  
                                     <div>
-                                        This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                                    Can I feed my rotweiller a royal canin giant puppy. He is taking maxi these days
+I am unable to see growth in my rotweiller. He is currently eating royal canin maxi puppy. Can I feed him royal canin giant puppy as the royal canin rotweiller junior is out of the stock.
                                     </div> 
                                     <div class='comment'><br/>
                                         <a href="" role="button" aria-pressed="true">  <button type="submit" style={{width:"3cm"}} class="pl-5 btn btn-success">Approve</button></a>

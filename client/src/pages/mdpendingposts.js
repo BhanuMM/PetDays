@@ -26,16 +26,17 @@ function mdpendingposts() {
             <br/><br/>      
             <div class="card border-success">
             <div class="card-body">
-                <div class="prof-img-pending">
+                <div class="prof-img-pending ">
                   <img src={Profilepic}   className="col-6" alt="profilepic"/>
                 </div>
                 <div class="content">
                   <div>
                   <p class="font-italic text-success fs-7">John Fernando</p>
-                    <p class="fw-semibold fs-7">My dog's Injury</p>
+                    <p class="fw-semibold fs-7"> I have a Labrador 5 months old</p>
                   </div>  
                   <div>
-                    This is some text within a card body.This is some text within a card body.This is some text within a card body.
+                  I have a Labrador 5 months old, although he is retriever but he doesn't retrieve the things.
+                  He doesn't play fetch, sometimes he fetches the toy but does not give the toy to me.
                     <br/><p class="font-italic text-success fs-7">Posted 30 minutes ago</p>
                   </div>
                   <div class='comment'>

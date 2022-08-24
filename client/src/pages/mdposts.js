@@ -38,11 +38,13 @@ function mdposts() {
                 </div>
                 <div class="content">
                   <div>
-                    <p class="fw-semibold fs-7">My dog's Injury</p>
+                    <p class="fw-semibold fs-7"> I have a Labrador 5 months old</p>
                     <p class="font-italic text-success fs-7">Latest reply is from john 5 minutes ago.</p>
                   </div>  
                   <div>
-                    This is some text within a card body.This is some text within a card body.This is some text within.
+                   
+                  I have a Labrador 5 months old, although he is retriever but he doesn't retrieve the things.
+                  He doesn't play fetch, sometimes he fetches the toy but does not give the toy to me.
                   </div>
                   <div class='comment'>
                     <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">25 Comments</a></p>
