@@ -67,6 +67,7 @@ import Addnewadd from './pages/addpetmartadd';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
+import Addservices from './pages/addservices';
 
 
 
@@ -142,6 +143,7 @@ function App() {
           <Route path="/viewmedications" element={<Viewmedications/>}/>
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
+          <Route path="/addservices" element={<Addservices/>}/>
 
         </Routes>   
       </Router>          

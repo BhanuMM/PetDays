@@ -18,14 +18,14 @@ function viewmoderators() {
 							<div class="panel-heading">
 								<div class="row">
 									<div class="col col-xs-6">
-										<h3 class="panel-title">Panel Heading</h3>
+										<h3 class="panel-title">Moderators</h3>
 									</div>
 									<div class="col col-xs-6 text-right">
 										<button
 											type="button"
 											class="btn btn-sm btn-primary btn-create"
 										>
-											Create New
+											Add New
 										</button>
 									</div>
 								</div>
@@ -34,13 +34,12 @@ function viewmoderators() {
 								<table class="table table-striped table-bordered table-list responsive">
 									<thead>
 										<tr>
-											<th class="hidden-xs">ID</th>
-											<th>File Name</th>
-											<th>Artist</th>
-											<th>Composer</th>
-											<th>Publisher</th>
-											<th>Genre</th>
-											<th>Bitrate</th>
+											<th class="hidden-xs">USER ID</th>
+											<th>User Name</th>
+											<th>Brand Name</th>
+											<th>Service type</th>
+											<th>Published Posts</th>
+											<th>Status</th>
 											<th>
 												<em class="fa fa-cog"></em>
 											</th>
@@ -53,7 +52,6 @@ function viewmoderators() {
 											<td>amart</td>
 											<td>am compo</td>
 											<td>ampub</td>
-											<td>amgen</td>
 											<td>ambit</td>
 											<td align="center">
 												<a class="btn btn-default">
@@ -70,7 +68,6 @@ function viewmoderators() {
 											<td>amart</td>
 											<td>am compo</td>
 											<td>ampub</td>
-											<td>amgen</td>
 											<td>ambit</td>
 											<td align="center">
 												<a class="btn btn-default">
@@ -87,7 +84,6 @@ function viewmoderators() {
 											<td>amart</td>
 											<td>am compo</td>
 											<td>ampub</td>
-											<td>amgen</td>
 											<td>ambit</td>
 											<td align="center">
 												<a class="btn btn-default">
@@ -104,7 +100,6 @@ function viewmoderators() {
 											<td>amart</td>
 											<td>am compo</td>
 											<td>ampub</td>
-											<td>amgen</td>
 											<td>ambit</td>
 											<td align="center">
 												<a class="btn btn-default">
@@ -121,7 +116,6 @@ function viewmoderators() {
 											<td>amart</td>
 											<td>am compo</td>
 											<td>ampub</td>
-											<td>amgen</td>
 											<td>ambit</td>
 											<td align="center">
 												<a class="btn btn-default">

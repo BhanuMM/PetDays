@@ -36,8 +36,8 @@ function viewmoderators() {
               <div class="card-content">
                 <p>
                 <h4>
-                    Sevice providers
-                  </h4>
+                    Sellers
+                </h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>

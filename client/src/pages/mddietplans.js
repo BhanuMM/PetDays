@@ -23,7 +23,7 @@ function dietplans() {
               <div class="card-content">
                 <p>
                   <h4>
-                    DOGS
+                    Diet Plan-1
                   </h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
@@ -39,7 +39,7 @@ function dietplans() {
               <div class="card-content">
                 <p>
                 <h4>
-                    CATS
+                Diet Plan-2
                   </h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>

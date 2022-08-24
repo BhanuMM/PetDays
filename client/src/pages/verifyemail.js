@@ -26,7 +26,7 @@ function verifyemail() {
                                         <p className="pb-lg-2 text-center" letter-spacing="#393f81;">Please confirm that you want to use this as your email adress</p>
 
                                         <div className="pt-1 mb-5 mt-3 text-center">
-                                            <button className ="verify.loginbuttonsize btn btn-success mb-5 "  type="button">Verify E-mail</button>
+                                        <a  href="signin"><button className ="verify.loginbuttonsize btn btn-success mb-5 "  type="button">Login</button></a>
                                         </div>
 
                                        
