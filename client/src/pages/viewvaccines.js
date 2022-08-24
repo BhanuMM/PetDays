@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
 function viewvaccines() {
-  return (
-    <div class="container-fluid viewuser">
+	return (
+		<div class="container-fluid viewuser">
 			<div className="row">
 				<Navbar />
 			</div>
@@ -16,13 +16,13 @@ function viewvaccines() {
 				<div class="col-10 user-table">
 					<h3 className=" mt-5">
 						{" "}
-						+Manage Medications <hr />
+						+ Manage Vaccines <hr />
 					</h3>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="#" className="header-topic">
-									Admin Dashboard / Medicines
+									Admin Dashboard / Medication / Vaccines
 								</a>
 							</li>
 						</ol>
@@ -37,12 +37,10 @@ function viewvaccines() {
 									<table class="table table-striped table-bordered table-list responsive">
 										<thead>
 											<tr>
-												<th class="hidden-xs text-center">Med ID</th>
-												<th class="hidden-xs text-center">Medicine Name</th>
+												<th class="hidden-xs text-center">Vaccine ID</th>
+												<th class="hidden-xs text-center">Vaccine Name</th>
 												<th class="hidden-xs text-center">Discription</th>
-												<th class="hidden-xs text-center">
-													<em class="fa fa-cog"></em>
-												</th>
+												<th class="hidden-xs text-center">Next Iteration</th>
 											</tr>
 										</thead>
 										<tbody id="myTable">
@@ -50,51 +48,31 @@ function viewvaccines() {
 												<td class="hidden-xs">1</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
+                                                <td>amart</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">2</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
+                                                <td>amart</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">3</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
+                                                <td>amart</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">4</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
+                                                <td>amart</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">5</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
+                                                <td>amart</td>
 											</tr>
 										</tbody>
 									</table>
@@ -105,7 +83,7 @@ function viewvaccines() {
 				</div>
 			</div>
 		</div>
-  )
+	);
 }
 
-export default viewvaccines
+export default viewvaccines;

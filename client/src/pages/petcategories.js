@@ -58,7 +58,7 @@ function petcategories() {
 								</div>
 								<div class="card-info">
 									<div className="d-flex">
-										<a href="\viewbreeds" role="button" aria-pressed="true">
+										<a href="\viewbreedscats" role="button" aria-pressed="true">
 											{" "}
 											<button type="submit" class="btn-res">
 												View Breeds
