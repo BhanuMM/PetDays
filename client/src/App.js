@@ -68,6 +68,14 @@ import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
+import Editservice from './pages/editpetservice';
+import Allads from './pages/serviceprovideralladds';
+import Pending from './pages/pendingads';
+import Reject from './pages/rejected';
+import Approved from './pages/appproved';
+
+
+
 
 
 
@@ -101,6 +109,8 @@ function App() {
           <Route path="/mdmedicationdetails" element={<Mdmedicationdetails />} />
           <Route path="/mddietplans" element={<Mddietplans />} />
           <Route path="/mddietplandetails" element={<Mddietplandetails />} />
+          <Route path="/rejected" element={<Reject />} />
+          <Route path="/approved" element={<Approved />} />
 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
@@ -111,6 +121,8 @@ function App() {
           <Route path="/newadd" element={<Newadd/>} /> 
           <Route path="/editpetmartadd" element={<Editadd/>} /> 
           <Route path="/viewpetmartadd" element={<Viewadd/>} />  
+          <Route path="/serviceprovideralladds" element={<Allads/>} /> 
+          <Route path="/pendingads" element={<Pending/>} />  
 
           <Route path="/petcategories" element={<Petcategories/>} />
           <Route path="/medications" element={<Medications/>} />
@@ -144,6 +156,7 @@ function App() {
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
+          <Route path="/editservice" element={<Editservice/>}/>
 
         </Routes>   
       </Router>          
