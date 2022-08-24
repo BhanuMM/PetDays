@@ -44,17 +44,6 @@ function moderatordashboard() {
                           02
                         </div>
                       </div>
-											{/* <div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
-													View Details
-												</a>
-												<div class="small text-white">
-													<i
-														class="fa fa-angle-double-right"
-														aria-hidden="true"
-													></i>
-												</div>
-											</div> */}
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
@@ -68,17 +57,7 @@ function moderatordashboard() {
                         </div>
                       </div>
 											
-											{/* <div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
-													View Details
-												</a>
-												<div class="small text-white">
-													<i
-														class="fa fa-angle-double-right"
-														aria-hidden="true"
-													></i>
-												</div>
-											</div> */}
+
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
@@ -91,18 +70,7 @@ function moderatordashboard() {
                           02
                         </div>
                       </div>
-											
-											{/* <div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
-													View Details
-												</a>
-												<div class="small text-white">
-													<i
-														class="fa fa-angle-double-right"
-														aria-hidden="true"
-													></i>
-												</div>
-											</div> */}
+
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
@@ -115,18 +83,7 @@ function moderatordashboard() {
                           02
                         </div>
                       </div>
-											
-											{/* <div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="/petmart">
-													View Details
-												</a>
-												<div class="small text-white">
-													<i
-														class="fa fa-angle-double-right"
-														aria-hidden="true"
-													></i>
-												</div>
-											</div> */}
+
 										</div>
 									</div>
 								</div>
@@ -148,8 +105,8 @@ function moderatordashboard() {
 												</div>
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="\mdposts">
-													See More
+												<a class="small text-white stretched-link" href="\mdpostsection">
+													View More
 												</a>
 												<div class="small text-white">
 													<i
@@ -177,8 +134,8 @@ function moderatordashboard() {
 												</div>
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="\mdadvertisments">
-													See More
+												<a class="small text-white stretched-link" href="\mdadssection">
+												View More
 												</a>
 												<div class="small text-white">
 													<i
@@ -209,7 +166,7 @@ function moderatordashboard() {
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
 												<a class="small text-white stretched-link" href="mdmedications">
-													See More
+												View More
 												</a>
 												<div class="small text-white">
 													<i
@@ -239,7 +196,7 @@ function moderatordashboard() {
 
 											<div class="card-footer d-flex align-items-center justify-content-between">
 												<a class="small text-white stretched-link" href="\mddietplans">
-													See More
+												View More
 												</a>
 												<div class="small text-white">
 													<i

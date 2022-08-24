@@ -68,6 +68,15 @@ import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
+import Dashcheckup from './pages/dashcheckup';
+import Mdpendingads from './pages/mdpendingads';
+import Mdverifyads from './pages/mdverifyads';
+import Mdadssection from './pages/mdadssection';
+import Mdpostsection from './pages/mdpostsection';
+import Mdnewpendingposts from './pages/mdnewpendingposts';
+import Mdnewverifyposts from './pages/mdnewverifyposts';
+import Mdsinglemed from './pages/mdsinglemed';
+import Mdsinglevacc from './pages/mdsinglevacc';
 
 
 
@@ -144,6 +153,15 @@ function App() {
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
+          <Route path="/dashcheckup" element={<Dashcheckup/>}/>
+          <Route path="/mdpendingads" element={<Mdpendingads/>}/>
+          <Route path="/mdverifyads" element={<Mdverifyads/>}/>
+          <Route path="/Mdadssection" element={<Mdadssection/>}/>
+          <Route path="/Mdpostsection" element={<Mdpostsection/>}/>
+          <Route path="/Mdnewpendingposts" element={<Mdnewpendingposts/>}/>
+          <Route path="/Mdnewverifyposts" element={<Mdnewverifyposts/>}/>
+          <Route path="/Mdsinglemed" element={<Mdsinglemed/>}/>
+          <Route path="/Mdsinglevacc" element={<Mdsinglevacc/>}/>
 
         </Routes>   
       </Router>          
