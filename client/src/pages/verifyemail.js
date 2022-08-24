@@ -14,8 +14,8 @@ function verifyemail() {
                         <div className="card verify-cardsize flex-center verify-cardmargins" border-radius="2rem; ">
                             <div className="row g-0">
                                
-                                <div className="col-md-6 col-lg-12 d-flex align-items-center ">
-                                    <div className="card-body p-4 p-lg-5 text-black text-center mt-3 ml-5 mr-3 pr-3">
+                                <div className="col-md-6 col-lg-12 d-flex align-items-center p-5  ">
+                                    <div className="card-body text-black text-center ml-2 ">
 
                                         <form>
 

@@ -84,7 +84,7 @@ function petmart() {
                   <h4>
                     WALK
                   </h4>
-                  <p><i class="fa fa-map-marker" aria-hidden="true"></i> Jaf,Sri Lanka</p>
+                  <p><i class="fa fa-map-marker" aria-hidden="true"></i> Jaffna,Sri Lanka</p>
                   Dog Walking Service.<br/>
                   Walk with us....
                 </p>

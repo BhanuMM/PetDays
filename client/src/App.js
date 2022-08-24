@@ -13,6 +13,14 @@ import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
 import Mdposts from "./pages/mdposts";
 import Mdpendingposts from "./pages/mdpendingposts";
+import Mdverifyposts from "./pages/mdverifyposts";
+import Mdadvertisments from "./pages/mdadvertisments";
+import Mdpendingadvertisments from "./pages/mdpendingadvertisments";
+import Mdverifyadvertisments from "./pages/mdverifyadvertisments";
+import Mdmedications from "./pages/mdmedications";
+import Mdmedicationdetails from "./pages/mdmedicationdetails";
+import Mddietplans from "./pages/mddietplans";
+import Mddietplandetails from "./pages/mddietplandetails";
 import Serviceproviderdashboard from './pages/serviceproviderdashboard';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
@@ -80,6 +88,14 @@ function App() {
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
           <Route path="/mdpendingposts" element={<Mdpendingposts />} />
+          <Route path="/mdverifyposts" element={<Mdverifyposts />} />
+          <Route path="/mdadvertisments" element={<Mdadvertisments />} />
+          <Route path="/mdpendingadvertisments" element={<Mdpendingadvertisments />} />
+          <Route path="/mdverifyadvertisments" element={<Mdverifyadvertisments />} />
+          <Route path="/mdmedications" element={<Mdmedications />} />
+          <Route path="/mdmedicationdetails" element={<Mdmedicationdetails />} />
+          <Route path="/mddietplans" element={<Mddietplans />} />
+          <Route path="/mddietplandetails" element={<Mddietplandetails />} />
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
           <Route path="/userprofile" element={<Userprofile/>} /> 
@@ -126,6 +142,7 @@ function App() {
       </div>
 
       </div>
+
   );
 }
 
