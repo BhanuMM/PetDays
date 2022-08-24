@@ -114,8 +114,8 @@ function index() {
                   role="button"
                 >
                   <div class="button-1">
-                    <button type="submit" class=" pl-5 btn btn-warning">
-                      Pet Mart
+                    <button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset">
+                      Visit Pet Mart
                     </button>
                   </div>
                 </a>
@@ -156,9 +156,9 @@ function index() {
                   padding: "10px",
                 }}
               /> */}
-              <div class="button-1 pb-5">
-                <button type="submit" class=" pl-5 btn btn-warning">
-                  Pet Talk
+              <div class="button-1 pb-5 ">
+                <button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset ">
+                 Visit Pet Talk
                 </button>
               </div>
             </div>
@@ -200,7 +200,7 @@ function index() {
         </p>
         <p class="display-6 fw-bolder">Register as a Service Provider</p>
         <center>
-          <button type="submit" class="btn btn-warning reg-btn">
+          <button type="submit" class="btn btn-warning reg-btn index-mainbuttonset">
             Register
           </button>
         </center>

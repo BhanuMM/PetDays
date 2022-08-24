@@ -1,38 +1,44 @@
 import React from 'react'
-import '../styles/verifyemail.css';
-import Bgimage from '../images/bkimage.jpg';
+import Forgot from '../images/forgot.png';
+import '../styles/forgorpasssword.css';
+import '../styles/usertype.css';
+import Bgimage from "../images/bkimage.jpg";
+import Service from '../images/user 4-01.jpg';
+import User from '../images/user 6-01.jpg';
 
 function usertype() {
   return (
-    <div className='Verifyemail' style={{ 
+    <div className='Forgotpassword' style={{ 
         backgroundImage:`url(${Bgimage})`  
       }}>
-       <section className="vh-100 ">
+        <section className="vh-100 ">
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10 ">
-                        <div className="card verify-cardsize flex-center verify-cardmargins" border-radius="2rem; ">
-                            <div className="row g-0">
-                               
-                                <div className="col-md-6 col-lg-12 d-flex align-items-center ">
-                                    <div className="card-body text-center ">
-
-                                    <div className="row text-center ">
-
-                                        
-                                        {/* <p className="pb-lg-2 text-center" letter-spacing="#393f81;">P</p> */}
-                                        <h3 className=" login.caption" >Are you a</h3>
-                                        
-
-                                         <div className="pt-1 mb-4 mt-3 text-center">
-                                        <a href="signup" color="#393f81;"> <button className ="verify.loginbuttonsize btn btn-success "  type="button">USER</button></a>
+                        <div className="card usertype-largecardsize flex-center forgot-cardmargins" border-radius="2rem; ">
+                            <div className="row g-0 text-center">
+                                <h3 className='pt-4 ml-5 pl-5'>  Are you a?</h3>
+                                <div className="col-md-6 col-lg-6 d-none d-md-block ">
+                                    <a href='/register'>
+                                        <div className="card usertype-cardsize mt-3  ml-5 pl-5" >
+                                            <img src={User} className="card-img-top usertype-imagesize mt-3 " alt="..."/>
+                                            <div className="card-body">
+                                                <h5 className=" usertype-hedder ">Pet Owner</h5>
+                                                
+                                            </div>
                                         </div>
-                                        <div className="pt-1 mb-4 mt-3 text-center">
-                                        <a href="sellersignup" color="#393f81;"> <button className ="verify.loginbuttonsize btn btn-success "  type="button">Service</button></a>
+                                    </a>
+                                </div>
+                                <div className="col-md-6 col-lg-6 d-none d-md-block ">
+                                    <a href='/register'>
+                                        <div className="card usertype-cardsize mt-2  ml-5 pl-5" >
+                                            <img src={Service} className="card-img-top usertype-imagesize mt-3  " alt="..."/>
+                                            <div className="card-body">
+                                                <h5 className=" usertype-hedder ">Service Provider</h5>
+                                                
+                                            </div>
                                         </div>
-</div>
-                                       
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
