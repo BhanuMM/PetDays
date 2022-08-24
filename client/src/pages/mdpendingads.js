@@ -27,9 +27,9 @@ function mdpendingads() {
 					</div>
 					<div className="col-10"><br/><br/><br/><br/>
                     <div className='container'><br/><br/><br/><br/>
-                        <div className='container-fluid forum'><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <div className='container-fluid forum'><br/><br/>
                             <div class="row g-0 ">
-                            <div class="col-sm-6 col-md-12"><br/><br/><br/><br/><br/><br/>
+                            <div class="col-sm-6 col-md-12">
                             <h1 class="mt-4">Pending Advertisements</h1><hr/>
                                 <div class='forum-header'><br/>
                                 

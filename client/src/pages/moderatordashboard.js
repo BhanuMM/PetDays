@@ -17,7 +17,7 @@ function moderatordashboard() {
 			<div className="row">
 				<Navbar />
 			</div>
-			<div className="row ">
+			<div className="row mt-5">
 				<div className="row flex-nowrap pt-5">
 					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 						<Moderatorsidebar />
@@ -35,25 +35,25 @@ function moderatordashboard() {
 								</nav>
 								<div class="row">
 									<div class="col-xl-3 col-md-6">
-										<div class="card bg-primary text-white mb-4">
+										<div class="card bg-primary text-black mb-4">
 											<div class="card-body">
                         <div class='title'>
                             Verified <br/>Posts
                         </div><div class="vr"></div>
                         <div class='count'>
-                          02
+                          67
                         </div>
                       </div>
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
-										<div class="card bg-warning text-white mb-4">
+										<div class="card bg-info text-black mb-4">
                     <div class="card-body">
                         <div class='title'>
                             Verified<br/>Ads
                         </div><div class="vr"></div>
                         <div class='count'>
-                          02
+                          56
                         </div>
                       </div>
 											
@@ -61,26 +61,26 @@ function moderatordashboard() {
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
-										<div class="card bg-success text-white mb-4">
+										<div class="card bg-success text-black mb-4">
                     <div class="card-body">
                         <div class='title-med'>
                           Published <br/>Medications
                         </div><div class="vr"></div>
                         <div class='count-med'>
-                          02
+                          34
                         </div>
                       </div>
 
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
-										<div class="card bg-danger text-white mb-4">
+										<div class="card bg-danger text-black mb-4">
                     <div class="card-body">
                         <div class='title-diet'>
                           Published <br/>Diet Plans
                         </div><div class="vr"></div>
                         <div class='count-diet'>
-                          02
+                          12
                         </div>
                       </div>
 

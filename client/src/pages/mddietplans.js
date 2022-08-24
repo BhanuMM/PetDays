@@ -14,11 +14,12 @@ function medications() {
        <div className='row'>
         <Navbar />
        </div>
-      <div className='row'>
+      <div className='row mt-5'>
         <div className="row flex-nowrap pt-5">
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
               <Moderatorsidebar />
           </div>
+
           <div class="container-fluid px-4"><br/>
           <h1 class="mt-4">Diet Plans</h1><hr/>
 								<nav aria-label="breadcrumb">
@@ -28,6 +29,7 @@ function medications() {
 										</li>
 									</ol>
 								</nav>
+
           <div class="cards">
           <div class="card">
               <img class="card-image" src={dogD} alt=""/>
