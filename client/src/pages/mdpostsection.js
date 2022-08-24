@@ -41,7 +41,7 @@ function moderatordashboard() {
                                                     Pending<br/>Posts
                                                 </div><div class="vr"></div>
                                                 <div class='count'>
-                                                02
+                                                03
                                                 </div>
                                             </div></a>
 											{/* <div class="card-footer d-flex align-items-center justify-content-between">
@@ -67,7 +67,7 @@ function moderatordashboard() {
                             Verified<br/>Posts
                         </div><div class="vr"></div>
                         <div class='count'>
-                          02
+                          03
                         </div>
                       </div></a>
 											

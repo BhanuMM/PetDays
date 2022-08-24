@@ -12,6 +12,8 @@ import cat from "../images/cat-01.png";
 import diet from "../images/health.png";
 import postmd from "../images/postsmd.png";
 import addmd from "../images/addmd.png";
+import A3 from '../images/a3.jpg';
+import A2 from '../images/a2.jpg';
 
 function mdpendingads() {
 	return (
@@ -37,8 +39,8 @@ function mdpendingads() {
                                 </div>
                                 
                                 </div>
-                                <br/><br/>      
-                                <div class="card border-secondary">
+                                {/* <br/><br/>       */}
+                                {/* <div class="card border-secondary">
                                 <div class="card-body">
                                     <div class="prof-img">
                                     <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -55,8 +57,8 @@ function mdpendingads() {
                                     </div>
                                 </div>
                                 </div>
-                                <br/>
-                                <div class="card border-secondary">
+                                <br/> */}
+                                {/* <div class="card border-secondary">
                                 <div class="card-body">
                                     <div class="prof-img">
                                     <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -72,8 +74,8 @@ function mdpendingads() {
                                     
                                     </div>
                                 </div>
-                                </div><br/>
-                                <div class="card border-secondary">
+                                </div><br/> */}
+                                {/* <div class="card border-secondary">
                                 <div class="card-body">
                                     <div class="prof-img">
                                     <img src={Profilepic}   className="col-6" alt="profilepic"/>
@@ -92,7 +94,52 @@ function mdpendingads() {
                                 </div><br/> 
                                 <br/> 
                                 
-                                <br/>
+                                <br/> */}
+                                     <div class="cards mb-5">
+                
+           
+                <div class="card">
+                  <img class="card-image" src={A3} alt=""/>
+                  <div class="card-content">
+                  <p>
+                    <p> 21 August 2022</p>
+                      <h4>
+                      DOG FRIENDS
+                      </h4>
+                      <p className=""><i class="fa fa-circle" aria-hidden="true"></i> Approved</p>
+                      Pet Grooming Service.<br/>
+                      Keep your dog cool....
+                    </p>
+                  </div>
+                  <div class="card-info">
+                    <div>
+                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-image" src={A2} alt=""/>
+                  <div class="card-content">
+                  <p>
+                    <p> 20 August 2022</p>
+                      <h4>
+                      DOG FRIENDS
+                      </h4>
+                      <p className=""><i class="fa fa-circle" aria-hidden="true"></i> Approved</p>
+                      Pet Training Service.<br/>
+                      Keep your dog cool....
+                    </p>
+                  </div>
+                  <div class="card-info">
+                    <div>
+                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+              
+              
+                      
+                    </div>
                             </div>
                             
                             </div>     
