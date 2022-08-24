@@ -6,7 +6,7 @@ import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
 import medical from "../images/medical-01.png";
 import man from "../images/man-01.png";
-import cat from "../images/cat-01.png";
+import men from "../images/user 4-01.jpg";
 import food from "../images/foods-06.jpg";
 function dashboard() {
 	return (
@@ -35,7 +35,7 @@ function dashboard() {
 										<div class="card bg-primary text-white mb-4">
 											<div class="card-body">Service Providers</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\viewusers">
 													View Details
 												</a>
 												<div class="small text-white">
@@ -51,7 +51,7 @@ function dashboard() {
 										<div class="card bg-warning text-white mb-4">
 											<div class="card-body">Registered Moderators</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\viewusers">
 													View Details
 												</a>
 												<div class="small text-white">
@@ -67,7 +67,7 @@ function dashboard() {
 										<div class="card bg-success text-white mb-4">
 											<div class="card-body">Reports</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\reportgeneration">
 													View Details
 												</a>
 												<div class="small text-white">
@@ -114,7 +114,7 @@ function dashboard() {
 												</div>
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\petcategories">
 													See More
 												</a>
 												<div class="small text-white">
@@ -143,7 +143,7 @@ function dashboard() {
 												</div>
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\medications">
 													See More
 												</a>
 												<div class="small text-white">
@@ -174,7 +174,7 @@ function dashboard() {
 												</div>
 											</div>
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\dietplans">
 													See More
 												</a>
 												<div class="small text-white">
@@ -195,7 +195,7 @@ function dashboard() {
 												<div className="col-float-right">
 													<p className="lead">
 														<img
-															src={medical}
+															src={men}
 															className="rounded img-fluid icon-image"
 															alt="dog"
 														/>
@@ -204,7 +204,7 @@ function dashboard() {
 											</div>
 
 											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a class="small text-white stretched-link" href="#">
+												<a class="small text-white stretched-link" href="\viewusers">
 													See More
 												</a>
 												<div class="small text-white">

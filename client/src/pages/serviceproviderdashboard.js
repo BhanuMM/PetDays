@@ -111,7 +111,7 @@ function serviceproviderdashboard() {
 						</nav>
 					</div>
 					<div class="profile-userbuttons">
-						<a href="#" role="button" aria-pressed="true">
+						<a href="\addservices" role="button" aria-pressed="true">
 							{" "}
 							<button type="submit" class="btn-res-add">
 								Add

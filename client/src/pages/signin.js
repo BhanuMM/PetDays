@@ -29,13 +29,13 @@ function signin() {
         alert(response.data.error);
       } else {
         if (response.data.role === "admin")
-        navigate('/admin');
+        navigate('/admindashboard');
         else if (response.data.role === "service")
-        navigate('/serviceprovider');
+        navigate('/serviceproviderdashboard');
         else if (response.data.role === "moderator")
-        navigate('/moderator');
+        navigate('/moderatordasboard');
         else if (response.data.role === "user")
-        navigate('/userprofile');
+        navigate('/index');
         else 
         navigate('/signin');
       }

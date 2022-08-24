@@ -17,7 +17,7 @@ function navbarspecial() {
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="index">Sign out</a></li>
                     </ul>
                 </div>
         </div>

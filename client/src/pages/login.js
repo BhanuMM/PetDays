@@ -26,10 +26,10 @@ function login() {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        if (response.data.role === "admin") navigate("/admin");
-        else if (response.data.role === "service") navigate("/serviceprovider");
-        else if (response.data.role === "moderator") navigate("/moderator");
-        else if (response.data.role === "user") navigate("/userprofile");
+        if (response.data.role === "admin") navigate("/admindashboard");
+        else if (response.data.role === "service") navigate("/serviceproviderdashboard");
+        else if (response.data.role === "moderator") navigate("/moderatordashboard");
+        else if (response.data.role === "user") navigate("/index");
         else navigate("/signin");
       }
     });
@@ -51,12 +51,12 @@ function login() {
               >
                 <div className="row g-0">
                   <div className="col-md-6 col-lg-5 d-none d-md-block text-center">
-                    <img
+                  <a  href="index"> <img
                       src={signin}
                       alt="login form"
                       className="img-fluid mt-5 pt-2 login-imagesize "
                       border-radius="1rem 0 0 1rem;"
-                    />
+                    /></a>
                     <div className="mt-3">
                       <h5 className="text-center">Welcome to </h5>
                       <img
