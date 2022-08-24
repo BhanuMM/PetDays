@@ -1,6 +1,6 @@
 .main-footer{
     color: red;
-    background-color: #99CD4E;
+    background-color: #cbc5b4;
 }
 body{
     background-color: #FFF;
@@ -57,9 +57,12 @@ body{
     color: black;
 }
 .para{
-    color: #FFF;
+    color: rgb(35, 35, 35);
 }
-
+.paratitle{
+font-size: 16px;
+font-weight: 700;
+}
 .text-white{
     text-decoration: none;
 }
