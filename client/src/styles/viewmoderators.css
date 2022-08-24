@@ -48,3 +48,6 @@
    line-height: 34px;
    height: 34px;
   }
+  .viewuser .panel-table .panel-body td{
+    font-size: 15px;
+  }

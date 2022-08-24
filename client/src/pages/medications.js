@@ -20,7 +20,7 @@ function medications() {
 					<div className="col-10">
 						<h3 className=" mt-5">
 							{" "}
-							+Manage Medications <hr />
+							+ Manage Medications <hr />
 						</h3>
 						<div class="cards">
 							<div class="card">
@@ -59,7 +59,7 @@ function medications() {
 								<div class="card-info">
 									<div>
 										<a
-											href="\viewmedications"
+											href="\viewvaccines"
 											role="button"
 											aria-pressed="true"
 										>
@@ -83,7 +83,7 @@ function medications() {
 								<div class="card-info">
 									<div>
 										<a
-											href="\viewmedications"
+											href="\viewvitamins"
 											role="button"
 											aria-pressed="true"
 										>
