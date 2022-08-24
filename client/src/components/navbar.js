@@ -1,10 +1,13 @@
 import React from 'react';
+import '../styles/nav.css';
 
 function navbar() {
   return (
-    <nav className="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top">
+
+    <nav className="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top mybar">
+
         <div className="container-fluid">
-            <img src= "../images/PetDays.png" className="logo" alt="dog"/>
+            <img src= "../images/PetDays.png" className="navbarlogo" alt="dog"/>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
@@ -23,7 +26,10 @@ function navbar() {
                     <a className="nav-link" href="registertype"><h4>Register</h4></a>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link" href="signin"><h4>Login</h4></a>
+               
+                    <a className="nav-link" href="signin"> <button type="submit" class="  btn btn-warning">
+                    Login
+                    </button></a>
                 </li>
             </ul>
             </div>

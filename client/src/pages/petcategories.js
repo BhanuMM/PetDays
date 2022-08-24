@@ -5,7 +5,7 @@ import '../styles/petcategories.css';
 import Sidebar from '../components/sidebar';
 import Navbar from '../components/navbarspecial';
 import cat from '../images/cat-01.jpg';
-import dog from '../images/dog-01.jpg';
+import dog from '../images/animals-01.jpg';
 function petcategories() {
   return (
     <div class="container-fluid">
@@ -30,7 +30,7 @@ function petcategories() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewpets" class="card-link">View Pet Category</a>
+                <a href="\viewpets" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Category</button></a>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ function petcategories() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewpets" class="card-link">View Category</a>
+                  <a href="\viewpets" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Category</button></a>
                 </div>
               </div>
             </div>

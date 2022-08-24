@@ -1,5 +1,5 @@
 .names{
-    font-size: large;
+    font-size: 14px;
     color: #0f3923;
     font-weight: 500;
 }
@@ -16,6 +16,6 @@
     background-color: #B3CF99;
     height: 620px;
 }
-.col .nav .nav-item{
-    height: 40px;
+.nav-item{
+    padding: 0px;
 }

@@ -1,22 +1,39 @@
-.logo{
-    width: 100px;
+.navbarlogo{
+    width: 80px;
     /* background-size: cover; */
 
-    margin-left: 100px;
-    margin-right: 750px;
+    margin-left: 160px;
+    margin-right: 720px;
 
 }
+
+.mybar{
+    background-color: rgba(218, 218, 218, 0.887);
+    margin-bottom: 20px;
+}
+
 .navbar.scrolled{
         background-color: #fff !important;
         transition: background-color 200ms linear;
+
 }
 .nav-link h4{
-    color: #ca8403;
+    float: right;
+    color: #ae7204;
+    padding-top: 8px;
+    font-weight: 600;
     font-size: 18px;
     text-transform: uppercase;
 }
 .nav-link h4:hover{
-    color: #000000;  
+    color: #3b3a3a;  
+}
+.nav-link button{
+    text-transform: uppercase;
+    background-color: rgb(245, 155, 36);
+    font-weight: 600;
+    font-size: 18px;
+    color: #683e04;  
 }
 .btn-image{
     height: 70px;

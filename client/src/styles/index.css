@@ -24,16 +24,27 @@
 .index .details img{
     width: 200px;
 }
-
+.pmartsec{
+    background-color: rgb(203, 197, 180);
+}
 .index .row .petmart-image{
     padding-right: 20px;
 }
 
 #pet-talk-image{
     width: 400px;
+    margin-left: 150px;
     
 }
-
+.petmartimage{
+    width: 300px;
+    margin-left: 300px;
+    /* padding-left: 240px; */
+    
+}
+.pmarttext{
+    font-size: 45px !important;
+}
 .index .dow-button-2{
     padding-right: 20px;
 }
@@ -51,8 +62,9 @@
 }
 .background-div{
     background-image: url("../images/back.jpg");
-    height: 400px;
+    height: 500px;
     width: 100%;
+    background-size: cover;
 }
 .index .pt-5{
     padding-top: 100px !important;

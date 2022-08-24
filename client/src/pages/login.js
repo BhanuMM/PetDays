@@ -133,7 +133,7 @@ function login() {
                               >
                                 Don't have an account?{" "}
                                 <a href="registertype" color="#393f81;">
-                                  SignUP
+                                  Sign Up
                                 </a>
                               </p>
                             </div>
