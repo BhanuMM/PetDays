@@ -16,13 +16,13 @@ function viewmedications() {
 				<div class="col-10 user-table">
 					<h3 className=" mt-5">
 						{" "}
-						+Manage Medications <hr />
+						+ Manage Medicines <hr />
 					</h3>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="#" className="header-topic">
-									Admin Dashboard / Medicines
+									Admin Dashboard / Medications / Medicines
 								</a>
 							</li>
 						</ol>
@@ -40,9 +40,6 @@ function viewmedications() {
 												<th class="hidden-xs text-center">Med ID</th>
 												<th class="hidden-xs text-center">Medicine Name</th>
 												<th class="hidden-xs text-center">Discription</th>
-												<th class="hidden-xs text-center">
-													<em class="fa fa-cog"></em>
-												</th>
 											</tr>
 										</thead>
 										<tbody id="myTable">
@@ -50,51 +47,26 @@ function viewmedications() {
 												<td class="hidden-xs">1</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">2</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">3</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">4</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
 											</tr>
 											<tr>
 												<td class="hidden-xs">5</td>
 												<td>myMp3</td>
 												<td>amart</td>
-												<td align="center">
-													<a class="btn btn-danger">
-														<em class="fa fa-trash"></em>
-													</a>
-												</td>
 											</tr>
 										</tbody>
 									</table>

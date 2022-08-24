@@ -4,10 +4,11 @@ import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
-import medical from "../images/medical-01.png";
-import man from "../images/man-01.png";
+import medical from "../images/medicine 3-01.jpg";
+import man from "../images/pw.jpg";
 import men from "../images/user 4-01.jpg";
 import food from "../images/foods-06.jpg";
+import report from "../images/postsmd.png";
 function dashboard() {
 	return (
 		<div class="container-fluid">
@@ -176,7 +177,7 @@ function dashboard() {
 												<div className="col-float-right">
 													<p className="lead">
 														<img
-															src={man}
+															src={report}
 															className="rounded img-fluid icon-image"
 															alt="dog"
 														/>
@@ -186,39 +187,7 @@ function dashboard() {
 											<div class="card-footer d-flex align-items-center justify-content-between">
 												<a
 													class="small text-white stretched-link"
-													href="\petcategories"
-												>
-													See More
-												</a>
-												<div class="small text-white">
-													<i
-														class="fa fa-angle-double-right"
-														aria-hidden="true"
-													></i>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-6 col-md-6">
-										<div class="card bg-card text-white mb-4">
-											<div class="card-body card-style">
-												<div className="col">
-													<h5 className="pt-3">Medications</h5>
-												</div>
-												<div className="col-float-right">
-													<p className="lead">
-														<img
-															src={medical}
-															className="rounded img-fluid icon-image"
-															alt="dog"
-														/>
-													</p>
-												</div>
-											</div>
-											<div class="card-footer d-flex align-items-center justify-content-between">
-												<a
-													class="small text-white stretched-link"
-													href="\medications"
+													href="\reportgeneration"
 												>
 													See More
 												</a>
