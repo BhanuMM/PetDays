@@ -9,7 +9,6 @@ import Signup from './pages/register';
 import Sellersignup from './pages/sellerregister';
 import Admin from './pages/admin';
 
-import Dashboard from './pages/dashboard';
 import Admindashboard from './pages/admindashboard';
 import Moderatordashboard from './pages/moderatordashboard';
 import Mdposts from "./pages/mdposts";
@@ -84,8 +83,7 @@ function App() {
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
-          <Route path="/admindashboard" element={<Admindashboard/>} /> 
-          <Route path="/dashboard" element={<Dashboard/>} /> 
+          <Route path="/admindashboard" element={<Admindashboard/>} />  
           <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} /> 
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
@@ -144,7 +142,7 @@ function App() {
       </div>
 
       </div>
-    
+
   );
 }
 

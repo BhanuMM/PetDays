@@ -15,7 +15,7 @@
     border-color: #95ac81;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
   }
   .btn-res-add:hover{
@@ -35,7 +35,7 @@
     border-color: #748557;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
   }
   .btn-res-edit:hover{
@@ -55,7 +55,7 @@
     border-color: #817057;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
   }
   .btn-res-delete:hover{
@@ -75,7 +75,7 @@
     border-color: #b06d62;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
      text-decoration: none;
   }
   .btn-res-view:hover{
@@ -129,7 +129,7 @@ th{
       margin-right: 10px;
   }
   .topic{
-      font-size: 30px;
+      font-size: 20px;
       padding-left: 10px;
       font-weight: 500;
       text-align: center;
