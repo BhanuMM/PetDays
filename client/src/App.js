@@ -55,6 +55,7 @@ import Reportgeneration   from './pages/reportgeneration';
 import Register   from './pages/register';
 import Forgotpassword   from './pages/forgotpasword';
 import Viewpets from './pages/viewpets';
+import Viewmoderators from './pages/viewmoderators';
 
 import Viewbreeds from './pages/viewbreeds';
 import Viewmedications from './pages/viewmedications';
@@ -132,6 +133,7 @@ function App() {
           <Route path="/viewpendingquestions" element={<Viewpendingquestions/>}/>
           <Route path="/forgotpasword" element={<Forgotpassword/>}/>
           <Route path="/viewpets" element={<Viewpets/>}/>
+          <Route path="/viewmoderators" element={<Viewmoderators/>}/>
           <Route path="/viewbreeds" element={<Viewbreeds/>}/>
           <Route path="/viewmedications" element={<Viewmedications/>}/>
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
