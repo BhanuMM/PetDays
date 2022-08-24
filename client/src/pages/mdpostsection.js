@@ -71,11 +71,13 @@ function moderatordashboard() {
             
           </div>
           </div>
+          </main>
           </div>
         </div>
+      </div>
       </div>
   )
 
 }
 
-export default medications
+export default moderatordashboard
