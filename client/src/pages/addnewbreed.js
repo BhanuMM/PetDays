@@ -1,12 +1,11 @@
-import React from "react";
-import "../styles/nav.css";
-import "../styles/footer.css";
-import Navbar from "../components/navbarspecial";
-import Sidebar from "../components/sidebar";
-
-function addpetcategories() {
-	return (
-		<div class="container-fluid">
+import React from 'react'
+import '../styles/nav.css';
+import '../styles/footer.css';
+import Navbar from '../components/navbarspecial';
+import Sidebar from '../components/sidebar';
+function addnewbreed() {
+  return (
+    <div class="container-fluid">
 			<div className="row">
 				<Navbar />
 			</div>
@@ -32,7 +31,7 @@ function addpetcategories() {
 						<form>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">
-									Name of the category
+									Name of the breed
 								</label>
 								<input
 									type="text"
@@ -43,7 +42,7 @@ function addpetcategories() {
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">
-									Description about the category
+									Description about the breed
 								</label>
 								<textarea class="form-control"  id="floatingTextarea2"></textarea>
 							</div>
@@ -63,7 +62,7 @@ function addpetcategories() {
 				</div>
 			</div>
 		</div>
-	);
+  )
 }
 
-export default addpetcategories;
+export default addnewbreed

@@ -3,8 +3,8 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
-function viewdietplans() {
-	return (
+function viewdietplanscats() {
+  return (
     <div class="container-fluid viewuser">
     <div className="row">
       <Navbar />
@@ -16,7 +16,7 @@ function viewdietplans() {
       <div class="col-10 user-table pt-5">
         <h3 className=" mt-5">
           {" "}
-          + Diet Plans | Dogs <hr />
+          + Diet Plans | Cats <hr />
         </h3>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -83,7 +83,7 @@ function viewdietplans() {
       </div>
     </div>
   </div>
-);
+  )
 }
 
-export default viewdietplans;
+export default viewdietplanscats

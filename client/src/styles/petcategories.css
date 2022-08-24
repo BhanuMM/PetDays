@@ -33,7 +33,8 @@
    height: 425px;
 }
 .btn-res{
-    height: 30px;
+    height: 50px;
+    width: 90px;
     margin-left: 5px;
     border: none;
     background-color: #768a63;
@@ -49,4 +50,30 @@
 }
 .row .cards{
    margin-left: 20px;
+}
+.buttons_cont{
+	box-shadow: 1px 2px 2px 2px #efefef;
+	padding:3em;
+}
+.btn-div{
+   margin-top: 350px;
+}
+.btn-result{
+   height: 150px;
+    width: 90px;
+    margin-left: 5px;
+    border: none;
+    background-color: #768a63;
+    border-radius: 0.2rem;
+    color: #fdfeff;
+    padding: 40px;
+    border: 1.8px solid black;
+    border-color: #95ac81;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    text-decoration: none;
+}
+.btn-result:hover{
+   color: #fdfeff;
 }

@@ -30,6 +30,7 @@ function medications() {
 										</li>
 									</ol>
 								</nav>
+
           <div class="cards">
           <div class="card">
               <img class="card-image" src={Ad1} alt=""/>
@@ -70,6 +71,7 @@ function medications() {
         </div>
       </div>
   )
+
 }
 
 export default medications
