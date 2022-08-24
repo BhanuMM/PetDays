@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/footerspecial.css';
 import '../styles/sellerdashboard.css';
-import Sidebar from '../components/sidebar';
+import Moderatorsidebar from '../components/moderatorsidebar';
 import Navbar from '../components/navbarspecial';
 import cat from '../images/medicine 2-01.jpg';
 import cattle from '../images/medicine 3-01.jpg';
@@ -15,7 +15,7 @@ function medications() {
       <div className='row'>
         <div className="row flex-nowrap pt-5">
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
-              <Sidebar />
+              <Moderatorsidebar />
           </div>
           <div class="cards">
             <div class="card">
@@ -30,7 +30,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ function medications() {
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                  <a href="\viewmedications" class="card-link">View Details</a>
                 </div>
               </div>
             </div>

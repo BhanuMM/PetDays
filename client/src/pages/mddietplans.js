@@ -1,12 +1,12 @@
 import React from 'react'
 import '../styles/footerspecial.css';
 import '../styles/sellerdashboard.css';
-import Sidebar from '../components/sidebar';
+import '../styles/petcategories.css';
+import Moderatorsidebar from '../components/moderatorsidebar';
 import Navbar from '../components/navbarspecial';
-import cat from '../images/medicine 2-01.jpg';
-import cattle from '../images/medicine 3-01.jpg';
-import dog from '../images/medicine 4-01.jpg';
-function medications() {
+import cat from '../images/cat-01.jpg';
+import dog from '../images/dog-01.jpg';
+function dietplans() {
   return (
     <div class="container-fluid">
        <div className='row'>
@@ -15,7 +15,7 @@ function medications() {
       <div className='row'>
         <div className="row flex-nowrap pt-5">
           <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
-              <Sidebar />
+              <Moderatorsidebar />
           </div>
           <div class="cards">
             <div class="card">
@@ -23,14 +23,14 @@ function medications() {
               <div class="card-content">
                 <p>
                   <h4>
-                    Medicines
+                    DOGS
                   </h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                  <a href="\viewdietplans" class="card-link">View diet plan</a>
                 </div>
               </div>
             </div>
@@ -39,30 +39,14 @@ function medications() {
               <div class="card-content">
                 <p>
                 <h4>
-                    Vaccines
+                    CATS
                   </h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
               </div>
               <div class="card-info">
                 <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-image" src={cattle} alt=""/>
-              <div class="card-content">
-                <p>
-                <h4>
-                    Vitamins
-                  </h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-              </div>
-              <div class="card-info">
-                <div>
-                  <a href="\viewmedications" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                  <a href="\viewdietplans" class="card-link">View diet plan</a>
                 </div>
               </div>
             </div>
@@ -73,4 +57,4 @@ function medications() {
   )
 }
 
-export default medications
+export default dietplans

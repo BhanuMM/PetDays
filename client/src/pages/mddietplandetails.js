@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/footerspecial.css';
 import '../styles/sellerdashboard.css';
-import Sidebar from '../components/sidebar';
+import Moderatorsidebar from '../components/moderatorsidebar';
 import Navbar from '../components/navbarspecial';
-function viewmedications() {
+function viewdietplans() {
   return (
     <div class="container-fluid">
     <div className='row'>
@@ -12,12 +12,12 @@ function viewmedications() {
    <div className='row'>
      <div className="row flex-nowrap pt-5">
        <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
-           <Sidebar />
+        <Moderatorsidebar />
        </div>
          <div className='col-10'>
              <div class="pt-4 search-bar">
                  <div class="topnav">
-                         <h7 className='topic'> Manage Medications</h7>
+                         <h7 className='topic'> Manage Dietplans</h7>
                          <button type="button" class="btn btn-light btn-search">
                          <i class="fa fa-search" aria-hidden="true"></i>
                          </button>
@@ -39,6 +39,9 @@ function viewmedications() {
                          <td>Dogs</td>
                          <td>
                          <a href="\viewbreeds" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View</button></a>
+                         <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
+                         <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
+                         <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
                          </td>
                          </tr>
                          <tr>
@@ -46,6 +49,9 @@ function viewmedications() {
                          <td>Cats</td>
                          <td>
                          <a href="\viewbreeds" role="button" aria-pressed="true"> <button type="submit" class="btn-res-view">View</button></a>
+                         <a href="#" role="button" aria-pressed="true">  <button type="submit" class="btn-res-add">Add</button></a>
+                         <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-edit">Edit</button></a>
+                         <a href="#" role="button" aria-pressed="true"> <button type="submit" class="btn-res-delete">Delete</button></a>    
                          </td>
                          </tr>
                      </tbody>
@@ -58,4 +64,4 @@ function viewmedications() {
   )
 }
 
-export default viewmedications
+export default viewdietplans
