@@ -15,7 +15,7 @@ function verifyemail() {
                             <div className="row g-0">
                                
                                 <div className="col-md-6 col-lg-12 d-flex align-items-center p-5  ">
-                                    <div className="card-body text-black text-center ml-2 ">
+                                    <div className="card-body text-black text-center ml-2 pb-3 mb-3 ">
 
                                         <form>
 
@@ -25,8 +25,8 @@ function verifyemail() {
                                         
                                         <p className="pb-lg-2 text-center" letter-spacing="#393f81;">Please confirm that you want to use this as your email adress</p>
 
-                                        <div className="pt-1 mb-4 mt-3 text-center">
-                                            <button className ="verify.loginbuttonsize btn btn-success "  type="button">Verify E-mail</button>
+                                        <div className="pt-1 mb-5 mt-3 text-center">
+                                            <button className ="verify.loginbuttonsize btn btn-success mb-5 "  type="button">Verify E-mail</button>
                                         </div>
 
                                        

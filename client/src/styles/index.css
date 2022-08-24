@@ -69,3 +69,8 @@
 .index .pt-5{
     padding-top: 100px !important;
 }
+
+.index-mainbuttonset{
+    width: 150px !important;
+    height: 50px !important;
+}
