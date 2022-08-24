@@ -51,9 +51,9 @@ function viewmoderators() {
 									</thead>
 									<tbody id="myTable">
 										<tr>
-											<td class="hidden-xs">1</td>
-											<td>myMp3</td>
-											<td>amart</td>
+												<td class="hidden-xs">1</td>
+                                                <td>Vitamin A</td>
+                                                <td>For healthy bones and teeth</td>
 											
 											
 											
@@ -67,9 +67,9 @@ function viewmoderators() {
 											</td>
 										</tr>
 										<tr>
-											<td class="hidden-xs">2</td>
-											<td>myMp3</td>
-											<td>amart</td>
+										<td class="hidden-xs">2</td>
+                                        <td>Vitamin D</td>
+                                        <td>For healthy bones and teeth</td>
 											
 											
 											<td align="center">
@@ -82,9 +82,9 @@ function viewmoderators() {
 											</td>
 										</tr>
 										<tr>
-											<td class="hidden-xs">3</td>
-											<td>myMp3</td>
-											<td>amart</td>
+										<td class="hidden-xs">3</td>
+                                            <td>biotin</td>
+                                        <td>For healthy skin and shiny coat</td>
 											
 											
 											<td align="center">
@@ -98,8 +98,8 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">4</td>
-											<td>myMp3</td>
-											<td>amart</td>
+                                            <td>Omega-6 fatty acids</td>
+                                            <td>For healthy skin and shiny coat</td>
 											
 											
 											<td align="center">

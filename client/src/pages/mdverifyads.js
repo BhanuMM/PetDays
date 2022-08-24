@@ -31,7 +31,7 @@ function mdpendingads() {
                         <div className='container-fluid forum'><br/><br/>
                             <div class="row g-0 ">
                             <div class="col-sm-6 col-md-12"><br/><br/><br/><br/><br/><br/>
-                            <h1 class="mt-4">Verified Advertisements</h1><hr/>
+                            <h1 class="mt-4">Verified Advertisments</h1><hr/>
                                 <div class='forum-header'>
                                 
                                 <div class='forum-search'>  
@@ -112,10 +112,10 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
-                    <div>
-                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
+                <div>
+                  <a href="\mdverifiedsingle" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
                 <div class="card">
                   <img class="card-image" src={A2} alt=""/>
@@ -131,10 +131,10 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
-                    <div>
-                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
+                <div>
+                  <a href="\mdverifiedsingle" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
               
               

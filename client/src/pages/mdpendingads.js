@@ -21,7 +21,7 @@ function mdpendingads() {
 				<Navbar />
 			</div>
 			<div className="row ">
-				<div className="row flex-nowrap pt-5">
+				<div className="row flex-nowrap pt-5 mt-5">
 					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 						<Moderatorsidebar />
 					</div>
@@ -117,10 +117,10 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
-                    <div>
-                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
+                <div>
+                  <a href="\viewpetmartadd" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
                 <div class="card">
                   <img class="card-image" src={A2} alt=""/>
@@ -136,10 +136,10 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
-                    <div>
-                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
+                <div>
+                  <a href="\viewpetmartadd" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
               
               
