@@ -133,3 +133,44 @@ hr.h-color{
      margin-right: 150px;
      margin-top: 20px;
  }
+
+ .moderatordashboard .card-body {
+    display: flex;
+ }
+
+ .moderatordashboard .count{
+    float: left;
+    font-size: 30px;
+   padding-left:25px;
+ }
+
+ .moderatordashboard .title{
+    float: left;
+    padding-right:30px;
+    padding-left:25px;
+ }
+
+ .moderatordashboard .count-med{
+    float: left;
+    font-size: 30px;
+   padding-left:25px;
+ }
+
+ .moderatordashboard .title-med{
+    float: left;
+    padding-right:30px;
+    padding-left:11px;
+ }
+ .moderatordashboard .count-diet{
+    float: left;
+    font-size: 30px;
+   padding-left:25px;
+ }
+
+ .moderatordashboard .title-diet{
+    float: left;
+    padding-right:30px;
+    padding-left:19px;
+ }
+
+
