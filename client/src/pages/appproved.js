@@ -56,7 +56,7 @@ function pendingads() {
               <p>
                 <p> 21 August 2022</p>
                   <h4>
-                  DOG FRIENDS
+                  Pet Daycare
                   </h4>
                   <p className=""><i class="fa fa-circle" aria-hidden="true"></i> Approved</p>
                   Pet Grooming Service.<br/>

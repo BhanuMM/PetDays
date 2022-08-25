@@ -26,13 +26,13 @@ function dashnavbar() {
 							aria-expanded="false"
 						>
 							<img
-								src="https://github.com/mdo.png"
+								src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
 								alt="hugenerd"
 								width="40"
 								height="40"
 								class="rounded-circle pr-3"
 							/>
-							<span class="d-none d-sm-inline names mx-1 fs-6 ml-3">Malith</span>
+							<span class="d-none d-sm-inline names mx-1 fs-6 ml-3">Sanduni</span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-dark text-small shadow collapsebar ">
 							<li>
