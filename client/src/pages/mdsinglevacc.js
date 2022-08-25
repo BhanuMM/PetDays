@@ -69,9 +69,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">2</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
+											<td>Distemper</td>
+											<td>Distemper is a viral disease that is often fatal, affecting the respiratory </td>
+											<td>Every 2 years</td>
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -84,9 +84,9 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">3</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
+											<td>Hepatitis/Adenovirus</td>
+											<td>A vaccination against adenovirus type 2 protects against both adenovirus types 1 and 2.</td>
+											<td>Twice a year</td>
 											
 											<td align="center">
 												<a class="btn btn-default">
@@ -97,36 +97,7 @@ function viewmoderators() {
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td class="hidden-xs">4</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">5</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>

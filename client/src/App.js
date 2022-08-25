@@ -99,6 +99,7 @@ import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
 import Singlead from './pages/viewsinglead';
+import Mdverifiedsingle from './pages/mdverifiedsingle';
 
 
 
@@ -208,6 +209,7 @@ function App() {
           <Route path="/Mdaddcatdiet" element={<Mdaddcatdiet/>}/>
           <Route path="/editservice" element={<Editservice/>}/>
           <Route path="/viewad" element={<Singlead/>}/>
+          <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
 
 
         </Routes>   
