@@ -15,8 +15,7 @@
 .bg-card{
     background-color: rgb(94, 94, 94);
     color: black;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
 }
 .bg-card h5{
   color: black !important;

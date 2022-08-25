@@ -9,13 +9,13 @@ function moderatorsidebar() {
                 <li class="nav-item text-center">
                 <div class="profile-pic">
 							<img
-								src="https://github.com/mdo.png"
+								src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
 								alt="hugenerd"
 								class="rounded-circle serviceprovidersidebar-imagesize"
 							/>
 
 						</div>
-                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">Malith Perera<br/>malithp@gmail.com<br/>+9471 56 78 345</span></p>
+                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">Sanduni Perera<br/>malithp@gmail.com<br/>+9471 56 78 345</span></p>
                     </li>
 
                     <hr/>

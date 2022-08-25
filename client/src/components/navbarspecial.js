@@ -32,7 +32,7 @@ function navbarspecial() {
 								height="60"
 								class="rounded-circle"
 							/>
-							<span class="d-none d-sm-inline names mx-1 fs-6">Thomas</span>
+							<span class="d-none d-sm-inline names mx-1 fs-6">Malith</span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-dark text-small shadow collapsebar ">
 							<li>
