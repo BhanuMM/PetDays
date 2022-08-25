@@ -8,7 +8,7 @@ function viewmoderators() {
 			<div className="row">
 				<Navbar />
 			</div>
-			<div className="row flex-nowrap pt-0 mt-5">
+			<div className="row flex-nowrap pt-5 mt-5">
 				<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 					<Sidebar />
 				</div>

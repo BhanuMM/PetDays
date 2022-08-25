@@ -16,7 +16,7 @@ function viewvitamins() {
 				<div class="col-10 user-table">
 					<h3 className=" mt-5">
 						{" "}
-						+ Manage Vitamins <hr />
+						Manage Vitamins <hr />
 					</h3>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
@@ -46,32 +46,26 @@ function viewvitamins() {
 										<tbody id="myTable">
 											<tr>
 												<td class="hidden-xs">1</td>
-												<td>myMp3</td>
-												<td>amart</td>
+												<td>Vitamin A</td>
+												<td>For healthy bones and teeth</td>
 												
 											</tr>
 											<tr>
 												<td class="hidden-xs">2</td>
-												<td>myMp3</td>
-												<td>amart</td>
+												<td>Vitamin D</td>
+												<td>For healthy bones and teeth</td>
 												
 											</tr>
 											<tr>
 												<td class="hidden-xs">3</td>
-												<td>myMp3</td>
-												<td>amart</td>
+												<td>biotin</td>
+												<td>For healthy skin and shiny coat</td>
 												
 											</tr>
 											<tr>
 												<td class="hidden-xs">4</td>
-												<td>myMp3</td>
-												<td>amart</td>
-												
-											</tr>
-											<tr>
-												<td class="hidden-xs">5</td>
-												<td>myMp3</td>
-												<td>amart</td>
+												<td>Omega-6 fatty acids</td>
+												<td>For healthy skin and shiny coat</td>
 												
 											</tr>
 										</tbody>

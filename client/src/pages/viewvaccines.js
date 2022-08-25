@@ -16,7 +16,7 @@ function viewvaccines() {
 				<div class="col-10 user-table">
 					<h3 className=" mt-5">
 						{" "}
-						+ Manage Vaccines <hr />
+						Manage Vaccines <hr />
 					</h3>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
@@ -34,49 +34,39 @@ function viewvaccines() {
 									<div class="col col-xs-6"></div>
 								</div>
 								<div class="panel-body table-responsive">
-									<table class="table table-striped table-bordered table-list responsive">
-										<thead>
-											<tr>
-												<th class="hidden-xs text-center">Vaccine ID</th>
-												<th class="hidden-xs text-center">Vaccine Name</th>
-												<th class="hidden-xs text-center">Discription</th>
-												<th class="hidden-xs text-center">Next Iteration</th>
-											</tr>
-										</thead>
-										<tbody id="myTable">
-											<tr>
-												<td class="hidden-xs">1</td>
-												<td>myMp3</td>
-												<td>amart</td>
-                                                <td>amart</td>
-											</tr>
-											<tr>
-												<td class="hidden-xs">2</td>
-												<td>myMp3</td>
-												<td>amart</td>
-                                                <td>amart</td>
-											</tr>
-											<tr>
-												<td class="hidden-xs">3</td>
-												<td>myMp3</td>
-												<td>amart</td>
-                                                <td>amart</td>
-											</tr>
-											<tr>
-												<td class="hidden-xs">4</td>
-												<td>myMp3</td>
-												<td>amart</td>
-                                                <td>amart</td>
-											</tr>
-											<tr>
-												<td class="hidden-xs">5</td>
-												<td>myMp3</td>
-												<td>amart</td>
-                                                <td>amart</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+                                <table class="table table-striped table-bordered table-list responsive">
+                                    <thead>
+                                        <tr>
+                                            <th class="hidden-xs text-center">Vaccine ID</th>
+                                            <th  class="hidden-xs text-center">Vaccine Name</th>
+                                            <th  class="hidden-xs text-center">Description</th>
+                                            <th  class="hidden-xs text-center">Next Iteration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        <tr>
+                                            <td class="hidden-xs">1</td>
+                                            <td>Rabies</td>
+                                            <td>Rabies is required once at 16 weeks of age in puppies, then given again 1 year later (1 year, 4 months of age)</td>
+                                            <td>Every 3 year</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td class="hidden-xs">2</td>
+                                            <td>Distemper</td>
+                                            <td>Distemper is a viral disease that is often fatal, affecting the respiratory </td>
+                                            <td>Every 2 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="hidden-xs">3</td>
+                                            <td>Hepatitis/Adenovirus</td>
+                                            <td>A vaccination against adenovirus type 2 protects against both adenovirus types 1 and 2.</td>
+                                            <td>Twice a year</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
 							</div>
 						</div>
 					</div>
