@@ -17,7 +17,7 @@ function addnewbreed() {
 					<div className="col-7 g-5">
 						<h3 className="mb-5">
 							{" "}
-							+Add New Pet Category <hr />
+							+ Add New Breed <hr />
 						</h3>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">

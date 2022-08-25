@@ -86,7 +86,7 @@ function addservices() {
                 <div className='row'>
                     <div className='col-10'></div>
                     <div className='col-1 mb-5 mt-5 text-center'>
-                       <button type="submit" class="btn btn-success ">Submit</button>
+                       <button type="submit" class="btn btn-success ">PayNow</button>
                        
                     </div>
                     <div className='col-1 mb-5 mt-5 text-center'>

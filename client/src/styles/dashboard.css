@@ -13,7 +13,15 @@
   }
 }
 .bg-card{
-    background-color: #758755;
+    background-color: rgb(94, 94, 94);
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+}
+.bg-card h5{
+  color: black !important;
+  font-size: 20px;
+  font-weight: 700;
 }
 .card-style{
     display: inline-block;

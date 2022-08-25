@@ -25,7 +25,6 @@ function viewmoderators() {
 							<div class="card-content">
 								<p>
 									<h4>Moderators</h4>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
 								</p>
 							</div>
 							<div class="card-info">
@@ -44,7 +43,6 @@ function viewmoderators() {
 							<div class="card-content">
 								<p>
 									<h4>Sellers</h4>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
 								</p>
 							</div>
 							<div class="card-info">
