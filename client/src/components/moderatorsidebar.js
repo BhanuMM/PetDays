@@ -11,7 +11,7 @@ function moderatorsidebar() {
                     </li>
                     <hr />
                     <li class="nav-item">
-                        <a class="nav-link" href="\petmart"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Talk Posts</span></a>
+                        <a class="nav-link" href="\petmart"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Posts</span></a>
                     </li>
                     <li class="nav-item">
 

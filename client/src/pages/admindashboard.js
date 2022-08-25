@@ -169,10 +169,10 @@ function dashboard() {
 								</div>
 								<div class="row pt-3">
 									<div class="col-xl-6 col-md-6">
-										<div class="card bg-card text-white mb-4">
+										<div class="card bg-card text-black mb-4">
 											<div class="card-body card-style">
 												<div className="col">
-													<h5 className="pt-3">Report generation</h5>
+													<h5 className="pt-3">Report Generation</h5>
 												</div>
 												<div className="col-float-right">
 													<p className="lead">
