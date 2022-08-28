@@ -104,7 +104,7 @@ function mdpendingads() {
                 
            
                 <div class="card">
-                  <img class="card-image" src={A3} alt=""/>
+                  <img class="card-image" src={A2} alt=""/>
                   <div class="card-content">
                   <p>
                     <p> 21 August 2022</p>
@@ -117,13 +117,19 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
+
+                    <div>
+                    <a href="\approveadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+
                 <div>
                   <a href="\viewpetmartadd" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
                 </div>
               </div>
                 </div>
                 <div class="card">
-                  <img class="card-image" src={A2} alt=""/>
+                  <img class="card-image" src={A3} alt=""/>
                   <div class="card-content">
                   <p>
                     <p> 21 August 2022</p>
@@ -154,7 +160,7 @@ function mdpendingads() {
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	);
 }
 
