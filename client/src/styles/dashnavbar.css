@@ -1,0 +1,65 @@
+.navbarlogo{
+    width: 78px;
+    /* background-size: cover; */
+
+    margin-left: 70px;
+    margin-right: 740px;
+
+}
+
+.mybar{
+    background-color: rgb(218, 218, 218);
+    margin-bottom: 20px;
+}
+
+.navbar.scrolled{
+        background-color: #fff !important;
+        transition: background-color 200ms linear;
+
+}
+.nav-link h4{
+    float: right;
+    color: #ae7204;
+    padding-top: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.nav-link h4:hover{
+    color: #3b3a3a;  
+}
+.nav-link button{
+    text-transform: uppercase;
+    background-color: rgb(245, 155, 36);
+    font-weight: 600;
+    font-size: 18px;
+    color: #683e04;  
+}
+.btn-image{
+    height: 70px;
+    width: 70px;
+    animation: animate 1s linear infinite;
+}
+.dashboard-dropdown{
+    margin-left: 500px;
+}
+@keyframes animate{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    0%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 60px;
+  }
+
+  

@@ -21,15 +21,15 @@ function mdpendingads() {
 				<Navbar />
 			</div>
 			<div className="row ">
-				<div className="row flex-nowrap pt-5">
+				<div className="row flex-nowrap pt-5 mt-5">
 					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 						<Moderatorsidebar />
 					</div>
 					<div className="col-10"><br/><br/><br/><br/>
                     <div className='container'><br/><br/><br/><br/>
-                        <div className='container-fluid forum'><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <div className='container-fluid forum'><br/><br/>
                             <div class="row g-0 ">
-                            <div class="col-sm-6 col-md-12"><br/><br/><br/><br/><br/><br/>
+                            <div class="col-sm-6 col-md-12">
                             <h1 class="mt-4">Pending Advertisements</h1><hr/>
                                 <div class='forum-header'><br/>
                                 
@@ -117,10 +117,16 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
+
                     <div>
                     <a href="\approveadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                   </div>
+
+                <div>
+                  <a href="\viewpetmartadd" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
                 <div class="card">
                   <img class="card-image" src={A3} alt=""/>
@@ -136,10 +142,10 @@ function mdpendingads() {
                     </p>
                   </div>
                   <div class="card-info">
-                    <div>
-                    <a href="\viewpetmartadd" class="card-link">View More Details <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
+                <div>
+                  <a href="\viewpetmartadd" role="button" aria-pressed="true">  <button type="submit" class="btn-res">View Details</button></a>
+                </div>
+              </div>
                 </div>
               
               
@@ -154,7 +160,7 @@ function mdpendingads() {
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	);
 }
 

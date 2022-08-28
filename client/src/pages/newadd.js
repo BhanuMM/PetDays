@@ -8,10 +8,10 @@ function newadd() {
   return (
     <div className='Newadd'>
         <Navbar/>
-       <div className='row'>
+       <div className='row mt-4'>
         <div className='col-2'></div>
         <div className='col-7 mt-5 pt-5'>
-            <h3 className='mb-5'> + NEW ADVERTIESMENT<hr/></h3>
+            <h3 className='mb-5'> + NEW ADVERTISEMENT <hr/></h3>
           
             <form>
                 <div class="mb-3">

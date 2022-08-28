@@ -13,12 +13,8 @@ function viewmoderators() {
 					<Sidebar />
 				</div>
 				<div class="col-10 user-table">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="panel panel-default panel-table">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col col-xs-6">
-                                    <h1 class="mt-4">Medications | Vaccines</h1><hr/>
+					<div class="col-md-10 col-md-offset-1"><br/>
+                    <h1 class="mt-4">Medications | Vaccines</h1><hr/>
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item">
@@ -26,13 +22,18 @@ function viewmoderators() {
 										</li>
 									</ol>
 								</nav>
+						<div class="panel panel-default panel-table">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col col-xs-6">
+                                    
 									<div class="col col-xs-6 text-right">
-										<button
+									<a href="\mdaddvacc" className="header-topic"><button
 											type="button"
 											class="btn btn-sm btn-primary btn-create"
 										>
 											Add New
-										</button>
+										</button></a>
 									</div><br/>
 								</div>
 							</div>
@@ -40,12 +41,10 @@ function viewmoderators() {
 								<table class="table table-striped table-bordered table-list responsive">
 									<thead>
 										<tr>
-											<th class="hidden-xs text-center">USER ID</th>
-											<th  class="hidden-xs text-center">User Name</th>
-											<th  class="hidden-xs text-center">Brand Name</th>
-											<th  class="hidden-xs text-center">Service type</th>
-											<th  class="hidden-xs text-center">Published Posts</th>
-											<th  class="hidden-xs text-center">Status</th>
+											<th class="hidden-xs text-center">Vaccine ID</th>
+											<th  class="hidden-xs text-center">Vaccine Name</th>
+											<th  class="hidden-xs text-center">Description</th>
+											<th  class="hidden-xs text-center">Next Iteration</th>
 											<th  class="hidden-xs text-center">
 												<em class="fa fa-cog"></em>
 											</th>
@@ -54,11 +53,11 @@ function viewmoderators() {
 									<tbody id="myTable">
 										<tr>
 											<td class="hidden-xs">1</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											<td>ampub</td>
-											<td>ambit</td>
+											<td>Rabies</td>
+											<td>Rabies is required once at 16 weeks of age in puppies, then given again 1 year later (1 year, 4 months of age)</td>
+											<td>Every 3 year</td>
+											
+											
 											<td align="center">
 												<a class="btn btn-default">
 													<em class="fa fa-pencil"></em>
@@ -70,11 +69,10 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">2</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											<td>ampub</td>
-											<td>ambit</td>
+											<td>Distemper</td>
+											<td>Distemper is a viral disease that is often fatal, affecting the respiratory </td>
+											<td>Every 2 years</td>
+											
 											<td align="center">
 												<a class="btn btn-default">
 													<em class="fa fa-pencil"></em>
@@ -86,11 +84,10 @@ function viewmoderators() {
 										</tr>
 										<tr>
 											<td class="hidden-xs">3</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											<td>ampub</td>
-											<td>ambit</td>
+											<td>Hepatitis/Adenovirus</td>
+											<td>A vaccination against adenovirus type 2 protects against both adenovirus types 1 and 2.</td>
+											<td>Twice a year</td>
+											
 											<td align="center">
 												<a class="btn btn-default">
 													<em class="fa fa-pencil"></em>
@@ -100,38 +97,7 @@ function viewmoderators() {
 												</a>
 											</td>
 										</tr>
-										<tr>
-											<td class="hidden-xs">4</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											<td>ampub</td>
-											<td>ambit</td>
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">5</td>
-											<td>myMp3</td>
-											<td>amart</td>
-											<td>am compo</td>
-											<td>ampub</td>
-											<td>ambit</td>
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>

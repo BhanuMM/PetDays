@@ -12,24 +12,22 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Background(
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[
-              Expanded(
-                  flex: 4,
-                  child: DashboardTopBanner()
-              ),
-              Expanded(
-                  flex: 12,
-                  child: DashboardContent()
-              ),
-              Expanded(
-                flex: 3,
-                  child:BottomNav()
-              )
-
-            ],
-          ),
+          child:Scaffold(
+          body:Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
+                Expanded(
+                    flex: 4,
+                    child: DashboardTopBanner()
+                ),
+                Expanded(
+                    flex: 12,
+                    child: DashboardContent()
+                ),
+              ],
+            ),
+            bottomNavigationBar: BottomNav(1),
+          )
 
     );
 

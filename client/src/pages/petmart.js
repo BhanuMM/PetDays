@@ -161,7 +161,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpetmartadd" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -185,7 +185,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -209,7 +209,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -233,7 +233,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -257,7 +257,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -281,7 +281,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -305,7 +305,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -330,7 +330,7 @@ function petmart() {
             </div>
             <div class="card-info">
               <div>
-                <a href="\viewpets" class="card-link">
+                <a href="\viewad" class="card-link">
                   View More Details{" "}
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>

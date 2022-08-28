@@ -13,7 +13,8 @@ class MyPetsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Background(
 
-      child: Column(
+      child: Scaffold(
+        body:Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: const <Widget>[
           Expanded(
@@ -24,13 +25,10 @@ class MyPetsScreen extends StatelessWidget {
               flex: 12,
               child: MyPetContent()
           ),
-          Expanded(
-              flex: 3,
-              child:BottomNav()
-          )
-
         ],
       ),
+        bottomNavigationBar:  BottomNav(1),
+      )
 
     );
 

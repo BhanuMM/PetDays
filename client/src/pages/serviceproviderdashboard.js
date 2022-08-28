@@ -3,7 +3,7 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/moderatordashboard.css";
 import Moderatorsidebar from '../components/moderatorsidebar';
-import Navbar from "../components/navbarspecial";
+import Navbar from "../components/dashnavbar";
 import drug from "../images/drugs.png";
 import man from "../images/man-01.png";
 import cat from "../images/cat-01.png";
@@ -14,12 +14,12 @@ import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 function serviceproviderdashboard() {
 	return (
 		<div class="container-fluid moderatordashboard">
-			<div className="row">
+			<div className="row mb-5">
 				<Navbar />
 			</div>
-			<div className="row ">
+			<div className="row mt-4">
 				<div className="row flex-nowrap pt-5">
-					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
+					<div className="col-2 side-color pl-5">
 						<Serviceprovidersidebar />
 					</div>
 					<div className="col-10">
@@ -47,7 +47,7 @@ function serviceproviderdashboard() {
 										</div>
 									</div>
 									<div class="col-xl-3 col-md-6">
-										<div class="card bg-warning text-white mb-4">
+										<div class="card bg-info text-white mb-4">
                     <div class="card-body">
                         <div class='title'>
                             Approved<br/>Advertiesments

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
 import '../../Mypets/my_pets_screen.dart';
+import '../../PetMartHome/Pet_Mart_Home_Screen.dart';
 
 class DashboardContent extends StatelessWidget {
   const DashboardContent({
@@ -71,7 +72,17 @@ class DashboardContent extends StatelessWidget {
               ),
 
         ),
-        Padding(
+        GestureDetector(
+        onTap: (){Navigator.push(
+        context,
+        MaterialPageRoute(
+        builder: (context) {
+        return PetMartHome();
+        },
+        ),
+        );
+        },
+        child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
         child: Container(
           width: 350,
@@ -115,6 +126,7 @@ class DashboardContent extends StatelessWidget {
           ),
         )
         ),
+    ),
         Padding(
             padding: EdgeInsets.symmetric(vertical: 5),
             child: Container(

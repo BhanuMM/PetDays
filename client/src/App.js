@@ -61,6 +61,11 @@ import Viewmoderators from './pages/viewmoderators';
 import Viewbreeds from './pages/viewbreeds';
 import Viewmedications from './pages/viewmedications';
 import Viewdietplans from './pages/viewdietplans';
+import Viewvaccines from './pages/viewvaccines';
+import Viewvitamins   from './pages/viewvitamins';
+import Viewbreedscats   from './pages/viewbreedscats';
+import Viewdietplanscats   from './pages/viewdietplanscats';
+import Viewsellers   from './pages/viewsellers';
 
 import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
@@ -68,6 +73,8 @@ import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
+import Addnewbreed from './pages/addnewbreed';
+import Addseller from './pages/addseller';
 
 import Dashcheckup from './pages/dashcheckup';
 import Mdpendingads from './pages/mdpendingads';
@@ -78,12 +85,25 @@ import Mdnewpendingposts from './pages/mdnewpendingposts';
 import Mdnewverifyposts from './pages/mdnewverifyposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
+import Mdsinglevitamin from './pages/mdsinglevitamin';
+import Mdaddmed from './pages/mdaddmed';
+import Mdaddvacc from './pages/mdaddvacc';
+import Mddogdiet from './pages/mddogdiet';
+import Mdcatdiet from './pages/mdcatdiet';
+import Mdaddvitamin from './pages/mdaddvitamin';
+import Mdadddogdiet from './pages/mdadddogdiet';
+import Mdaddcatdiet from './pages/mdaddcatdiet';
 import Editservice from './pages/editpetservice';
 import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+
 import Approvad from './pages/approveadd';
+
+import Singlead from './pages/viewsinglead';
+import Mdverifiedsingle from './pages/mdverifiedsingle';
+
 
 
 
@@ -129,6 +149,7 @@ function App() {
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} />
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
+          <Route path="/addseller" element={<Addseller/>} />
           <Route path="/newadd" element={<Newadd/>} /> 
           <Route path="/editpetmartadd" element={<Editadd/>} /> 
           <Route path="/viewpetmartadd" element={<Viewadd/>} />  
@@ -140,6 +161,7 @@ function App() {
           <Route path="/dietplans" element={<Dietplans/>} />
           <Route path="/moderators" element={<Moderators/>} />
           <Route path="/viewusers" element={<Viewusers/>} />
+          <Route path="/viewsellers" element={<Viewsellers/>} />
           <Route path="/reportgeneration" element={<Reportgeneration/>} />
           <Route path="/register" element={<Register/>} />
 
@@ -167,6 +189,11 @@ function App() {
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
+          <Route path="/addnewbreed" element={<Addnewbreed/>}/>
+          <Route path="/viewvitamins" element={<Viewvitamins/>}/>
+          <Route path="/viewvaccines" element={<Viewvaccines/>}/>
+          <Route path="/viewbreedscats" element={<Viewbreedscats/>}/>
+          <Route path="/viewdietplanscats" element={<Viewdietplanscats/>}/>
 
           <Route path="/dashcheckup" element={<Dashcheckup/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
@@ -177,8 +204,17 @@ function App() {
           <Route path="/Mdnewverifyposts" element={<Mdnewverifyposts/>}/>
           <Route path="/Mdsinglemed" element={<Mdsinglemed/>}/>
           <Route path="/Mdsinglevacc" element={<Mdsinglevacc/>}/>
-
+          <Route path="/Mdsinglevitamin" element={<Mdsinglevitamin/>}/>
+          <Route path="/Mdaddmed" element={<Mdaddmed/>}/>
+          <Route path="/Mdaddvacc" element={<Mdaddvacc/>}/>
+          <Route path="/Mdaddvitamin" element={<Mdaddvitamin/>}/>
+          <Route path="/Mddogdiet" element={<Mddogdiet/>}/>
+          <Route path="/Mdcatdiet" element={<Mdcatdiet/>}/>
+          <Route path="/Mdadddogdiet" element={<Mdadddogdiet/>}/>
+          <Route path="/Mdaddcatdiet" element={<Mdaddcatdiet/>}/>
           <Route path="/editservice" element={<Editservice/>}/>
+          <Route path="/viewad" element={<Singlead/>}/>
+          <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
 
 
         </Routes>   

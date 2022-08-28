@@ -36,7 +36,7 @@ class LoginForm extends StatelessWidget {
               obscureText: true,
               cursorColor: formBG,
               decoration: InputDecoration(
-                hintText: "Your  ",
+                hintText: "Passwoed  ",
                 contentPadding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 3.0),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                 prefixIcon: Padding(

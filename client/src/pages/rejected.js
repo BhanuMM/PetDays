@@ -30,19 +30,20 @@ function pendingads() {
 			<div className="row">
 				<Navbar />
 			</div>
-			<div className="row ">
-				<div className="row flex-nowrap pt-5">
+			<div className="row mt-4">
+				<div className="row flex-nowrap mt-5">
 					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
 						<Serviceprovidersidebar />
 					</div>
 					<div className="col-10">
-						<main>
-							<div class="container-fluid px-4">
-								<h1 class="mt-5">Rejected Ads</h1><hr/>
+						<main className="mt-2">
+							<div class="container-fluid mt-2">
+								
+								<h1 className="mt-5">Rejected Advertiesments</h1><hr/>
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item">
-											{/* <a href="#" className="header-topic">Dashboard</a> */}
+											<a href="#" className="header-topic">Dashboard</a>
 										</li>
 									</ol>
 								</nav>

@@ -6,6 +6,7 @@ import '../../components/bottom_nav.dart';
 import 'components/content.dart';
 import '../../../constants.dart';
 import 'components/top_bar.dart';
+import '../PetDiary/Pet_DIary_Screen.dart';
 
 class PetDashboard extends StatelessWidget {
   const PetDashboard({Key? key}) : super(key: key);
@@ -13,26 +14,30 @@ class PetDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Background(
 
-      child:SingleChildScrollView(
+      child:Scaffold(
+        body:SingleChildScrollView(
 
-        child:ConstrainedBox(
-        constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(context).size.height + 400,
-        ),
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: const <Widget>[
-          Expanded(
-              flex: 2,
-              child: petDashboardTopBanner()
-          ),
-          Expanded(
-            flex: 8,
-            child: PetDashboardContent(),
-          )
-        ],
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height *2-350,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
+                Expanded(
+                    flex: 2,
+                    child: petDashboardTopBanner()
+                ),
+                Expanded(
+                  flex: 10,
+                  child: PetDiaryContent(),
+                ),
+
+              ],
+            ),
+          ) ,
       ),
-      )
+       bottomNavigationBar: BottomNav(1),
       )
 
     );
