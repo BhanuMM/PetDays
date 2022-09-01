@@ -2,212 +2,391 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import Sidebar from "../components/sidebar";
-import Navbar from "../components/navbarspecial";
-import medical from "../images/medicine 3-01.jpg";
-import man from "../images/pw.jpg";
-import men from "../images/user 4-01.jpg";
-import food from "../images/foods-06.jpg";
-import report from "../images/postsmd.png";
+import dog from "../images/PetDays.png";
 function dashboard() {
-    return (
-        <div class="container-fluid">
-            <div className="row">
-                <Navbar />
-            </div>
-            <div className="row pt-0 mt-5">
-                <div className="row flex-nowrap pt-5">
-                    <div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
-                        <Sidebar />
-                    </div>
-                    <div className="col-10">
-                        <main>
-                            <div class="container-fluid px-4">
-                                <h1 class="mt-4">Admin Dashboard</h1>
-                                <hr />
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <a href="#" className="header-topic">
-                                                Dashboard
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </nav>
-                                <div class="row pt-3">
-                                    <div class="col-xl-6 col-md-6">
-                                        <div class="card bg-card text-white mb-4">
-                                            <div class="card-body card-style">
-                                                <div className="col">
-                                                    <h5 className="pt-3">Pet Categories / Breeds</h5>
-                                                </div>
-                                                <div className="col-float-right">
-                                                    <p className="lead">
-                                                        <img
-                                                            src={man}
-                                                            className="rounded img-fluid icon-image"
-                                                            alt="dog"
-                                                        />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a
-                                                    class="small text-white stretched-link"
-                                                    href="\petcategories"
-                                                >
-                                                    See More
-                                                </a>
-                                                <div class="small text-white">
-                                                    <i
-                                                        class="fa fa-angle-double-right"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6">
-                                        <div class="card bg-card text-white mb-4">
-                                            <div class="card-body card-style">
-                                                <div className="col">
-                                                    <h5 className="pt-3">Medications</h5>
-                                                </div>
-                                                <div className="col-float-right">
-                                                    <p className="lead">
-                                                        <img
-                                                            src={medical}
-                                                            className="rounded img-fluid icon-image"
-                                                            alt="dog"
-                                                        />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a
-                                                    class="small text-white stretched-link"
-                                                    href="\medications"
-                                                >
-                                                    See More
-                                                </a>
-                                                <div class="small text-white">
-                                                    <i
-                                                        class="fa fa-angle-double-right"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row pt-3">
-                                    <div class="col-xl-6 col-md-6">
-                                        <div class="card bg-card text-white mb-3">
-                                            <div class="card-body">
-                                                <div className="col">
-                                                    <h5 className="pt-3">Diet Plan</h5>
-                                                </div>
-                                                <div className="col-float-right">
-                                                    <p className="lead">
-                                                        <img
-                                                            src={food}
-                                                            className="rounded img-fluid icon-image"
-                                                            alt="dog"
-                                                        />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a
-                                                    class="small text-white stretched-link"
-                                                    href="\dietplans"
-                                                >
-                                                    See More
-                                                </a>
-                                                <div class="small text-white">
-                                                    <i
-                                                        class="fa fa-angle-double-right"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6">
-                                        <div class="card bg-card text-white mb-4">
-                                            <div class="card-body card-style">
-                                                <div className="col">
-                                                    <h5 className="pt-3">User management</h5>
-                                                </div>
-                                                <div className="col-float-right">
-                                                    <p className="lead">
-                                                        <img
-                                                            src={men}
-                                                            className="rounded img-fluid icon-image"
-                                                            alt="dog"
-                                                        />
-                                                    </p>
-                                                </div>
-                                            </div>
+	return (
+		<div class="container-fluid">
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+				<nav
+					class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+					id="navbarVertical"
+				>
+					<div class="container-fluid">
+						<button
+							class="navbar-toggler ms-n2"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#sidebarCollapse"
+							aria-controls="sidebarCollapse"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+							<img class="dashboard-image" src={dog} alt="" />
+						</a>
+						<div class="navbar-user d-lg-none">
+							<div class="dropdown">
+								<a
+									href="#"
+									id="sidebarAvatar"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<div class="avatar-parent-child">
+										<img
+											alt="Image Placeholder"
+											src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+											class="avatar avatar- rounded-circle"
+										/>
+										<span class="avatar-child avatar-badge bg-success"></span>
+									</div>
+								</a>
+								<div
+									class="dropdown-menu dropdown-menu-end"
+									aria-labelledby="sidebarAvatar"
+								>
+									<a href="#" class="dropdown-item">
+										Profile
+									</a>
+									<a href="#" class="dropdown-item">
+										Settings
+									</a>
+									<a href="#" class="dropdown-item">
+										Billing
+									</a>
+									<hr class="dropdown-divider" />
+									<a href="#" class="dropdown-item">
+										Logout
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="collapse navbar-collapse" id="sidebarCollapse">
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-house"></i> Dashboard
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-bar-chart"></i> Analitycs
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-chat"></i> Messages
+										<span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">
+											6
+										</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-bookmarks"></i> Collections
+									</a>
+								</li>
+								<li class="nav-item">
+									<div class="dropdown">
+										<a class="nav-link" href="#">
+											<i class="bi bi-people"></i> Users
+										</a>
+										<div class="dropdown-content">
+											<a href="https://blog.hubspot.com/">Blog</a>
+											<a href="https://academy.hubspot.com/">Academy</a>
+											<a href="https://www.youtube.com/user/hubspot">YouTube</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<hr class="navbar-divider my-5 opacity-20" />
+							<div class="mt-auto"></div>
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-person-square"></i> Account
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-box-arrow-left"></i> Logout
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+					<header class="bg-surface-primary border-bottom pt-6">
+						<div class="container-fluid">
+							<div class="mb-npx">
+								<div class="row align-items-center">
+									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
+										<h1 class="h2 mb-0 ls-tight">Admin Dashboard</h1>
+										<hr />
+										<nav aria-label="breadcrumb">
+											<ol class="breadcrumb">
+												<li class="breadcrumb-item">
+													<a
+														href="/admindashboard"
+														className="header-topic"
+													>
+														Admin Dashboard
+													</a>{" "}
+													/{" "}
+													<a href="mdpostsection" className="header-topic">
+														Forum Posts
+													</a>
+												</li>
+											</ol>
+										</nav>
 
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a
-                                                    class="small text-white stretched-link"
-                                                    href="\viewusers"
-                                                >
-                                                    See More
-                                                </a>
-                                                <div class="small text-white">
-                                                    <i
-                                                        class="fa fa-angle-double-right"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row pt-3">
-                                    <div class="col-xl-6 col-md-6">
-                                        <div class="card bg-card text-white mb-4">
-                                            <div class="card-body card-style">
-                                                <div className="col">
-                                                    <h5 className="pt-3">Report generation</h5>
-                                                </div>
-                                                <div className="col-float-right">
-                                                    <p className="lead">
-                                                        <img
-                                                            src={report}
-                                                            className="rounded img-fluid icon-image"
-                                                            alt="dog"
-                                                        />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a
-                                                    class="small text-white stretched-link"
-                                                    href="\reportgeneration"
-                                                >
-                                                    See More
-                                                </a>
-                                                <div class="small text-white">
-                                                    <i
-                                                        class="fa fa-angle-double-right"
-                                                        aria-hidden="true"
-                                                    ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </main>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+										<br />
+									</div>
+								</div>
+							</div>
+						</div>
+					</header>
+					<main class="py-6 bg-surface-secondary">
+						<div class="container-fluid">
+							<div class="row g-6 mb-6">
+								<div class="col-xl-3 col-sm-6 col-12">
+									<div class="card shadow border-0">
+										<div class="card-body">
+											<div class="row">
+												<div class="col">
+													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
+														Income
+													</span>
+													<span class="h3 font-bold mb-0">$750.90</span>
+												</div>
+												<div class="col-auto">
+													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+														<i class="bi bi-credit-card"></i>
+													</div>
+												</div>
+											</div>
+											<div class="mt-2 mb-0 text-sm">
+												<span class="badge badge-pill bg-soft-success text-success me-2">
+													<i class="bi bi-arrow-up me-1"></i>13%
+												</span>
+												<span class="text-nowrap text-xs text-muted">
+													Since last month
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-sm-6 col-12">
+									<div class="card shadow border-0">
+										<div class="card-body">
+											<div class="row">
+												<div class="col">
+													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
+													New advertisments
+													</span>
+													<span class="h3 font-bold mb-0">$750.90</span>
+												</div>
+												<div class="col-auto">
+													<div class="icon icon-shape  bg-primary text-white text-lg rounded-circle">
+														<i class="bi bi bi-people"></i>
+													</div>
+												</div>
+											</div>
+											<div class="mt-2 mb-0 text-sm">
+												<span class="badge badge-pill bg-soft-success text-success me-2">
+													<i class="bi bi-arrow-up me-1"></i>13%
+												</span>
+												<span class="text-nowrap text-xs text-muted">
+													Since last month
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-sm-6 col-12">
+									<div class="card shadow border-0">
+										<div class="card-body">
+											<div class="row">
+												<div class="col">
+													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
+														Moderators
+													</span>
+													<span class="h3 font-bold mb-0">1.400</span>
+												</div>
+												<div class="col-auto">
+													<div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+														<i class="bi bi-clock-history"></i>
+													</div>
+												</div>
+											</div>
+											<div class="mt-2 mb-0 text-sm">
+												<span class="badge badge-pill bg-soft-danger text-danger me-2">
+													<i class="bi bi-arrow-down me-1"></i>-5%
+												</span>
+												<span class="text-nowrap text-xs text-muted">
+													Since last month
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-sm-6 col-12">
+									<div class="card shadow border-0">
+										<div class="card-body">
+											<div class="row">
+												<div class="col">
+													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
+														Services
+													</span>
+													<span class="h3 font-bold mb-0">1.400</span>
+												</div>
+												<div class="col-auto">
+													<div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+														<i class="bi bi-clock-history"></i>
+													</div>
+												</div>
+											</div>
+											<div class="mt-2 mb-0 text-sm">
+												<span class="badge badge-pill bg-soft-danger text-danger me-2">
+													<i class="bi bi-arrow-down me-1"></i>-5%
+												</span>
+												<span class="text-nowrap text-xs text-muted">
+													Since last month
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-6">
+								<div class="card shadow border-0 mb-6 bg-white">
+								<div class="card-header">
+									<h5 class="mb-0 ">PET TALK POSTS</h5>
+								</div>
+								<div class="table-responsive"></div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+										<div class="btn-group-horizontal">
+											<div className="d-flex">
+												<a
+													href="\viewbreedscats"
+													role="button"
+													aria-pressed="true"
+												>
+													<button type="submit" class="btn-tra">
+														View Breeds
+													</button>
+												</a>
+												<a href="" role="button" aria-pressed="true">
+													<button type="submit" class="btn-tra">
+														Remove Category
+													</button>
+												</a>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+							<div class="card shadow border-0 mb-7 bg-white">
+								<div class="card-header">
+									<h5 class="mb-0 ">PET TALK POSTS</h5>
+								</div>
+								<div class="table-responsive"></div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+										<div class="btn-group-horizontal">
+											<div className="d-flex">
+												<a
+													href="\viewbreedscats"
+													role="button"
+													aria-pressed="true"
+												>
+													<button type="submit" class="btn-tra">
+														View Breeds
+													</button>
+												</a>
+												<a href="" role="button" aria-pressed="true">
+													<button type="submit" class="btn-tra">
+														Remove Category
+													</button>
+												</a>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+								</div>
+								<div className="col-6">
+								<div class="card shadow border-0 mb-7 bg-white">
+								<div class="card-header">
+									<h5 class="mb-0 ">PET TALK POSTS</h5>
+								</div>
+								<div class="table-responsive"></div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+										<div class="btn-group-horizontal">
+											<div className="d-flex">
+												<a
+													href="\viewbreedscats"
+													role="button"
+													aria-pressed="true"
+												>
+													<button type="submit" class="btn-tra">
+														View Breeds
+													</button>
+												</a>
+												<a href="" role="button" aria-pressed="true">
+													<button type="submit" class="btn-tra">
+														Remove Category
+													</button>
+												</a>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+							<div class="card shadow border-0 mb-7 bg-white">
+								<div class="card-header">
+									<h5 class="mb-0 ">PET TALK POSTS</h5>
+								</div>
+								<div class="table-responsive"></div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+										<div class="btn-group-horizontal">
+											<div className="d-flex">
+												<a
+													href="\viewbreedscats"
+													role="button"
+													aria-pressed="true"
+												>
+													<button type="submit" class="btn-tra">
+														View Breeds
+													</button>
+												</a>
+												<a href="" role="button" aria-pressed="true">
+													<button type="submit" class="btn-tra">
+														Remove Category
+													</button>
+												</a>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>{" "}
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default dashboard;
