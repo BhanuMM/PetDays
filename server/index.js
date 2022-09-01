@@ -11,6 +11,10 @@ const db = require("./models");
 const usersRouter = require("./routes/Users");
 app.use("/auth", usersRouter);
 
+const adminsRouter = require("./routes/Admins");
+app.use("/admin", adminsRouter);
+
+
 const PORT = process.env.PORT;
 db.sequelize.sync().then(() => {
     app.listen(PORT,()=> {

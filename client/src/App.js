@@ -99,9 +99,17 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+
+import Approvad from './pages/approveadd';
+
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
+
 import Newdashboard from './pages/newdashboard';
+
+import Spdashboard from './pages/spdashboard';
+
+
 
 
 
@@ -139,6 +147,8 @@ function App() {
           <Route path="/mddietplandetails" element={<Mddietplandetails />} />
           <Route path="/rejected" element={<Reject />} />
           <Route path="/approved" element={<Approved />} />
+          <Route path="/approveadd" element={<Approvad />} />
+          <Route path="/spdashboard" element={<Spdashboard />} />
 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 

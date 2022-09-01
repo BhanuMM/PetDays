@@ -11,17 +11,17 @@ function moderatorsidebar() {
                     </li>
                     <hr />
                     <li class="nav-item">
-                        <a class="nav-link" href="\petmart"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pet Talk Posts</span></a>
+                        <a class="nav-link" href="\mdpostsection"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Posts</span></a>
                     </li>
                     <li class="nav-item">
 
-                        <a class="nav-link" href="\forum"><i class="fa fa-file-image-o ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Advertisements</span></a>
+                        <a class="nav-link" href="\mdadssection"><i class="fa fa-file-image-o ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Advertisements</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href=""><i class="fa fa-medkit ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Medication</span></a>
+                        <a class="nav-link active" href="\mdmedications"><i class="fa fa-medkit ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Medication</span></a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link active" href=""><i class="fa fa-cutlery ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Diet Plans</span></a>
+                        <a class="nav-link active" href="\mddietplans"><i class="fa fa-cutlery ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Diet Plans</span></a>
                     </li>
 
                     

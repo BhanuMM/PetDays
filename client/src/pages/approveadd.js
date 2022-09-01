@@ -22,9 +22,7 @@ function viewpetmartadd() {
                   <div className='col-2'>
                     <div class='button text-end pt-3'>
                       <div className='row'>
-
-                        <div className='col-6'> <a href='/editservice' type="submit" class=" pl-5 pr-5 btn btn-success">Aprove</a></div>
-
+                        <div className='col-6'> <a href='/editservice' type="submit" class=" pl-5 btn btn-success">Approve</a></div>
                         <div className='col-6'> <a href='/petmart' type="submit" class=" pl-5 btn btn-danger">Reject</a></div>
                       </div>
                      

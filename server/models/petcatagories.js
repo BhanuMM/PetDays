@@ -1,30 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
-    const Users = sequelize.define("Users", {
-      userID : {
+    const Petcatagories = sequelize.define("Petcatagories", {
+      pcatID : {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      username: {
+      pcatName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      email: {
+      descr: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      userrole: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      isverified: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+        // If don't want createdAt
+  createdAt: false,
+
+  // If don't want updatedAt
+  updatedAt: false,
     });
   
     // Users.associate = (models) => {
@@ -32,6 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     //     onDelete: "cascade",
     //   });
     // };
-    return Users;
+    return Petcatagories;
   };
   
