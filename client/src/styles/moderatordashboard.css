@@ -176,3 +176,27 @@ hr.h-color{
  }
 
 
+ .dashcardcontent{
+    display: flex;
+    padding-left: 130px;
+ }
+
+ .dashcardcontent .dashcardtitle{
+    /* padding-left: 140px;
+    padding-right: 50px; */
+    padding-top: 30px;
+    width: 220px;
+    
+ }
+
+ .dashcardcontent .dashcardimage img{
+    height: 70px;
+    width: 70px;
+    
+ }
+
+ .dashcardcontent .dashcardimage{
+    padding-top: 10px;
+    width: 100px;
+ }
+

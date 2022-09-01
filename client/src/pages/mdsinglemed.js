@@ -2,10 +2,26 @@ import React from "react";
 import "../styles/viewusers.css";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
+import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import Box from '@mui/material/Box';
+
+const bull = (
+	<Box
+	  component="span"
+	  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)', maxHeight: '1000' }}
+	>
+	  •
+	</Box>
+  );
+
+
+
 function viewmoderators() {
 	return (
 		<div class="container-fluid viewuser">
-			<div className="row">
+			<div className="row"><br/><br/>
 				<Navbar />
 			</div>
 			<div className="row flex-nowrap pt-0 mt-5">
@@ -22,6 +38,10 @@ function viewmoderators() {
 										</li>
 									</ol>
 								</nav>
+								<br/>
+
+				<Card sx={{ minWidth: 275, maxWidth: 1100, marginLeft: 15}} style={{height:450, padding: 10}}>
+                <CardContent>
 						<div class="panel panel-default panel-table">
 							<div class="panel-heading">
 								<div class="row">
@@ -33,7 +53,7 @@ function viewmoderators() {
 											type="button"
 											class="btn btn-sm btn-primary btn-create"
 										>
-											Add New
+											Add New Medicine
 										</button></a>
 									</div><br/>
 								</div>
@@ -126,6 +146,9 @@ function viewmoderators() {
 							</div>
 						</div>
 					</div>
+					</CardContent>
+                  
+                </Card>
 				</div>
 			</div>
 		</div>
