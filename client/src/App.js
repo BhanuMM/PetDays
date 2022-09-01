@@ -103,6 +103,7 @@ import Approvad from './pages/approveadd';
 
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
+import Spdashboard from './pages/spdashboard';
 
 
 
@@ -142,6 +143,7 @@ function App() {
           <Route path="/rejected" element={<Reject />} />
           <Route path="/approved" element={<Approved />} />
           <Route path="/approveadd" element={<Approvad />} />
+          <Route path="/spdashboard" element={<Spdashboard />} />
 
           <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
           <Route path="/moderator" element={<Moderator/>} /> 
