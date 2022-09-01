@@ -102,9 +102,6 @@ import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
 
 
-
-
-
 // import Signinform from './components/signinform';
 
 function App() {
@@ -210,7 +207,6 @@ function App() {
           <Route path="/editservice" element={<Editservice/>}/>
           <Route path="/viewad" element={<Singlead/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
-
 
         </Routes>   
       </Router>          
