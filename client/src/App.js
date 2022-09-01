@@ -105,7 +105,11 @@ import Approvad from './pages/approveadd';
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
 
+
+// import Newdashboard from './pages/newdashboard';
+
 import Spdashboard from './pages/spdashboard';
+import Test from './pages/test';
 
 
 
@@ -218,6 +222,10 @@ function App() {
           <Route path="/editservice" element={<Editservice/>}/>
           <Route path="/viewad" element={<Singlead/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
+          <Route path="/test" element={<Test/>}/>
+
+          {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
+
 
         </Routes>   
       </Router>          

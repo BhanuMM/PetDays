@@ -3,12 +3,17 @@
   display: inline-block;
   position: relative;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
   width: 100%;
   overflow: auto;
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+
+
+/* @media (prefers-reduced-motion: no-preference) { */
+
 }
 .dropdown:hover .dropdown-content {
   display: block;
