@@ -73,7 +73,8 @@ import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
-import Addnewbreed from './pages/addnewbreed';
+import Adddogbreed from './pages/adddogbreed';
+import Addcatbreed from './pages/addcatbreed';
 import Addseller from './pages/addseller';
 
 import Dashcheckup from './pages/dashcheckup';
@@ -100,6 +101,7 @@ import Reject from './pages/rejected';
 import Approved from './pages/appproved';
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
+import Newdashboard from './pages/newdashboard';
 
 
 
@@ -184,7 +186,8 @@ function App() {
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
           <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
-          <Route path="/addnewbreed" element={<Addnewbreed/>}/>
+          <Route path="/adddogbreed" element={<Adddogbreed/>}/>
+          <Route path="/addcatbreed" element={<Addcatbreed/>}/>
           <Route path="/viewvitamins" element={<Viewvitamins/>}/>
           <Route path="/viewvaccines" element={<Viewvaccines/>}/>
           <Route path="/viewbreedscats" element={<Viewbreedscats/>}/>
@@ -210,6 +213,7 @@ function App() {
           <Route path="/editservice" element={<Editservice/>}/>
           <Route path="/viewad" element={<Singlead/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
+          <Route path="/newdashboard" element={<Newdashboard/>}/>
 
 
         </Routes>   
