@@ -2,8 +2,6 @@ import React from "react";
 import "../styles/viewmoderators.css";
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbarspecial";
-import cat from "../images/user1.jpg";
-import dog from "../images/user2.jpg";
 function viewmoderators() {
 	return (
 		<div class="container-fluid viewuser">
