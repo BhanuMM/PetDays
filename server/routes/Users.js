@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
       email: email,
       password: hash,
       userrole : "user",
-      isVerified : "no"
+      isverified : "no"
     });
     res.json("SUCCESS");
   });
@@ -46,7 +46,7 @@ router.post("/sellerregister", async (req, res) => {
       email: email,
       password: hash,
       userrole : "service",
-      isVerified : "no"
+      isverified : "no"
     });
     res.json("SUCCESS");
   });
@@ -62,7 +62,7 @@ router.get('/activate/:hash', async (req, res) => {
   try {
     const uname = await Users.findOne({ where: { username: hash } });
     // const user = await PendingUser.findOne({_id: hash});
-    await Users.update({isVerified : 'yes'} ,{ where: { username: uname.username }} );
+    await Users.update({isverified : 'yes'} ,{ where: { username: uname.username }} );
     // res.json({message: `User has been activated`})
     res.redirect('http://localhost:3000/signin');
   } catch {
