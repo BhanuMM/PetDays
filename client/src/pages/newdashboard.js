@@ -801,10 +801,16 @@ function dashboard() {
 							</div>
 						</div>
 					</main>
-				</div>
-			</div>
-		</div>
-	);
-}
+</div>
+</div>
+</div>
 
+
+
+
+
+	)
+	}
 export default dashboard;
+
+	

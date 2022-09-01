@@ -28,7 +28,7 @@ function viewbreeds() {
                                     <div class="col col-xs-6">
                                     
                                     <div class="col col-xs-6 text-right">
-                                        <a href="\addnewbreed" className="text-decoration-none"><button
+                                        <a href="\adddogbreed" className="text-decoration-none"><button
                                             type="button"
                                             class="btn btn-sm btn-primary btn-create"
                                         >
