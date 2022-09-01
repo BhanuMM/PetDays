@@ -1,155 +1,297 @@
 import React from "react";
-import "../styles/viewusers.css";
-import Sidebar from "../components/sidebar";
-import Navbar from "../components/navbarspecial";
-import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import Box from '@mui/material/Box';
-
-const bull = (
-	<Box
-	  component="span"
-	  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)', maxHeight: '1000' }}
-	>
-	  •
-	</Box>
-  );
-
-
-
-function viewmoderators() {
-	return (
-		<div class="container-fluid viewuser">
-			<div className="row"><br/><br/>
-				<Navbar />
-			</div>
-			<div className="row flex-nowrap pt-0 mt-5">
-				<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
-					<Sidebar />
-				</div>
-				<div class="col-10 user-table">
-					<div class="col-md-10 col-md-offset-1"><br/>
-                    <h1 class="mt-4">Medications | Medicines</h1><hr/>
-								<nav aria-label="breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item">
-											<a href="#" className="header-topic">Moderator Dashboard / Medications / Medicines</a>
-										</li>
-									</ol>
-								</nav>
-								<br/>
-
-				<Card sx={{ minWidth: 275, maxWidth: 1100, marginLeft: 15}} style={{height:450, padding: 10}}>
-                <CardContent>
-						<div class="panel panel-default panel-table">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col col-xs-6">
+import "../styles/footerspecial.css";
+import "../styles/sellerdashboard.css";
+import "../styles/dashboard.css";
+function dashboard() {
+    return (
+        <div class="container-fluid">
+            <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+                <nav
+                    class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+                    id="navbarVertical"
+                >
+                    <div class="container-fluid">
+                        <button
+                            class="navbar-toggler ms-n2"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#sidebarCollapse"
+                            aria-controls="sidebarCollapse"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+                            <img
+                                src="https://preview.webpixels.io/web/img/logos/clever-primary.svg"
+                                alt="..."
+                            />
+                        </a>
+                        <div class="navbar-user d-lg-none">
+                            <div class="dropdown">
+                                <a
+                                    href="#"
+                                    id="sidebarAvatar"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <div class="avatar-parent-child">
+                                        <img
+                                            alt="Image Placeholder"
+                                            src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                            class="avatar avatar- rounded-circle"
+                                        />
+                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                    </div>
+                                </a>
+                                <div
+                                    class="dropdown-menu dropdown-menu-end"
+                                    aria-labelledby="sidebarAvatar"
+                                >
+                                    <a href="#" class="dropdown-item">
+                                        Profile
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Settings
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Billing
+                                    </a>
+                                    <hr class="dropdown-divider" />
+                                    <a href="#" class="dropdown-item">
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse" id="sidebarCollapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-house"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-bar-chart"></i> Analitycs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-chat"></i> Messages
+                                        <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">
+                                            6
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-bookmarks"></i> Collections
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     
-									<div class="col col-xs-6 text-right">
-									<a href="\mdaddmed" className="header-topic">
-										<button
-											type="button"
-											class="btn btn-sm btn-primary btn-create"
-										>
-											Add New Medicine
-										</button></a>
-									</div><br/>
-								</div>
-							</div>
-							{/* <div class="panel-body table-responsive">
-								<table class="table table-striped table-bordered table-list responsive">
-									<thead>
-										<tr>
-											<th class="hidden-xs text-center">Medicine ID</th>
-											<th  class="hidden-xs text-center">Medicine Name</th>
-											<th  class="hidden-xs text-center">Description</th>
-											<th  class="hidden-xs text-center">
-												<em class="fa fa-cog"></em>
-											</th>
-										</tr>
-									</thead>
-									<tbody id="myTable">
-										<tr>
-											<td class="hidden-xs">1</td>
-											<td>Marbofloxacin</td>
-											<td>Antibiotic</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">2</td>
-											<td>Maropitant</td>
-											<td>Antiemetic</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">3</td>
-											<td>Mavacoxib</td>
-											<td>Nonsteroidal anti-inflammatory drug (NSAID)</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">4</td>
-											<td>Medetomidine</td>
-											<td>Surgical anesthetic and analgesic.</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="hidden-xs">5</td>
-											<td>Meloxicam</td>
-											<td>Nonsteroidal anti-inflammatory drug (NSAID)</td>
-											
-											<td align="center">
-												<a class="btn btn-default">
-													<em class="fa fa-pencil"></em>
-												</a>
-												<a class="btn btn-danger">
-													<em class="fa fa-trash"></em>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div> */}
-
-<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+                                    <div class="dropdown">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-people"></i> Users
+                                    </a>
+                                        <div class="dropdown-content">
+                                            <a href="https://blog.hubspot.com/">Blog</a>
+                                            <a href="https://academy.hubspot.com/">Academy</a>
+                                            <a href="https://www.youtube.com/user/hubspot">YouTube</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <hr class="navbar-divider my-5 opacity-20" />
+                            <div class="mt-auto"></div>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-person-square"></i> Account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="bi bi-box-arrow-left"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+                    <header class="bg-surface-primary border-bottom pt-6">
+                        <div class="container-fluid">
+                            <div class="mb-npx">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                                        <h1 class="h2 mb-0 ls-tight">Application</h1>
+                                    </div>
+                                    <div class="col-sm-6 col-12 text-sm-end">
+                                        <div class="mx-n1">
+                                            <a
+                                                href="#"
+                                                class="btn d-inline-flex btn-sm btn-neutral border-base mx-1"
+                                            >
+                                                <span class="pe-2">
+                                                    {" "}
+                                                    <i class="bi bi-pencil"></i>{" "}
+                                                </span>
+                                                <span>Edit</span>
+                                            </a>
+                                            <a
+                                                href="#"
+                                                class="btn d-inline-flex btn-sm btn-primary mx-1"
+                                            >
+                                                <span class="pe-2">
+                                                    {" "}
+                                                    <i class="bi bi-plus"></i>{" "}
+                                                </span>
+                                                <span>Create</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs mt-4 overflow-x border-0">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            All files
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link font-regular">
+                                            Shared
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link font-regular">
+                                            File requests
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
                     <main class="py-6 bg-surface-secondary">
                         <div class="container-fluid">
+                            <div class="row g-6 mb-6">
+                                <div class="col-xl-3 col-sm-6 col-12">
+                                    <div class="card shadow border-0">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">
+                                                        Budget
+                                                    </span>
+                                                    <span class="h3 font-bold mb-0">$750.90</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                                        <i class="bi bi-credit-card"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                                    <i class="bi bi-arrow-up me-1"></i>13%
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">
+                                                    Since last month
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6 col-12">
+                                    <div class="card shadow border-0">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">
+                                                        New projects
+                                                    </span>
+                                                    <span class="h3 font-bold mb-0">215</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                                        <i class="bi bi-people"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                                    <i class="bi bi-arrow-up me-1"></i>30%
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">
+                                                    Since last month
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6 col-12">
+                                    <div class="card shadow border-0">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">
+                                                        Total hours
+                                                    </span>
+                                                    <span class="h3 font-bold mb-0">1.400</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                                        <i class="bi bi-clock-history"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-danger text-danger me-2">
+                                                    <i class="bi bi-arrow-down me-1"></i>-5%
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">
+                                                    Since last month
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-sm-6 col-12">
+                                    <div class="card shadow border-0">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">
+                                                        Work load
+                                                    </span>
+                                                    <span class="h3 font-bold mb-0">95%</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                                        <i class="bi bi-minecart-loaded"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-2 mb-0 text-sm">
+                                                <span class="badge badge-pill bg-soft-success text-success me-2">
+                                                    <i class="bi bi-arrow-up me-1"></i>10%
+                                                </span>
+                                                <span class="text-nowrap text-xs text-muted">
+                                                    Since last month
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card shadow border-0 mb-7">
-                               
+                                <div class="card-header">
+                                    <h5 class="mb-0">Applications</h5>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-nowrap">
                                         <thead class="thead-light">
@@ -581,18 +723,7 @@ function viewmoderators() {
                 </div>
             </div>
         </div>
-
-
-						{/* </div> */}
-					{/* </div> */}
-					</CardContent>
-                  
-                </Card>
-				</div>
-			</div>
-		</div>
-        </div>
-	);
+    );
 }
 
-export default viewmoderators;
+export default dashboard;
