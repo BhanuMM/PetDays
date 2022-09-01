@@ -112,9 +112,6 @@ import Spdashboard from './pages/spdashboard';
 
 
 
-
-
-
 // import Signinform from './components/signinform';
 
 function App() {
@@ -224,7 +221,6 @@ function App() {
           <Route path="/viewad" element={<Singlead/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
           <Route path="/newdashboard" element={<Newdashboard/>}/>
-
 
         </Routes>   
       </Router>          
