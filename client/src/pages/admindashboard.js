@@ -45,24 +45,6 @@ function dashboard() {
 										<span class="avatar-child avatar-badge bg-success"></span>
 									</div>
 								</a>
-								<div
-									class="dropdown-menu dropdown-menu-end"
-									aria-labelledby="sidebarAvatar"
-								>
-									<a href="#" class="dropdown-item">
-										Profile
-									</a>
-									<a href="#" class="dropdown-item">
-										Settings
-									</a>
-									<a href="#" class="dropdown-item">
-										Billing
-									</a>
-									<hr class="dropdown-divider" />
-									<a href="#" class="dropdown-item">
-										Logout
-									</a>
-								</div>
 							</div>
 						</div>
 						<div class="collapse navbar-collapse" id="sidebarCollapse">
@@ -74,31 +56,123 @@ function dashboard() {
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#">
-										<i class="bi bi-bar-chart"></i> Analitycs
+										<i class="bi bi-bar-chart"></i> Report Generation
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">
-										<i class="bi bi-chat"></i> Messages
-										<span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">
-											6
-										</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#">
-										<i class="bi bi-bookmarks"></i> Collections
-									</a>
-								</li>
-								<li class="nav-item">
-									<div class="dropdown">
-										<a class="nav-link" href="#">
-											<i class="bi bi-people"></i> Users
-										</a>
-										<div class="dropdown-content">
-											<a href="https://blog.hubspot.com/">Blog</a>
-											<a href="https://academy.hubspot.com/">Academy</a>
-											<a href="https://www.youtube.com/user/hubspot">YouTube</a>
+									<div class="panel-group" id="accordion">
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a
+														data-toggle="collapse"
+														data-parent="#accordion"
+														href="#collapse1"
+													>
+														<a class="nav-link" href="#">
+															<i class="bi bi-egg"></i> Diet Plans<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:120}}></i>
+														</a>
+													</a>
+												</h4>
+											</div>
+											<div id="collapse1" class="panel-collapse collapse in">
+												<div class="panel-body">
+													<a class="nav-link "style={{paddingLeft:70}} href="#">
+														Diet Plans-Cats
+													</a>
+												</div>
+												<div class="panel-footer">
+													<a class="nav-link" style={{paddingLeft:70}} href="#">
+														Diet Plans-Dogs
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a
+														data-toggle="collapse"
+														data-parent="#accordion"
+														href="#collapse2"
+													>
+														<a class="nav-link" href="#">
+															<i class="bi bi-bag-plus"></i> Medications<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:105}}></i>
+														</a>
+													</a>
+												</h4>
+											</div>
+											<div id="collapse2" class="panel-collapse collapse">
+												<div class="panel-body">
+													<a class="nav-link "style={{paddingLeft:70}} href="#">
+														Medicines
+													</a>
+												</div>
+												<div class="panel-body">
+													<a class="nav-link" style={{paddingLeft:70}}href="#">
+														Vaccines
+													</a>
+												</div>
+												<div class="panel-footer">
+													<a class="nav-link" style={{paddingLeft:70}} href="#">
+														Vitamins
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a
+														data-toggle="collapse"
+														data-parent="#accordion"
+														href="#collapse3"
+													>
+														<a class="nav-link" href="#">
+															<i class="bi bi-bookmarks"></i>Pet Categories<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:88}}></i>
+														</a>
+													</a>
+												</h4>
+											</div>
+											<div id="collapse3" class="panel-collapse collapse">
+												<div class="panel-body">
+													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+														Petcategories-dogs
+													</a>
+												</div>
+												<div class="panel-body">
+													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+														Petcategories-cats
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a
+														data-toggle="collapse"
+														data-parent="#accordion"
+														href="#collapse4"
+													>
+														<a class="nav-link" href="#">
+															<i class="bi bi-people"></i>User Management<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:62}}></i>
+														</a>
+													</a>
+												</h4>
+											</div>
+											<div id="collapse4" class="panel-collapse collapse">
+												<div class="panel-body">
+													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+														Moderators
+													</a>
+												</div>
+												<div class="panel-body">
+													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+														Service providers
+													</a>
+												</div>
+											</div>
 										</div>
 									</div>
 								</li>
@@ -131,14 +205,10 @@ function dashboard() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a
-														href="/admindashboard"
-														className="header-topic"
-													>
-														Admin Dashboard
-													</a>{" "}
-													/{" "}
-													<a href="mdpostsection" className="header-topic">
+													<a href="/admindashboard" className="header-topic">
+														Admin Dashboard/
+													</a>
+													<a href="/mdpostsection" className="header-topic">
 														Forum Posts
 													</a>
 												</li>
@@ -187,7 +257,7 @@ function dashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-													New advertisments
+														New advertisments
 													</span>
 													<span class="h3 font-bold mb-0">$750.90</span>
 												</div>
@@ -265,120 +335,120 @@ function dashboard() {
 							</div>
 							<div className="row">
 								<div className="col-6">
-								<div class="card shadow border-0 mb-6 bg-white">
-								<div class="card-header">
-									<h5 class="mb-0 ">PET TALK POSTS</h5>
-								</div>
-								<div class="table-responsive"></div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-										<div class="btn-group-horizontal">
-											<div className="d-flex">
-												<a
-													href="\viewbreedscats"
-													role="button"
-													aria-pressed="true"
-												>
-													<button type="submit" class="btn-tra">
-														View Breeds
-													</button>
-												</a>
-												<a href="" role="button" aria-pressed="true">
-													<button type="submit" class="btn-tra">
-														Remove Category
-													</button>
-												</a>
-											</div>
+									<div class="card shadow border-0 mb-6 bg-white">
+										<div class="card-header">
+											<h5 class="mb-0 ">PET CATEGORIES</h5>
 										</div>
-									</span>
-								</div>
-							</div>
-							<div class="card shadow border-0 mb-7 bg-white">
-								<div class="card-header">
-									<h5 class="mb-0 ">PET TALK POSTS</h5>
-								</div>
-								<div class="table-responsive"></div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-										<div class="btn-group-horizontal">
-											<div className="d-flex">
-												<a
-													href="\viewbreedscats"
-													role="button"
-													aria-pressed="true"
-												>
-													<button type="submit" class="btn-tra">
-														View Breeds
-													</button>
-												</a>
-												<a href="" role="button" aria-pressed="true">
-													<button type="submit" class="btn-tra">
-														Remove Category
-													</button>
-												</a>
-											</div>
+										<div class="table-responsive"></div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm">
+												<div class="btn-group-horizontal">
+													<div className="d-flex">
+														<a
+															href="\viewbreedscats"
+															role="button"
+															aria-pressed="true"
+														>
+															<button type="submit" class="btn-tra">
+																Dogs
+															</button>
+														</a>
+														<a href="" role="button" aria-pressed="true">
+															<button type="submit" class="btn-tra">
+																Cats
+															</button>
+														</a>
+													</div>
+												</div>
+											</span>
 										</div>
-									</span>
-								</div>
-							</div>
+									</div>
+									<div class="card shadow border-0 mb-7 bg-white">
+										<div class="card-header">
+											<h5 class="mb-0 ">MEDICATIONS</h5>
+										</div>
+										<div class="table-responsive"></div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm">
+												<div class="btn-group-horizontal">
+													<div className="d-flex">
+														<a
+															href="\viewbreedscats"
+															role="button"
+															aria-pressed="true"
+														>
+															<button type="submit" class="btn-tra">
+																Dogs
+															</button>
+														</a>
+														<a href="" role="button" aria-pressed="true">
+															<button type="submit" class="btn-tra">
+																cats
+															</button>
+														</a>
+													</div>
+												</div>
+											</span>
+										</div>
+									</div>
 								</div>
 								<div className="col-6">
-								<div class="card shadow border-0 mb-7 bg-white">
-								<div class="card-header">
-									<h5 class="mb-0 ">PET TALK POSTS</h5>
-								</div>
-								<div class="table-responsive"></div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-										<div class="btn-group-horizontal">
-											<div className="d-flex">
-												<a
-													href="\viewbreedscats"
-													role="button"
-													aria-pressed="true"
-												>
-													<button type="submit" class="btn-tra">
-														View Breeds
-													</button>
-												</a>
-												<a href="" role="button" aria-pressed="true">
-													<button type="submit" class="btn-tra">
-														Remove Category
-													</button>
-												</a>
-											</div>
+									<div class="card shadow border-0 mb-7 bg-white">
+										<div class="card-header">
+											<h5 class="mb-0 ">DIET PLANS</h5>
 										</div>
-									</span>
-								</div>
-							</div>
-							<div class="card shadow border-0 mb-7 bg-white">
-								<div class="card-header">
-									<h5 class="mb-0 ">PET TALK POSTS</h5>
-								</div>
-								<div class="table-responsive"></div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-										<div class="btn-group-horizontal">
-											<div className="d-flex">
-												<a
-													href="\viewbreedscats"
-													role="button"
-													aria-pressed="true"
-												>
-													<button type="submit" class="btn-tra">
-														View Breeds
-													</button>
-												</a>
-												<a href="" role="button" aria-pressed="true">
-													<button type="submit" class="btn-tra">
-														Remove Category
-													</button>
-												</a>
-											</div>
+										<div class="table-responsive"></div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm">
+												<div class="btn-group-horizontal">
+													<div className="d-flex">
+														<a
+															href="\viewbreedscats"
+															role="button"
+															aria-pressed="true"
+														>
+															<button type="submit" class="btn-tra">
+																Diet Plans - Dogs
+															</button>
+														</a>
+														<a href="" role="button" aria-pressed="true">
+															<button type="submit" class="btn-tra">
+															Diet Plans - Cats
+															</button>
+														</a>
+													</div>
+												</div>
+											</span>
 										</div>
-									</span>
-								</div>
-							</div>{" "}
+									</div>
+									<div class="card shadow border-0 mb-7 bg-white">
+										<div class="card-header">
+											<h5 class="mb-0 ">USER MANAGEMENT</h5>
+										</div>
+										<div class="table-responsive"></div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm">
+												<div class="btn-group-horizontal">
+													<div className="d-flex">
+														<a
+															href="\viewbreedscats"
+															role="button"
+															aria-pressed="true"
+														>
+															<button type="submit" class="btn-tra">
+																Moderators
+															</button>
+														</a>
+														<a href="" role="button" aria-pressed="true">
+															<button type="submit" class="btn-tra">
+																Service providers
+															</button>
+														</a>
+													</div>
+												</div>
+											</span>
+										</div>
+									</div>{" "}
 								</div>
 							</div>
 						</div>
