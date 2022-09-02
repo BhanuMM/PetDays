@@ -51,6 +51,10 @@ import BookmarksTwoToneIcon from '@mui/icons-material/BookmarksTwoTone';
 import KeyboardDoubleArrowRightOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowRightOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
+import IconButton from '@mui/material/IconButton';
+
+import '../styles/spdashboard.css';
 
 import Avatar from '@mui/material/Avatar';
 function pendingads() {
@@ -64,64 +68,75 @@ function pendingads() {
         <div className="col-3  mt-5">
                    
 
-                        <Card sx={{ maxWidth: 345, display: 'flex', width:300, height:580 , marginLeft:4, marginRight:1 }}  elevation={3}>
+                      <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
                            
-                            <CardContent sx={{alignContent:'center'}}>
-                            {/* <CardMedia sx={{  borderRadius: '80%',marginBottom:5}}
-                                component="img"
-                                alt="green iguana"
-                                height="140"
-                                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1b6b8-SGhdk0tifwTFwdLdgYe4yGLZJKrooKbsYWO2YPygcFLnU5lrcWhECp4Sau9wg&usqp=CAU"
-                            /> */}
-                              <Avatar
-                                alt="Remy Sharp"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
-                                sx={{ width: 150, height: 150, marginLeft:7,marginright:6,marginBottom:4, margintop:5 }}
-                                />
-                                <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
-                               Devid Person
+                           <CardContent sx={{alignContent:'center'}}>
+                          
+                             <Avatar
+                               alt="Remy Sharp"
+                               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
+                               sx={{ width: 150, height: 150, marginLeft:8,marginright:6,marginBottom:4, marginTop:6 }}
+                               />
+                               <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
+                              Devid Person
                                <Typography fontSize={15} sx={{marginTop:2, marginLeft:3}} color="text.secondary">
-                                devidperson@gmail.com
-                                <br/>
-                                +94 71 94 72 047
-                                </Typography>
-                                
-
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Published Ads : 08
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Pending Ads : 02
-                                </Typography >
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Rejected Ads : 03
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:3}} >
-                                <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
-                                <EditIcon/>EDIT PROFILE
-                            </Button>
-                               
-                                </Typography>
-                            </CardContent>
-                            {/* <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                            </CardActions> */}
-                        </Card> 
+                                 devidperson@gmail.com
+                                 <br/>
+                                 +94 71 94 72 047
+                                 </Typography>
+                               </Typography>
+                               <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                                 <IconButton href='/approved'>
+                                 < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }} href ='/approved'/>
+                                 </IconButton>
+                                 Published Ads : 08
+                               </Typography>
+                               <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                               <IconButton href='/pendingads'>
+                               <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                 </IconButton>
+                                 Pending Ads : 02
+                               </Typography >
+                               <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                              
+                               <IconButton href='/rejected'>
+                               <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                 </IconButton>
+                               Rejected Ads : 03
+                               </Typography>
+                               <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
+                                 <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                 <EditIcon/>EDIT PROFILE
+                                 </Button>
+                              
+                               </Typography>
+                               <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
+                                 <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                 <PersonIcon/>LOG OUT
+                                 </Button>
+                              
+                               </Typography>
+                           </CardContent>
+                          
+                       </Card> 
 						 
 					</div>
 					<div className="col-9">
 						<main>
 							<div class="container-fluid px-4">
-								<h1 class="mt-5">Pending Ads</h1><hr/>
-								<nav aria-label="breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item">
-											{/* <a href="#" className="header-topic">Dashboard</a> */}
-										</li>
-									</ol>
-								</nav>
+								<h1 class=" margintop-topc">Pending Advertiesments</h1><hr/>
+                <nav aria-label="breadcrumb">
+                                  <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                      <a href="/spdashboard" className="header-topic">
+                                        Service Provider Dashboard /
+                                      </a>
+                                      <a href="/pending" className="header-topic">
+                                         Pending Ads
+                                      </a>
+                                    </li>
+                                  </ol>
+                              </nav>
                 
                 <div class="cards mb-5">
                 <div class="card">
@@ -175,6 +190,7 @@ function pendingads() {
 					</div>
 				</div>
 			</div>
+    
 		</div>
 	);
 }
