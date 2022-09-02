@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/spdashboard.css';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -25,6 +26,7 @@ import BookmarksTwoToneIcon from '@mui/icons-material/BookmarksTwoTone';
 import KeyboardDoubleArrowRightOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowRightOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import PersonIcon from '@mui/icons-material/Person';
 
 import Avatar from '@mui/material/Avatar';
 // import Stack from '@mui/material/Stack';
@@ -60,39 +62,7 @@ const createbutton = styled(Button)(({ theme }) => ({
     },
   }));
 
-//   const clickble = (
-//     <React.Fragment>
-//       <CardContent>
-//         {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-//           Word of the Day
-//         </Typography>
-//         <Typography variant="h5" component="div">
-//           benevolent
-//         </Typography>
-//         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-//           adjective
-//         </Typography> */}
 
-//         <Typography variant="h5" component="div">
-//             PENDING ADS
-//         </Typography>
-//         <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#ff3d00'>
-//             02 
-//         </Typography>
-//         <Typography variant="body2">
-//           well meaning and kindly.
-//           <br />
-//           {'"a benevolent smile"'}
-//         </Typography>
-//         <CardActions>
-//         <Button variant="contained" size="large" color='secondary' sx={{width:200, height:30, fontSize:15}}>
-//             See ore
-//         </Button>
-//       </CardActions>
-//       </CardContent>
-      
-//     </React.Fragment>
-//   );
 
   const card = (
     <React.Fragment>
@@ -137,12 +107,12 @@ function spdashboard() {
 			<div className="row mb-5">
 				<Navbar />
 			</div>
-			<div className="row mt-4">
-				<div className="row flex-nowrap pt-5">
+			<div className="row mt-5">
+				<div className="row flex-nowrap pt-5 mt-5">
 					<div className="col-3  mt-5">
                    
 
-                        <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:760 , marginLeft:4, marginRight:1,alignContent:'center'}}  elevation={3}>
+                        <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
                            
                             <CardContent sx={{alignContent:'center'}}>
                            
@@ -153,27 +123,41 @@ function spdashboard() {
                                 />
                                 <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
                                Devid Person
-                               <Typography fontSize={15} sx={{marginTop:2, marginLeft:3}} color="text.secondary">
-                                devidperson@gmail.com
-                                <br/>
-                                +94 71 94 72 047
+                                <Typography fontSize={15} sx={{marginTop:2, marginLeft:3}} color="text.secondary">
+                                  devidperson@gmail.com
+                                  <br/>
+                                  +94 71 94 72 047
+                                  </Typography>
                                 </Typography>
-                                
-
+                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                                  <IconButton href='/approved'>
+                                  < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }} href ='/approved'/>
+                                  </IconButton>
+                                  Published Ads : 08
                                 </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Published Ads : 08
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Pending Ads : 02
+                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                                <IconButton href='/pendingads'>
+                                <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                  </IconButton>
+                                  Pending Ads : 02
                                 </Typography >
-                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
-                                <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Rejected Ads : 03
+                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                               
+                                <IconButton href='/rejected'>
+                                <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                  </IconButton>
+                                Rejected Ads : 03
                                 </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:3}} >
-                                <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
-                                <EditIcon/>EDIT PROFILE
-                            </Button>
+                                <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
+                                  <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                  <EditIcon/>EDIT PROFILE
+                                  </Button>
+                               
+                                </Typography>
+                                <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
+                                  <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                  <PersonIcon/>LOG OUT
+                                  </Button>
                                
                                 </Typography>
                             </CardContent>
@@ -181,24 +165,29 @@ function spdashboard() {
                         </Card> 
 						 
 					</div>
-                    <div className='col-9'>
-                        <main>
-                          <div class="container-fluid px-4">
-                              <h1 class="mt-3">Service Provider Dashboard</h1><hr/>
-                                  <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                      <li class="breadcrumb-item">
-                                        <a href="#" className="header-topic">Dashboard</a>
-                                      </li>
-                                    </ol>
-                                  </nav>
+                    <div className='col-9 mt-5'>
+                        <main className='mt-5'>
+                          <div class="container-fluid px-4 mt-5">
+                              <h1 class=" margintop-topc">Service Provider Dashboard</h1><hr/>
+                                <nav aria-label="breadcrumb">
+                                  <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                      <a href="/spdashboard" className="header-topic">
+                                        Service Provider Dashboard
+                                      </a>
+                                      {/* <a href="/mdpostsection" className="header-topic">
+                                        Forum Posts
+                                      </a> */}
+                                    </li>
+                                  </ol>
+                              </nav>
 
-                                  <div className='text-end'>
-                                      <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:400, height:70, fontSize:23}}>
+                                  <div className='text-end mt-4 mb-5'>
+                                      <Button variant="contained" size="large" color='secondary' href='addpetmartadd' style={{backgroundColor:'#F66B0E'}} sx={{width:380, height:70, fontSize:23, marginRight:4}}>
                                           <AddBoxIcon  sx={{ fontSize: 30, marginRight:2 }}/>CREATE NEW ADD
                                       </Button>
                                   </div>
-                                  <Box sx={{ flexGrow: 1,  marginTop:3 }}>
+                                  <Box sx={{ flexGrow: 1,  marginTop:10 }}>
                                       <Grid container spacing={2}>
                                           <Grid item xs={4} md={4}>
                                           <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
