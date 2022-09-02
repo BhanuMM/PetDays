@@ -24,28 +24,95 @@ import G1 from '../images/g1.jpg';
 import G4 from '../images/g4.jpg';
 import '../styles/petcategories.css';
 import '../styles/serviceproviderdashboard.css';
+
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import CardMedia from '@mui/material/CardMedia';
+import Cancle from '../images/forgot.png';
+import { useTheme } from '@mui/material/styles';
+
+
+import Stack from '@mui/material/Stack';
+import { brown, purple } from '@mui/material/colors';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+//icons
+import BookmarkRemoveTwoToneIcon from '@mui/icons-material/BookmarkRemoveTwoTone';
+import BookmarkAddedTwoToneIcon from '@mui/icons-material/BookmarkAddedTwoTone';
+import BookmarksTwoToneIcon from '@mui/icons-material/BookmarksTwoTone';
+import KeyboardDoubleArrowRightOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowRightOutlined';
+import EditIcon from '@mui/icons-material/Edit';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+
+import Avatar from '@mui/material/Avatar';
 function pendingads() {
 	return (
 		<div class="container-fluid moderatordashboard">
-			<div className="row">
+			<div className="row  mb-5">
 				<Navbar />
 			</div>
 			<div className="row mt-4">
 				<div className="row flex-nowrap mt-5">
-					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
-						<Serviceprovidersidebar />
+				<div className="col-3  mt-5">
+                    
+
+                        <Card sx={{ maxWidth: 345, display: 'flex', width:300, height:580 , marginLeft:4, marginRight:1 }}  elevation={3}>
+                           
+                            <CardContent sx={{alignContent:'center'}}>
+                          
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
+                                sx={{ width: 150, height: 150, marginLeft:7,marginright:6,marginBottom:4, margintop:5 }}
+                                />
+                                <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
+                               Devid Person
+                               <Typography fontSize={15} sx={{marginTop:2, marginLeft:3}} color="text.secondary">
+                                devidperson@gmail.com
+                                <br/>
+                                +94 71 94 72 047
+                                </Typography>
+                                
+
+                                </Typography>
+                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
+                                < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Published Ads : 08
+                                </Typography>
+                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
+                                <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Pending Ads : 02
+                                </Typography >
+                                <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
+                                <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>Rejected Ads : 03
+                                </Typography>
+                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:3}} >
+                                <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                <EditIcon/>EDIT PROFILE
+                            </Button>
+                               
+                                </Typography>
+                            </CardContent>
+                            {/* <CardActions>
+                                <Button size="small">Share</Button>
+                                <Button size="small">Learn More</Button>
+                            </CardActions> */}
+                        </Card> 
+						 
 					</div>
-					<div className="col-10">
+					<div className="col-9">
 						<main className="mt-2">
 							<div class="container-fluid mt-2">
 								
 								<h1 className="mt-5">Rejected Advertiesments</h1><hr/>
 								<nav aria-label="breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item">
-											<a href="#" className="header-topic">Dashboard</a>
-										</li>
-									</ol>
+									
 								</nav>
                 
                 <div class="cards mb-5">

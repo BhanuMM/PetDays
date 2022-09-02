@@ -140,24 +140,16 @@ function spdashboard() {
 			<div className="row mt-4">
 				<div className="row flex-nowrap pt-5">
 					<div className="col-3  mt-5">
-                    {/* <Card sx={{ display: 'flex', width:300, height:550 , marginLeft:8, marginRight:8}} elevation={5}>
-                               
-                               {card}
-                           </Card> */}
+                   
 
-                        <Card sx={{ maxWidth: 345, display: 'flex', width:300, height:580 , marginLeft:4, marginRight:1 }}  elevation={3}>
+                        <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:760 , marginLeft:4, marginRight:1,alignContent:'center'}}  elevation={3}>
                            
                             <CardContent sx={{alignContent:'center'}}>
-                            {/* <CardMedia sx={{  borderRadius: '80%',marginBottom:5}}
-                                component="img"
-                                alt="green iguana"
-                                height="140"
-                                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1b6b8-SGhdk0tifwTFwdLdgYe4yGLZJKrooKbsYWO2YPygcFLnU5lrcWhECp4Sau9wg&usqp=CAU"
-                            /> */}
+                           
                               <Avatar
                                 alt="Remy Sharp"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
-                                sx={{ width: 150, height: 150, marginLeft:7,marginright:6,marginBottom:4, margintop:5 }}
+                                sx={{ width: 150, height: 150, marginLeft:8,marginright:6,marginBottom:4, marginTop:6 }}
                                 />
                                 <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
                                Devid Person
@@ -185,117 +177,127 @@ function spdashboard() {
                                
                                 </Typography>
                             </CardContent>
-                            {/* <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                            </CardActions> */}
+                           
                         </Card> 
 						 
 					</div>
-                    <div className='col-9 mt-5'>
-                        <div className='text-end'>
-                            <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:400, height:70, fontSize:23}}>
-                                <AddBoxIcon  sx={{ fontSize: 30, marginRight:2 }}/>CREATE NEW ADD
-                            </Button>
-                        </div>
-                    <Box sx={{ flexGrow: 1,  marginTop:8 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={4} md={4}>
-                            <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
-                                <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
-                                    <CardContent sx={{marginright:2, alignContent:'center'}}>
-                                        <Typography  component="div">
-                                            < BookmarkAddedTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
-                                           
-                                        </Typography>
-                                                    
-                                        <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
-                                           PUBLISH ADS
-                                        </Typography>
-                                        <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
-                                            08 
-                                        </Typography>
-                                      
-                                    
-                                    
-                                    </CardContent>
-                                    <Button variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15, align:'center'}}>
-                                            VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
-                                        </Button>
-                                
-                                    
-                                </Box>
-                                
-                            </Card>
-                            
-                            </Grid>
-                            <Grid item xs={4} md={4}>
-                            <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
-                                <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
-                                    <CardContent sx={{marginright:4,alignContent:'center'}}>
-                                    <Typography variant="h5" component="div">
-                                            <BookmarksTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
-                                        </Typography>
-                                                    
-                                        <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
-                                            PENDING ADS
-                                        </Typography>
-                                        <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
-                                            01 
-                                        </Typography>
-                                       
-                                    
-                                    
-                                    </CardContent>
-                                    <Button variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15,align:'center'}}>
-                                            VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
-                                        </Button>
-                                
-                                    
-                                </Box>
-                                
-                            </Card>
-                            
-                            </Grid>
+                    <div className='col-9'>
+                        <main>
+                          <div class="container-fluid px-4">
+                              <h1 class="mt-3">Service Provider Dashboard</h1><hr/>
+                                  <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                      <li class="breadcrumb-item">
+                                        <a href="#" className="header-topic">Dashboard</a>
+                                      </li>
+                                    </ol>
+                                  </nav>
 
-                            <Grid item xs={4} md={4}>
-                            <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
-                                <Box sx={{ display: 'flex', flexDirection: 'column', margin:5}}>
-                                    <CardContent sx={{marginright:4, alignContent:'center'}}>
-                                        <Typography  component="div" >
-                                            <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
-                                    
-                                        </Typography>
+                                  <div className='text-end'>
+                                      <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:400, height:70, fontSize:23}}>
+                                          <AddBoxIcon  sx={{ fontSize: 30, marginRight:2 }}/>CREATE NEW ADD
+                                      </Button>
+                                  </div>
+                                  <Box sx={{ flexGrow: 1,  marginTop:3 }}>
+                                      <Grid container spacing={2}>
+                                          <Grid item xs={4} md={4}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                              <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
+                                                  <CardContent sx={{marginright:2, alignContent:'center'}}>
+                                                      <Typography  component="div">
+                                                          < BookmarkAddedTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                                        
+                                                      </Typography>
+                                                                  
+                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
+                                                        PUBLISH ADS
+                                                      </Typography>
+                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
+                                                          08 
+                                                      </Typography>
                                                     
-                                        <Typography variant="h5" component="div"  sx={{ marginTop:3}} >
-                                            REJECTED ADS
-                                        </Typography>
-                                        <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
-                                            03
-                                        </Typography>
-                                       
-                                    
-                                    
-                                    </CardContent>
-                                    <Button variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15 ,align:'center'}}>
-                                            VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
-                                        </Button>
+                                                  
+                                                  
+                                                  </CardContent>
+                                                  <Button href='/approved' variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15, align:'center'}}>
+                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                      </Button>
+                                              
+                                                  
+                                              </Box>
+                                              
+                                          </Card>
+                                          
+                                          </Grid>
+                                          <Grid item xs={4} md={4}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                              <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
+                                                  <CardContent sx={{marginright:4,alignContent:'center'}}>
+                                                  <Typography variant="h5" component="div">
+                                                          <BookmarksTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                                      </Typography>
+                                                                  
+                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
+                                                          PENDING ADS
+                                                      </Typography>
+                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
+                                                          01 
+                                                      </Typography>
+                                                    
+                                                  
+                                                  
+                                                  </CardContent>
+                                                  <Button variant="contained"  href='/pendingads' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15,align:'center'}}>
+                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                      </Button>
+                                              
+                                                  
+                                              </Box>
+                                              
+                                          </Card>
+                                          
+                                          </Grid>
+
+                                          <Grid item xs={4} md={4}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                              <Box sx={{ display: 'flex', flexDirection: 'column', margin:5}}>
+                                                  <CardContent sx={{marginright:4, alignContent:'center'}}>
+                                                      <Typography  component="div" >
+                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                                  
+                                                      </Typography>
+                                                                  
+                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}} >
+                                                          REJECTED ADS
+                                                      </Typography>
+                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
+                                                          03
+                                                      </Typography>
+                                                    
+                                                  
+                                                  
+                                                  </CardContent>
+                                                  <Button variant="contained"  href='/rejected' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15 ,align:'center'}}>
+                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                      </Button>
+                                              
+                                                  
+                                              </Box>
+                                              
+                                          </Card>
+                                        
                                 
-                                    
-                                </Box>
-                                
-                            </Card>
-                           
-                  
-                            
-                            </Grid>
-                        
-                        
-                            
-                            
-                        </Grid>
-                    </Box>
-                    </div>
+                                          
+                                          </Grid>
+                                      
+                                      
+                                          
+                                          
+                                      </Grid>
+                                  </Box>
+                          </div>
+                        </main>
+                      </div>
                 </div>
             </div>
       
