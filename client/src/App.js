@@ -104,6 +104,7 @@ import Approvad from './pages/approveadd';
 
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
+import Mdviewad from './pages/mdviewad';
 
 
 // import Newdashboard from './pages/newdashboard';
@@ -223,6 +224,7 @@ function App() {
           <Route path="/viewad" element={<Singlead/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
           <Route path="/test" element={<Test/>}/>
+          <Route path="/mdviewad" element={<Mdviewad/>}/>
 
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
