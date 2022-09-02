@@ -3,13 +3,13 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
-import Profilepic from '../images/profile.jpg';
+import G1 from '../images/pw.jpg';
+import G2 from '../images/pw2.jpg';
 import Button from '@mui/material/Button';
 import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
-function mdnewverifyposts() {
+function moderatordashboard() {
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -206,7 +206,7 @@ function mdnewverifyposts() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Verified Forum Posts</h1>
+										<h1 class="h2 mb-0 ls-tight">Pending Advertisment</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -215,7 +215,7 @@ function mdnewverifyposts() {
 														Moderator Dashboard/
 													</a>
 													<a href="/mdpostsection" className="header-topic">
-														 Verified Posts
+														 Pending Advertisment
 													</a>
 												</li>
 											</ol>
@@ -231,62 +231,88 @@ function mdnewverifyposts() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                           
-                                <CardContent>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Published 5 minutes ago.</p>
-                                    </div>  
-                                    <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
-                                    </div>
-                                    <div class='comment'>
-                                        <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">5 Comments</a></p>
-                                    </div>
-                            </div>
+                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{padding: 10, paddingLeft:75}}>
+                        <CardContent style={{paddingLeft:50}}>
 
+                            <div className='col-8'>
+                                <div class='title  viewadd-hedder '>
+                                <div class='content'>
+                                    <div className='row'>
+                                    <div className='col-10'>
+                                    <h3 className=''>DOG FRIENDS </h3>
+                                        <p> Posted on 22 August 2022</p>
+                                    </div>
+                                    <div className='col-2'>
+                                        <div class='button text-end pt-3'>
+                                        
+                                        
+                                        
+                                        </div>
+                                        
+                                    </div>
+                                    <hr/>
+                                    </div>
+                                    
+                                </div> 
                                 </div>
-                                </Card><br/>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Posted 35 minutes ago.</p>
-                                    </div>  
-                                    <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
-                                    </div>
-                                    <div class='comment'>
-                                        <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">25 Comments</a></p>
-                                    </div>
-                            </div>
-
+                                <div className='row pb-5'>
+                                <div className='col-1'></div>
+                                <div className='col-5'>
+                                <img src={G1} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
                                 </div>
-                                </Card><br/>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Posted 15 minutes ago.</p>
-                                    </div>  
-                                    <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
-                                    </div>
-                                    <div class='comment'>
-                                        <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">10 Comments</a></p>
-                                    </div>
-                            </div>
-
+                                <div className='col-5'>
+                                {/* <img src={G2} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/> */}
                                 </div>
-                                </Card><br/>
-
-                                </CardContent>
+                                <div className='col-1'></div>
+                                </div>
+                                <div className='row'>
+                                <div className='col-5'>
+                                <p className='ml-5 pl-5 text-start'>
+                                <h3>Dog Walking Service</h3>
+                                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Gampaha,Sri Lanka</p><br/>
+                                
                             
+
+                                <h4>Rs 2000.00 only</h4>
+                            
+                                </p>
+                                <p>
+                                Keep your dog happy and in greate space with our help.
+                                Let we take care of your pet while you are away.
+                                </p>
+                                
+                                </div>
+                                <div className='col-2'></div>
+                                <div className='col-5'><br/><br/><br/>
+                                    <p><h5>Contact Us</h5>
+                                    <p><i class="fa fa-envelope" aria-hidden="true"></i> www.dogfriends.lk</p>
+                                    <p><i class="fa fa-phone" aria-hidden="true"></i>+94 718 956 953 </p> 
+                                    <p><i class="fa fa-facebook-square" aria-hidden="true"></i> wwww.facebook.com/dogfriends</p>
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> Temple Road,Gampaha,Sri Lanka</p>
+
+                                    </p>
+                                </div>
+
+                                <div class='comment'><br/><br/>
+                                                                <a href="" role="button" aria-pressed="true">  
+                                                                    <Button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
+                                                                        Approve
+                                                                    </Button>
+                                                                </a>
+                                                                                <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+                                                                                Reject
+                                                                            </Button></a>
+                                                            </div>
+                                </div>
+            
+           
+            
+            
+             
+
+        </div>
+        </CardContent>
+                    </Card>
             				</div>
 	
 							</div>
@@ -299,4 +325,4 @@ function mdnewverifyposts() {
 	);
 }
 
-export default mdnewverifyposts;
+export default moderatordashboard;
