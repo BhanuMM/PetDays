@@ -109,10 +109,10 @@ function spdashboard() {
 			</div>
 			<div className="row mt-5">
 				<div className="row flex-nowrap pt-5 mt-5">
-					<div className="col-3  mt-5">
+					<div className="col-4  mt-5">
                    
 
-                        <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
+                        <Card sx={{ maxWidth: 345, display: 'flex', width:380, height:790 , marginLeft:2, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
                            
                             <CardContent sx={{alignContent:'center'}}>
                            
@@ -165,9 +165,9 @@ function spdashboard() {
                         </Card> 
 						 
 					</div>
-                    <div className='col-9 mt-5'>
+                    <div className='col-8 mt-5'>
                         <main className='mt-5'>
-                          <div class="container-fluid px-4 mt-5">
+                          <div class="container-fluid px-2 mt-5">
                               <h1 class=" margintop-topc">Service Provider Dashboard</h1><hr/>
                                 <nav aria-label="breadcrumb">
                                   <ol class="breadcrumb">
@@ -190,7 +190,7 @@ function spdashboard() {
                                   <Box sx={{ flexGrow: 1,  marginTop:10 }}>
                                       <Grid container spacing={2}>
                                           <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:5}} elevation={5}>
                                               <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
                                                   <CardContent sx={{marginright:2, alignContent:'center'}}>
                                                       <Typography  component="div">
@@ -219,7 +219,7 @@ function spdashboard() {
                                           
                                           </Grid>
                                           <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:5}} elevation={5}>
                                               <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
                                                   <CardContent sx={{marginright:4,alignContent:'center'}}>
                                                   <Typography variant="h5" component="div">
@@ -248,7 +248,7 @@ function spdashboard() {
                                           </Grid>
 
                                           <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:5}} elevation={5}>
                                               <Box sx={{ display: 'flex', flexDirection: 'column', margin:5}}>
                                                   <CardContent sx={{marginright:4, alignContent:'center'}}>
                                                       <Typography  component="div" >
@@ -287,6 +287,7 @@ function spdashboard() {
                           </div>
                         </main>
                       </div>
+                      
                 </div>
             </div>
       

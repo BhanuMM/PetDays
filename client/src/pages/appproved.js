@@ -70,7 +70,7 @@ function pendingads() {
                                {card}
                            </Card> */}
 
-                          <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
+                          <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:2, marginRight:2,alignContent:'center', marginTop:10}}  elevation={3}>
                            
                            <CardContent sx={{alignContent:'center'}}>
                           

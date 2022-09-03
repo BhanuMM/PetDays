@@ -213,10 +213,10 @@ function editpetservices() {
                            </CardContent>
                           
                        </Card>  */}
-                       <div className="col-3  mt-5  ">
+                       <div className="col-4  mt-5  ">
                    
 
-                   <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:20}}  elevation={3}>
+                   <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:2, marginRight:2,alignContent:'center', marginTop:20}}  elevation={3}>
                         
                         <CardContent sx={{alignContent:'center'}}>
                        
@@ -270,7 +270,7 @@ function editpetservices() {
                       
                  </div>
         {/* </div> */}
-        <div className="col-9 g-5 ml-5 mt-5">
+        <div className="col-8 g-5 ml-5 mt-5">
         <h1 class="margintop-topc">Edit Advertiesment</h1><hr/>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
