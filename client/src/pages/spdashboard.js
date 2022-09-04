@@ -188,15 +188,18 @@ function spdashboard() {
                                       </Button>
                                   </div>
                                   <Box sx={{ flexGrow: 1,  marginTop:10 }}>
-                                      <Grid container spacing={20} alignItems='center' justify='center'>
-                                          <Grid item xs={0} md={0} align='center' alignItems='center' justify='center'>                                                         
+                                      <Grid container spacing={50} 
+                                      direction="row"
+                                      alignItems="center"
+                                      justify="center"
+                                      style={{ minHeight: '50vh' }}>
+                                          <Grid item xs={3} md={0} align = 'center'>                                                         
                                             <Card sx={{  display: 'flex', width:300, height:450 }} elevation={5} align='center' className='card-alignments'>
-                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:0, marginRight:0 }} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:'auto', marginRight:'auto' }} align='center' className='card-alignments'>
                                                       <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
                                                         
                                                           <Typography  component="">
                                                               < BookmarkAddedTwoToneIcon  sx={{ fontSize: 150}}/>
-                                                            
                                                           </Typography>
                                                                   
                                                           <Typography variant="h5" component=""  sx={{ marginTop:3}}>
@@ -216,66 +219,59 @@ function spdashboard() {
                                             </Card>
                                           
                                           </Grid>
-                                          <Grid item xs={0} md={0}>
-                                          <Card  sx={{  display: 'flex', width:280, height:450 , marginLeft:0, marginRight:0}} elevation={5}  className='card-alignments'>
-                                              <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
-                                                  <CardContent sx={{marginright:4,alignContent:'center'}}>
-                                                  <Typography variant="h5" component="div">
-                                                          <BookmarksTwoToneIcon   sx={{ fontSize: 150, marginLeft:0, marginRight:0 }}/>
-                                                      </Typography>
+                                          <Grid item xs={3} md={0} align = 'center'>                                                         
+                                            <Card sx={{  display: 'flex', width:300, height:450 }} elevation={5} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:'auto', marginRight:'auto' }} align='center' className='card-alignments'>
+                                                      <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
+                                                        
+                                                          <Typography  component="">
+                                                              < BookmarksTwoToneIcon  sx={{ fontSize: 150}}/>
+                                                          </Typography>
                                                                   
-                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
-                                                          PENDING ADS
-                                                      </Typography>
-                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000' className='card-numberallignment'>
-                                                          01 
-                                                      </Typography>
-                                                    
-                                                  
-                                                  
-                                                  </CardContent>
-                                                  <Button variant="contained"  href='/pendingads' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15,align:'center'}}>
-                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                          <Typography variant="h5" component=""  sx={{ marginTop:3}}>
+                                                          PENDING ADS 
+                                                          </Typography>
+                                                            
+                                                          <Typography sx={{ mb: 1.5, fontSize: 45, align:'center'}}  color='#d50000' align='center' >
+                                                            	01  
+                                                          </Typography>
+                                                        
+                                                      </CardContent>
+                                                      
+                                                      <Button href='/approved' variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:40, fontSize:15, align:'center'}}>
+                                                              VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
                                                       </Button>
-                                              
-                                                  
-                                              </Box>
-                                              
-                                          </Card>
+                                                  </Box>   
+                                            </Card>
                                           
                                           </Grid>
-
-                                          <Grid item xs={0} md={0}>
-                                          <Card sx={{  display: 'flex', width:280, height:450 , marginLeft:0, marginRight:0}} elevation={5}  className='card-alignments'>
-                                              <Box sx={{ display: 'flex', flexDirection: 'column', margin:5}}>
-                                                  <CardContent sx={{marginright:4, alignContent:'center'}}>
-                                                      <Typography  component="div" >
-                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150, marginLeft:0, marginRight:0 }}/>
-                                                  
-                                                      </Typography>
+                                          <Grid item xs={3} md={0} align = 'center'>                                                         
+                                            <Card sx={{  display: 'flex', width:300, height:450 }} elevation={5} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:'auto', marginRight:'auto' }} align='center' className='card-alignments'>
+                                                      <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
+                                                        
+                                                          <Typography  component="">
+                                                              < BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150}}/>
+                                                          </Typography>
                                                                   
-                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}} >
-                                                          REJECTED
-                                                      </Typography>
-                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000' className='card-numberallignment'>
-                                                          03
-                                                      </Typography>
-                                                    
-                                                  
-                                                  
-                                                  </CardContent>
-                                                  <Button variant="contained"  href='/pendingads' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15,align:'center'}}>
-                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                          <Typography variant="h5" component=""  sx={{ marginTop:3}}>
+                                                            REJECTED    
+                                                          </Typography>
+                                                            
+                                                          <Typography sx={{ mb: 1.5, fontSize: 45, align:'center'}}  color='#d50000' align='center' >
+                                                            03 
+                                                          </Typography>
+                                                        
+                                                      </CardContent>
+                                                      
+                                                      <Button href='/approved' variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:40, fontSize:15, align:'center'}}>
+                                                              VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
                                                       </Button>
-                                              
-                                                  
-                                              </Box>
-                                              
-                                          </Card>
-                                        
-                                
+                                                  </Box>   
+                                            </Card>
                                           
                                           </Grid>
+                                          
                                       
                                       
                                           
