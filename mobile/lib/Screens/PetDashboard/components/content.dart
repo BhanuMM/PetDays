@@ -62,6 +62,7 @@ class PetDiaryContent extends StatelessWidget {
                       Spacer(),
                     ]
                 ),
+
                 // SizedBox(height: formPadding,),
                 // Row(
                 //     children: [
