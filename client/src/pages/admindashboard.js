@@ -50,13 +50,18 @@ function dashboard() {
 						<div class="collapse navbar-collapse" id="sidebarCollapse">
 							<ul class="navbar-nav">
 								<li class="nav-item">
-									<a class="nav-link" href="#">
+									<a class="nav-link" href="">
 										<i class="bi bi-house"></i> Dashboard
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">
+									<a class="nav-link" href="\reportgeneration">
 										<i class="bi bi-bar-chart"></i> Report Generation
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										<i class="bi bi-bar-chart"></i> Advertisements
 									</a>
 								</li>
 								<li class="nav-item">
@@ -69,7 +74,7 @@ function dashboard() {
 														data-parent="#accordion"
 														href="#collapse1"
 													>
-														<a class="nav-link" href="#">
+														<a class="nav-link" href="">
 															<i class="bi bi-egg"></i> Diet Plans<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:120}}></i>
 														</a>
 													</a>
@@ -77,12 +82,12 @@ function dashboard() {
 											</div>
 											<div id="collapse1" class="panel-collapse collapse in">
 												<div class="panel-body">
-													<a class="nav-link "style={{paddingLeft:70}} href="#">
+													<a class="nav-link "style={{paddingLeft:70}} href="\viewdietplanscats">
 														Diet Plans-Cats
 													</a>
 												</div>
 												<div class="panel-footer">
-													<a class="nav-link" style={{paddingLeft:70}} href="#">
+													<a class="nav-link" style={{paddingLeft:70}} href="\viewdietplans">
 														Diet Plans-Dogs
 													</a>
 												</div>
@@ -104,17 +109,17 @@ function dashboard() {
 											</div>
 											<div id="collapse2" class="panel-collapse collapse">
 												<div class="panel-body">
-													<a class="nav-link "style={{paddingLeft:70}} href="#">
+													<a class="nav-link "style={{paddingLeft:70}} href="\viewmedications">
 														Medicines
 													</a>
 												</div>
 												<div class="panel-body">
-													<a class="nav-link" style={{paddingLeft:70}}href="#">
+													<a class="nav-link" style={{paddingLeft:70}}href="\viewvaccines">
 														Vaccines
 													</a>
 												</div>
 												<div class="panel-footer">
-													<a class="nav-link" style={{paddingLeft:70}} href="#">
+													<a class="nav-link" style={{paddingLeft:70}} href="\viewvitamins">
 														Vitamins
 													</a>
 												</div>
@@ -136,12 +141,12 @@ function dashboard() {
 											</div>
 											<div id="collapse3" class="panel-collapse collapse">
 												<div class="panel-body">
-													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+													<a class="nav-link" href="\viewbreeds" style={{paddingLeft:70}}>
 														Petcategories-dogs
 													</a>
 												</div>
 												<div class="panel-body">
-													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+													<a class="nav-link" href="\viewbreedscats" style={{paddingLeft:70}}>
 														Petcategories-cats
 													</a>
 												</div>
@@ -163,12 +168,12 @@ function dashboard() {
 											</div>
 											<div id="collapse4" class="panel-collapse collapse">
 												<div class="panel-body">
-													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+													<a class="nav-link" href="\viewmoderators" style={{paddingLeft:70}}>
 														Moderators
 													</a>
 												</div>
 												<div class="panel-body">
-													<a class="nav-link" href="#" style={{paddingLeft:70}}>
+													<a class="nav-link" href="\viewsellers" style={{paddingLeft:70}}>
 														Service providers
 													</a>
 												</div>
@@ -345,7 +350,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewbreedscats"
+															href="\viewbreeds"
 															role="button"
 															aria-pressed="true"
 														>
@@ -353,7 +358,7 @@ function dashboard() {
 																Dogs
 															</button>
 														</a>
-														<a href="" role="button" aria-pressed="true">
+														<a href="\viewbreedscats" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
 																Cats
 															</button>
@@ -373,17 +378,22 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewbreedscats"
+															href="\viewmedications"
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra">
-																Dogs
+															<button type="submit" class="btn-tra" style={{width:115}}>
+																Medicines
 															</button>
 														</a>
-														<a href="" role="button" aria-pressed="true">
-															<button type="submit" class="btn-tra">
-																cats
+														<a href="\viewvitamins" role="button" aria-pressed="true">
+															<button type="submit" class="btn-tra"  style={{width:115}}>
+															Vitamins
+															</button>
+														</a>
+														<a href="\viewvaccines" role="button" aria-pressed="true" >
+															<button type="submit" class="btn-tra"  style={{width:115}}>
+															Vaccines
 															</button>
 														</a>
 													</div>
@@ -403,7 +413,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewbreedscats"
+															href="\viewdietplans"
 															role="button"
 															aria-pressed="true"
 														>
@@ -411,7 +421,7 @@ function dashboard() {
 																Diet Plans - Dogs
 															</button>
 														</a>
-														<a href="" role="button" aria-pressed="true">
+														<a href="viewdietplanscats" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
 															Diet Plans - Cats
 															</button>
@@ -431,7 +441,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewbreedscats"
+															href="\viewmoderators"
 															role="button"
 															aria-pressed="true"
 														>
@@ -439,7 +449,7 @@ function dashboard() {
 																Moderators
 															</button>
 														</a>
-														<a href="" role="button" aria-pressed="true">
+														<a href="\viewsellers" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
 																Service providers
 															</button>
@@ -448,7 +458,7 @@ function dashboard() {
 												</div>
 											</span>
 										</div>
-									</div>{" "}
+									</div>
 								</div>
 							</div>
 						</div>

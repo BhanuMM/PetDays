@@ -1,136 +1,121 @@
 import React from "react";
-import "../styles/nav.css";
-import "../styles/footer.css";
-import Navbar from "../components/navbarspecial";
+import "../styles/footerspecial.css";
+import "../styles/sellerdashboard.css";
+import "../styles/dashboard.css";
+import dog from "../images/PetDays.png";
+import Button from "@mui/material/Button";
+import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import Sidebar from "../components/sidebar";
-import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 const bull = (
 	<Box
-	  component="span"
-	  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)', maxHeight: '1000' }}
+		component="span"
+		sx={{
+			display: "inline-block",
+			mx: "2px",
+			transform: "scale(0.8)",
+			maxHeight: "1000",
+		}}
 	>
-	  •
+		•
 	</Box>
 );
-
 
 function addmoderator() {
 	return (
 		<div class="container-fluid">
-			<div className="row">
-				<Navbar />
-			</div>
-			<div className="row pt-0 mt-5">
-				<div className="row flex-nowrap pt-5">
-					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
-						<Sidebar />
-					</div>
-					<div className="col-7 g-5">
-					<h1 class="mt-4">Add Moderator</h1><hr/>
-							<nav aria-label="breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item">
-											<a href="#" className="header-topic">Moderator Dashboard / Medications / Vitamins </a>
-										</li>
-									</ol>
-							</nav><br/><br/>
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+				<div className="">
+					<Sidebar />
+				</div>
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+					<header class="bg-surface-primary border-bottom pt-6">
+						<div class="container-fluid">
+							<div class="mb-npx">
+								<div class="row align-items-center">
+									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
+										<h1 class="h2 mb-0 ls-tight">Add Moderators</h1>
+										<hr />
+										<nav aria-label="breadcrumb">
+											<ol class="breadcrumb">
+												<li class="breadcrumb-item">
+													<a href="/admindashboard" className="header-topic">
+														Admin Dashboard/
+													</a>
+													<a href="/addmoderators" className="header-topic">
+													Add Moderators
+													</a>
+												</li>
+											</ol>
+										</nav>
 
-						<Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:670, padding: 10, paddingLeft:75}}>
-                    	<CardContent>
-						<form><br/><br/>
-						<Box
-                            component="form"
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '100ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                            >
-                                <TextField id="mod-fname" label="First Name" /><br/>
-                                <TextField id="mod-lname" label=" Last Name"/>
-								<TextField id="mod-contact" label=" Contact Number"/>
-								<TextField id="mod-email" label=" E mail"/>
-								<TextField id="mod-nic" label=" NIC Number"/>
-								<TextField id="mod-image" label=" Add Image" type="file" />
-                        </Box>
-							{/* <div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">
-									First Name
-								</label>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputPassword1" class="form-label">
-									Last Name
-								</label>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputPassword1"
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputPassword1" class="form-label">
-									Contact Number
-								</label>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputPassword1"
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputPassword1" class="form-label">
-									Email
-								</label>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputPassword1"
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputPassword1" class="form-label">
-									NIC Number
-								</label>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputPassword1"
-								/>
-							</div>
-							<div class="mb-3">
-								<label className="form-label" for="customFile">
-									Add Image
-								</label>
-								<input type="file" className="form-control" id="customFile" />
-							</div> */}
-							
-
-							<div className="row">
-								<div className="col-9"></div>
-								<div className="col-3 mb-5 mt-5">
-									{" "}
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Add Moderator
-                                    </Button>
+										<br />
+									</div>
 								</div>
-								{/* <div className='col-3'></div> */}
 							</div>
-						</form>
-					</CardContent>
-                </Card>
-					</div>
-					<div className="col-3"></div>
+						</div>
+					</header>
+					<main class="py-6 bg-surface-secondary">
+						<div class="container-fluid">
+							<div class="row g-6 mb-6">
+								<div style={{ paddingLeft: 20 }}>
+									<Card
+										sx={{
+											minWidth: 275,
+											maxWidth: 1500,
+											width: 1100,
+											marginLeft: 15,
+										}}
+										style={{ height: 630, padding: 10, paddingLeft: 75 }}
+									>
+										<CardContent>
+											<form>
+												<br />
+												<br />
+												<Box
+													component="form"
+													sx={{
+														"& .MuiTextField-root": { m: 1, width: "100ch" },
+													}}
+													noValidate
+													autoComplete="off"
+												>
+													<TextField id="mod-fname" label="First Name" />
+													<br />
+													<TextField id="mod-lname" label=" Last Name" />
+													<TextField id="mod-contact" label=" Contact Number" />
+													<TextField id="mod-email" label=" E mail" />
+													<TextField id="mod-nic" label=" NIC Number" />
+													<TextField
+														id="mod-image"
+														label=" Add Image"
+														type="file"
+													/>
+												</Box>
+
+												<div className="row">
+													<div className="col-9"></div>
+													<div className="col-3 mb-5 mt-5">
+														{" "}
+														<Button
+															variant="contained"
+															component="label"
+															style={{ backgroundColor: "#F66B0E" }}
+														>
+															Add Moderator
+														</Button>
+													</div>
+													{/* <div className='col-3'></div> */}
+												</div>
+											</form>
+										</CardContent>
+									</Card>
+								</div>
+							</div>
+						</div>
+					</main>
 				</div>
 			</div>
 		</div>
