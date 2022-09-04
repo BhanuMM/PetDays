@@ -112,14 +112,14 @@ function spdashboard() {
 					<div className="col-3  mt-5">
                    
 
-                        <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:4, marginRight:1,alignContent:'center', marginTop:10}}  elevation={3}>
+                        <Card sx={{display: 'flex', width:400, height:790 , marginLeft:1, marginRight:0,alignContent:'center', marginTop:10}}  elevation={3}>
                            
-                            <CardContent sx={{alignContent:'center'}}>
+                            <CardContent sx={{alignContent:'center',alignItems:'center'}}>
                            
                               <Avatar
                                 alt="Remy Sharp"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
-                                sx={{ width: 150, height: 150, marginLeft:8,marginright:6,marginBottom:4, marginTop:6 }}
+                                sx={{ width: 150, height: 150, alignItems:'center' }}
                                 />
                                 <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
                                Devid Person
@@ -167,7 +167,7 @@ function spdashboard() {
 					</div>
                     <div className='col-9 mt-5'>
                         <main className='mt-5'>
-                          <div class="container-fluid px-4 mt-5">
+                          <div class="container-fluid p mt-5">
                               <h1 class=" margintop-topc">Service Provider Dashboard</h1><hr/>
                                 <nav aria-label="breadcrumb">
                                   <ol class="breadcrumb">
@@ -188,48 +188,46 @@ function spdashboard() {
                                       </Button>
                                   </div>
                                   <Box sx={{ flexGrow: 1,  marginTop:10 }}>
-                                      <Grid container spacing={2}>
-                                          <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
-                                              <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
-                                                  <CardContent sx={{marginright:2, alignContent:'center'}}>
-                                                      <Typography  component="div">
-                                                          < BookmarkAddedTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                      <Grid container spacing={20} alignItems='center' justify='center'>
+                                          <Grid item xs={0} md={0} align='center' alignItems='center' justify='center'>                                                         
+                                            <Card sx={{  display: 'flex', width:300, height:450 }} elevation={5} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:0, marginRight:0 }} align='center' className='card-alignments'>
+                                                      <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
                                                         
-                                                      </Typography>
+                                                          <Typography  component="">
+                                                              < BookmarkAddedTwoToneIcon  sx={{ fontSize: 150}}/>
+                                                            
+                                                          </Typography>
                                                                   
-                                                      <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
-                                                        PUBLISH ADS
-                                                      </Typography>
-                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
-                                                          08 
-                                                      </Typography>
-                                                    
-                                                  
-                                                  
-                                                  </CardContent>
-                                                  <Button href='/approved' variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15, align:'center'}}>
-                                                          VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
+                                                          <Typography variant="h5" component=""  sx={{ marginTop:3}}>
+                                                            PUBLISH 
+                                                          </Typography>
+                                                            
+                                                          <Typography sx={{ mb: 1.5, fontSize: 45, align:'center'}}  color='#d50000' align='center' >
+                                                              08 
+                                                          </Typography>
+                                                        
+                                                      </CardContent>
+                                                      
+                                                      <Button href='/approved' variant="contained" size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:40, fontSize:15, align:'center'}}>
+                                                              VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
                                                       </Button>
-                                              
-                                                  
-                                              </Box>
-                                              
-                                          </Card>
+                                                  </Box>   
+                                            </Card>
                                           
                                           </Grid>
-                                          <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                          <Grid item xs={0} md={0}>
+                                          <Card  sx={{  display: 'flex', width:280, height:450 , marginLeft:0, marginRight:0}} elevation={5}  className='card-alignments'>
                                               <Box sx={{ display: 'flex', flexDirection: 'column',margin:5 }}>
                                                   <CardContent sx={{marginright:4,alignContent:'center'}}>
                                                   <Typography variant="h5" component="div">
-                                                          <BookmarksTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                                          <BookmarksTwoToneIcon   sx={{ fontSize: 150, marginLeft:0, marginRight:0 }}/>
                                                       </Typography>
                                                                   
                                                       <Typography variant="h5" component="div"  sx={{ marginTop:3}}>
                                                           PENDING ADS
                                                       </Typography>
-                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
+                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000' className='card-numberallignment'>
                                                           01 
                                                       </Typography>
                                                     
@@ -247,26 +245,26 @@ function spdashboard() {
                                           
                                           </Grid>
 
-                                          <Grid item xs={4} md={4}>
-                                          <Card sx={{  display: 'flex', width:300, height:450 , marginLeft:1, marginRight:8}} elevation={5}>
+                                          <Grid item xs={0} md={0}>
+                                          <Card sx={{  display: 'flex', width:280, height:450 , marginLeft:0, marginRight:0}} elevation={5}  className='card-alignments'>
                                               <Box sx={{ display: 'flex', flexDirection: 'column', margin:5}}>
                                                   <CardContent sx={{marginright:4, alignContent:'center'}}>
                                                       <Typography  component="div" >
-                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150, marginLeft:2, marginRight:2 }}/>
+                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 150, marginLeft:0, marginRight:0 }}/>
                                                   
                                                       </Typography>
                                                                   
                                                       <Typography variant="h5" component="div"  sx={{ marginTop:3}} >
-                                                          REJECTED ADS
+                                                          REJECTED
                                                       </Typography>
-                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000'>
+                                                      <Typography sx={{ mb: 1.5, fontSize: 45, marginright:4, marginLeft:6, marginTop:2}} color='#d50000' className='card-numberallignment'>
                                                           03
                                                       </Typography>
                                                     
                                                   
                                                   
                                                   </CardContent>
-                                                  <Button variant="contained"  href='/rejected' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15 ,align:'center'}}>
+                                                  <Button variant="contained"  href='/pendingads' size="medium" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:30, fontSize:15,align:'center'}}>
                                                           VIEW ADS  < KeyboardDoubleArrowRightOutlinedIcon sx={{ margin:1} }/>
                                                       </Button>
                                               
@@ -287,6 +285,7 @@ function spdashboard() {
                           </div>
                         </main>
                       </div>
+                      
                 </div>
             </div>
       
