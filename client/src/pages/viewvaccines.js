@@ -1,75 +1,127 @@
 import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
+import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
-import Navbar from "../components/navbarspecial";
+import Box from '@mui/material/Box';
+
+const bull = (
+	<Box
+	  component="span"
+	  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)', maxHeight: '1000' }}
+	>
+	  •
+	</Box>
+);
 function viewvaccines() {
 	return (
-		<div class="container-fluid viewuser">
-			<div className="row">
-				<Navbar />
-			</div>
-			<div className="row flex-nowrap pt-5 mt-5">
-				<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-5">
-					<Sidebar />
-				</div>
-				<div class="col-10 user-table">
-					<h3 className=" mt-5">
-						{" "}
-						Manage Vaccines <hr />
-					</h3>
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="#" className="header-topic">
-									Admin Dashboard / Medication / Vaccines
-								</a>
-							</li>
-						</ol>
-					</nav>
-					<div class="col-md-10 col-md-offset-1">
-						<div class="panel panel-default panel-table">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col col-xs-6"></div>
+		<div class="container-fluid">
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+			<div className="">
+                    <Sidebar />
+                </div>
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+				<header class="bg-surface-primary border-bottom pt-6">
+						<div class="container-fluid">
+							<div class="mb-npx">
+								<div class="row align-items-center">
+									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
+										<h1 class="h2 mb-0 ls-tight">Vaccines</h1>
+										<hr />
+										<nav aria-label="breadcrumb">
+											<ol class="breadcrumb">
+												<li class="breadcrumb-item">
+													<a href="/admindashboard" className="header-topic">
+														Admin Dashboard/
+													</a>
+													<a href="/mdpostsection" className="header-topic">
+														 Vaccines
+													</a>
+												</li>
+											</ol>
+										</nav>
+
+										<br />
+									</div>
 								</div>
-								<div class="panel-body table-responsive">
-                                <table class="table table-striped table-bordered table-list responsive">
-                                    <thead>
-                                        <tr>
-                                            <th class="hidden-xs text-center">Vaccine ID</th>
-                                            <th  class="hidden-xs text-center">Vaccine Name</th>
-                                            <th  class="hidden-xs text-center">Description</th>
-                                            <th  class="hidden-xs text-center">Next Iteration</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="myTable">
-                                        <tr>
-                                            <td class="hidden-xs">1</td>
-                                            <td>Rabies</td>
-                                            <td>Rabies is required once at 16 weeks of age in puppies, then given again 1 year later (1 year, 4 months of age)</td>
-                                            <td>Every 3 year</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td class="hidden-xs">2</td>
-                                            <td>Distemper</td>
-                                            <td>Distemper is a viral disease that is often fatal, affecting the respiratory </td>
-                                            <td>Every 2 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="hidden-xs">3</td>
-                                            <td>Hepatitis/Adenovirus</td>
-                                            <td>A vaccination against adenovirus type 2 protects against both adenovirus types 1 and 2.</td>
-                                            <td>Twice a year</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
 							</div>
 						</div>
-					</div>
+					</header>
+					<main class="py-6 bg-surface-secondary">
+						<div class="container-fluid">
+							<div class="row g-6 mb-6">
+							<div style={{paddingLeft:20}}>
+								<div class="col col-xs-6 text-right">
+								</div>
+								<br />
+
+								<div class="card shadow border-0 mb-7">
+								<div class="card-header">
+									<h5 class="mb-0">Available Vaccines</h5>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-hover table-nowrap text-center">
+									<thead class="thead-light">
+										<tr>
+										<th scope="col" >Vaccine ID</th>
+										<th scope="col">Vaccine Name</th>
+										<th scope="col">Description</th>
+										<th scope="col">Next Iteration</th>
+										<th></th>
+                    
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+										<tr>
+										<td>001</td>
+										<td>Feb 15, 2021</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>Feb 15, 2021</td>
+										</tr>
+									</tbody>
+									</table>
+								</div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+									Showing 10 items of Vaccines
+									</span>
+								</div>
+								</div>
+            				</div>	
+							</div>
+							
+						</div>
+					</main>
 				</div>
 			</div>
 		</div>

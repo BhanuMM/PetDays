@@ -1,83 +1,123 @@
-import React from 'react'
+import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
+import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
-import Navbar from "../components/navbarspecial";
 function viewvitamins() {
-  return (
-    <div class="container-fluid viewuser">
-			<div className="row">
-				<Navbar />
-			</div>
-			<div className="row flex-nowrap pt-5 mt-5">
-				<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-5">
+	return (
+		<div class="container-fluid">
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+				<div className="">
 					<Sidebar />
 				</div>
-				<div class="col-10 user-table">
-					<h3 className=" mt-5">
-						{" "}
-						Manage Vitamins <hr />
-					</h3>
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="#" className="header-topic">
-									Admin Dashboard / Medications / Vitamins
-								</a>
-							</li>
-						</ol>
-					</nav>
-					<div class="col-md-10 col-md-offset-1">
-						<div class="panel panel-default panel-table">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col col-xs-6"></div>
-								</div>
-								<div class="panel-body table-responsive">
-									<table class="table table-striped table-bordered table-list responsive">
-										<thead>
-											<tr>
-												<th class="hidden-xs text-center">Vitamin ID</th>
-												<th class="hidden-xs text-center">Vitamin Name</th>
-												<th class="hidden-xs text-center">Discription</th>
-	
-											</tr>
-										</thead>
-										<tbody id="myTable">
-											<tr>
-												<td class="hidden-xs">1</td>
-												<td>Vitamin A</td>
-												<td>For healthy bones and teeth</td>
-												
-											</tr>
-											<tr>
-												<td class="hidden-xs">2</td>
-												<td>Vitamin D</td>
-												<td>For healthy bones and teeth</td>
-												
-											</tr>
-											<tr>
-												<td class="hidden-xs">3</td>
-												<td>biotin</td>
-												<td>For healthy skin and shiny coat</td>
-												
-											</tr>
-											<tr>
-												<td class="hidden-xs">4</td>
-												<td>Omega-6 fatty acids</td>
-												<td>For healthy skin and shiny coat</td>
-												
-											</tr>
-										</tbody>
-									</table>
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+					<header class="bg-surface-primary border-bottom pt-6">
+						<div class="container-fluid">
+							<div class="mb-npx">
+								<div class="row align-items-center">
+									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
+										<h1 class="h2 mb-0 ls-tight">Vitamins</h1>
+										<hr />
+										<nav aria-label="breadcrumb">
+											<ol class="breadcrumb">
+												<li class="breadcrumb-item">
+													<a href="/admindashboard" className="header-topic">
+													Admin Dashboard/
+													</a>
+													<a href="/mdpostsection" className="header-topic">
+														Vitamins
+													</a>
+												</li>
+											</ol>
+										</nav>
+
+										<br />
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</header>
+					<main class="py-6 bg-surface-secondary">
+						<div class="container-fluid">
+							<div class="row g-6 mb-6">
+								<div style={{ paddingLeft: 20 }}>
+									<div class="col col-xs-6 text-right"></div>
+									<br />
+
+									<div class="card shadow border-0 mb-7">
+										<div class="card-header">
+											<h5 class="mb-0">Available Vitamins</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">Vitamin ID</th>
+														<th scope="col">Vitamin Name</th>
+														<th scope="col">Description</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+													<tr>
+														<td>001</td>
+														<td>Feb 15, 2021</td>
+														<td>
+															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm">
+												Showing 10 items of Vitamins
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
 				</div>
 			</div>
 		</div>
-  )
+	);
 }
 
-export default viewvitamins
+export default viewvitamins;
