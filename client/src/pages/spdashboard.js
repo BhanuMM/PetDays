@@ -109,65 +109,142 @@ function spdashboard() {
 			</div>
 			<div className="row mt-5">
 				<div className="row flex-nowrap pt-5 mt-5">
-					<div className="col-3  mt-5">
+					<div className="col-3  mt-5 align-center">
                    
 
-                        <Card sx={{display: 'flex', width:400, height:790 , marginLeft:1, marginRight:0,alignContent:'center', marginTop:10}}  elevation={3}>
+                        {/* <Card sx={{display: 'flex', width:400, height:790, marginTop:10}}  elevation={3}>
+                         
                            
-                            <CardContent sx={{alignContent:'center',alignItems:'center'}}>
+                            <CardContent>
                            
-                              <Avatar
+                            <Avatar
                                 alt="Remy Sharp"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLkybiP3I5YBAAE11TvQBCRNXt-00rlnEi9k8G5kQJDJ1zdG49ZZqdVFeRR3MqOlyXfM&usqp=CAU"
-                                sx={{ width: 150, height: 150, alignItems:'center' }}
-                                />
-                                <Typography gutterBottom variant="h4" component="div"  sx={{marginTop:2, marginLeft:3}} >
-                               Devid Person
-                                <Typography fontSize={15} sx={{marginTop:2, marginLeft:3}} color="text.secondary">
+                                sx={{ width: 150, height: 150,  }} style={{alignSelf: 'center'}} className='avetar-alignment'/>
+
+                                <Typography fontSize={30}  color="text.secondary" align='center'>
+                                  Devid Pearsons
+                                <Typography fontSize={15}  color="text.secondary" align='center'>
                                   devidperson@gmail.com
                                   <br/>
                                   +94 71 94 72 047
+                                  
+                                  </Typography>
+                            </Typography>
+                             
+                                  <hr/>
+                              
+
+                                <Typography sx={{marginTop:6}} >
+                                  <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
+                                    <IconButton href='/approved'>
+                                    < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }} href ='/approved'/>
+                                    </IconButton>
+                                    Published Ads : 08
+                                  </Typography>
+                                  <Typography fontSize={25} sx={{marginTop:4, marginLeft:2}} color="text.secondary">
+                                  <IconButton href='/pendingads'>
+                                  <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                    </IconButton>
+                                    Pending Ads : 02
+                                  </Typography >
+                                  <Typography fontSize={25} sx={{marginTop:4, marginLeft:2}} color="text.secondary">
+                                
+                                  <IconButton href='/rejected'>
+                                  <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
+                                    </IconButton>
+                                  Rejected Ads : 03
                                   </Typography>
                                 </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
-                                  <IconButton href='/approved'>
-                                  < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }} href ='/approved'/>
-                                  </IconButton>
-                                  Published Ads : 08
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
-                                <IconButton href='/pendingads'>
-                                <BookmarksTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
-                                  </IconButton>
-                                  Pending Ads : 02
-                                </Typography >
-                                <Typography fontSize={25} sx={{marginTop:2, marginLeft:2}} color="text.secondary">
-                               
-                                <IconButton href='/rejected'>
-                                <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25, marginRight:2 }}/>
-                                  </IconButton>
-                                Rejected Ads : 03
-                                </Typography>
-                                <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
+                                <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} align='center' >
                                   <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
                                   <EditIcon/>EDIT PROFILE
                                   </Button>
                                
                                 </Typography>
-                                <Typography fontSize={25} sx={{marginTop:5, marginLeft:4}} >
-                                  <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
-                                  <PersonIcon/>LOG OUT
-                                  </Button>
                                
-                                </Typography>
                             </CardContent>
+                        
                            
-                        </Card> 
+                        </Card>  */}
+
+                                    <Box sx={{ flexGrow: 1,  marginTop:10 }}>
+                                      <Grid container spacing={50} 
+                                      direction="row"
+                                      alignItems="center"
+                                      justify="center"
+                                      style={{ minHeight: '50vh' }}>
+                                          <Grid item xs={3} md={0} align = 'center'>                                                         
+                                            <Card sx={{  display: 'flex', width:400, height:750 }} elevation={5} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:'auto', marginRight:'auto' }} align='center' className='card-alignments'>
+                                                      <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
+                                                        
+                                                      <Avatar
+                                                        alt="Remy Sharp"
+                                                        src="https://t4.ftcdn.net/jpg/02/47/31/89/360_F_247318925_vOUBhAtYnTIyJcVpxoOP50pWK01f6dtr.jpg"
+                                                        sx={{ width: 170, height: 170, marginTop:2}} style={{alignSelf: 'center'}} className='avetar-alignment'/>
+
+                                                        <Typography fontSize={30}  sx={{marginTop:5}}  style={{fontcolor: 'black'}} align='center'>
+                                                          Devid Pearsons
+                                                          <Typography fontSize={15}  color="text.secondary" align='center'>
+                                                            devidperson@gmail.com
+                                                            <br/>
+                                                            +94 71 94 72 047
+                                                            
+                                                            </Typography>
+                                                          </Typography>
+                             
+                                                          <hr/>
+                                                          <Typography sx={{marginTop:6}} >
+                                                          <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
+                                                            <IconButton href='/approved'>
+                                                            < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25 }} href ='/approved'/>
+                                                            </IconButton>
+                                                            Publish Ads  : 08
+                                                          </Typography>
+                                                          <Typography fontSize={25} sx={{marginTop:4}} color="text.secondary">
+                                                          <IconButton href='/pendingads'>
+                                                          <BookmarksTwoToneIcon  sx={{ fontSize: 25 }}/>
+                                                            </IconButton>
+                                                            Pending Ads  : 02
+                                                          </Typography >
+                                                          <Typography fontSize={25} sx={{marginTop:4}} color="text.secondary">
+                                                        
+                                                          <IconButton href='/rejected'>
+                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25 }}/>
+                                                            </IconButton>
+                                                          Rejected Ads  : 03
+                                                          </Typography>
+                                                        </Typography>
+                                                        <Typography fontSize={25} sx={{marginTop:8}} align='center' >
+                                                          <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                                          <EditIcon/>EDIT PROFILE
+                                                          </Button>
+                               
+                                                          </Typography>
+                                                        
+                                                      </CardContent>
+                                                      
+                                                      
+                                                     
+                                                  </Box>   
+                                            </Card>
+                                          
+                                          </Grid>
+                                         
+                                        
+                                          
+                                      
+                                      
+                                          
+                                          
+                                      </Grid>
+                                  </Box>
 						 
 					</div>
                     <div className='col-9 mt-5'>
                         <main className='mt-5'>
-                          <div class="container-fluid p mt-5">
+                          <div class="container-fluid  mt-5">
                               <h1 class=" margintop-topc">Service Provider Dashboard</h1><hr/>
                                 <nav aria-label="breadcrumb">
                                   <ol class="breadcrumb">
@@ -188,7 +265,7 @@ function spdashboard() {
                                       </Button>
                                   </div>
                                   <Box sx={{ flexGrow: 1,  marginTop:10 }}>
-                                      <Grid container spacing={50} 
+                                      <Grid container spacing={55} 
                                       direction="row"
                                       alignItems="center"
                                       justify="center"

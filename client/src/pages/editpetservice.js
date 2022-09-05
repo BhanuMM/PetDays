@@ -213,10 +213,10 @@ function editpetservices() {
                            </CardContent>
                           
                        </Card>  */}
-                       <div className="col-4  mt-5  ">
+                       <div className="col-3  mt-5  ">
                    
 
-                   <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:2, marginRight:2,alignContent:'center', marginTop:20}}  elevation={3}>
+                   {/* <Card sx={{ maxWidth: 345, display: 'flex', width:400, height:790 , marginLeft:2, marginRight:2,alignContent:'center', marginTop:20}}  elevation={3}>
                         
                         <CardContent sx={{alignContent:'center'}}>
                        
@@ -266,11 +266,84 @@ function editpetservices() {
                             </Typography>
                         </CardContent>
                        
-                    </Card> 
+                    </Card>  */}
+                         <Box sx={{ flexGrow: 1,  marginTop:10 }}>
+                                      <Grid container spacing={50} 
+                                      direction="row"
+                                      alignItems="center"
+                                      justify="center"
+                                      style={{ minHeight: '50vh' }}>
+                                          <Grid item xs={3} md={0} align = 'center'>                                                         
+                                            <Card sx={{  display: 'flex', width:400, height:750 }} elevation={5} align='center' className='card-alignments'>
+                                                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', marginLeft:'auto', marginRight:'auto' }} align='center' className='card-alignments'>
+                                                      <CardContent sx={{marginright:0, align:'center'}} className='card-alignments'>
+                                                        
+                                                      <Avatar
+                                                        alt="Remy Sharp"
+                                                        src="https://t4.ftcdn.net/jpg/02/47/31/89/360_F_247318925_vOUBhAtYnTIyJcVpxoOP50pWK01f6dtr.jpg"
+                                                        sx={{ width: 170, height: 170, marginTop:2}} style={{alignSelf: 'center'}} className='avetar-alignment'/>
+
+                                                        <Typography fontSize={30}  sx={{marginTop:5}}  style={{fontcolor: 'black'}} align='center'>
+                                                          Devid Pearsons
+                                                          <Typography fontSize={15}  color="text.secondary" align='center'>
+                                                            devidperson@gmail.com
+                                                            <br/>
+                                                            +94 71 94 72 047
+                                                            
+                                                            </Typography>
+                                                          </Typography>
+                             
+                                                          <hr/>
+                                                          <Typography sx={{marginTop:6}} >
+                                                          <Typography fontSize={25} sx={{marginTop:2}} color="text.secondary">
+                                                            <IconButton href='/approved'>
+                                                            < BookmarkAddedTwoToneIcon  sx={{ fontSize: 25 }} href ='/approved'/>
+                                                            </IconButton>
+                                                            Publish Ads  : 08
+                                                          </Typography>
+                                                          <Typography fontSize={25} sx={{marginTop:4}} color="text.secondary">
+                                                          <IconButton href='/pendingads'>
+                                                          <BookmarksTwoToneIcon  sx={{ fontSize: 25 }}/>
+                                                            </IconButton>
+                                                            Pending Ads  : 02
+                                                          </Typography >
+                                                          <Typography fontSize={25} sx={{marginTop:4}} color="text.secondary">
+                                                        
+                                                          <IconButton href='/rejected'>
+                                                          <BookmarkRemoveTwoToneIcon  sx={{ fontSize: 25 }}/>
+                                                            </IconButton>
+                                                          Rejected Ads  : 03
+                                                          </Typography>
+                                                        </Typography>
+                                                        <Typography fontSize={25} sx={{marginTop:8}} align='center' >
+                                                          <Button variant="contained" size="large" color='secondary' style={{backgroundColor:'#F66B0E'}} sx={{width:200, height:50, fontSize:15}}>
+                                                          <EditIcon/>EDIT PROFILE
+                                                          </Button>
+                               
+                                                          </Typography>
+                                                        
+                                                      </CardContent>
+                                                      
+                                                      
+                                                     
+                                                  </Box>   
+                                            </Card>
+                                          
+                                          </Grid>
+                                         
+                                        
+                                          
+                                      
+                                      
+                                          
+                                          
+                                      </Grid>
+                                  </Box>
+
                       
                  </div>
         {/* </div> */}
-        <div className="col-8 g-5 ml-5 mt-5">
+        <div className="col-9 g-5 ml-5 mt-5">
         <h1 class="margintop-topc">Edit Advertiesment</h1><hr/>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
