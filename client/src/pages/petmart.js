@@ -144,7 +144,7 @@ function petmart() {
         </div>
 
         <div class="cards mb-5">
-          <div class="card">
+          <div className="card">
             <img class="card-image" src={A1} alt="" />
             <div class="card-content">
               <p>
