@@ -65,7 +65,7 @@ class PetDashboardItemCard extends StatelessWidget {
                       
                       padding: EdgeInsets.symmetric( horizontal: 10),
                       child: Text(label,
-                      style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                        textAlign: TextAlign.center,
                   ),
                     ),
@@ -74,7 +74,7 @@ class PetDashboardItemCard extends StatelessWidget {
                     )
                 ]
                 ),
-                SizedBox(height: 5,),
+                SizedBox(height: 2,),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
@@ -83,7 +83,7 @@ class PetDashboardItemCard extends StatelessWidget {
                       Text(
                         "2 Years Old",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         color: Colors.grey[800]
                       ),
 
