@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/Screens/Login/login_screen.dart';
 import 'package:mobile/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: Colors.grey[100],
+          fontFamily:GoogleFonts.poppins().fontFamily
           // elevatedButtonTheme: ElevatedButtonThemeData(
           //   style: ElevatedButton.styleFrom(
           //     elevation: 0,

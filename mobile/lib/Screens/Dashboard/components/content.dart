@@ -31,7 +31,7 @@ class DashboardContent extends StatelessWidget {
                         fontWeight: FontWeight.bold
                       ),
                       ),
-                      SizedBox(height: 8,),
+                      SizedBox(height: 6,),
                       Text("Thilina Peduruhewa",
                         style: TextStyle(
                             fontSize: 20,
@@ -84,14 +84,14 @@ class DashboardContent extends StatelessWidget {
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 23
+                                  fontSize: 20
                               ),
                             ),
                           ),
                           const Text("Get started by creating a profile for your pet", textAlign: TextAlign.left,
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 18
+                            fontSize: 16
                           ),
                           ),
                           SizedBox(height: 8,),

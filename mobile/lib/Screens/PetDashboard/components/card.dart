@@ -27,42 +27,33 @@ class PetDashboardItemCard extends StatelessWidget {
       Padding(
           padding: EdgeInsets.symmetric(vertical: 5),
           child: Container(
-            width: 350,
-            height: 150,
+            width: 180,
+            height: 100,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(25.0)),
-              color: kPrimaryColor,
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  kPrimaryColor,
+                  kPrimaryLightColor,
+                ],
+              ),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
-
-                  child: Column(
-                    children: [
                       Image.asset(
                         "assets/images/$img.png",
-                        height: 150,
-                        width: 200,
+                        width: 80,
                       ),
-                    ],
-                  ),
-                ),
-                Expanded(
-
-                  child: Column(
-                    children:  [
-                        Spacer(),
-                        Text(label,
-                          style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                      ),
-                      Spacer(),
-
-                    ],
-                  ),
-                )
-
-
+                        Expanded(
+                          child: Text(label,
+                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
               ],
             ),
           )

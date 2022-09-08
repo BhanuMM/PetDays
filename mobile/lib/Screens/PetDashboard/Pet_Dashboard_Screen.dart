@@ -19,15 +19,12 @@ class PetDashboard extends StatelessWidget {
 
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height *2-350,
+              maxHeight: MediaQuery.of(context).size.height ,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const <Widget>[
-                Expanded(
-                    flex: 2,
-                    child: petDashboardTopBanner()
-                ),
+              children:  <Widget>[
+
                 Expanded(
                   flex: 10,
                   child: PetDiaryContent(),
