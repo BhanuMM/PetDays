@@ -13,7 +13,9 @@ class DashboardScreen extends StatelessWidget {
     return Background(
 
           child:Scaffold(
-          body: DashboardContent(),
+          body: SingleChildScrollView(
+              child: DashboardContent()
+          ),
 
           bottomNavigationBar: BottomNav(1),
           )

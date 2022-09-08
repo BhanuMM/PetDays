@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Auth',
       theme: ThemeData(
           primaryColor: kPrimaryColor,
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: Colors.grey[100],
           // elevatedButtonTheme: ElevatedButtonThemeData(
           //   style: ElevatedButton.styleFrom(
           //     elevation: 0,
@@ -25,18 +25,19 @@ class MyApp extends StatelessWidget {
           //     minimumSize: const Size(double.infinity, 56),
           //   ),
           // ),
-          inputDecorationTheme: const InputDecorationTheme(
-            filled: true,
-            fillColor: formBG,
-            iconColor: Colors.black,
-            prefixIconColor: Colors.black,
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              borderSide: BorderSide.none,
-            ),
-          )),
+          // inputDecorationTheme: const InputDecorationTheme(
+          //   filled: true,
+          //   fillColor: formBG,
+          //   iconColor: Colors.black,
+          //   prefixIconColor: Colors.black,
+          //   contentPadding: EdgeInsets.symmetric(
+          //       horizontal: defaultPadding, vertical: defaultPadding),
+          //   border: OutlineInputBorder(
+          //     borderRadius: BorderRadius.all(Radius.circular(15)),
+          //     borderSide: BorderSide.none,
+          //   ),
+          // )
+      ),
       home: const LoginScreen(),
     );
   }
