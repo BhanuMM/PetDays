@@ -4,8 +4,8 @@ import dog from "../images/PetDays.png";
 function sidebar() {
 	return (
 		<nav
-			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
-			id="navbarVertical"
+			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
+			id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
 		>
 			<div class="container-fluid">
 				<button
@@ -20,7 +20,7 @@ function sidebar() {
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-					<img class="dashboard-image" src={dog} alt="" />
+					<img class="dashboard-image" src={dog} alt="" style={{ height:150 , width: 150, marginLeft: 30}} />
 				</a>
 				<div class="navbar-user d-lg-none">
 					<div class="dropdown">
