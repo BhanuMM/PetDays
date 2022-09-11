@@ -102,13 +102,13 @@ function register() {
                                             */}
                             <label className="form-label">Email</label>
                             <div className="col">
-                              <ErrorMessage name="email" className="registererror" component="span" />
+                              <ErrorMessage name="uemail" className="registererror" component="span" />
                             </div>
                             <Field
                               className="form-control"
                               id="email"
                               autocomplete="off"
-                              name="email"
+                              name="uemail"
                               placeholder="wolf@gmail.com"
                             />
                           </div>

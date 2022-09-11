@@ -9,18 +9,20 @@ const { sendConfirmationEmail } = require('../mailer');
 router.use(bodyParser.json());
 
 router.post("/register", async (req, res) => {
-  const { username, email, password ,userrole } = req.body;
-  const uemail = await Users.findOne({ where: { email: email } });
+  const { username, uemail, password ,userrole } = req.body;
+  const usemail = await Users.findOne({ where: { email: uemail } });
   const uname = await Users.findOne({ where: { username: username } });
 
-  // if (uemail) res.json({ error: "Email is already registered" });
-  if (uname) {res.json({ error: "Username is already taken" });}
+  if (usemail)
+  {res.json({ error: "Email is already registered" });} 
+  else if (uname)
+   {res.json({ error: "Username is already taken" });}
   else{
-  await sendConfirmationEmail({hash: username , email:email})
+  await sendConfirmationEmail({hash: username , email:uemail})
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
-      email: email,
+      email: uemail,
       password: hash,
       userrole : "user",
       isverified : "no"

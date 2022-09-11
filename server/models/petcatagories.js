@@ -12,12 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       descr: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-        // If don't want createdAt
-  createdAt: false,
-
-  // If don't want updatedAt
-  updatedAt: false,
+      }
     });
   
     // Users.associate = (models) => {
