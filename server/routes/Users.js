@@ -40,15 +40,14 @@ router.get('/activate/:hash', async (req, res) => {
 router.post("/login", async (req, res) => {
   const {email, password } = req.body;
 
-  const uemail = await Users.findOne({ where: { email: email , isverified: "yes" } });
-
+  const uemail = await Users.findOne({ where: { email: email , isverified: "yes" } });  
   if (!uemail) res.json({ error: "User Doesn't Exist" });
 
   bcrypt.compare(password, uemail.password).then((match) => {
-    if (!match) {res.json({ error: "Wrong Username And Password Combination" });}
-else{
-  res.json({ email: email, role: uemail.userrole });
-}
+    if (!match) 
+      {res.json({ error: "Wrong Username And Password Combination" });}
+    else
+      { res.json({ email: email, role: uemail.userrole });  }
     
   });
 });
