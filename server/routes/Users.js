@@ -18,7 +18,7 @@ router.post("/register", async (req, res) => {
   else if (uname)
    {res.json({ error: "Username is already taken" });}
   else{
-  await sendConfirmationEmail({hash: username , email:uemail})
+  await sendConfirmationEmail({hash: username , useremail:uemail})
   bcrypt.hash(password, 10).then((hash) => {
     Users.create({
       username: username,
