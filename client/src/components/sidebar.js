@@ -46,7 +46,7 @@ function sidebar() {
 				<div class="collapse navbar-collapse" id="sidebarCollapse">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="">
+							<a class="nav-link" href="\admindashboard">
 								<i class="bi bi-house"></i> Dashboard
 							</a>
 						</li>
