@@ -15,11 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   
-    // Users.associate = (models) => {
-    //   Users.hasMany(models.Posts, {
-    //     onDelete: "cascade",
-    //   });
-    // };
+    Petcatagories.associate = (models) => {
+      Petcatagories.hasMany(models.Breeds, {
+        foreignKey: 'catId',
+        onDelete: "cascade",
+      });
+    };
     return Petcatagories;
   };
   

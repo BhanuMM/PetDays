@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const guser = process.env.GOOGLE_USER;
 const gpass = process.env.GOOGLE_PASSWORD;
 
-exports.sendConfirmationEmail = function({hash,email}) {
+exports.sendConfirmationEmail = function({hash, useremail}) {
   return new Promise((res, rej) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -16,7 +16,7 @@ exports.sendConfirmationEmail = function({hash,email}) {
 
     const message = {
       from: process.env.GOOGLE_USER,
-      to: email, // in production uncomment this
+      to: useremail, // in production uncomment this
       // to: process.env.GOOGLE_USER,
       subject: 'Pet Days - Activate Account',
       html: `

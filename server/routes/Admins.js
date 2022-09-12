@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require("express");
 const router = express.Router();
-// const bodyParser = require('body-parser');
-const { Petcatagories } = require("../models");
+const bodyParser = require('body-parser');
+const { Petcatagories , Breeds } = require("../models");
+// const breeds = require('../models/breeds');
 
 // router.use(bodyParser.json());
 
@@ -18,24 +19,49 @@ router.post("/addcategory", async (req, res) => {
     descr: descr
   });
   res.json("SUCCESS");
-//   if (uname) {res.json({ error: "Username is already taken" });}
-//   else{
-//   await sendConfirmationEmail({hash: username , email:email})
-//   bcrypt.hash(password, 10).then((hash) => {
-//     Users.create({
-//       username: username,
-//       email: email,
-//       password: hash,
-//       userrole : "service",
-//       isVerified : "no"
-//     });
-//     res.json("SUCCESS");
-//   });
-// }
+
   
   
 });
 
+router.post("/addbreed", async (req, res) => {
+  const { breedName,descr, catId } = req.body;
+  // const uemail = await Users.findOne({ where: { email: email } });
+  // const uname = await Users.findOne({ where: { username: username } });
+
+  // if (uemail) res.json({ error: "Email is already registered" });
+ const chckq = Breeds.create({
+    breedName: breedName,
+    descr: descr,
+    catId: catId
+
+  });
+  if(chckq){
+    res.json("SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+  
+});
+router.post("/addmoderator", async (req, res) => {
+  const { breedName,descr, catId } = req.body;
+  // const uemail = await Users.findOne({ where: { email: email } });
+  // const uname = await Users.findOne({ where: { username: username } });
+
+  // if (uemail) res.json({ error: "Email is already registered" });
+ const chckq = Breeds.create({
+    breedName: breedName,
+    descr: descr,
+    catId: catId
+
+  });
+  if(chckq){
+    res.json("SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+  
+});
 
 
 
