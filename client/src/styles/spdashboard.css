@@ -9,3 +9,9 @@
 .avetar-alignment{
     align-items: center !important;
 }
+
+.create-button{
+    width: 160%;
+    height: 140%;
+    
+}
