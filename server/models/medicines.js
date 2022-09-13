@@ -1,30 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    const Moderators = sequelize.define("Moderators", {
-      modID : {
+    const Medicines = sequelize.define("Medicines", {
+      medID : {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      firstName: {
+      medName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      lastName: {
+      descr: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      conNum: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      modEmail: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      modNIC: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      }
       
 
     },{
@@ -39,6 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     //     onDelete: "cascade",
     //   });
     // };
-    return Moderators;
+    return Medicines;
   };
   
