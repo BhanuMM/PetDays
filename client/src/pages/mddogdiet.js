@@ -18,16 +18,16 @@ function mddogdiet() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Diet Plans for Dogs</h1>
+										<h1 class="h2 mb-0 ls-tight">Diet Plans</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
-														 Diet Plans-Dogs
+													<a href="/mddogdiet" className="header-topic">
+														 Diet Plans
 													</a>
 												</li>
 											</ol>
@@ -46,11 +46,152 @@ function mddogdiet() {
 								<div class="col col-xs-6 text-right">
 								<a href="\mdadddogdiet" className="header-topic">
 									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Add Dog Diet
+                                        Add Diet Plan
                                     </Button>
 								</a>
+								<br/><br/>
+								<p class="fw-semibold " style={{paddingRight:40}}>Filtery by :</p>
+								<div class="search-line"  style={{display: "flex"}}>
+									
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Pet Category
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										Cats
+										</a>
+										<a class="dropdown-item" href="#">
+										Dogs
+										</a>
+									</div>
+									</div></p>
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Pet Breed
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										Bullmastiff
+										</a>
+										<a class="dropdown-item" href="#">
+										Golden Retriever
+										</a>
+									</div>
+									</div></p>
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:150 , borderColor:'#205375'}}
+									>
+										Age Range
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										0-10
+										</a>
+										<a class="dropdown-item" href="#">
+										10-20
+										</a>
+										<a class="dropdown-item" href="#">
+										20-30
+										</a>
+										<a class="dropdown-item" href="#">
+										30-40
+										</a>
+									</div>
+									</div></p>
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Weight Range
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										0-10
+										</a>
+										<a class="dropdown-item" href="#">
+										10-20
+										</a>
+										<a class="dropdown-item" href="#">
+										20-30
+										</a>
+										<a class="dropdown-item" href="#">
+										30-40
+										</a>
+									</div>
+
+									</div></p>
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark"
+										type="button"
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Filter
+									</button>
+									</div>
+									
+
+									<div class="input-group" style={{width:430}}>
+										<input type="search" class="form-control rounded" placeholder="Search Diet Plans" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
+										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
+									</div>
 								</div>
-								<br />
+								</div>
+								<br /><br/>
 
 								<div class="card shadow border-0 mb-7">
 								<div class="card-header">
@@ -60,13 +201,14 @@ function mddogdiet() {
 									<table class="table table-hover table-nowrap text-center">
 									<thead class="thead-light">
 										<tr>
-										<th scope="col" >Diet Plan ID</th>
-										<th scope="col">Diet Plan Name</th>
-										<th scope="col">Description</th>
-										<th scope="col">Breed</th>
-										<th scope="col">Age Range</th>
-										<th scope="col">Weight Range</th>
-										<th scope="col">Items</th>
+										<th scope="col"><b><strong>Diet Plan ID</strong></b></th>
+										<th scope="col"><b><strong>Pet Category</strong></b></th>
+										<th scope="col"><b><strong>Diet Plan Name</strong></b></th>
+										<th scope="col"><b><strong>Description</strong></b></th>
+										<th scope="col"><b><strong>Breed</strong></b></th>
+										<th scope="col"><b><strong>Age Range</strong></b></th>
+										<th scope="col"><b><strong>Weight Range</strong></b></th>
+										<th scope="col"><b><strong>Items</strong></b></th>
 										<th></th>
 										</tr>
 									</thead>
@@ -74,121 +216,164 @@ function mddogdiet() {
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsdgs</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+											<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
+											
 										</td>
 										</tr>
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsd</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsdg</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsd</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsdgsdf</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
 										<td>001</td>
 										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>zdsdsf sfsd dsfsdgsdfs g ga</td>
+										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td>Feb 15, 2021</td>
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="#" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 									</tbody>
@@ -196,7 +381,7 @@ function mddogdiet() {
 								</div>
 								<div class="card-footer border-0 py-5">
 									<span class="text-muted text-sm">
-									Showing 10 items of Diet Plans
+									
 									</span>
 								</div>
 								</div>

@@ -23,7 +23,7 @@ function moderatordashboard() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard
 													</a>
 													
@@ -166,12 +166,12 @@ function moderatordashboard() {
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-																Diet Plans - Dogs
+																View Diet Plans
 															</button>
 														</a>
-														<a href="\mdcatdiet" role="button" aria-pressed="true">
+														<a href="\mdadddogdiet" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Diet Plans - Cats
+																Add Diet Plans
 															</button>
 														</a>
 													</div>
