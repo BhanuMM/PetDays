@@ -19,9 +19,11 @@ class SignUpScreen extends StatelessWidget {
             desktop: Row(
               children: [
                 const Expanded(
+                  flex: 2,
                   child: SignUpScreenTopImage(),
                 ),
                 Expanded(
+                  flex: 8,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [

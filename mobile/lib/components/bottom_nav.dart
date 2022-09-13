@@ -26,7 +26,7 @@ class _BottomNav extends State<BottomNav>{
   }
 
   late PageController _pageController;
-  final User user = new User('email', 'password', 'userrole', 'userName');
+
   var pages = [
     DashboardScreen(),
     MyPetsScreen(),
