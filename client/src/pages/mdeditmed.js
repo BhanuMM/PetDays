@@ -34,7 +34,7 @@ function mdeditdogdiet() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Edit Diet Plan</h1>
+										<h1 class="h2 mb-0 ls-tight">Edit Medicine</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -42,11 +42,11 @@ function mdeditdogdiet() {
 													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mddogdiet">
-														 Diet Plans / 
+													<a href="/mdsinglemed">
+														 Medicine / 
 													</a>
-                                                    <a href="/mdeditdiet">
-														 Edit Diet Plan
+                                                    <a href="/mdeditmed">
+														 Edit Medicine
 													</a>
 												</li>
 											</ol>
@@ -62,7 +62,7 @@ function mdeditdogdiet() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:630, padding: 10, paddingLeft:75}}>
+                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:350, padding: 10, paddingLeft:75}}>
                         <CardContent>
                         <form><br/><br/>
 
@@ -74,12 +74,9 @@ function mdeditdogdiet() {
                             noValidate
                             autoComplete="off"
                             >
-                                <TextField  id="outlined-required"label="Name of the diet"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Breed / Category"defaultValue="Hello World" type="Dropdown"/>
-                                <TextField  id="outlined-required"label="Description about the Diet Plan"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Age Range of the Dog"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Weight Range of the Dog"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Add items"defaultValue="Hello World" />
+                                <TextField  id="outlined-required"label="Name of the Medicine"defaultValue="Hello World" />
+                                <TextField  id="outlined-required"label="Description about the Medicine"defaultValue="Hello World" />
+                                
                         </Box>
 
                             
@@ -88,7 +85,7 @@ function mdeditdogdiet() {
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
                                     <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Update Diet Plan
+                                        Update Medicine
                                     </Button>
                                 </div>
                                 
