@@ -225,7 +225,7 @@ function mddogdiet() {
 										<td class="text-end">
 											<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
@@ -253,7 +253,7 @@ function mddogdiet() {
 										<td class="text-end">
 										<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
@@ -280,7 +280,7 @@ function mddogdiet() {
 										<td class="text-end">
 										<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
@@ -307,7 +307,7 @@ function mddogdiet() {
 										<td class="text-end">
 										<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
@@ -334,7 +334,7 @@ function mddogdiet() {
 										<td class="text-end">
 										<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
@@ -361,7 +361,7 @@ function mddogdiet() {
 										<td class="text-end">
 										<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
-												<a href="#" class="btn btn-sm btn-neutral">
+												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
 													<em class="fa fa-pencil"></em>
 												</a>
 											</div>
