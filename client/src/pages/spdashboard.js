@@ -4,11 +4,21 @@ import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import "../styles/spdashboard.css";
 import dog from "../images/PetDays.png";
+import AddIcon from '@mui/icons-material/Add';
+import Man from "../images/man.jpg";
+import Navbar from "../components/navbar";
+
+
+import Sellersidebar from "../components/serviceprovidersidebar";
 function dashboard() {
 	return (
+		
+		
 		<div class="container-fluid">
-			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-			<nav
+			
+			
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary mt-5">
+			{/* <nav
 			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
 			id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
 		>
@@ -25,7 +35,7 @@ function dashboard() {
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-					<img class="dashboard-image" src={dog} alt="" style={{ height:150 , width: 150, marginLeft: 30}} />
+				<img class="dashboard-image" src={Man} alt="" style={{ height:130 , width: 130, marginTop:40, borderRadius:75}} />
 				</a>
 				<div class="navbar-user d-lg-none">
 					<div class="dropdown">
@@ -51,203 +61,40 @@ function dashboard() {
 				</div>
 				<div class="collapse navbar-collapse" id="sidebarCollapse">
 					<ul class="navbar-nav">
+          <li class="nav-item">
+							<a class="nav-link" href="\spdashboard">
+								<i class="bi bi-house"></i> Dashboard
+							</a>
+						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="">
+							<a class="nav-link" href="/approved">
 								<i class="bi bi-house"></i> Published Ads
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="\reportgeneration">
+							<a class="nav-link" href="/pendingads">
 								<i class="bi bi-bar-chart"></i> Pending Ads
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="rejected">
 								<i class="bi bi-bar-chart"></i> Rejected Ads
 							</a>
 						</li>
-            <li class="nav-item">
-							<a class="nav-link" href="#">
+						<li class="nav-item">
+							<a class="nav-link" href="rejected">
 								<i class="bi bi-bar-chart"></i> Create New Ad
 							</a>
 						</li>
-						{/* <li class="nav-item">
-							<div class="panel-group" id="accordion">
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a
-												data-toggle="collapse"
-												data-parent="#accordion"
-												href="#collapse1"
-											>
-												<a class="nav-link" href="">
-													<i class="bi bi-egg"></i> Diet P
-													<i
-														class="fa fa-caret-down"
-														aria-hidden="true"
-														style={{ paddingLeft: 120 }}
-													></i>
-												</a>
-											</a>
-										</h4>
-									</div>
-									<div id="collapse1" class="panel-collapse collapse in">
-										<div class="panel-body">
-											<a
-												class="nav-link "
-												style={{ paddingLeft: 70 }}
-												href="\viewdietplanscats"
-											>
-												Diet Plans-Cats
-											</a>
-										</div>
-										<div class="panel-footer">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
-												href="\viewdietplans"
-											>
-												Diet Plans-Dogs
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a
-												data-toggle="collapse"
-												data-parent="#accordion"
-												href="#collapse2"
-											>
-												<a class="nav-link" href="#">
-													<i class="bi bi-bag-plus"></i> Medications
-													<i
-														class="fa fa-caret-down"
-														aria-hidden="true"
-														style={{ paddingLeft: 105 }}
-													></i>
-												</a>
-											</a>
-										</h4>
-									</div>
-									<div id="collapse2" class="panel-collapse collapse">
-										<div class="panel-body">
-											<a
-												class="nav-link "
-												style={{ paddingLeft: 70 }}
-												href="\viewmedications"
-											>
-												Medicines
-											</a>
-										</div>
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
-												href="\viewvaccines"
-											>
-												Vaccines
-											</a>
-										</div>
-										<div class="panel-footer">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
-												href="\viewvitamins"
-											>
-												Vitamins
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a
-												data-toggle="collapse"
-												data-parent="#accordion"
-												href="#collapse3"
-											>
-												<a class="nav-link" href="#">
-													<i class="bi bi-bookmarks"></i>Pet Categories
-													<i
-														class="fa fa-caret-down"
-														aria-hidden="true"
-														style={{ paddingLeft: 88 }}
-													></i>
-												</a>
-											</a>
-										</h4>
-									</div>
-									<div id="collapse3" class="panel-collapse collapse">
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												href="\viewbreeds"
-												style={{ paddingLeft: 70 }}
-											>
-												Petcategories-dogs
-											</a>
-										</div>
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												href="\viewbreedscats"
-												style={{ paddingLeft: 70 }}
-											>
-												Petcategories-cats
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a
-												data-toggle="collapse"
-												data-parent="#accordion"
-												href="#collapse4"
-											>
-												<a class="nav-link" href="#">
-													<i class="bi bi-people"></i>User Management
-													<i
-														class="fa fa-caret-down"
-														aria-hidden="true"
-														style={{ paddingLeft: 62 }}
-													></i>
-												</a>
-											</a>
-										</h4>
-									</div>
-									<div id="collapse4" class="panel-collapse collapse">
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												href="\viewmoderators"
-												style={{ paddingLeft: 70 }}
-											>
-												Moderators
-											</a>
-										</div>
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												href="\viewsellers"
-												style={{ paddingLeft: 70 }}
-											>
-												Service providers
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li> */}
+						
+            	
+				
 					</ul>
+					
 					<hr class="navbar-divider my-5 opacity-20" />
 					<div class="mt-auto"></div>
 					<ul class="navbar-nav">
+						
 						<li class="nav-item">
 							<a class="nav-link" href="#">
 								<i class="bi bi-person-square"></i> Account
@@ -261,7 +108,10 @@ function dashboard() {
 					</ul>
 				</div>
 			</div>
-		</nav>
+		</nav> */}
+					<div className="">
+				<Sellersidebar />
+			</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 					<header class="bg-surface-primary border-bottom pt-6">
 						<div class="container-fluid">
@@ -269,6 +119,20 @@ function dashboard() {
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
 										<h1 class="h2 mb-0 ls-tight">Service Provider Dashboard</h1>
+										{/* <div className="navbar-collapse">
+										<ul className="navbar-nav ml-auto mb-2 mb-lg-0">
+											
+											<li className="nav-item active">
+												<a className="nav-link" href="petmart"><h4>Pet Mart</h4></a>
+											</li>
+											<li className="nav-item active">
+												<a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
+											</li>
+											
+								
+           								 </ul>
+										</div> */}
+										
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -302,9 +166,9 @@ function dashboard() {
 													</span>
 												
 												</div>
-                        <div className="col-4">
-                        <span class="h3 font-bold mb-0">13</span>
-                        </div>
+												<div className="col-4">
+												<span class="h3 font-bold mb-0">13</span>
+												</div>
 												<div class="col-2">
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
 														<i class="bi bi-credit-card"></i>
@@ -408,12 +272,12 @@ function dashboard() {
                 <div className="col-4">
                 <div className="d-flex mt-5 mb-5">
 														<a
-															href="\viewbreeds"
+															href="\addpetmartadd"
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra create-button" >
-                              <i class="plus"></i>Create New Advertiesment
+															<button type="submit" class=" create-button" >
+                              + Create New Advertiesment
 															</button>
 														</a>
 														

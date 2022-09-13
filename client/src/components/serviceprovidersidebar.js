@@ -1,52 +1,98 @@
-import '../styles/moderatorsidebar.css';
-import React from 'react'
-import '../styles/serviceprovidersidebar.css';
+import "../styles/sidebar.css";
+import React from "react";
+import Man from "../images/man.jpg";
 
-function moderatorsidebar() {
-  return (
-            <nav className='col sidebarbm ' >
-                <ul class="nav flex-column vertical-nav "><br/><br/>
-                <li class="nav-item text-center">
-                <div class="profile-pic">
-							<img
-								src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-								alt="hugenerd"
-								class="rounded-circle serviceprovidersidebar-imagesize"
-							/>
-
-						</div>
-                        <p class="nav-link active text-center" href="/petmart"><span class="ms-1 d-none d-sm-inline names">Sanduni Perera<br/>malithp@gmail.com<br/>+9471 56 78 345</span></p>
-                    </li>
-
-                    <hr/>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/serviceproviderdashboard"><i class="fa fa-home ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Dasboard</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/serviceprovideralladds"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">All Ads</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Approved"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Approved Ads</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="\pendingads"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Pending Ads</span></a>
-                    </li>
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="\Rejected"><i class="fa fa-tasks ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Rejected Ads</span></a>
-                    </li>
-                    <li class="nav-item">
-
-<a class="nav-link" href="\Rejected"><i class="fa fa-user ico" aria-hidden="true"></i> <span class="ms-1 d-none d-sm-inline names">Edit Profile</span></a>
-</li>
-                   
-                    
-
-                    
-                </ul>
-            </nav>
-  )
+function sidebar() {
+	return (
+		<nav
+			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
+			id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
+		>
+			<div class="container-fluid">
+				<button
+					class="navbar-toggler ms-n2"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#sidebarCollapse"
+					aria-controls="sidebarCollapse"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+					<img class="dashboard-image" src={Man} alt="" style={{ height:130 , width: 130, marginTop:40, borderRadius:75}} />
+				</a>
+				<div class="navbar-user d-lg-none">
+					<div class="dropdown">
+						<a
+							href="#"
+							id="sidebarAvatar"
+							role="button"
+							data-bs-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							<div class="avatar-parent-child">
+								<img
+									alt="Image Placeholder"
+									src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/1888657.jpg"
+									class="avatar avatar- rounded-circle"
+								/>
+								<span class="avatar-child avatar-badge bg-success"></span>
+							</div>
+						</a>
+						
+					</div>
+					
+				</div>
+				<div class="collapse navbar-collapse" id="sidebarCollapse">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="\spdashboard">
+								<i class="bi bi-house"></i> Dashboard
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/approved">
+								<i class="bi bi-bar-chart"></i> Published Ads
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/pendingads">
+								<i class="bi bi-bar-chart"></i> Pending Ads
+							</a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" href="/rejected">
+								<i class="bi bi-bar-chart"></i> Rejected Ads
+							</a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" href="addpetmartadd">
+								<i class="bi bi-bar-chart"></i> Create New Ad
+							</a>
+						</li>
+						
+					</ul>
+					<hr class="navbar-divider my-5 opacity-20" />
+					<div class="mt-auto"></div>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="bi bi-person-square"></i> Account
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="bi bi-box-arrow-left"></i> Logout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	);
 }
 
-export default moderatorsidebar
+export default sidebar;

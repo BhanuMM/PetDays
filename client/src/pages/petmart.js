@@ -142,202 +142,78 @@ function petmart() {
             </div>
           </div>
         </div>
-
-        <div class="cards mb-5">
-          <div className="card">
-            <img class="card-image" src={A1} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 22 August 2022</p>
-                <h4>DOG FRIENDS</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                  Gampaha,Sri Lanka
-                </p>
-                Dog Walking Service.
-                <br />
-                Keep your dog happy....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+        <main class="py-6 bg-surface-secondary">
+						<div class="container-fluid">
+              <div className="row">
+                <div className="col-3">
+                <div class="card">
+                  <div class="inner-card"> <img src="https://www.acs.edu.au/database/images/course_4335051.jpg" class="img-fluid rounded"/>
+                      <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                          <h4>Pet Day Care</h4>
+                          <small>21 Aug 2022</small>
+                          
+                      </div>
+                      <div class="mt-2 px-2"> <small>Best care has qualified team of doctors and professionally trained team of Veterinary Assistants and Dog Handlers to offer you the best service.</small> </div>
+                      <div class="px-2">
+                          <h3>Rs.500/=</h3>
+                      </div>
+                      <div class="px-2 mt-3"> <button class="btn btn-primary px-3 butn-color">View Ad</button>  </div>
+                  </div>
               </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={A2} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 22 August 2022</p>
-                <h4>WALK</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> Jaffna,Sri
-                  Lanka
-                </p>
-                Dog Walking Service.
-                <br />
-                Walk with us....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+                </div>
+                <div className="col-3">
+                <div class="card">
+                  <div class="inner-card"> <img src="https://cdn.cdnparenting.com/articles/2018/12/196619114-H.jpg" class="img-fluid rounded"/>
+                  <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                          <h4>Pet Day Care</h4>
+                          <small>21 Aug 2022</small>
+                          
+                      </div>
+                      <div class="mt-2 px-2"> <small>Best care has qualified team of doctors and professionally trained team of Veterinary Assistants and Dog Handlers to offer you the best service.</small> </div>
+                      <div class="px-2">
+                          <h3>Rs.500/=</h3>
+                      </div>
+                      <div class="px-2 mt-3"> <button class="btn btn-primary px-3 butn-color">View Ad</button> </div>
+                  </div>
               </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={A3} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 21 August 2022</p>
-                <h4>COOL LOOK</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                  Colombo,Sri Lanka
-                </p>
-                Pet Grooming Service.
-                <br />
-                Keep your dog cool....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+                </div>
+                <div className="col-3">
+                <div class="card">
+                  <div class="inner-card"> <img src="https://www.thedoghouseps.com/wp-content/uploads/2020/01/combing-the-head-of-yorkshire-terrier-picjumbo-com-1-1024x683.jpg" class="img-fluid rounded"/>
+                  <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                          <h4>Pet Day Care</h4>
+                          <small>21 Aug 2022</small>
+                          
+                      </div>
+                      <div class="mt-2 px-2"> <small>Best care has qualified team of doctors and professionally trained team of Veterinary Assistants and Dog Handlers to offer you the best service.</small> </div>
+                      <div class="px-2">
+                          <h3>Rs.500/=</h3>
+                      </div>
+                      <div class="px-2 mt-3"> <button class="btn btn-primary px-3 butn-color">View Ad</button> </div>
+                  </div>
               </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={A4} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 21 August 2022</p>
-                <h4>FRESH PET</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> Matara,Sri
-                  Lanka
-                </p>
-                Dog Grooming Service.
-                <br />
-                Keep your pet fresh....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+                </div>
+                <div className="col-3">
+                <div class="card">
+                  <div class="inner-card"> <img src="https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2019/01/BonnieArbittier_lucys_doggy_daycare_dog_pet_boarding_1604_new_location_grooming_1-16-2019-8.jpg?fit=1170%2C780&ssl=1" class="img-fluid rounded"/>
+                  <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                          <h4>Pet Day Care</h4>
+                          <small>21 Aug 2022</small>
+                          
+                      </div>
+                      <div class="mt-2 px-2"> <small>Best care has qualified team of doctors and professionally trained team of Veterinary Assistants and Dog Handlers to offer you the best service.</small> </div>
+                      <div class="px-2">
+                          <h3>Rs.500/=</h3>
+                      </div>
+                      <div class="px-2 mt-3"> <button class="btn btn-primary px-3 butn-color">View Ad</button> </div>
+                  </div>
               </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={G1} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 19 August 2022</p>
-                <h4>COOL & FRESH</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> Galle,Sri
-                  Lanka
-                </p>
-                Dog Groooming Service.
-                <br />
-                Keep your dog Fresh....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={G2} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 16 August 2022</p>
-                <h4>PET FRIENDS</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                  Colombo,Sri Lanka
-                </p>
-                Dog Grooming Service.
-                <br />
-                Keep your dog happy....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image" src={G3} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 10 August 2022</p>
-                <h4>CATTO</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                  Gampaha,Sri Lanka
-                </p>
-                Cat Grooming Service.
-                <br />
-                Keep your cat happy....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <img class="card-image" src={G4} alt="" />
-            <div class="card-content">
-              <p>
-                <p> 04 August 2022</p>
-                <h4>DOG FRIENDS</h4>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> Kandy,Sri
-                  Lanka
-                </p>
-                Dog Grooming Service.
-                <br />
-                Keep your dog happy....
-              </p>
-            </div>
-            <div class="card-info">
-              <div>
-                <a href="\viewad" class="card-link">
-                  View More Details{" "}
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+             
+              
+						</div>
+					</main>
       </div>
       <Footer />
     </div>
