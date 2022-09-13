@@ -73,13 +73,13 @@ function moderatorsidebar() {
 											</div>
 											<div id="collapse1" class="panel-collapse collapse in">
 												<div class="panel-body">
-													<a class="nav-link "style={{paddingLeft:70}} href="/mdcatdiet">
-														Diet Plans-Cats
+													<a class="nav-link "style={{paddingLeft:70}} href="/mddogdiet">
+														View Diet Plans
 													</a>
 												</div>
 												<div class="panel-footer">
-													<a class="nav-link" style={{paddingLeft:70}} href="/mddogdiet">
-														Diet Plans-Dogs
+													<a class="nav-link" style={{paddingLeft:70}} href="/mdadddogdiet">
+														Add Diet Plans
 													</a>
 												</div>
 											</div>

@@ -2,21 +2,20 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Petcatagories , Breeds ,Moderators } = require("../models");
-var us = require("./Users")
+const { Medicines ,Dietplans} = require("../models");
 // const breeds = require('../models/breeds');
 
 router.use(bodyParser.json());
 
 
-router.post("/addcategory", async (req, res) => {
-  const { pcatName, descr } = req.body;
+router.post("/addmedicine", async (req, res) => {
+  const { medName, descr } = req.body;
   // const uemail = await Users.findOne({ where: { email: email } });
   // const uname = await Users.findOne({ where: { username: username } });
 
   // if (uemail) res.json({ error: "Email is already registered" });
-  Petcatagories.create({
-    pcatName: pcatName,
+  Medicines.create({
+    medName: medName,
     descr: descr
   });
   res.json("SUCCESS");
@@ -25,16 +24,19 @@ router.post("/addcategory", async (req, res) => {
   
 });
 
-router.post("/addbreed", async (req, res) => {
-  const { breedName,descr, catId } = req.body;
+router.post("/adddietplan", async (req, res) => {
+  const { planName,planDescr, ageRange , weightRange, breedId,catId} = req.body;
   // const uemail = await Users.findOne({ where: { email: email } });
   // const uname = await Users.findOne({ where: { username: username } });
 
   // if (uemail) res.json({ error: "Email is already registered" });
- const chckq = Breeds.create({
-    breedName: breedName,
-    descr: descr,
-    catId: catId
+ const chckq = Dietplans.create({
+  planName: planName,
+  planDescr: planDescr,
+  ageRange: ageRange,
+  weightRange: weightRange,
+  breedId: breedId,
+  catId: catId
 
   });
   if(chckq){

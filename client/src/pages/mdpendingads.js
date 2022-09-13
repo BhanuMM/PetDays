@@ -31,10 +31,10 @@ function mdpendingads() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/mdpendingads" className="header-topic">
 														 Pending Advertisments
 													</a>
 												</li>
@@ -51,17 +51,64 @@ function mdpendingads() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:200}}>
-                           
+              <p class="fw-semibold " style={{paddingRight:40}}>Filtery by :</p>
+                  <div class="search-line"  style={{display: "flex"}}>
+									
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40,paddingLeft:20}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Latest
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										Recent Week
+										</a>
+										<a class="dropdown-item" href="#">
+										Last Month
+										</a>
+									</div>
+									</div></p>
+
+									
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark"
+										type="button"
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Filter
+									</button>
+									</div>
+									
+
+									<div class="input-group" style={{width:517}}>
+										<input type="search" class="form-control rounded" placeholder="Search Advertisments" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
+										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
+									</div>
+								</div>       
                     <CardContent>
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
-                      sx={{ width: 151 }}
+                      sx={{ width: 200 }}
                       image={Profilepic}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3 }}>
+                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5}}>
                         <Typography component="div" variant="h5">
                           Pet Grooming
                         </Typography>
@@ -82,12 +129,12 @@ function mdpendingads() {
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
-                      sx={{ width: 151 }}
+                      sx={{ width: 200 }}
                       image={Profilepic}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3 }}>
+                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
                         <Typography component="div" variant="h5">
                           Pet Grooming
                         </Typography>
@@ -108,12 +155,12 @@ function mdpendingads() {
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
-                      sx={{ width: 151 }}
+                      sx={{ width: 200 }}
                       image={Profilepic}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3 }}>
+                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
                         <Typography component="div" variant="h5">
                           Pet Grooming
                         </Typography>
@@ -134,12 +181,12 @@ function mdpendingads() {
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
-                      sx={{ width: 151 }}
+                      sx={{ width: 200 }}
                       image={Profilepic}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3 }}>
+                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
                         <Typography component="div" variant="h5">
                           Pet Grooming
                         </Typography>

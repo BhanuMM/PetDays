@@ -23,10 +23,10 @@ function mdsinglemed() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/mdsinglevitamin" className="header-topic">
 														 Vitamins
 													</a>
 												</li>
@@ -43,12 +43,17 @@ function mdsinglemed() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-								<div class="col col-xs-6 text-right">
-								<a href="\mdaddvitamin" className="header-topic">
+							<div class="col col-xs-6 text-right"  style={{display: "flex"}}>
+								<a href="\mdaddvitamin" className="header-topic" style={{paddingRight:600}}>
 									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                     Add Vitamin
-                  </Button>
+                     				Add Vitamin
+                  					</Button>
 								</a>
+				  				<div class="input-group" style={{width:575}}>
+										<input type="search" class="form-control rounded" placeholder="Search Vitamin" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
+										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
+								</div>
+								
 								</div>
 								<br />
 
@@ -60,9 +65,9 @@ function mdsinglemed() {
 									<table class="table table-hover table-nowrap text-center">
 									<thead class="thead-light">
 										<tr>
-										<th scope="col" >Vitamin ID</th>
-										<th scope="col">Vitamin Name</th>
-										<th scope="col">Description</th>
+										<th scope="col" ><b><strong>Vitamin ID</strong></b></th>
+										<th scope="col"><b><strong>Vitamin Name</strong></b></th>
+										<th scope="col"><b><strong>Description</strong></b></th>
 										<th></th>
                     
 										</tr>
@@ -74,15 +79,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
@@ -91,15 +102,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
@@ -108,15 +125,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
@@ -125,15 +148,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
@@ -142,15 +171,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 										<tr>
@@ -159,15 +194,21 @@ function mdsinglemed() {
 										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
 										<td class="text-end">
-											<a href="#" class="btn btn-sm btn-neutral">
-											<em class="fa fa-pencil"></em>
-											</a>
-											<button
-											type="button"
-											class="btn btn-sm btn-square btn-neutral text-danger-hover"
-											>
-											<i class="bi bi-trash"></i>
-											</button>
+										<div style={{display: "flex"}}>
+												<div style={{paddingRight:5}}>
+												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
+													<em class="fa fa-pencil"></em>
+												</a>
+											</div>
+											<div>
+												<button
+												type="button"
+												class="btn btn-sm btn-square btn-neutral text-danger-hover">
+												<i class="bi bi-trash"></i>
+												</button>
+											</div>
+											
+											</div>
 										</td>
 										</tr>
 									</tbody>
@@ -175,7 +216,7 @@ function mdsinglemed() {
 								</div>
 								<div class="card-footer border-0 py-5">
 									<span class="text-muted text-sm">
-									Showing 10 items of Vitamins
+									
 									</span>
 								</div>
 								</div>

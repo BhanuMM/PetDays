@@ -21,7 +21,7 @@ const bull = (
 
 
 
-function mdaddvitamin() {
+function mdeditdogdiet() {
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -34,7 +34,7 @@ function mdaddvitamin() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Add Vaccine</h1>
+										<h1 class="h2 mb-0 ls-tight">Edit Medicine</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -42,11 +42,11 @@ function mdaddvitamin() {
 													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mdsinglevacc">
-														 Vaccines / 
+													<a href="/mdsinglemed">
+														 Medicine / 
 													</a>
-                                                    <a href="/mdaddvacc">
-														 Add Vaccines
+                                                    <a href="/mdeditmed">
+														 Edit Medicine
 													</a>
 												</li>
 											</ol>
@@ -62,7 +62,7 @@ function mdaddvitamin() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:420, padding: 10, paddingLeft:75}}>
+                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:350, padding: 10, paddingLeft:75}}>
                         <CardContent>
                         <form><br/><br/>
 
@@ -74,9 +74,8 @@ function mdaddvitamin() {
                             noValidate
                             autoComplete="off"
                             >
-                                <TextField id="vacc-name" label="Name of the vaccine" /><br/>
-                                <TextField id="next-iteration" label="Next Iteration On" type="date" />
-                                <TextField id="vacc-name" label="Description about the vaccine" /><br/>
+                                <TextField  id="outlined-required"label="Name of the Medicine"defaultValue="Hello World" />
+                                <TextField  id="outlined-required"label="Description about the Medicine"defaultValue="Hello World" />
                                 
                         </Box>
 
@@ -86,7 +85,7 @@ function mdaddvitamin() {
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
                                     <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Add Vaccine
+                                        Update Medicine
                                     </Button>
                                 </div>
                                 
@@ -107,4 +106,4 @@ function mdaddvitamin() {
 	);
 }
 
-export default mdaddvitamin;
+export default mdeditdogdiet;
