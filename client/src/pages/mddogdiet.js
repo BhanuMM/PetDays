@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
@@ -6,6 +8,15 @@ import dog from "../images/PetDays.png";
 import Button from '@mui/material/Button';
 import Moderatorsidebar from "../components/moderatorsidebar";
 function mddogdiet() {
+
+	const [listOfDietplans, setListOfDietplans] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
+      setListOfDietplans(response.data);
+    });
+  }, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -208,20 +219,20 @@ function mddogdiet() {
 										<th scope="col"><b><strong>Breed</strong></b></th>
 										<th scope="col"><b><strong>Age Range</strong></b></th>
 										<th scope="col"><b><strong>Weight Range</strong></b></th>
-										<th scope="col"><b><strong>Items</strong></b></th>
 										<th></th>
 										</tr>
 									</thead>
 									<tbody>
+									{listOfDietplans.map((value, key) => {
+                            return (
 										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgs</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
+										<td>{value.dietplanID}</td>
+										<td>{value.Breed.Petcatagory.pcatName}</td>
+										<td>{value.planName}</td>
+										<td>{value.planDescr}</td>
+										<td>{value.Breed.breedName}</td>
+										<td>{value.ageRangeFrom} -{value.ageRangeTo} Yrs</td>
+										<td>{value.weightRangeFrom} -{value.weightRangeTo} kg</td>
 										<td class="text-end">
 											<div style={{display: "flex"}}>
 												<div style={{paddingRight:5}}>
@@ -241,141 +252,8 @@ function mddogdiet() {
 											
 										</td>
 										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsd</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdg</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsd</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdf</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g ga</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td>Feb 15, 2021</td>
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditdiet" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
+									);
+								})}
 									</tbody>
 									</table>
 								</div>

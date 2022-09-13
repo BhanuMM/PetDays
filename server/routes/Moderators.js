@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds} = require("../models");
 const vitamins = require('../models/vitamins');
 // const breeds = require('../models/breeds');
 
@@ -94,7 +94,32 @@ router.post("/addmoderator", async (req, res) => {
   
 });
 
+router.get("/getmedicines", async (req, res) => {
+  const listOfMedicines = await Medicines.findAll();
+  res.json(listOfMedicines);
+});
+router.get("/getvaccines", async (req, res) => {
+  const listOfVaccines = await Vaccines.findAll();
+  res.json(listOfVaccines);
+});
+router.get("/getvitamins", async (req, res) => {
+  const listOfVitamins = await Vitamins.findAll();
+  res.json(listOfVitamins);
+});
 
+router.get("/getdietplans", async (req, res) => {
+  const listOfDietplans = await Dietplans.findAll(
+    {
+      include: { 
+        model:Breeds ,
+         required: true,
+         include: [{model: Petcatagories  , required: true }]
+        },
+        
+    }
+  );
+  res.json(listOfDietplans);
+});
 
 
 
