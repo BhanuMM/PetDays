@@ -1,30 +1,26 @@
 module.exports = (sequelize, DataTypes) => {
-    const Moderators = sequelize.define("Moderators", {
-      modID : {
+    const Dietplans = sequelize.define("Dietplans", {
+      dietplanID : {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      firstName: {
+      planName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      lastName: {
+      planDescr: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      conNum: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      modEmail: {
+      ageRange: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      modNIC: {
+      weightRange: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
+      }
       
 
     },{
@@ -34,11 +30,17 @@ module.exports = (sequelize, DataTypes) => {
     }
     );
   
-    // Breeds.associate = (models) => {
-    //   Breeds.hasMany(models.Posts, {
-    //     onDelete: "cascade",
-    //   });
-    // };
-    return Moderators;
+    Dietplans.associate = (models) => {
+      Dietplans.belongsTo(models.Breeds, {
+        foreignKey: 'breedId',
+        onDelete: "cascade",
+      });
+      Dietplans.belongsTo(models.Petcatagories, {
+        foreignKey: 'catId',
+        onDelete: "cascade",
+      });
+    };
+    
+    return Dietplans;
   };
   
