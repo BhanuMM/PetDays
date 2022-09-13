@@ -141,6 +141,17 @@ class _SignUpFormState extends State<SignUpForm> {
                 user.password = value;
                 pw = value;
               },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Enter password';
+                } else if (RegExp(
+                "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%^&*])/")
+                    .hasMatch(value)) {
+                  return null;
+                } else {
+                  return 'Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character';
+                }
+              },
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
@@ -176,13 +187,38 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(height: defaultPadding / 2),
           ElevatedButton(
             onPressed: () {
-              if(pw != pw2){
+              if(_formKey.currentState!.validate()){
+                if(pw != pw2){
+                  showDialog<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text("Password doesn't match"),
+                        content: const Text('two passwords doesnt match'),
+                        actions: <Widget>[
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              textStyle: Theme.of(context).textTheme.labelLarge,
+                            ),
+                            child: const Text('okay'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }else{
+                  register();
+                }
+              } else {
                 showDialog<void>(
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: const Text("Password doesn't match"),
-                      content: const Text('two passwords doesnt match'),
+                      title: const Text("Password doesn't meet requirements"),
+                      content: const Text('Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character'),
                       actions: <Widget>[
                         TextButton(
                           style: TextButton.styleFrom(
@@ -197,8 +233,6 @@ class _SignUpFormState extends State<SignUpForm> {
                     );
                   },
                 );
-              }else{
-                register();
               }
             },
             child: Text("Sign Up".toUpperCase()),

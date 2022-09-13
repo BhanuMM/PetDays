@@ -87,10 +87,17 @@ class _LoginFormState extends State<LoginForm> {
               onChanged: (value) {
                 user.email = value;
               },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the email';
+                }
+                return null;
+              },
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               cursorColor: formBG,
               onSaved: (email) {},
+
               decoration: InputDecoration(
                 hintText: "Your email",
                 contentPadding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 3.0),
@@ -107,6 +114,12 @@ class _LoginFormState extends State<LoginForm> {
                 controller: TextEditingController(text: user.password),
                 onChanged: (value) {
                   user.password = value;
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter Password';
+                  }
+                  return null;
                 },
                 textInputAction: TextInputAction.done,
                 obscureText: true,
@@ -142,7 +155,9 @@ class _LoginFormState extends State<LoginForm> {
                 height: 30,
                 child:ElevatedButton(
                   onPressed: () {
-                    save();
+                    if (_formKey.currentState!.validate()) {
+                      save();
+                    }
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
