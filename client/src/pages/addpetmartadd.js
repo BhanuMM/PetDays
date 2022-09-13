@@ -77,8 +77,8 @@ function addpetmartadd() {
 													<a href="/spdashboard" className="header-topic">
 														Service Provider Dashboard / 
 													</a>
-													<a href="/pendingads" className="header-topic">
-														 Pending Ads
+													<a href="/addpetmartadd" className="header-topic">
+														 Create New Ads
 													</a>
 												</li>
 											</ol>

@@ -69,7 +69,7 @@ function addpetmartadd() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Pending Advertiesments</h1>
+										<h1 class="h2 mb-0 ls-tight">Edit Advertiesment</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -77,8 +77,8 @@ function addpetmartadd() {
 													<a href="/spdashboard" className="header-topic">
 														Service Provider Dashboard / 
 													</a>
-													<a href="/pendingads" className="header-topic">
-														 Pending Ads
+													<a href="/editservice" className="header-topic">
+														 Edit Ads
 													</a>
 												</li>
 											</ol>
