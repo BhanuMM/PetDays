@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines} = require("../models");
+const vitamins = require('../models/vitamins');
 // const breeds = require('../models/breeds');
 
 router.use(bodyParser.json());
@@ -18,14 +19,37 @@ router.post("/addmedicine", async (req, res) => {
     medName: medName,
     descr: descr
   });
-  res.json("SUCCESS");
+  res.json("SUCCESS"); 
+});
+router.post("/addvitamin", async (req, res) => {
+  const { vitName,vitType, descr } = req.body;
+  // const uemail = await Users.findOne({ where: { email: email } });
+  // const uname = await Users.findOne({ where: { username: username } });
 
-  
-  
+  // if (uemail) res.json({ error: "Email is already registered" });
+  Vitamins.create({
+    vitName: vitName,
+    vitType: vitType,
+    descr: descr
+  });
+  res.json("SUCCESS"); 
+});
+router.post("/addvaccine", async (req, res) => {
+  const { vacName, descr ,vacNextIter} = req.body;
+  // const uemail = await Users.findOne({ where: { email: email } });
+  // const uname = await Users.findOne({ where: { username: username } });
+
+  // if (uemail) res.json({ error: "Email is already registered" });
+  Vaccines.create({
+    vacName: vacName,
+     descr: descr,
+     vacNextIter: vacNextIter,
+  });
+  res.json("SUCCESS"); 
 });
 
 router.post("/adddietplan", async (req, res) => {
-  const { planName,planDescr, ageRange , weightRange, breedId,catId} = req.body;
+  const { planName,planDescr, ageRangeFrom,ageRangeTo , weightRangeFrom,weightRangeTo, breedId,catId} = req.body;
   // const uemail = await Users.findOne({ where: { email: email } });
   // const uname = await Users.findOne({ where: { username: username } });
 
@@ -33,8 +57,10 @@ router.post("/adddietplan", async (req, res) => {
  const chckq = Dietplans.create({
   planName: planName,
   planDescr: planDescr,
-  ageRange: ageRange,
-  weightRange: weightRange,
+  ageRangeFrom: ageRangeFrom,
+  ageRangeTo: ageRangeTo,
+  weightRangeFrom: weightRangeFrom,
+  weightRangeTo: weightRangeTo,
   breedId: breedId,
   catId: catId
 

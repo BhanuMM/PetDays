@@ -13,12 +13,20 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      ageRange: {
-        type: DataTypes.STRING,
+      ageRangeFrom: {
+        type: DataTypes.DOUBLE,
         allowNull: false,
       },
-      weightRange: {
-        type: DataTypes.STRING,
+      ageRangeTo: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+      },
+      weightRangeFrom: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+      },
+      weightRangeTo: {
+        type: DataTypes.DOUBLE,
         allowNull: false,
       }
       
