@@ -66,6 +66,30 @@ function viewcategories() {
 												Add Animal Category
 											</Button>
 										</a>
+										<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Category"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
 									</div>
 									<br />
 
@@ -75,12 +99,20 @@ function viewcategories() {
 										</div>
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">Category ID</th>
-														<th class="hidden-xs text-center">Category Name</th>
-														<th class="hidden-xs text-center">Description</th>
-														<th class="hidden-xs text-center"></th>
+														<th scope="col"><b>
+															<strong>Category ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Category Name</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Description</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong></strong>
+														</b></th>
 													</tr>
 												</thead>
 												<tbody id="myTable">
@@ -94,7 +126,7 @@ function viewcategories() {
 														<td class="text-end">
 															<div style={{ display: "flex" }}>
 																<div style={{ paddingRight: 5 }}>
-																	<a href="#" class="btn btn-sm btn-neutral">
+																	<a href="\editpetcategory" class="btn btn-sm btn-neutral">
 																		<em class="fa fa-pencil"></em>
 																	</a>
 																</div>
@@ -129,7 +161,7 @@ function viewcategories() {
 														<td class="text-end">
 															<div style={{ display: "flex" }}>
 																<div style={{ paddingRight: 5 }}>
-																	<a href="#" class="btn btn-sm btn-neutral">
+																	<a href="\editpetcategory" class="btn btn-sm btn-neutral">
 																		<em class="fa fa-pencil"></em>
 																	</a>
 																</div>

@@ -116,9 +116,10 @@ import Mdeditvitamin from './pages/mdeditvitamin';
 import Spdashboard from './pages/spdashboard';
 import Test from './pages/test';
 import Myprofile from './pages/myprofile';
-
-
-
+import Editbreed from './pages/editbreed';
+import Viewadvertisements from './pages/viewadvertisements';
+import Myprofileadmin from './pages/myprofileadmin';
+import Myprofileservice from './pages/myprofileservice';
 // import Signinform from './components/signinform';
 
 function App() {
@@ -236,7 +237,10 @@ function App() {
           <Route path="/mdeditmed" element={<Mdeditmed/>}/>
           <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
           <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
-
+          <Route path="/editbreed" element={<Editbreed/>}/>
+          <Route path="/viewadvertisements" element={<Viewadvertisements/>}/>
+          <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
+          <Route path="/myprofileservice" element={<Myprofileservice/>}/>
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
 

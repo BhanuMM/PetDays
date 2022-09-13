@@ -4,21 +4,7 @@ import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-const bull = (
-	<Box
-		component="span"
-		sx={{
-			display: "inline-block",
-			mx: "2px",
-			transform: "scale(0.8)",
-			maxHeight: "1000",
-		}}
-	>
-		•
-	</Box>
-);
-
-function editpetcategory() {
+function myprofileadmin() {
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -31,18 +17,20 @@ function editpetcategory() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Edit Animal Category</h1>
+										<h1 class="h2 mb-0 ls-tight">Profile Settings</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard">Admin Dashboard /</a>
-													<a href="/viewcategories">View Animal Categories/</a>
-													<a href="/editpetcategory">Edit Animal Categories</a>
+													<a href="/admindashboard" className="header-topic">
+														Admin Dashboard/
+													</a>
+													<a href="/myprofile" className="header-topic">
+														Profile Settings
+													</a>
 												</li>
 											</ol>
 										</nav>
-
 										<br />
 									</div>
 								</div>
@@ -60,9 +48,24 @@ function editpetcategory() {
 											width: 1100,
 											marginLeft: 15,
 										}}
-										style={{ height: 630, padding: 10, paddingLeft: 75 }}
+										style={{ padding: 10, paddingLeft: 75 }}
 									>
 										<CardContent>
+											<div class="col-md-3 border-right">
+												<div
+													class="d-flex flex-column align-items-center text-center p-3 py-5 "
+													style={{ float: "right" }}
+												>
+													<img
+														class="rounded-circle mt-5"
+														width="150px"
+														src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+													/>
+													<span class="font-weight-bold">Edogaru</span>
+													<span class="text-black-50">edogaru@mail.com.my</span>
+													<span> </span>
+												</div>
+											</div>
 											<form>
 												<br />
 												<br />
@@ -77,13 +80,27 @@ function editpetcategory() {
 												>
 													<TextField
 														id="outlined-required"
-														label="Animal category"
-														defaultValue="category"
+														label="User Name"
+														defaultValue="user name"
+													/>
+
+													<TextField
+														id="outlined-required"
+														label="E-mail"
+														defaultValue="E-mail"
+														type="Dropdown"
+													/>
+
+													<TextField
+														id="outlined-required"
+														label="Password"
+														defaultValue="Password"
+														type="Dropdown"
 													/>
 													<TextField
 														id="outlined-required"
-														label="Description"
-														defaultValue="Description"
+														label="Confirm Password"
+														defaultValue="Confirm Password"
 														type="Dropdown"
 													/>
 												</Box>
@@ -97,7 +114,7 @@ function editpetcategory() {
 															component="label"
 															style={{ backgroundColor: "#F66B0E" }}
 														>
-															Update category
+															Update profile
 														</Button>
 													</div>
 												</div>
@@ -114,4 +131,4 @@ function editpetcategory() {
 	);
 }
 
-export default editpetcategory;
+export default myprofileadmin;

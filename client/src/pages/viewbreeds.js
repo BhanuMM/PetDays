@@ -4,7 +4,7 @@ import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 import Box from "@mui/material/Box";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 const bull = (
 	<Box
 		component="span"
@@ -57,12 +57,40 @@ function viewbreeds() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right">
-                                    <a href="/adddogbreed" className="header-topic">
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                     Add Breed
-                  </Button>
-								</a>
-                                    </div>
+										<a href="/adddogbreed" className="header-topic">
+											<Button
+												variant="contained"
+												component="label"
+												style={{ backgroundColor: "#F66B0E" }}
+											>
+												Add Breed
+											</Button>
+										</a>
+										<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Breeds"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
+									</div>
 									<br />
 
 									<div class="card shadow border-0 mb-7">
@@ -70,14 +98,21 @@ function viewbreeds() {
 											<h5 class="mb-0">Available Breeds</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+											<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">Cat ID</th>
-														<th class="hidden-xs text-center">Breed ID</th>
-														<th class="hidden-xs text-center">Breed Name</th>
-														<th class="hidden-xs text-center">Discription</th>
-														
+														<th scope="col"><b>
+															<strong>Cat ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed Name</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Description</strong>
+														</b></th>
 													</tr>
 												</thead>
 												<tbody id="myTable">
@@ -88,6 +123,26 @@ function viewbreeds() {
 														<td>
 															stands among America's most popular dog breeds.
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">2</td>
@@ -97,6 +152,26 @@ function viewbreeds() {
 															As always, the Labrador Retriever tops the list —
 															this time for the 31st year!{" "}
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">3</td>
@@ -105,6 +180,26 @@ function viewbreeds() {
 														<td>
 															It is characterised by a gentle and affectionate
 															nature and a striking golden coat.{" "}
+														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
 														</td>
 													</tr>
 													<tr>
@@ -117,6 +212,26 @@ function viewbreeds() {
 															frequently registered breeds in several Western
 															countries.
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">5</td>
@@ -126,14 +241,32 @@ function viewbreeds() {
 															Friendly, Intelligent, Reliable, Kind,
 															Trustworthy, Confident
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 												</tbody>
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>
