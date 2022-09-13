@@ -9,6 +9,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Moderatorsidebar from "../components/moderatorsidebar";
 
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
 
 const bull = (
     	<Box
@@ -22,6 +26,46 @@ const bull = (
 
 
 function mdaddvitamin() {
+
+	const initialValues = {
+		vacName: "",
+	 	descr: "",
+		vacNextIter: "",
+		
+		
+	  };
+	
+	//   const Schema = Yup.object().shape({
+	// 	email: Yup.string().email("Not a proper email address"),
+	// 	password: Yup.string()
+	// 	  .min(5)
+	// 	  .max(12)
+	// 	  .required("This field is required")
+	// 	  .matches(
+	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+	// 	  ),
+	// 	confirmpassword: Yup.string().when("password", {
+	// 	  is: (val) => (val && val.length > 0 ? true : false),
+	// 	  then: Yup.string().oneOf(
+	// 		[Yup.ref("password")],
+	// 		"Passwords does not match"
+	// 	  ),
+	// 	}),
+	//   });
+	
+	  const navigate = useNavigate();
+	
+	  const onSubmit = (data) => {
+		axios.post("http://localhost:3001/mod/addvaccine", data).then((response) => {
+		  if (response.data.error) {
+			alert(response.data.error);
+		  } else {
+			navigate("/mdsinglevacc");
+		  }
+		});
+	  };
+
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -62,10 +106,15 @@ function mdaddvitamin() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:420, padding: 10, paddingLeft:75}}>
-                        <CardContent>
-                        <form><br/><br/>
-
+                            {/* <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:420, padding: 10, paddingLeft:75}}>
+                        <CardContent> */}
+						<Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                       
+                      >
+                        <Form><br/><br/>
+{/* 
                        <Box
                             component="form"
                             sx={{
@@ -73,28 +122,62 @@ function mdaddvitamin() {
                             }}
                             noValidate
                             autoComplete="off"
-                            >
-                                <TextField id="vacc-name" label="Name of the vaccine" /><br/>
+                            > */}
+							 <label className="form-label">Name of the vaccine</label>
+								 <Field
+                                  className="form-control"
+                                  id="vacName"
+                                  autocomplete="off"
+                                  name="vacName"
+                                  placeholder=""
+                                />
+
+							
+								<label className="form-label">Description about the vaccine</label>
+								 <Field
+                                  className="form-control"
+                                  id="descr"
+                                  autocomplete="off"
+                                  name="descr"
+                                  placeholder=""
+                                />
+								<label className="form-label">Next Iteration On</label>
+								 <Field
+                                  className="form-control"
+                                  id="vacNextIter"
+                                  autocomplete="off"
+                                  name="vacNextIter"
+                                  placeholder=""
+                                />
+                                {/* <TextField id="vacc-name" label="Name of the vaccine" /><br/>
                                 <TextField id="next-iteration" label="Next Iteration On" type="date" />
-                                <TextField id="vacc-name" label="Description about the vaccine" /><br/>
+                                <TextField id="vacc-name" label="Description about the vaccine" /><br/> */}
                                 
-                        </Box>
+                        {/* </Box> */}
 
                             
                             <div className="row">
                                 <div className="col-9"></div>
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
-                                    <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+                                    {/* <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
                                         Add Vaccine
-                                    </Button>
+                                    </Button> */}
+									 <button
+                              className="register.loginbuttonsize btn btn-success "
+                              type="submit"
+							  style={{backgroundColor: '#F66B0E'}} 
+                            >
+                              Add Vaccine
+                            </button>
                                 </div>
                                 
                             </div>
-                        </form>
+                        </Form>
+						</Formik>
 
-                    </CardContent>
-                    </Card>
+                    {/* </CardContent>
+                    </Card> */}
             				</div>
 	
 							</div>
