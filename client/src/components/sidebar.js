@@ -52,12 +52,12 @@ function sidebar() {
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="\reportgeneration">
-								<i class="bi bi-bar-chart"></i> Report Generation
+							<i class="fa fa-line-chart" aria-hidden="true"></i> Report Generation
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<i class="bi bi-bar-chart"></i> Advertisements
+							<a class="nav-link" href="\petmart">
+							<i class="fa fa-file" aria-hidden="true"></i> Advertisements
 							</a>
 						</li>
 						<li class="nav-item">
@@ -75,7 +75,7 @@ function sidebar() {
 													<i
 														class="fa fa-caret-down"
 														aria-hidden="true"
-														style={{ paddingLeft: 120 }}
+														style={{ paddingLeft: 115 }}
 													></i>
 												</a>
 											</a>
@@ -88,7 +88,7 @@ function sidebar() {
 												style={{ paddingLeft: 70 }}
 												href="\viewdietplanscats"
 											>
-												Diet Plans-Cats
+												View Diet Plans
 											</a>
 										</div>
 										<div class="panel-footer">
@@ -97,7 +97,7 @@ function sidebar() {
 												style={{ paddingLeft: 70 }}
 												href="\viewdietplans"
 											>
-												Diet Plans-Dogs
+												Add Diet Plans
 											</a>
 										</div>
 									</div>
@@ -177,7 +177,7 @@ function sidebar() {
 												href="\viewbreeds"
 												style={{ paddingLeft: 70 }}
 											>
-												Petcategories-dogs
+												View Animal Categories
 											</a>
 										</div>
 										<div class="panel-body">
@@ -186,7 +186,7 @@ function sidebar() {
 												href="\viewbreedscats"
 												style={{ paddingLeft: 70 }}
 											>
-												Petcategories-cats
+												Add new category
 											</a>
 										</div>
 									</div>
@@ -204,7 +204,7 @@ function sidebar() {
 													<i
 														class="fa fa-caret-down"
 														aria-hidden="true"
-														style={{ paddingLeft: 62 }}
+														style={{ paddingLeft: 65 }}
 													></i>
 												</a>
 											</a>

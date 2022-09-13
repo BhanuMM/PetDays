@@ -40,7 +40,7 @@ function viewbreeds() {
 														Admin Dashboard/
 													</a>
 													<a href="/adddogbreed" className="header-topic">
-														Breeds
+														viewbreeds
 													</a>
 												</li>
 											</ol>
@@ -132,7 +132,7 @@ function viewbreeds() {
 										</div>
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
-												Showing 10 items of Vaccines
+												
 											</span>
 										</div>
 									</div>

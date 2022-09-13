@@ -24,7 +24,7 @@ function viewmedications() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-													Admin Dashboard/
+														Admin Dashboard/
 													</a>
 													<a href="/mdpostsection" className="header-topic">
 														Medicines
@@ -43,8 +43,7 @@ function viewmedications() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right">
-									</div>
+									<div class="col col-xs-6 text-right"></div>
 									<br />
 
 									<div class="card shadow border-0 mb-7">
@@ -108,9 +107,7 @@ function viewmedications() {
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												Showing 10 items of Medicines
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>

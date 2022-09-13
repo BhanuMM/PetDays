@@ -22,7 +22,7 @@ function viewvitamins() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-													Admin Dashboard/
+														Admin Dashboard/
 													</a>
 													<a href="/mdpostsection" className="header-topic">
 														Vitamins
@@ -105,9 +105,7 @@ function viewvitamins() {
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												Showing 10 items of Vitamins
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>
