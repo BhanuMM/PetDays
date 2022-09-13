@@ -78,6 +78,30 @@ function viewbreedscats() {
 												Add Breeds
 											</Button>
 										</a>
+										<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Breeds"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
 									</div>
 									<br />
 
@@ -86,14 +110,24 @@ function viewbreedscats() {
 											<h5 class="mb-0">Available Breeds</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+											<thead class="thead-light">
 													<tr>
+
 														
-														<th class="hidden-xs text-center">Breed ID</th>
-														<th class="hidden-xs text-center">Breed Name</th>
-														<th class="hidden-xs text-center">Description</th>
-														<th class="hidden-xs text-center"></th>
+														<th scope="col"><b>
+															<strong>Breed ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed Name</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Description</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong></strong>
+														</b></th>
+
 													</tr>
 												</thead>
 												<tbody id="myTable">
@@ -104,11 +138,11 @@ function viewbreedscats() {
 														<td>{value.breedName}</td>
 														<td>{value.descr}</td>
 
-														
-														<td class="text-end">
+								<td class="text-end">
 															<div style={{ display: "flex" }}>
 																<div style={{ paddingRight: 5 }}>
 																	<a href="#" class="btn btn-sm btn-neutral">
+
 																		<em class="fa fa-pencil"></em>
 																	</a>
 																</div>
@@ -122,10 +156,13 @@ function viewbreedscats() {
 																</div>
 																
 															</div>
+
 														</td>
+												
 													</tr>
 													);
 												})}
+
 												</tbody>
 											</table>
 										</div>

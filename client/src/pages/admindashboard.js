@@ -27,7 +27,6 @@ function dashboard() {
 												</li>
 											</ol>
 										</nav>
-
 										<br />
 									</div>
 								</div>
@@ -43,24 +42,16 @@ function dashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Income
+														Income for <br /> this month
 													</span>
 													<span class="h3 font-bold mb-0">$750.90</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto " style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
 														<i class="bi bi-credit-card"></i>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-success text-success me-2">
-													<i class="bi bi-arrow-up me-1"></i>13%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -70,24 +61,16 @@ function dashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														New advertisments
+														Recently Posted <br /> Advertisments
 													</span>
-													<span class="h3 font-bold mb-0">$750.90</span>
+													<span class="h3 font-bold mb-0">20</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto"style={{paddingLeft:100}}>
 													<div class="icon icon-shape  bg-primary text-white text-lg rounded-circle">
-														<i class="bi bi bi-people"></i>
+													<i class="bi bi-file-earmark-post-fill"></i>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-success text-success me-2">
-													<i class="bi bi-arrow-up me-1"></i>13%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -97,23 +80,16 @@ function dashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
+														Recently Joined <br />
 														Moderators
 													</span>
-													<span class="h3 font-bold mb-0">1.400</span>
+													<span class="h3 font-bold mb-0">14</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto" style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-														<i class="bi bi-clock-history"></i>
+													<i class="bi bi-people"></i>
 													</div>
 												</div>
-											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
 											</div>
 										</div>
 									</div>
@@ -124,23 +100,15 @@ function dashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Services
+														Recently Joined Service providers
 													</span>
-													<span class="h3 font-bold mb-0">1.400</span>
+													<span class="h3 font-bold mb-0">20</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto" style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-														<i class="bi bi-clock-history"></i>
+													<i class="bi bi-person"></i>
 													</div>
 												</div>
-											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
 											</div>
 										</div>
 									</div>
@@ -243,13 +211,13 @@ function dashboard() {
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
 												<div class="btn-group-horizontal">
-													<div className="d-flex">
+													<div className="d-flex" style={{paddingLeft:150}}>
 														<a
 															href="\viewdietplans"
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra">
+															<button type="submit" class="btn-tra" >
 																View Diet Plans
 															</button>
 														</a>

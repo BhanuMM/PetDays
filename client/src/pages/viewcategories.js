@@ -152,6 +152,7 @@ function viewcategories() {
       </div>
     </div>
   );
+
 }
 
 export default viewcategories;
