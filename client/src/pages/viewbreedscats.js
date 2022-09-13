@@ -40,7 +40,7 @@ function viewbreedscats() {
 														Admin Dashboard/
 													</a>
 													<a href="/mdpostsection" className="header-topic">
-														Breeds	
+														viewbreedscats
 													</a>
 												</li>
 											</ol>
@@ -71,7 +71,7 @@ function viewbreedscats() {
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
-											<h5 class="mb-0">Available Vaccines</h5>
+											<h5 class="mb-0">Available Breeds</h5>
 										</div>
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-list responsive">
@@ -81,7 +81,6 @@ function viewbreedscats() {
 														<th class="hidden-xs text-center">Breed ID</th>
 														<th class="hidden-xs text-center">Breed Name</th>
 														<th class="hidden-xs text-center">Description</th>
-														
 													</tr>
 												</thead>
 												<tbody id="myTable">
@@ -133,9 +132,7 @@ function viewbreedscats() {
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												Showing 10 items of Vaccines
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>

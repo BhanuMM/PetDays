@@ -38,10 +38,11 @@ function viewsellers() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-													Admin Dashboard/
+														Admin Dashboard/
 													</a>
 													<a href="/viewsellers" className="header-topic">
-													Service Providers</a>
+														Service Providers
+													</a>
 												</li>
 											</ol>
 										</nav>
@@ -56,22 +57,12 @@ function viewsellers() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right">
-										<a href="\addseller" className="header-topic">
-											<Button
-												variant="contained"
-												component="label"
-												style={{ backgroundColor: "#F66B0E" }}
-											>
-												Add Service Provider
-											</Button>
-										</a>
-									</div>
+									<div class="col col-xs-6 text-right"></div>
 									<br />
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
-											<h5 class="mb-0">Available Vaccines</h5>
+											<h5 class="mb-0">Active Service Providers</h5>
 										</div>
 										<div class="table-responsive">
 											<table class="table table-striped table-bordered table-list responsive">
@@ -119,9 +110,7 @@ function viewsellers() {
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												Showing 10 items of Vaccines
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>

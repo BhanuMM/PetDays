@@ -66,6 +66,7 @@ import Viewvitamins   from './pages/viewvitamins';
 import Viewbreedscats   from './pages/viewbreedscats';
 import Viewdietplanscats   from './pages/viewdietplanscats';
 import Viewsellers   from './pages/viewsellers';
+import Viewcategories   from './pages/viewcategories';
 
 import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
@@ -106,12 +107,11 @@ import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
 import Mdviewad from './pages/mdviewad';
 
-
 // import Newdashboard from './pages/newdashboard';
 
 import Spdashboard from './pages/spdashboard';
 import Test from './pages/test';
-
+import Myprofile from './pages/myprofile';
 
 
 
@@ -202,6 +202,7 @@ function App() {
           <Route path="/viewvaccines" element={<Viewvaccines/>}/>
           <Route path="/viewbreedscats" element={<Viewbreedscats/>}/>
           <Route path="/viewdietplanscats" element={<Viewdietplanscats/>}/>
+          <Route path="/viewcategories" element={<Viewcategories/>}/>
 
           <Route path="/dashcheckup" element={<Dashcheckup/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
@@ -225,9 +226,7 @@ function App() {
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
           <Route path="/test" element={<Test/>}/>
           <Route path="/mdviewad" element={<Mdviewad/>}/>
-
-          {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
-
+          <Route path="/myprofile" element={<Myprofile/>}/>
 
         </Routes>   
       </Router>          
