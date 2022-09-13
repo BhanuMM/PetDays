@@ -39,13 +39,13 @@ function mdaddcatdiet() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard">
+													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mdpostsection">
+													<a href="/mdsinglemed">
 														 Medicines / 
 													</a>
-                                                    <a href="/mdpostsection">
+                                                    <a href="/mdaddmed">
 														 Add Medicine
 													</a>
 												</li>

@@ -34,18 +34,18 @@ function mdadddogdiet() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Add Diet Plan for Dogs</h1>
+										<h1 class="h2 mb-0 ls-tight">Add Diet Plan</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard">
+													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mdpostsection">
-														 Diet Plans-Dogs / 
+													<a href="/mddogdiet">
+														 Diet Plans / 
 													</a>
-                                                    <a href="/mdpostsection">
+                                                    <a href="/mdadddogdiet">
 														 Add Diet Plan
 													</a>
 												</li>

@@ -39,13 +39,13 @@ function mdaddvitamin() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard">
+													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mdpostsection">
+													<a href="/mdsinglevitamin">
 														 Vitamins / 
 													</a>
-                                                    <a href="/mdpostsection">
+                                                    <a href="/mdaddvitamin">
 														 Add Vitamin
 													</a>
 												</li>
