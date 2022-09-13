@@ -1,9 +1,20 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 function viewvitamins() {
+	const [listOfVitamins, setListOfVitamins] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/mod/getvitamins").then((response) => {
+      setListOfVitamins(response.data);
+    });
+  }, []);
+
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -42,8 +53,7 @@ function viewvitamins() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
-									<br />
-									<div
+                  <div
 										class="input-group"
 										style={{ width: 430, float: "right" }}
 									>
@@ -67,84 +77,47 @@ function viewvitamins() {
 											Search
 										</button>
 									</div>
+									<br />
+
+
+									<div class="card shadow border-0 mb-7">
+								<div class="card-header">
+									<h5 class="mb-0">Available Vitamins</h5>
 								</div>
-								<br />
-								<br />
-								<div class="card shadow border-0 mb-7">
-									<div class="card-header">
-										<h5 class="mb-0">Available Vitamins</h5>
-									</div>
-									<div class="table-responsive">
-										<table class="table table-striped table-bordered table-list responsive text-center">
-											<thead class="thead-light">
-												<tr>
-													<th scope="col">
-														<b>
-															<strong>Vitamin ID</strong>
-														</b>
-													</th>
-													<th scope="col">
-														<b>
-															<strong>Vitamin Name</strong>
-														</b>
-													</th>
-													<th scope="col">
-														<b>
-															<strong>Description</strong>
-														</b>
-													</th>
-													
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-												<tr>
-													<td>001</td>
-													<td>Feb 15, 2021</td>
-													<td>
-														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div class="card-footer border-0 py-5">
-										<span class="text-muted text-sm"></span>
-									</div>
+								<div class="table-responsive">
+									<table class="table table-hover table-nowrap text-center">
+									<thead class="thead-light">
+										<tr>
+										<th scope="col" ><b><strong>Vitamin ID</strong></b></th>
+										<th scope="col"><b><strong>Vitamin Name</strong></b></th>
+										<th scope="col"><b><strong>Vitamin Type</strong></b></th>
+										<th scope="col"><b><strong>Description</strong></b></th>
+										</tr>
+									</thead>
+									<tbody>
+									{listOfVitamins.map((value, key) => {
+                            return (
+										<tr>
+										<td>{value.vitID}</td>
+										<td>{value.vitName}</td>
+										<td>{value.vitType}</td>
+										<td>{value.descr}</td>
+										
+										
+										</tr>
+										
+										);
+									})}
+									</tbody>
+									</table>
+								</div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+									
+									</span>
+								</div>
+								</div>
+
 								</div>
 							</div>
 						</div>

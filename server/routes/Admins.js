@@ -66,8 +66,23 @@ router.post("/addmoderator", async (req, res) => {
   
 });
 
-
-
+router.get("/getpetcategories", async (req, res) => {
+  const listOfPetcatagories = await Petcatagories.findAll();
+  res.json(listOfPetcatagories);
+});
+router.get("/getpetbreeds", async (req, res) => {
+  const listOfBreeds = await Breeds.findAll();
+  res.json(listOfBreeds);
+});
+router.get("/getpetbreeds/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfBreeds = await Breeds.findAll(
+    {where: {
+      catId: id
+    }}
+  );
+  res.json(listOfBreeds);
+});
 
 
 
