@@ -7,6 +7,8 @@ import dog from "../images/PetDays.png";
 import AddIcon from '@mui/icons-material/Add';
 import Man from "../images/man.jpg";
 import Navbar from "../components/navbar";
+import Moderatorsidebar from "../components/moderatorsidebar";
+// import AddIcon from '@mui/icons-material/Add';
 
 
 import Sellersidebar from "../components/serviceprovidersidebar";
@@ -17,100 +19,9 @@ function dashboard() {
 		<div class="container-fluid">
 			
 			
-			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary mt-5">
-			{/* <nav
-			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
-			id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
-		>
-			<div class="container-fluid">
-				<button
-					class="navbar-toggler ms-n2"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#sidebarCollapse"
-					aria-controls="sidebarCollapse"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-				<img class="dashboard-image" src={Man} alt="" style={{ height:130 , width: 130, marginTop:40, borderRadius:75}} />
-				</a>
-				<div class="navbar-user d-lg-none">
-					<div class="dropdown">
-						<a
-							href="#"
-							id="sidebarAvatar"
-							role="button"
-							data-bs-toggle="dropdown"
-							aria-haspopup="true"
-							aria-expanded="false"
-						>
-							<div class="avatar-parent-child">
-								<img
-									alt="Image Placeholder"
-									src="https://t4.ftcdn.net/jpg/02/47/31/89/360_F_247318925_vOUBhAtYnTIyJcVpxoOP50pWK01f6dtr.jpg"
-									class="avatar avatar- rounded-circle"
-								/>
-								<span class="avatar-child avatar-badge bg-success"></span>
-							</div>
-						</a>
-            <h1>Devid Person</h1>
-					</div>
-				</div>
-				<div class="collapse navbar-collapse" id="sidebarCollapse">
-					<ul class="navbar-nav">
-          <li class="nav-item">
-							<a class="nav-link" href="\spdashboard">
-								<i class="bi bi-house"></i> Dashboard
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/approved">
-								<i class="bi bi-house"></i> Published Ads
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/pendingads">
-								<i class="bi bi-bar-chart"></i> Pending Ads
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="rejected">
-								<i class="bi bi-bar-chart"></i> Rejected Ads
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="rejected">
-								<i class="bi bi-bar-chart"></i> Create New Ad
-							</a>
-						</li>
-						
-            	
-				
-					</ul>
-					
-					<hr class="navbar-divider my-5 opacity-20" />
-					<div class="mt-auto"></div>
-					<ul class="navbar-nav">
-						
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<i class="bi bi-person-square"></i> Account
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<i class="bi bi-box-arrow-left"></i> Logout
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav> */}
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary ">
 					<div className="">
-				<Sellersidebar />
+				< Sellersidebar/>
 			</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 					<header class="bg-surface-primary border-bottom pt-6">
@@ -119,7 +30,7 @@ function dashboard() {
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
 										<h1 class="h2 mb-0 ls-tight">Service Provider Dashboard</h1>
-										{/* <div className="navbar-collapse">
+										<div className="navbar-collapse">
 										<ul className="navbar-nav ml-auto mb-2 mb-lg-0">
 											
 											<li className="nav-item active">
@@ -131,7 +42,7 @@ function dashboard() {
 											
 								
            								 </ul>
-										</div> */}
+										</div>
 										
 										<hr />
 										<nav aria-label="breadcrumb">
@@ -227,45 +138,12 @@ function dashboard() {
 													</div>
 												</div>
 											</div>
-											{/* <div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div> */}
+											
 										</div>
 									</div>
 								</div>
                
-								{/* <div class="col-xl-3 col-sm-6 col-12">
-									<div class="card shadow border-0">
-										<div class="card-body">
-											<div class="row">
-												<div class="col">
-													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Services
-													</span>
-													<span class="h3 font-bold mb-0">1.400</span>
-												</div>
-												<div class="col-auto">
-													<div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-														<i class="bi bi-clock-history"></i>
-													</div>
-												</div>
-											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
-										</div>
-									</div>
-								</div> */}
+								
 							</div>
               <div className="row mb-5 mt-5">
                 <div className="col-8"></div>
@@ -276,8 +154,8 @@ function dashboard() {
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class=" create-button" >
-                              + Create New Advertiesment
+															<button type="submit" class=" create-button"   style={{backgroundColor: '#F66B0E'}}>
+                              <AddIcon/> Create New Advertiesment
 															</button>
 														</a>
 														
@@ -297,7 +175,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewbreeds"
+															href="\approved"
 															role="button"
 															aria-pressed="true"
 														>
@@ -322,7 +200,7 @@ function dashboard() {
 													<div className="d-flex">
 														<a
 														
-                            href="\viewdietplans"
+                            href="\pendingads"
                             role="button"
                             aria-pressed="true"
                           >
@@ -348,12 +226,12 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex">
 														<a
-															href="\viewdietplans"
+															href="\rejected"
 															role="button"
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-                              Click here to see
+                              								Click here to see
 															</button>
 														</a>
 													

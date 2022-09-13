@@ -283,8 +283,8 @@ function pendingads() {
 						<div class="container-fluid">
               <div className="row">
                 <div className="col-3">
-                <div class="card">
-                  <div class="inner-card"> <img src="https://www.acs.edu.au/database/images/course_4335051.jpg" class="img-fluid rounded"/>
+                <div class="petmart-card">
+                  <div class="petmart-inner-card"> <img src="https://www.acs.edu.au/database/images/course_4335051.jpg" class="img-fluid rounded"/>
                       <div class="d-flex justify-content-between align-items-center mt-3 px-2">
                           <h4>Pet Day Care</h4>
                           <small>21 Aug 2022</small>
@@ -299,8 +299,8 @@ function pendingads() {
               </div>
                 </div>
                 <div className="col-3">
-                <div class="card">
-                  <div class="inner-card"> <img src="https://cdn.cdnparenting.com/articles/2018/12/196619114-H.jpg" class="img-fluid rounded"/>
+                <div class="petmart-card">
+                  <div class="petmart-inner-card"> <img src="https://cdn.cdnparenting.com/articles/2018/12/196619114-H.jpg" class="img-fluid rounded"/>
                   <div class="d-flex justify-content-between align-items-center mt-3 px-2">
                           <h4>Pet Day Care</h4>
                           <small>21 Aug 2022</small>
@@ -315,8 +315,8 @@ function pendingads() {
               </div>
                 </div>
                 <div className="col-3">
-                <div class="card">
-                  <div class="inner-card"> <img src="https://www.thedoghouseps.com/wp-content/uploads/2020/01/combing-the-head-of-yorkshire-terrier-picjumbo-com-1-1024x683.jpg" class="img-fluid rounded"/>
+                <div class="petmart-card">
+                  <div class="petmart-inner-card"> <img src="https://www.thedoghouseps.com/wp-content/uploads/2020/01/combing-the-head-of-yorkshire-terrier-picjumbo-com-1-1024x683.jpg" class="img-fluid rounded"/>
                   <div class="d-flex justify-content-between align-items-center mt-3 px-2">
                           <h4>Pet Day Care</h4>
                           <small>21 Aug 2022</small>
@@ -331,8 +331,8 @@ function pendingads() {
               </div>
                 </div>
                 <div className="col-3">
-                <div class="card">
-                  <div class="inner-card"> <img src="https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2019/01/BonnieArbittier_lucys_doggy_daycare_dog_pet_boarding_1604_new_location_grooming_1-16-2019-8.jpg?fit=1170%2C780&ssl=1" class="img-fluid rounded"/>
+                <div class="petmart-card">
+                  <div class="petmart-inner-card"> <img src="https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2019/01/BonnieArbittier_lucys_doggy_daycare_dog_pet_boarding_1604_new_location_grooming_1-16-2019-8.jpg?fit=1170%2C780&ssl=1" class="img-fluid rounded"/>
                   <div class="d-flex justify-content-between align-items-center mt-3 px-2">
                           <h4>Pet Day Care</h4>
                           <small>21 Aug 2022</small>
