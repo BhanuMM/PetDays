@@ -108,7 +108,7 @@ function register() {
                               className="form-control"
                               id="email"
                               autocomplete="off"
-                              name="email"
+                              name="uemail"
                               placeholder="wolf@gmail.com"
                             />
                           </div>
