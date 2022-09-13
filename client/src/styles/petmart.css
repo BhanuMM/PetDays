@@ -1,10 +1,10 @@
-.petmart-cardsize{
+/* .petmart-cardsize{
     width: 430px;
-    /* height:00px; */
+    
     margin-left: 20px;
     margin-bottom:20px;
     margin-top: 20px;
-    /* margin-right: 20px;  */
+    
 }
 .petmart-cardtext{
     margin-left: 70px;
@@ -76,8 +76,50 @@
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
+} */
 
 /* .petmart .details{
     padding-right:300px;
 } */
+
+.petmart-container{
+    
+    height:100vh;
+}
+
+.petmart-card {
+    background-color: #fdfdfd;
+    width: 360px;
+    padding: 10px;
+    border: 1px solid #eee
+}
+
+.petmart-inner-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.petmart-heart {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #beb4aa;
+    border-radius: 50%;
+    background-color: #eee
+}
+
+.btn:focus {
+    color: #fff;
+    background-color: #025ce2;
+    border-color: #0257d5;
+    box-shadow: none
+}
+
+.butn-color{
+    background-color: #042658 ;
+}
