@@ -22,11 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     }
     );
   
-    // Breeds.associate = (models) => {
-    //   Breeds.hasMany(models.Posts, {
-    //     onDelete: "cascade",
-    //   });
-    // };
+    Breeds.associate = (models) => {
+      Breeds.belongsTo(models.Petcatagories, {
+        foreignKey: 'catId',
+        onDelete: "cascade",
+      });
+    };
     return Breeds;
   };
   
