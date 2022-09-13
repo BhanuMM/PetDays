@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
+import 'package:mobile/Screens/PetDashboard/Pet_Dashboard_Screen.dart';
 
 
 import '../../../constants.dart';
@@ -18,7 +18,7 @@ class PetDashboardItemCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return DashboardScreen();
+              return PetDashboard();
             },
           ),
         );

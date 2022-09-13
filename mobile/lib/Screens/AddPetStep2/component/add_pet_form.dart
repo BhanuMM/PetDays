@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
-import '../../Dashboard/dashboard_screen.dart';
+import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 class AddPetFormStep2 extends StatefulWidget {
   const AddPetFormStep2({
     Key? key,
@@ -153,7 +153,7 @@ class _AddPetFormState extends State<AddPetFormStep2>{
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return DashboardScreen();
+                              return PetDashboard();
                             },
                           ),
                         );
@@ -176,7 +176,7 @@ class _AddPetFormState extends State<AddPetFormStep2>{
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return DashboardScreen();
+                              return PetDashboard();
                             },
                           ),
                         );

@@ -6,12 +6,12 @@ import 'card.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../Mypets/my_pets_screen.dart';
 import '../../PetMartHome/Pet_Mart_Home_Screen.dart';
+import '../../../models/globals.dart' as globals;
 
 class DashboardContent extends StatelessWidget {
   const DashboardContent({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +24,7 @@ class DashboardContent extends StatelessWidget {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children:  [
                       Text("Hello,",
                       style: TextStyle(
                         fontSize: 18,
@@ -32,7 +32,8 @@ class DashboardContent extends StatelessWidget {
                       ),
                       ),
                       SizedBox(height: 6,),
-                      Text("Thilina Peduruhewa",
+                      Text(
+                        globals.uemail,
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold
