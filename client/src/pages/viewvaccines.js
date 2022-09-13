@@ -58,77 +58,118 @@ function viewvaccines() {
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
 									<br />
-
-									<div class="card shadow border-0 mb-7">
-										<div class="card-header">
-											<h5 class="mb-0">Available Vaccines</h5>
-										</div>
-										<div class="table-responsive">
-											<table class="table table-hover table-nowrap text-center">
-												<thead class="thead-light">
-													<tr>
-														<th scope="col">Vaccine ID</th>
-														<th scope="col">Vaccine Name</th>
-														<th scope="col">Description</th>
-														<th scope="col">Next Iteration</th>
-														<th></th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm"></span>
-										</div>
+									<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Vaccines"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
+								</div>
+								<br />
+								<br />
+								<div class="card shadow border-0 mb-7">
+									<div class="card-header">
+										<h5 class="mb-0">Available Vaccines</h5>
+									</div>
+									<div class="table-responsive">
+										<table class="table table-striped table-bordered table-list responsive text-center">
+											<thead class="thead-light">
+												<tr>
+													<th scope="col">
+														<b>
+															<strong>Vaccine ID</strong>
+														</b>
+													</th>
+													<th scope="col">
+														<b>
+															<strong>Vaccine Name</strong>
+														</b>
+													</th>
+													<th scope="col">
+														<b>
+															<strong>Description</strong>
+														</b>
+													</th>
+													<th scope="col">
+														<b>
+															<strong>Next Iteration</strong>
+														</b>
+													</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+												<tr>
+													<td>001</td>
+													<td>Feb 15, 2021</td>
+													<td>
+														zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
+													</td>
+													<td>Feb 15, 2021</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="card-footer border-0 py-5">
+										<span class="text-muted text-sm"></span>
 									</div>
 								</div>
 							</div>

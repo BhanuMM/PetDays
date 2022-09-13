@@ -1,15 +1,15 @@
-import React from "react";
-import Moderatorsidebar from "../components/moderatorsidebar";
+import React from 'react'
+import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-function myprofile() {
-	return (
-		<div class="container-fluid">
+function myprofileservice() {
+  return (
+    <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
-					<Moderatorsidebar />
+					<Serviceprovidersidebar />
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 				<header class="bg-surface-primary border-bottom pt-6">
@@ -22,10 +22,10 @@ function myprofile() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/moderatordashboard" className="header-topic">
-														Moderator Dashboard/
+													<a href="/spdashboard" className="header-topic">
+														Serviceprovider Dashboard/
 													</a>
-													<a href="/myprofile" className="header-topic">
+													<a href="/myprofileservice" className="header-topic">
 														Profile Settings
 													</a>
 												</li>
@@ -128,7 +128,7 @@ function myprofile() {
 					</main>
 				</div>
 			</div></div>
-	);
+  )
 }
 
-export default myprofile;
+export default myprofileservice

@@ -90,7 +90,7 @@ function addmoderator() {
 													<TextField id="mod-nic" label=" NIC Number" />
 													<TextField
 														id="mod-image"
-														label=" Add Image"
+														label=" "
 														type="file"
 													/>
 												</Box>

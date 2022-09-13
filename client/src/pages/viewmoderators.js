@@ -59,18 +59,70 @@ function viewmoderators() {
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
 									<br />
-
+									<a href="/addmoderator" className="header-topic">
+											<Button
+												variant="contained"
+												component="label"
+												style={{ backgroundColor: "#F66B0E" }}
+											>
+												Add Modertor
+											</Button>
+										</a>
+									<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Moderators"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
+									<br />
+									<br />
+									<br />
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Active Moderators</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+												<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">User ID</th>
-														<th class="hidden-xs text-center">User Name</th>
-														<th class="hidden-xs text-center">Email</th>
+														<th scope="col">
+															<b>
+																<strong>User ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>User Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Email</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong></strong>
+															</b>
+														</th>
 													</tr>
 												</thead>
 												<tbody id="myTable">

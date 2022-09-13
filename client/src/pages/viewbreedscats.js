@@ -66,6 +66,30 @@ function viewbreedscats() {
 												Add Breeds
 											</Button>
 										</a>
+										<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Breeds"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
 									</div>
 									<br />
 
@@ -74,13 +98,24 @@ function viewbreedscats() {
 											<h5 class="mb-0">Available Breeds</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+											<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">Cat ID</th>
-														<th class="hidden-xs text-center">Breed ID</th>
-														<th class="hidden-xs text-center">Breed Name</th>
-														<th class="hidden-xs text-center">Description</th>
+														<th scope="col"><b>
+															<strong>Cat ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed Name</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Description</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong></strong>
+														</b></th>
 													</tr>
 												</thead>
 												<tbody id="myTable">
@@ -93,6 +128,26 @@ function viewbreedscats() {
 															The cat is a domestic species of small carnivorous
 															mammal
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">2</td>
@@ -103,6 +158,26 @@ function viewbreedscats() {
 															Felidae and is often referred to as the domestic
 															cat
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">3</td>
@@ -111,6 +186,26 @@ function viewbreedscats() {
 														<td>
 															Inconsistency in a breed classification and naming
 															among registries
+														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
 														</td>
 													</tr>
 													<tr>
@@ -121,12 +216,52 @@ function viewbreedscats() {
 															The domestic short-haired and domestic long-haired
 															cat types are not breeds
 														</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 													<tr>
 														<td class="hidden-xs">5</td>
 														<td>C-5</td>
 														<td>Exotic Shorthair Cats</td>
 														<td>different breeds by different registries</td>
+														<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a
+																		href="\editbreed"
+																		class="btn btn-sm btn-neutral"
+																	>
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+															</div>
+														</td>
 													</tr>
 												</tbody>
 											</table>

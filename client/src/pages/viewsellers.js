@@ -59,48 +59,92 @@ function viewsellers() {
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
 									<br />
-
+									<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Service Providers"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
+									<br />
+									<br />
+									<br />
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Active Service Providers</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
+											<table class="table table-striped table-bordered table-list responsive text-center">
 												<thead>
 													<tr>
-														<th class="hidden-xs text-center">User ID</th>
-														<th class="hidden-xs text-center">User Name</th>
-														<th class="hidden-xs text-center">Email</th>
-														<th class="hidden-xs text-center">Address</th>
-														<th class="hidden-xs text-center">
-															Telephone Number
+														<th class="col">
+															<b>
+																<strong>User ID</strong>
+															</b>
+														</th>
+														<th class="col">
+															<b>
+																<strong>User Name</strong>
+															</b>
+														</th>
+														<th class="col">
+															<b>
+																<strong>Email</strong>
+															</b>
+														</th>
+														<th class="col">
+															<b>
+																<strong>Address</strong>
+															</b>
+														</th>
+														<th class="col">
+															<b>
+																<strong>Telephone Number</strong>
+															</b>
 														</th>
 													</tr>
 												</thead>
 												<tbody id="myTable">
 													<tr>
-														<td class="hidden-xs">1</td>
+														<td>1</td>
 														<td>danny</td>
 														<td>danny@gmail.com</td>
 														<td>No 200, jayathissa mawatha</td>
 														<td>0112254985</td>
 													</tr>
 													<tr>
-														<td class="hidden-xs">2</td>
+														<td>2</td>
 														<td>jane</td>
 														<td>janeloaf@gmail.com</td>
 														<td>queens street, colombo 5</td>
 														<td>0113636525</td>
 													</tr>
 													<tr>
-														<td class="hidden-xs">3</td>
+														<td>3</td>
 														<td>gally</td>
 														<td>gallyday@gmail.com</td>
 														<td>sapumal road, colombo 5</td>
 														<td>0774466985</td>
 													</tr>
 													<tr>
-														<td class="hidden-xs">4</td>
+														<td>4</td>
 														<td>denny</td>
 														<td>dennypontin@gmail.com</td>
 														<td>york street</td>
