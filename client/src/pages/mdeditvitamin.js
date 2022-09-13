@@ -42,7 +42,7 @@ function mdeditdogdiet() {
 													<a href="/moderatordashboard">
 														Moderator Dashboard /
 													</a>
-													<a href="/mdsinglevitamin">
+													<a href="/mdsinglevitamincd client">
 														 Vitamins / 
 													</a>
                                                     <a href="/mdeditvitamin">
