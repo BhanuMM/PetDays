@@ -54,6 +54,7 @@ router.post("/login", async (req, res) => {
 
 // functions=-----------------------------------
 
+
 async function  registerUser (req, res ,role){
   const { username, uemail, password  } = req.body;
   const usemail =await Users.findOne({ where: { email: uemail } });
@@ -76,7 +77,32 @@ async function  registerUser (req, res ,role){
     res.json("SUCCESS");
   });
   }
-}
+};
+module.exports = {registerUser} ;
+// module.exports = {
+//   registerUser: async function (req, res ,role) {
+//     const { username, uemail, password  } = req.body;
+//     const usemail =await Users.findOne({ where: { email: uemail } });
+//     const uname =await Users.findOne({ where: { username: username} });
+  
+//     if (usemail)
+//     {res.json({ error: "Email is already registered" });} 
+//     else if (uname)
+//      {res.json({ error: "Username is already taken" });}
+//     else{
+//       await sendConfirmationEmail({hash: username , useremail:uemail})
+//     bcrypt.hash(password, 10).then((hash) => {
+//       Users.create({
+//         username: username,
+//         email: uemail,
+//         password: hash,
+//         userrole : role,
+//         isverified : "no"
+//       });
+//       res.json("SUCCESS");
+//     });
+//     }
+//   }
+// };
 
-
-module.exports = router;
+module.exports = router ;
