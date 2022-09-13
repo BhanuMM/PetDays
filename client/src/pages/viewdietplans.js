@@ -1,9 +1,19 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 function viewdietplans() {
+	const [listOfDietplans, setListOfDietplans] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
+      setListOfDietplans(response.data);
+    });
+  }, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -45,98 +55,46 @@ function viewdietplans() {
 									<br />
 
 									<div class="card shadow border-0 mb-7">
-										<div class="card-header">
-											<h5 class="mb-0">Available Diet Plans</h5>
-										</div>
-										<div class="table-responsive">
-											<table class="table table-hover table-nowrap text-center">
-												<thead class="thead-light">
-													<tr>
-														<th scope="col">Diet Plan ID</th>
-														<th scope="col">Diet Plan Name</th>
-														<th scope="col">Description</th>
-														<th scope="col">Category</th>
-														<th scope="col">Breed</th>
-														<th scope="col">Age Range</th>
-														<th scope="col">Weight Range</th>
-														<th scope="col">Items</th>
-														<th></th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-														<td>Feb 15, 2021</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm"></span>
-										</div>
-									</div>
+								<div class="card-header">
+									<h5 class="mb-0">Available Diet Plans</h5>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-hover table-nowrap text-center">
+									<thead class="thead-light">
+										<tr>
+										<th scope="col"><b><strong>Diet Plan ID</strong></b></th>
+										<th scope="col"><b><strong>Pet Category</strong></b></th>
+										<th scope="col"><b><strong>Diet Plan Name</strong></b></th>
+										<th scope="col"><b><strong>Description</strong></b></th>
+										<th scope="col"><b><strong>Breed</strong></b></th>
+										<th scope="col"><b><strong>Age Range</strong></b></th>
+										<th scope="col"><b><strong>Weight Range</strong></b></th>
+										</tr>
+									</thead>
+									<tbody>
+									{listOfDietplans.map((value, key) => {
+                            return (
+										<tr>
+										<td>{value.dietplanID}</td>
+										<td>{value.Breed.Petcatagory.pcatName}</td>
+										<td>{value.planName}</td>
+										<td>{value.planDescr}</td>
+										<td>{value.Breed.breedName}</td>
+										<td>{value.ageRangeFrom} -{value.ageRangeTo} Yrs</td>
+										<td>{value.weightRangeFrom} -{value.weightRangeTo} kg</td>
+										
+										</tr>
+									);
+								})}
+									</tbody>
+									</table>
+								</div>
+								<div class="card-footer border-0 py-5">
+									<span class="text-muted text-sm">
+									
+									</span>
+								</div>
+								</div>
 								</div>
 							</div>
 						</div>
