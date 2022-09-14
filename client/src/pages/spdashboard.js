@@ -129,7 +129,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
-															href="\approved"
+															href="\spmyads"
 															role="button"
 															aria-pressed="true"
 														>
@@ -154,7 +154,7 @@ function dashboard() {
 													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
 														
-                            href="\pendingads"
+                            href="\sppublishedads"
                             role="button"
                             aria-pressed="true"
                           >
@@ -180,7 +180,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
-															href="\rejected"
+															href="\sppendingads"
 															role="button"
 															aria-pressed="true"
 														>
@@ -204,7 +204,7 @@ function dashboard() {
 												<div class="btn-group-horizontal">
 													<div className="d-flex" style={{paddingLeft:160}}>
                           <a
-															href="\viewdietplans"
+															href="\sprejectedads"
 															role="button"
 															aria-pressed="true"
 														>

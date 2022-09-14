@@ -121,6 +121,11 @@ import Editbreed from './pages/editbreed';
 import Viewadvertisements from './pages/viewadvertisements';
 import Myprofileadmin from './pages/myprofileadmin';
 import Myprofileservice from './pages/myprofileservice';
+import Spviewad from './pages/spviewad';
+import Spmyads from './pages/spmyads';
+import Sppendingads from './pages/sppendingads';
+import Sppublishedads from './pages/sppublishedads';
+import Sprejectedads from './pages/sprejectedads';
 // import Signinform from './components/signinform';
 
 function App() {
@@ -243,6 +248,11 @@ function App() {
           <Route path="/viewadvertisements" element={<Viewadvertisements/>}/>
           <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
           <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+          <Route path="/spviewad" element={<Spviewad/>}/>
+          <Route path="/spmyads" element={<Spmyads/>}/>
+          <Route path="/sppendingads" element={<Sppendingads/>}/>
+          <Route path="/sppublishedads" element={<Sppublishedads/>}/>
+          <Route path="/sprejectedads" element={<Sprejectedads/>}/>
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
 
