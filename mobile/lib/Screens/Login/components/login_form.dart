@@ -1,4 +1,7 @@
+import 'dart:convert';
+import '../../../models/globals.dart' as globals;
 import 'package:flutter/material.dart';
+import 'package:mobile/components/background.dart';
 
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
@@ -17,107 +20,175 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final url = '10.0.2.2:3001';
+  final loginroute = '/auth/login';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  bool incorrectCred = false;
   Future save() async {
-    var res = await http.post(Uri.parse("http://10.0.2.2:3001/signin"),
-        headers: <String, String>{
-          'Context-Type': 'application/json;charSet=UTF-8'
+    // 10.0.2.2
+    var res = await http.post(Uri.http(url,loginroute),
+        headers: headers,
+        body: json.encode(
+          user
+        // {
+        //   'email': user.email,
+        //   'password': user.password
+        // }
+        ),
+        encoding : encoding
+    );
+
+    print(Uri.parse('http://localhost:3001/auth/login'));
+    print(json.decode(res.body));
+
+    Map<String, dynamic> userMap = jsonDecode(res.body);
+    if(userMap?.containsKey("error") ?? false){
+      showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Credentials doesn't match"),
+            content: const Text('wrong username or password'),
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('okay'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
         },
-        body: <String, String>{
-          'email': user.email,
-          'password': user.password
-        });
-    print(res.body);
-    Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+      );
+    }else{
+      user = User.fromJson(userMap);
+      globals.uemail = user.email;
+      Navigator.push(
+          context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+    }
+
   }
 
-  User user = User('','');
+  User user = User('','','','','');
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
+    return Container(
+      child: Form(
+        key: _formKey,
 
-      child: Column(
-        children: [
-          TextFormField(
-            controller: TextEditingController(text: user.email),
-            onChanged: (value) {
-              user.email = value;
-            },
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            cursorColor: formBG,
-            onSaved: (email) {},
-            decoration: InputDecoration(
-              hintText: "Your email",
-              contentPadding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 3.0),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.person),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
-            child: TextFormField(
-              controller: TextEditingController(text: user.password),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: TextEditingController(text: user.email),
               onChanged: (value) {
-                user.password = value;
+                user.email = value;
               },
-              textInputAction: TextInputAction.done,
-              obscureText: true,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter the email';
+                }
+                return null;
+              },
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
               cursorColor: formBG,
+              onSaved: (email) {},
+
               decoration: InputDecoration(
-                hintText: "Password  ",
+                hintText: "Your email",
                 contentPadding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 3.0),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(defaultPadding),
-                  child: Icon(Icons.lock),
+                  child: Icon(Icons.person),
                 ),
               ),
             ),
-          ),
-
-          Hero(
-            tag: "login_btn",
-            child:SizedBox(
-              width: 100,
-              height: 30,
-              child:ElevatedButton(
-                onPressed: () {
-                  save();
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return DashboardScreen();
-                  //     },
-                  //   ),
-                  // );
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+              child: TextFormField(
+                controller: TextEditingController(text: user.password),
+                onChanged: (value) {
+                  user.password = value;
                 },
-                child: Text(
-                  "Login".toUpperCase(),
-                  style: TextStyle(color: Colors.black),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter Password';
+                  }
+                  return null;
+                },
+                textInputAction: TextInputAction.done,
+                obscureText: true,
+                cursorColor: formBG,
+                decoration: InputDecoration(
+                  hintText: "Password  ",
+                  contentPadding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 3.0),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(defaultPadding),
+                    child: Icon(Icons.lock),
+                  ),
                 ),
               ),
-            )
-          ),
-          const SizedBox(height: defaultPadding),
-          AlreadyHaveAnAccountCheck(
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SignUpScreen();
+            ),
+                // Text((() {
+                //   if(incorrectCred){
+                //     return "Wrong username or password";}
+                //   else {
+                //     return "";
+                //   }
+                //   })(),
+                //   style: TextStyle(
+                //     color: Colors.red,
+                //     fontSize: 16,
+                //     fontWeight: FontWeight.bold
+                //   ),
+                // ),
+            Hero(
+              tag: "login_btn",
+              child:SizedBox(
+                width: 100,
+                height: 30,
+                child:ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      save();
+                    }
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) {
+                    //       return DashboardScreen();
+                    //     },
+                    //   ),
+                    // );
                   },
+                  child: Text(
+                    "Login".toUpperCase(),
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
-              );
-            },
-          ),
-        ],
+              )
+            ),
+            const SizedBox(height: defaultPadding),
+            AlreadyHaveAnAccountCheck(
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SignUpScreen();
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

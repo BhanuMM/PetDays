@@ -5,9 +5,12 @@ import '../../components/background.dart';
 import 'components/top_bar.dart';
 import '../../components/bottom_nav.dart';
 import 'components/content.dart';
+import '../../models/user.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+
+
+  const DashboardScreen() ;
   @override
   Widget build(BuildContext context) {
     return Background(

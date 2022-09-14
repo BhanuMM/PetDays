@@ -11,30 +11,19 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Background(
-      child: SingleChildScrollView(
-        child: Responsive(
-          mobile: const MobileSignupScreen(),
-          desktop: Row(
-            children: [
-              const Expanded(
-                child: SignUpScreenTopImage(),
+    return Container(
+      child: Background(
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height-60,
               ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    SizedBox(
-                      width: 450,
-                      child: SignUpForm(),
-                    ),
-                    SizedBox(height: defaultPadding / 2),
-                    // SocalSignUp()
-                  ],
-                ),
+              child: IntrinsicHeight(
+                  child: const MobileSignupScreen()
               )
-            ],
           ),
+
+
         ),
       ),
     );
@@ -48,21 +37,34 @@ class MobileSignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const SignUpScreenTopImage(),
-        Row(
-          children: const [
-            Spacer(),
-            Expanded(
-              flex: 8,
-              child: SignUpForm(),
-            ),
-            Spacer(),
+    return
+      Container(
+        height:MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            image: DecorationImage(
+            image: AssetImage("assets/images/welcome2.png"),
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.topCenter
+          ),
+          ),
+          child:Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+
+              Row(
+                children: const [
+                  Spacer(),
+                  Expanded(
+                    flex: 8,
+                    child: SignUpForm(),
+                  ),
+                  Spacer(),
+                ],
+              ),
+
           ],
-        ),
-      ],
-    );
+        )
+      );
   }
 }

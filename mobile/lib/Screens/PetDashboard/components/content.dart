@@ -113,7 +113,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                       Spacer(),
                       PetDashboardItemCard(label: "Snowy's Diary",ado: PetDiaryScreen(),img: "pett"),
                       Spacer(),
-                      PetDashboardItemCard(label: "Reminders",ado: PetDiaryScreen(),img: "reminder"),
+                      PetDashboardItemCard(label: "Reminders",ado: RemindersScreen(),img: "reminder"),
                       Spacer(),
                     ]
                 ),
@@ -129,7 +129,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Vaccinations",ado: PetDiaryScreen(),img: "vaccine"),
+                      PetDashboardItemCard(label: "Vaccinations",ado: ViewVaccinationsScreen(),img: "vaccine"),
                       Spacer(),
                       PetDashboardItemCard(label: "Edit profile",ado: PetDiaryScreen(),img: "settings"),
                       Spacer(),

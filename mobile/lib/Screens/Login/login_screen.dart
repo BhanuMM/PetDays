@@ -10,31 +10,20 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Background(
-      child: SingleChildScrollView(
-        child: Responsive(
-          mobile: const MobileLoginScreen(),
-          desktop: Row(
-            children: [
-              const Expanded(
-                child: LoginScreenTopImage(),
-              ),
-              Positioned(
-                  right: 0,
-                  child: Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        SizedBox(
-                          width: 500,
-                          child: LoginForm(),
-                        ),
-                      ],
-                    ),
-                  )
-              ),
-            ],
-          ),
+    return Scaffold(
+      body: Background(
+        child: SingleChildScrollView(
+         physics: ClampingScrollPhysics(),
+             child: ConstrainedBox(
+                 constraints: BoxConstraints(
+                   minWidth: MediaQuery.of(context).size.width,
+                   minHeight: MediaQuery.of(context).size.height,
+                 ),
+                 child: IntrinsicHeight(
+                     child: MobileLoginScreen()
+                 )
+             ),
+
         ),
       ),
     );
@@ -48,21 +37,27 @@ class MobileLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const LoginScreenTopImage(),
-        Row(
-          children: const [
-            Spacer(),
-            Expanded(
-              flex: 11,
-              child: LoginForm(),
+    return Container(
+
+      decoration: new BoxDecoration(color: Colors.white),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Expanded(child: const LoginScreenTopImage()),
+          Expanded(
+            child: Row(
+              children: const [
+                Spacer(),
+                Expanded(
+                  flex: 11,
+                  child: LoginForm(),
+                ),
+                Spacer(),
+              ],
             ),
-            Spacer(),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

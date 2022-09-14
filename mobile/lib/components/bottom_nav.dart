@@ -4,6 +4,7 @@ import '../Screens/Dashboard/dashboard_screen.dart';
 import '../Screens/PetMartHome/Pet_Mart_Home_Screen.dart';
 import '../Screens/Mypets/my_pets_screen.dart';
 import '../Screens/EditProfile/Edit_profile_screen.dart';
+import '../models/user.dart';
 
 import '../constants.dart';
 
@@ -25,6 +26,7 @@ class _BottomNav extends State<BottomNav>{
   }
 
   late PageController _pageController;
+
   var pages = [
     DashboardScreen(),
     MyPetsScreen(),

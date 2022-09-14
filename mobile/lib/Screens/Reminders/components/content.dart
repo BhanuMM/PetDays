@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
+import 'package:mobile/Screens/PetDashboard/Pet_Dashboard_Screen.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/responsive.dart';
 import '../../../components/background.dart';
@@ -24,7 +24,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return DashboardScreen();
+                        return PetDashboard();
                       },
                     ),
                   );
