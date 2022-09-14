@@ -29,6 +29,10 @@ function pendingads() {
    <br/><br/><br/><br/><br/>
     <main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
+
+                        <h1 class="h2 mb-0 ls-tight">Published Advertisments</h1>
+                        <hr/>
+                <br/>
               <div className="row">
                 <div className="col-3">
                 <div class="petmart-card" style={{width:300}}>

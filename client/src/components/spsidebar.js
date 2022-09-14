@@ -66,7 +66,7 @@ function spsidebar() {
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="\moderatordashboard">
+									<a class="nav-link" href="\spdashboard">
 										<i class="bi bi-bar-chart"></i> Dashboard
 									</a>
 								</li>
@@ -83,7 +83,7 @@ function spsidebar() {
 														{/* <a class="nav-link" href="#">
 															<i class="bi bi-egg"></i> Diet Plans
 														</a> */}
-                                                        <a class="nav-link" href="#">
+                                                        <a class="nav-link" href="\appproved">
 															<i class="bi bi-people"></i> My Advertisments
 														</a>
 													</a>
@@ -99,7 +99,7 @@ function spsidebar() {
 														data-parent="#accordion"
 														href="#collapse2"
 													>
-														<a class="nav-link" href="#">
+														<a class="nav-link" href="\appproved">
 															<i class="bi bi-bag-plus"></i> Pending Advertisments
 														</a>
 													</a>
@@ -115,7 +115,7 @@ function spsidebar() {
 														data-parent="#accordion"
 														href="#collapse3"
 													>
-														<a class="nav-link" href="#">
+														<a class="nav-link" href="\appproved">
 															<i class="bi bi-bookmarks"></i>Published Advertisments
 														</a>
 													</a>
