@@ -109,23 +109,7 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (email) {},
             decoration: InputDecoration(
               hintText: "Username",
-              prefixIcon: Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.person),
-              ),
-            ),
-          ),
-          TextFormField(
-            controller: TextEditingController(text: user.email),
-            onChanged: (value) {
-              user.email = value;
-            },
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            cursorColor: kPrimaryColor,
-            onSaved: (email) {},
-            decoration: InputDecoration(
-              hintText: "Email",
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
@@ -133,7 +117,28 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            padding: const EdgeInsets.only(top: defaultPadding),
+            child: TextFormField(
+              controller: TextEditingController(text: user.email),
+              onChanged: (value) {
+                user.email = value;
+              },
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              cursorColor: kPrimaryColor,
+              onSaved: (email) {},
+              decoration: InputDecoration(
+                hintText: "Email",
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(defaultPadding),
+                  child: Icon(Icons.person),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: defaultPadding),
 
             child: TextFormField(
               controller: TextEditingController(text: user.password),
@@ -157,6 +162,7 @@ class _SignUpFormState extends State<SignUpForm> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 hintText: "Password",
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
@@ -164,6 +170,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: defaultPadding),
             child: TextFormField(
@@ -177,6 +184,7 @@ class _SignUpFormState extends State<SignUpForm> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 hintText: "Re enter password",
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),

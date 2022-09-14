@@ -43,7 +43,7 @@ class MobileSignupScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
-            image: AssetImage("assets/images/welcome.png"),
+            image: AssetImage("assets/images/welcome2.png"),
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter
           ),
