@@ -24,7 +24,7 @@ const bull = (
 function viewbreedscats() {
 	const [listOfBreeds, setListOfBreeds] = useState([]);
 	const location = useLocation();
-	const id = 2;
+	
 
   useEffect(() => {
     axios.get('http://localhost:3001/admin/getpetbreeds/' +location.state).then((response) => {

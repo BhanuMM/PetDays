@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate  } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
@@ -8,6 +9,7 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
+import Swal from 'sweetalert2';
 
 
 function mdsinglemed() {
@@ -20,6 +22,7 @@ function mdsinglemed() {
     });
   }, []);
 
+  const navigate = useNavigate();
   return (
     <div class="container-fluid">
       <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -141,25 +144,54 @@ function mdsinglemed() {
 								<td class="text-end">
 								  <div style={{ display: "flex" }}>
 									<div style={{ paddingRight: 5 }}>
-									  <a
-										href="/mdeditmed"
-										class="btn btn-sm btn-neutral"
-									  >
-										<em class="fa fa-pencil"></em>
-									  </a>
+                  <button
+                                      type="button" 
+                                      class="btn btn-sm btn-square btn-neutral text-danger-hover"
+                                      onClick={() => {
+										navigate('/mdeditmed',{state: value.medID});
+										  }}
+                                    >
+                                      <em class="fa fa-pencil"></em>
+                                    </button>
+										
+									  
 									</div>
 									<div>
 									  <button
 										type="button"
 										class="btn btn-sm btn-square btn-neutral text-danger-hover"
                     onClick={() => {
-                      var proceed = window.confirm("Are you sure you want to Delete "+ value.medName + " ?" );
-                      if (proceed) {
-                          //proceed
-                        } else {
-                          //don't proceed
+
+                      Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+
+                          
+                          axios.delete("http://localhost:3001/mod/deletemed/"+value.medID).then((response) => {
+                            if (response.data.error) {
+                              alert(response.data.error);
+                            } else {
+                              axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
+                                setListOfMedicines(response.data);});
+                            } 
+                          });
+                            Swal.fire(
+                              'Deleted!',
+                              'Medicine has been deleted.',
+                              'success'
+                            )
+                           
+                          
                         }
-                      // navigate('/viewbreedscats',{state: value.pcatID});
+                      })
+                      
                         }}
 									  >
 										<i class="bi bi-trash"></i>

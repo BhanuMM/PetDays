@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const { Petcatagories , Breeds ,Moderators } = require("../models");
-var us = require("./Users")
+var us = require("./Auth")
 
 router.use(bodyParser.json());
 
