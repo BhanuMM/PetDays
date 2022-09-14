@@ -195,7 +195,7 @@ function viewadvertisements() {
 											<input
 												type="search"
 												class="form-control rounded"
-												placeholder="Search Diet Plans"
+												placeholder="Search advertisements"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}

@@ -22,13 +22,13 @@ const bull = (
 );
 function viewvaccines() {
 	const [listOfVaccines, setListOfVaccines] = useState([]);
-  // let history = useHistory();
+	// let history = useHistory();
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/mod/getvaccines").then((response) => {
-      setListOfVaccines(response.data);
-    });
-  }, []);
+	useEffect(() => {
+		axios.get("http://localhost:3001/mod/getvaccines").then((response) => {
+			setListOfVaccines(response.data);
+		});
+	}, []);
 
 	return (
 		<div class="container-fluid">
@@ -68,7 +68,7 @@ function viewvaccines() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
-                  <div
+									<div
 										class="input-group"
 										style={{ width: 430, float: "right" }}
 									>
@@ -92,46 +92,56 @@ function viewvaccines() {
 											Search
 										</button>
 									</div>
-									<br />
-
+									<br/><br/><br/>
 
 									<div class="card shadow border-0 mb-7">
-								<div class="card-header">
-									<h5 class="mb-0">Available Vaccines</h5>
-								</div>
-								<div class="table-responsive">
-									<table class="table table-hover table-nowrap text-center">
-									<thead class="thead-light">
-										<tr>
-										<th scope="col" ><b><strong>Vaccine ID</strong></b></th>
-										<th scope="col"><b><strong>Vaccine Name</strong></b></th>
-										<th scope="col"><b><strong>Description</strong></b></th>
-										<th scope="col"><b><strong>Next Iteration</strong></b></th>
-                    
-										</tr>
-									</thead>
-									<tbody>
-									{listOfVaccines.map((value, key) => {
-                            return (
-										<tr>
-										<td>{value.vacID}</td>
-										<td>{value.vacName}</td>
-										<td>{value.descr}</td>
-										<td>{value.vacNextIter} Months</td>
-										
-										
-										</tr>
-										);
-									})}
-									</tbody>
-									</table>
-								</div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-									
-									</span>
-								</div>
-								</div>
+										<div class="card-header">
+											<h5 class="mb-0">Available Vaccines</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>Vaccine ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Vaccine Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Description</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Next Iteration</strong>
+															</b>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													{listOfVaccines.map((value, key) => {
+														return (
+															<tr>
+																<td>{value.vacID}</td>
+																<td>{value.vacName}</td>
+																<td>{value.descr}</td>
+																<td>{value.vacNextIter} Months</td>
+															</tr>
+														);
+													})}
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm"></span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
