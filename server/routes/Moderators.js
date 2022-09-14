@@ -121,7 +121,17 @@ router.get("/getdietplans", async (req, res) => {
   res.json(listOfDietplans);
 });
 
+// deletes------------
+router.delete("/deletemed/:medId", async (req, res) => {
+  const medId = req.params.medId;
 
+  await Medicines.destroy({
+    where: {
+      medID: medId,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
 
 
 module.exports = router;

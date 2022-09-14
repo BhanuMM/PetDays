@@ -9,6 +9,7 @@ import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
 
+
 function mdsinglemed() {
   const [listOfMedicines, setListOfMedicines] = useState([]);
   // let history = useHistory();
@@ -151,6 +152,15 @@ function mdsinglemed() {
 									  <button
 										type="button"
 										class="btn btn-sm btn-square btn-neutral text-danger-hover"
+                    onClick={() => {
+                      var proceed = window.confirm("Are you sure you want to Delete "+ value.medName + " ?" );
+                      if (proceed) {
+                          //proceed
+                        } else {
+                          //don't proceed
+                        }
+                      // navigate('/viewbreedscats',{state: value.pcatID});
+                        }}
 									  >
 										<i class="bi bi-trash"></i>
 									  </button>
