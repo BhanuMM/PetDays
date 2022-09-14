@@ -52,9 +52,59 @@ import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import Sellersidebar from "../components/serviceprovidersidebar";
 
+import { useNavigate } from "react-router-dom";
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
+
+
 import '../styles/spdashboard.css';
 
 function addpetmartadd() {
+    const initialValues = {
+        adName:"",
+        spName:"",
+        dcr:"",
+        price:"",
+        image:"",
+        conNo:"",
+        address:"",
+        email:"",
+        fb:"",
+		
+		
+	  };
+	
+	//   const Schema = Yup.object().shape({
+	// 	email: Yup.string().email("Not a proper email address"),
+	// 	password: Yup.string()
+	// 	  .min(5)
+	// 	  .max(12)
+	// 	  .required("This field is required")
+	// 	  .matches(
+	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+	// 	  ),
+	// 	confirmpassword: Yup.string().when("password", {
+	// 	  is: (val) => (val && val.length > 0 ? true : false),
+	// 	  then: Yup.string().oneOf(
+	// 		[Yup.ref("password")],
+	// 		"Passwords does not match"
+	// 	  ),
+	// 	}),
+	//   });
+	
+	  const navigate = useNavigate();
+	
+	  const onSubmit = (data) => {
+		axios.post("http://localhost:3001/sp/addpetad", data).then((response) => {
+		  if (response.data.error) {
+			alert(response.data.error);
+		  } else {
+			navigate("/spdashboard");
+		  }
+		});
+	  };
   return (
 
 	
@@ -91,16 +141,21 @@ function addpetmartadd() {
 						</div>
 					</header>
 					<main class="py-6 bg-surface-secondary">
-            <form>
-            <Box
+                    <Formik
+									initialValues={initialValues}
+									onSubmit={onSubmit}
+								
+                      				>
+            <Form>
+            {/* <Box
                 component="form"
                 sx={{
                     '& .MuiTextField-root': { m: 1, width: '100ch' },
                 }}
                 noValidate
                 autoComplete="off"
-                >
-                    <TextField id="ad-name" label="Name of advertiesment" /><br/>
+                > */}
+                    {/* <TextField id="ad-name" label="Name of advertiesment" /><br/>
                     <TextField id="sp-name" label="Name of supplier"/>
                     <TextField id="descrip" label="Description"/>
                     <TextField id="Price" label="Price Rs:"/>
@@ -108,23 +163,103 @@ function addpetmartadd() {
                     <TextField id="contact" label="Contact Number"/>
                     <TextField id="address" label="Address"/>
                     <TextField id="email" label="Email"/>
-                    <TextField id="fb" label="Facebook"/>
-                </Box>
+                    <TextField id="fb" label="Facebook"/> */}
+                     <label className="form-label">Name of advertiesment</label>
+                                                     <Field
+														className="form-control"
+														id="adName"
+														autocomplete="off"
+														name="adName"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Name of supplier</label>
+                                                        <Field
+														className="form-control"
+														id="spName"
+														autocomplete="off"
+														name="spName"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Description</label>
+                                                        <Field
+														className="form-control"
+														id="dcr"
+														autocomplete="off"
+														name="dcr"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Price Rs:</label>
+                                                        <Field
+														className="form-control"
+														id="price"
+														autocomplete="off"
+														name="price"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Image </label>
+                                                        <Field
+														className="form-control"
+														id="image"
+														autocomplete="off"
+														name="image"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Contact Number</label>
+                                                        <Field
+														className="form-control"
+														id="conNo"
+														autocomplete="off"
+														name="conNo"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Address</label>
+                                                        <Field
+														className="form-control"
+														id="address"
+														autocomplete="off"
+														name="address"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Email</label>
+                                                        <Field
+														className="form-control"
+														id="email"
+														autocomplete="off"
+														name="email"
+														placeholder=""
+														/>
+                                                         <label className="form-label">Facebook</label>
+                                                        <Field
+														className="form-control"
+														id="fb"
+														autocomplete="off"
+														name="fb"
+														placeholder=""
+														/>
+                {/* </Box> */}
 
                 <div className="row">
                     <div className="col-6"></div>
                     <div className="col-6 mb-5 mt-5">
                         {" "}
-                        <Button variant="contained" component="label" sx={{margin:1}}  style={{backgroundColor: '#F66B0E'}}>
+                        {/* <Button variant="contained" component="label" sx={{margin:1}}  style={{backgroundColor: '#F66B0E'}}>
                            Submit
-                        </Button>
+                        </Button> */}
+                         <button
+                              className="register.loginbuttonsize btn btn-success "
+                              type="submit"
+							  style={{backgroundColor: '#F66B0E'}} 
+                            >
+                             Submit
+                            </button>
                         <Button variant="contained" component="label" sx={{margin:1}}  style={{backgroundColor: '#e30b0b'}}>
                            Delete
                         </Button>
                     </div>
                     <div className='col-3'></div>
                 </div>
-            </form>
+            </Form>
+            </Formik>
 					
 					</main>
 				</div>

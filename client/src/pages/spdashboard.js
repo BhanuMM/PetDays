@@ -28,7 +28,7 @@ function dashboard() {
 					
 					<br /><br /><br /><br /><br /><br />
 					<div style={{paddingLeft:1100}}>
-                <a href="\mdadddogdiet" className="header-topic">
+                <a href="\addpetmartadd" className="header-topic">
 									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
                     Add New Advertisment
                   </Button>
