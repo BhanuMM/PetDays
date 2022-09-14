@@ -121,6 +121,36 @@ router.get("/getdietplans", async (req, res) => {
   res.json(listOfDietplans);
 });
 
+router.get("/getmedicines/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleMed = await Medicines.findByPk(id);
+  res.json(SingleMed);
+  // const SingleMed = await Medicines.findOne(
+  //   {where: {
+  //     medID: id
+  //   }}
+  // );
+  // res.json(SingleMed);
+});
+
+
+
+//updates----------
+
+router.post("/updatemedicine", async (req, res) => {
+  
+  const { medID,medName, descr } = req.body;
+
+  await Medicines.update({medName :medName ,descr :descr} ,{ where: { medID: medID }} );
+ 
+  res.json("SUCCESS"); 
+});
+
+
+
+
+
+
 // deletes------------
 router.delete("/deletemed/:medId", async (req, res) => {
   const medId = req.params.medId;
