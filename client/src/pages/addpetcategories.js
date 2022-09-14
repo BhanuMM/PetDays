@@ -7,7 +7,12 @@ import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+
+import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
 
 const bull = (
 	<Box
@@ -24,6 +29,42 @@ const bull = (
 );
 
 function addpetcategories() {
+	const initialValues = {
+
+		pcatName:"", 
+		descr:"",	
+	  };
+	
+	//   const Schema = Yup.object().shape({
+	// 	email: Yup.string().email("Not a proper email address"),
+	// 	password: Yup.string()
+	// 	  .min(5)
+	// 	  .max(12)
+	// 	  .required("This field is required")
+	// 	  .matches(
+	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+	// 	  ),
+	// 	confirmpassword: Yup.string().when("password", {
+	// 	  is: (val) => (val && val.length > 0 ? true : false),
+	// 	  then: Yup.string().oneOf(
+	// 		[Yup.ref("password")],
+	// 		"Passwords does not match"
+	// 	  ),
+	// 	}),
+	//   });
+	
+	  const navigate = useNavigate();
+	
+	  const onSubmit = (data) => {
+		axios.post("http://localhost:3001/admin/addcategory", data).then((response) => {
+		  if (response.data.error) {
+			alert(response.data.error);
+		  } else {
+			navigate("/viewcategories");
+		  }
+		});
+	  };
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -60,8 +101,8 @@ function addpetcategories() {
 					<main class="py-6 bg-surface-secondary">
 						<div className="row pt-0 mt-5">
 							<div className="row flex-nowrap pt-0">
-								<div className="col-7 g-5">
-									<Card
+								<div className="col-7 g-5" >
+									{/* <Card
 										sx={{
 											minWidth: 275,
 											maxWidth: 1500,
@@ -70,20 +111,25 @@ function addpetcategories() {
 										}}
 										style={{ height: 450, padding: 10, paddingLeft: 75 }}
 									>
-										<CardContent>
-											<form>
+										<CardContent> */}
+										<Formik
+									initialValues={initialValues}
+									onSubmit={onSubmit}
+								
+                      				>
+											<Form>
 												<br />
 												<br />
 												<br />
-												<Box
+												{/* <Box
 													component="form"
 													sx={{
 														"& .MuiTextField-root": { m: 1, width: "100ch" },
 													}}
 													noValidate
 													autoComplete="off"
-												>
-													<TextField
+												> */}
+													{/* <TextField
 														id="med-name"
 														label="Name of the Category"
 													/>
@@ -91,27 +137,51 @@ function addpetcategories() {
 													<TextField
 														id="med-desc"
 														label="Description about the Category"
-													/>
-												</Box>
+													/> */}
+													 <label className="form-label">Name of the Category</label>
+														<Field
+														className="form-control"
+														id="pcatName"
+														autocomplete="off"
+														name="pcatName"
+														placeholder=""
+														/>
+														<label className="form-label">Description about the Category</label>
+														<Field
+														className="form-control"
+														id="descr"
+														autocomplete="off"
+														name="descr"
+														placeholder=""
+														/>
+												{/* </Box> */}
 
 												<div className="row">
 													<div className="col-9"></div>
 													<div className="col-3 mb-5 mt-5">
 														{" "}
-														<Button
+														{/* <Button
 															variant="contained"
 															component="label"
 															style={{ backgroundColor: "#F66B0E" }}
 														>
 															Add Pet Category
-														</Button>
+														</Button> */}
+														 <button
+                              className="register.loginbuttonsize btn btn-success "
+                              type="submit"
+							  style={{backgroundColor: '#F66B0E'}} 
+                            >
+                             Add Pet Category
+                            </button>
 													</div>
 													{/* <div className='col-3'></div> */}
 												</div>
-											</form>
+											</Form>
+											</Formik>
 											{/* </Formik> */}
-										</CardContent>
-									</Card>
+										{/* </CardContent>
+									</Card> */}
 								</div>
 							</div>
 						</div>
