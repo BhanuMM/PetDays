@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import {useLocation} from 'react-router-dom';
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
@@ -19,6 +22,15 @@ const bull = (
 	</Box>
 );
 function viewbreedscats() {
+	const [listOfBreeds, setListOfBreeds] = useState([]);
+	const location = useLocation();
+	const id = 2;
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/admin/getpetbreeds/' +location.state).then((response) => {
+      setListOfBreeds(response.data);
+    });
+  }, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -66,6 +78,30 @@ function viewbreedscats() {
 												Add Breeds
 											</Button>
 										</a>
+										<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Breeds"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
 									</div>
 									<br />
 
@@ -74,60 +110,59 @@ function viewbreedscats() {
 											<h5 class="mb-0">Available Breeds</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+											<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">Cat ID</th>
-														<th class="hidden-xs text-center">Breed ID</th>
-														<th class="hidden-xs text-center">Breed Name</th>
-														<th class="hidden-xs text-center">Description</th>
+
+														
+														<th scope="col"><b>
+															<strong>Breed ID</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Breed Name</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong>Description</strong>
+														</b></th>
+														<th scope="col"><b>
+															<strong></strong>
+														</b></th>
+
 													</tr>
 												</thead>
 												<tbody id="myTable">
+												{listOfBreeds.map((value, key) => {
+                            return (
 													<tr>
-														<td class="hidden-xs">1</td>
-														<td>C-1</td>
-														<td>Maine Coon Cats</td>
+														<td class="hidden-xs">{value.breedID}</td>
+														<td>{value.breedName}</td>
+														<td>{value.descr}</td>
 
-														<td>
-															The cat is a domestic species of small carnivorous
-															mammal
+								<td class="text-end">
+															<div style={{ display: "flex" }}>
+																<div style={{ paddingRight: 5 }}>
+																	<a href="#" class="btn btn-sm btn-neutral">
+
+																		<em class="fa fa-pencil"></em>
+																	</a>
+																</div>
+																<div>
+																	<button
+																		type="button"
+																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	>
+																		<i class="bi bi-trash"></i>
+																	</button>
+																</div>
+																
+															</div>
+
 														</td>
+												
 													</tr>
-													<tr>
-														<td class="hidden-xs">2</td>
-														<td>C-2</td>
-														<td>Persian Cats</td>
-														<td>
-															It is the only domesticated species in the family
-															Felidae and is often referred to as the domestic
-															cat
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">3</td>
-														<td>C-3</td>
-														<td>British Shorthair</td>
-														<td>
-															Inconsistency in a breed classification and naming
-															among registries
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">4</td>
-														<td>C-4</td>
-														<td>Ragdoll Cats</td>
-														<td>
-															The domestic short-haired and domestic long-haired
-															cat types are not breeds
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">5</td>
-														<td>C-5</td>
-														<td>Exotic Shorthair Cats</td>
-														<td>different breeds by different registries</td>
-													</tr>
+													);
+												})}
+
 												</tbody>
 											</table>
 										</div>

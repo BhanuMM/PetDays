@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
@@ -20,6 +22,14 @@ const bull = (
 	</Box>
 );
 function viewmoderators() {
+	const [listOfModerators, setListOfModerators] = useState([]);
+	// let history = useHistory();
+  
+	useEffect(() => {
+	  axios.get("http://localhost:3001/admin/getmoderators").then((response) => {
+		setListOfModerators(response.data);
+	  });
+	}, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -59,25 +69,79 @@ function viewmoderators() {
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
 									<br />
-
+									<a href="/addmoderator" className="header-topic">
+											<Button
+												variant="contained"
+												component="label"
+												style={{ backgroundColor: "#F66B0E" }}
+											>
+												Add Modertor
+											</Button>
+										</a>
+									<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Moderators"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div>
+									<br />
+									<br />
+									<br />
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Active Moderators</h5>
 										</div>
 										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-list responsive">
-												<thead>
+											<table class="table table-striped table-bordered table-list responsive text-center">
+												<thead class="thead-light">
 													<tr>
-														<th class="hidden-xs text-center">User ID</th>
-														<th class="hidden-xs text-center">User Name</th>
-														<th class="hidden-xs text-center">Email</th>
+														<th scope="col">
+															<b>
+																<strong>User ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>User Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Email</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong></strong>
+															</b>
+														</th>
 													</tr>
 												</thead>
 												<tbody id="myTable">
+												{listOfModerators.map((value, key) => {
+                            return (
 													<tr>
-														<td class="hidden-xs">1</td>
-														<td>john</td>
-														<td>johnkey@gmail.com</td>
+														<td class="hidden-xs">{value.modID}</td>
+														<td>{value.firstName} {value.lastName}</td>
+														<td>{value.modEmail}</td>
 														<td class="text-end">
 															<div style={{ display: "flex" }}>
 																<div>
@@ -91,74 +155,8 @@ function viewmoderators() {
 															</div>
 														</td>
 													</tr>
-													<tr>
-														<td class="hidden-xs">2</td>
-														<td>sandy</td>
-														<td>sandymartin@gmail.com</td>
-														<td class="text-end">
-															<div style={{ display: "flex" }}>
-																<div>
-																	<button
-																		type="button"
-																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																	>
-																		<i class="bi bi-trash"></i>
-																	</button>
-																</div>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">3</td>
-														<td>rockey</td>
-														<td>rockeykale@gmail.com</td>
-														<td class="text-end">
-															<div style={{ display: "flex" }}>
-																<div>
-																	<button
-																		type="button"
-																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																	>
-																		<i class="bi bi-trash"></i>
-																	</button>
-																</div>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">4</td>
-														<td>menny</td>
-														<td>menny123@gmail.com</td>
-														<td class="text-end">
-															<div style={{ display: "flex" }}>
-																<div>
-																	<button
-																		type="button"
-																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																	>
-																		<i class="bi bi-trash"></i>
-																	</button>
-																</div>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td class="hidden-xs">5</td>
-														<td>lilly</td>
-														<td>lillyfernando@gmail.com</td>
-														<td class="text-end">
-															<div style={{ display: "flex" }}>
-																<div>
-																	<button
-																		type="button"
-																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																	>
-																		<i class="bi bi-trash"></i>
-																	</button>
-																</div>
-															</div>
-														</td>
-													</tr>
+													);
+								})}
 												</tbody>
 											</table>
 										</div>

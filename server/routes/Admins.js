@@ -4,7 +4,6 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const { Petcatagories , Breeds ,Moderators } = require("../models");
 var us = require("./Users")
-// const breeds = require('../models/breeds');
 
 router.use(bodyParser.json());
 
@@ -55,10 +54,9 @@ router.post("/addmoderator", async (req, res) => {
     modNIC:modNIC
 
   });
-  if(chckq){
-    // const role = "moderator";
-    // const userreg = us.registerUser(req, res ,role);
-    
+  const role = "moderator";
+  const chck2 =us.registerUser(req, res ,role);
+  if(chck2){
     res.json("Mod SUCCESS");
   }else{
     res.json("Not SUCCESS");
@@ -66,8 +64,36 @@ router.post("/addmoderator", async (req, res) => {
   
 });
 
-
-
+router.get("/getpetcategories", async (req, res) => {
+  const listOfPetcatagories = await Petcatagories.findAll();
+  res.json(listOfPetcatagories);
+});
+router.get("/getpetbreeds", async (req, res) => {
+  const listOfBreeds = await Breeds.findAll();
+  res.json(listOfBreeds);
+});
+router.get("/getpetbreeds/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfBreeds = await Breeds.findAll(
+    {where: {
+      catId: id
+    }}
+  );
+  res.json(listOfBreeds);
+});
+router.get("/getserviceproviders", async (req, res) => {
+  const listOfServiceproviders = await Users.findAll(
+    {where: {
+      userrole: "service",
+      isverified :"yes"
+    }}
+  );
+  res.json(listOfServiceproviders);
+});
+router.get("/getmoderators", async (req, res) => {
+  const listOfModerators = await Moderators.findAll();
+  res.json(listOfModerators);
+});
 
 
 

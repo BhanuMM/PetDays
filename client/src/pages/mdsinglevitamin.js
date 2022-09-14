@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
@@ -6,6 +8,15 @@ import dog from "../images/PetDays.png";
 import Button from '@mui/material/Button';
 import Moderatorsidebar from "../components/moderatorsidebar";
 function mdsinglemed() {
+	const [listOfVitamins, setListOfVitamins] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/mod/getvitamins").then((response) => {
+      setListOfVitamins(response.data);
+    });
+  }, []);
+
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -18,7 +29,7 @@ function mdsinglemed() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Vitamins</h1>
+										<h1 class="h2 mb-0 ls-tight">Vitamins & Supplements</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -27,7 +38,7 @@ function mdsinglemed() {
 														Moderator Dashboard/
 													</a>
 													<a href="/mdsinglevitamin" className="header-topic">
-														 Vitamins
+														 Vitamins & Supplements
 													</a>
 												</li>
 											</ol>
@@ -67,16 +78,20 @@ function mdsinglemed() {
 										<tr>
 										<th scope="col" ><b><strong>Vitamin ID</strong></b></th>
 										<th scope="col"><b><strong>Vitamin Name</strong></b></th>
+										<th scope="col"><b><strong>Vitamin Type</strong></b></th>
 										<th scope="col"><b><strong>Description</strong></b></th>
 										<th></th>
                     
 										</tr>
 									</thead>
 									<tbody>
+									{listOfVitamins.map((value, key) => {
+                            return (
 										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
+										<td>{value.vitID}</td>
+										<td>{value.vitName}</td>
+										<td>{value.vitType}</td>
+										<td>{value.descr}</td>
 										
 										<td class="text-end">
 										<div style={{display: "flex"}}>
@@ -96,121 +111,9 @@ function mdsinglemed() {
 											</div>
 										</td>
 										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
 										
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
-										
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
-										
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
-										
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>001</td>
-										<td>Feb 15, 2021</td>
-										<td>zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd</td>
-										
-										<td class="text-end">
-										<div style={{display: "flex"}}>
-												<div style={{paddingRight:5}}>
-												<a href="/mdeditvitamin" class="btn btn-sm btn-neutral">
-													<em class="fa fa-pencil"></em>
-												</a>
-											</div>
-											<div>
-												<button
-												type="button"
-												class="btn btn-sm btn-square btn-neutral text-danger-hover">
-												<i class="bi bi-trash"></i>
-												</button>
-											</div>
-											
-											</div>
-										</td>
-										</tr>
+										);
+									})}
 									</tbody>
 									</table>
 								</div>

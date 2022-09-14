@@ -9,6 +9,11 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Moderatorsidebar from "../components/moderatorsidebar";
 
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
+
 
 const bull = (
     	<Box
@@ -22,6 +27,49 @@ const bull = (
 
 
 function mdadddogdiet() {
+	
+		const initialValues = {
+			planName:"",
+			planDescr:"", 
+			ageRangeFrom:"",
+			ageRangeTo:"", 
+			weightRangeFrom:"",
+			weightRangeTo:"",
+			breedId:"",
+			catId:"",
+			
+		  };
+		
+		  const Schema = Yup.object().shape({
+			email: Yup.string().email("Not a proper email address"),
+			password: Yup.string()
+			  .min(5)
+			  .max(12)
+			  .required("This field is required")
+			  .matches(
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+				"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+			  ),
+			confirmpassword: Yup.string().when("password", {
+			  is: (val) => (val && val.length > 0 ? true : false),
+			  then: Yup.string().oneOf(
+				[Yup.ref("password")],
+				"Passwords does not match"
+			  ),
+			}),
+		  });
+		
+		  const navigate = useNavigate();
+		
+		  const onSubmit = (data) => {
+			axios.post("http://localhost:3001/mod/adddietplan", data).then((response) => {
+			  if (response.data.error) {
+				alert(response.data.error);
+			  } else {
+				navigate("/adddietplan");
+			  }
+			});
+		  };
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -62,41 +110,118 @@ function mdadddogdiet() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:630, padding: 10, paddingLeft:75}}>
-                        <CardContent>
-                        <form><br/><br/>
+                            {/* <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:630, padding: 10, paddingLeft:75}}>
+                        <CardContent> */}
+							<Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                       
+                      >
+                        <Form><br/><br/>
 
-                       <Box
+                       {/* <Box
                             component="form"
                             sx={{
                                 '& .MuiTextField-root': { m: 1, width: '100ch' },
                             }}
                             noValidate
                             autoComplete="off"
-                            >
-                                <TextField id="vit-name" label="Name of the diet" /><br/>
+                            > */}
+                                {/* <TextField id="vit-name" label="Name of the diet" /><br/>
                                 <TextField id="vit-desc" label=" Breed / Category" type="Dropdown"/><br/>
                                 <TextField id="vit-name" label="Description about the Diet Plan" /><br/>
                                 <TextField id="vit-name" label="Age Range of the Dog" /><br/>
                                 <TextField id="vit-name" label="Weight Range of the Dog" /><br/>
-                                <TextField id="vit-name" label="Add items" /><br/>
-                        </Box>
+                                <TextField id="vit-name" label="Add items" /><br/> */}
+								<label className="form-label">Name of the diet</label>
+								 <Field
+                                  className="form-control"
+                                  id="planName"
+                                  autocomplete="off"
+                                  name="planName"
+                                  placeholder=""
+                                />
+								<label className="form-label">Description about the Diet Plann</label>
+								 <Field
+                                  className="form-control"
+                                  id="planDescr"
+                                  autocomplete="off"
+                                  name="planDescr"
+                                  placeholder=""
+                                />
+								<label className="form-label">Age range from</label>
+								 <Field
+                                  className="form-control"
+                                  id="ageRangeFrom"
+                                  autocomplete="off"
+                                  name="ageRangeFrom"
+                                  placeholder=""
+                                />
+								<label className="form-label">Age range to</label>
+								 <Field
+                                  className="form-control"
+                                  id="ageRangeTo"
+                                  autocomplete="off"
+                                  name="ageRangeTo"
+                                  placeholder=""
+                                />
+								<label className="form-label">Weight range from</label>
+								 <Field
+                                  className="form-control"
+                                  id="weightRangeFrom"
+                                  autocomplete="off"
+                                  name="weightRangeFrom"
+                                  placeholder=""
+                                />
+								<label className="form-label">Weight range to</label>
+								 <Field
+                                  className="form-control"
+                                  id="weightRangeTo"
+                                  autocomplete="off"
+                                  name="weightRangeTo"
+                                  placeholder=""
+                                />
+								<label className="form-label">Breed id</label>
+								 <Field
+                                  className="form-control"
+                                  id="breedId"
+                                  autocomplete="off"
+                                  name="breedId"
+                                  placeholder=""
+                                />
+								<label className="form-label">Cat id</label>
+								 <Field
+                                  className="form-control"
+                                  id="catId"
+                                  autocomplete="off"
+                                  name="catId"
+                                  placeholder=""
+                                />
+                        {/* </Box> */}
 
                             
                             <div className="row">
                                 <div className="col-9"></div>
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
-                                    <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+                                    {/* <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
                                         Add Diet Plan
-                                    </Button>
+                                    </Button> */}
+									 <button
+                              className="register.loginbuttonsize btn btn-success "
+                              type="submit"
+							  style={{backgroundColor: '#F66B0E'}} 
+                            >
+                              Add Diet Plan
+                            </button>
                                 </div>
                                 
                             </div>
-                        </form>
+                        </Form>
+						</Formik>
 
-                    </CardContent>
-                    </Card>
+                    {/* </CardContent>
+                    </Card> */}
             				</div>
 	
 							</div>
@@ -109,4 +234,4 @@ function mdadddogdiet() {
 	);
 }
 
-export default mdadddogdiet;
+export default mdadddogdiet

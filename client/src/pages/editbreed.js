@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import Sidebar from "../components/sidebar";
 import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
@@ -18,9 +18,9 @@ const bull = (
 	</Box>
 );
 
-function editpetcategory() {
-	return (
-		<div class="container-fluid">
+function editbreed() {
+  return (
+    <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -31,14 +31,14 @@ function editpetcategory() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Edit Animal Category</h1>
+										<h1 class="h2 mb-0 ls-tight">Edit Breed</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard">Admin Dashboard /</a>
-													<a href="/viewcategories">View Animal Categories/</a>
-													<a href="/editpetcategory">Edit Animal Categories</a>
+													<a href="/viewbreeds">View Breed/</a>
+													<a href="/editbreed">Edit Breed</a>
 												</li>
 											</ol>
 										</nav>
@@ -77,8 +77,8 @@ function editpetcategory() {
 												>
 													<TextField
 														id="outlined-required"
-														label="Animal category"
-														defaultValue="category"
+														label="Animal breed"
+														defaultValue="breed"
 													/>
 													<TextField
 														id="outlined-required"
@@ -97,7 +97,7 @@ function editpetcategory() {
 															component="label"
 															style={{ backgroundColor: "#F66B0E" }}
 														>
-															Update category
+															Update breed
 														</Button>
 													</div>
 												</div>
@@ -111,7 +111,7 @@ function editpetcategory() {
 				</div>
 			</div>
 		</div>
-	);
+  )
 }
 
-export default editpetcategory;
+export default editbreed
