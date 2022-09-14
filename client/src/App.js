@@ -110,6 +110,7 @@ import Mdeditdiet from './pages/mdeditdiet';
 import Mdeditmed from './pages/mdeditmed';
 import Mdeditvacc from './pages/mdeditvacc';
 import Mdeditvitamin from './pages/mdeditvitamin';
+import Newspdashboard from './pages/newspdashboard';
 
 // import Newdashboard from './pages/newdashboard';
 
@@ -237,6 +238,7 @@ function App() {
           <Route path="/mdeditmed" element={<Mdeditmed/>}/>
           <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
           <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
+          <Route path="/newspdashboard" element={<Newspdashboard/>}/>
           <Route path="/editbreed" element={<Editbreed/>}/>
           <Route path="/viewadvertisements" element={<Viewadvertisements/>}/>
           <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>

@@ -6,8 +6,9 @@ import "../styles/spdashboard.css";
 import dog from "../images/PetDays.png";
 import AddIcon from '@mui/icons-material/Add';
 import Man from "../images/man.jpg";
-import Navbar from "../components/navbar";
-import Moderatorsidebar from "../components/moderatorsidebar";
+import Navbarsp from "../components/navsp";
+import Spsidebar from "../components/spsidebar";
+import Button from '@mui/material/Button';
 // import AddIcon from '@mui/icons-material/Add';
 
 
@@ -18,52 +19,21 @@ function dashboard() {
 		
 		<div class="container-fluid">
 			
-			
+			<Navbarsp/>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary ">
 					<div className="">
-				< Sellersidebar/>
+				< Spsidebar/>
 			</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
-					<header class="bg-surface-primary border-bottom pt-6">
-						<div class="container-fluid">
-							<div class="mb-npx">
-								<div class="row align-items-center">
-									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Service Provider Dashboard</h1>
-										<div className="navbar-collapse">
-										<ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-											
-											<li className="nav-item active">
-												<a className="nav-link" href="petmart"><h4>Pet Mart</h4></a>
-											</li>
-											<li className="nav-item active">
-												<a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
-											</li>
-											
-								
-           								 </ul>
-										</div>
-										
-										<hr />
-										<nav aria-label="breadcrumb">
-											<ol class="breadcrumb">
-												<li class="breadcrumb-item">
-													<a href="/spdashboard" className="header-topic">
-														Service Provider Dashboard/
-													</a>
-													<a href="/mdpostsection" className="header-topic">
-														
-													</a>
-												</li>
-											</ol>
-										</nav>
-
-										<br />
-									</div>
-								</div>
-							</div>
-						</div>
-					</header>
+					
+					<br /><br /><br /><br /><br /><br />
+					<div style={{paddingLeft:1100}}>
+                <a href="\mdadddogdiet" className="header-topic">
+									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
+                    Add New Advertisment
+                  </Button>
+								</a>
+              </div><br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
@@ -145,42 +115,26 @@ function dashboard() {
                
 								
 							</div>
-              <div className="row mb-5 mt-5">
-                <div className="col-8"></div>
-                <div className="col-4">
-                <div className="d-flex mt-5 mb-5">
-														<a
-															href="\addpetmartadd"
-															role="button"
-															aria-pressed="true"
-														>
-															<button type="submit" class=" create-button"   style={{backgroundColor: '#F66B0E'}}>
-                              <AddIcon/> Create New Advertiesment
-															</button>
-														</a>
-														
-													</div>
-              </div>
-                </div>
-            
+     
+							<br />
 							<div className="row">
 								<div className="col-6">
 									<div class="card shadow border-0 mb-6 bg-white">
 										<div class="card-header">
-											<h5 class="mb-0 ">PUBLISHED  ADVERTIESMENTS</h5>
+											<h5 class="mb-0 ">MY ADVERTIESMENTS</h5>
 										</div>
 										<div class="table-responsive"></div>
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
 												<div class="btn-group-horizontal">
-													<div className="d-flex">
+													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
 															href="\approved"
 															role="button"
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-																Click here to see
+																Click here to view
 															</button>
 														</a>
 														
@@ -191,13 +145,13 @@ function dashboard() {
 									</div>
 									<div class="card shadow border-0 mb-7 bg-white">
 										<div class="card-header">
-											<h5 class="mb-0 ">PENDING  ADVERTIESMENTS</h5>
+											<h5 class="mb-0 ">PUBLISHED  ADVERTIESMENTS</h5>
 										</div>
 										<div class="table-responsive"></div>
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
 												<div class="btn-group-horizontal">
-													<div className="d-flex">
+													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
 														
                             href="\pendingads"
@@ -205,7 +159,7 @@ function dashboard() {
                             aria-pressed="true"
                           >
                             <button type="submit" class="btn-tra">
-                            Click here to see
+                            Click here to view
                             </button>
                           </a>
 													
@@ -216,22 +170,22 @@ function dashboard() {
 									</div>
 								</div>
 								<div className="col-6">
-									<div class="card shadow border-0 mb-7 bg-white">
+									<div class="card shadow border-0 mb-7 bg-white" >
 										<div class="card-header">
-											<h5 class="mb-0 ">REJECTED  ADVERTIESMENTS</h5>
+											<h5 class="mb-0 ">PENDING  ADVERTIESMENTS</h5>
 										</div>
 										<div class="table-responsive"></div>
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
 												<div class="btn-group-horizontal">
-													<div className="d-flex">
+													<div className="d-flex" style={{paddingLeft:160}}>
 														<a
 															href="\rejected"
 															role="button"
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-                              								Click here to see
+                              								Click here to view
 															</button>
 														</a>
 													
@@ -240,22 +194,22 @@ function dashboard() {
 											</span>
 										</div>
 									</div>
-									{/* <div class="card shadow border-0 mb-7 bg-white">
+									<div class="card shadow border-0 mb-7 bg-white">
 										<div class="card-header">
-											<h5 class="mb-0 ">DRAFTED  ADVERTIESMENTS</h5>
+											<h5 class="mb-0 ">REJECTED ADVERTIESMENTS</h5>
 										</div>
 										<div class="table-responsive"></div>
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm">
 												<div class="btn-group-horizontal">
-													<div className="d-flex">
+													<div className="d-flex" style={{paddingLeft:160}}>
                           <a
 															href="\viewdietplans"
 															role="button"
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-                              Click here to see
+                              Click here to view
 															</button>
 														</a>
 														
@@ -263,7 +217,7 @@ function dashboard() {
 												</div>
 											</span>
 										</div>
-									</div> */}
+									</div>
 								</div>
 							</div>
 						</div>
