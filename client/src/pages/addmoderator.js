@@ -9,6 +9,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Sidebar from "../components/sidebar";
 
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
+
 const bull = (
 	<Box
 		component="span"
@@ -24,6 +29,47 @@ const bull = (
 );
 
 function addmoderator() {
+	const initialValues = {
+		firstName:"",
+		lastName:"",
+		conNum:"",
+		uemail:"",
+		modNIC:"",
+		// username:"",
+		// password:"", 
+	
+	  };
+	
+	//   const Schema = Yup.object().shape({
+	// 	email: Yup.string().email("Not a proper email address"),
+	// 	password: Yup.string()
+	// 	  .min(5)
+	// 	  .max(12)
+	// 	  .required("This field is required")
+	// 	  .matches(
+	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
+	// 	  ),
+	// 	confirmpassword: Yup.string().when("password", {
+	// 	  is: (val) => (val && val.length > 0 ? true : false),
+	// 	  then: Yup.string().oneOf(
+	// 		[Yup.ref("password")],
+	// 		"Passwords does not match"
+	// 	  ),
+	// 	}),
+	//   });
+	
+	  const navigate = useNavigate();
+	
+	  const onSubmit = (data) => {
+		axios.post("http://localhost:3001/admin/addmoderator", data).then((response) => {
+		  if (response.data.error) {
+			alert(response.data.error);
+		  } else {
+			navigate("/viewmoderators");
+		  }
+		});
+	  };
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -61,7 +107,7 @@ function addmoderator() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<Card
+									{/* <Card
 										sx={{
 											minWidth: 275,
 											maxWidth: 1500,
@@ -70,19 +116,24 @@ function addmoderator() {
 										}}
 										style={{ height: 630, padding: 10, paddingLeft: 75 }}
 									>
-										<CardContent>
-											<form>
+										<CardContent> */}
+													<Formik
+									initialValues={initialValues}
+									onSubmit={onSubmit}
+								
+                      				>
+											<Form>
 												<br />
 												<br />
-												<Box
+												{/* <Box
 													component="form"
 													sx={{
 														"& .MuiTextField-root": { m: 1, width: "100ch" },
 													}}
 													noValidate
 													autoComplete="off"
-												>
-													<TextField id="mod-fname" label="First Name" />
+												> */}
+													{/* <TextField id="mod-fname" label="First Name" />
 													<br />
 													<TextField id="mod-lname" label=" Last Name" />
 													<TextField id="mod-contact" label=" Contact Number" />
@@ -90,28 +141,95 @@ function addmoderator() {
 													<TextField id="mod-nic" label=" NIC Number" />
 													<TextField
 														id="mod-image"
-														label=" Add Image"
+														label=" "
 														type="file"
-													/>
-												</Box>
+													/> */}
+													<label className="form-label">First Name</label>
+														<Field
+														className="form-control"
+														id="firstName"
+														autocomplete="off"
+														name="firstName"
+														placeholder=""
+														/>
+														<label className="form-label">Last Name</label>
+														<Field
+														className="form-control"
+														id="lastName"
+														autocomplete="off"
+														name="lastName"
+														placeholder=""
+														/>
+														<label className="form-label"> Contact Number</label>
+														<Field
+														className="form-control"
+														id="conNum"
+														autocomplete="off"
+														name="conNum"
+														placeholder=""
+														/>
+														<label className="form-label">E mail</label>
+														<Field
+														className="form-control"
+														id="uemail"
+														autocomplete="off"
+														name="uemail"
+														placeholder=""
+														/>
+														<label className="form-label"> NIC Number</label>
+														<Field
+														className="form-control"
+														id="modNIC"
+														autocomplete="off"
+														name="modNIC"
+														placeholder=""
+														/>
+														{/* <label className="form-label">Name of the vitamin</label>
+														<Field
+														className="form-control"
+														id="vitName"
+														autocomplete="off"
+														name="vitName"
+														placeholder=""
+														/> */}
+														{/* <label className="form-label">Name of the vitamin</label>
+														<Field
+														className="form-control"
+														id="vitName"
+														autocomplete="off"
+														name="vitName"
+														placeholder=""
+														/> */}
+
+
+																		{/* </Box> */}
 
 												<div className="row">
 													<div className="col-9"></div>
 													<div className="col-3 mb-5 mt-5">
 														{" "}
-														<Button
+														{/* <Button
 															variant="contained"
 															component="label"
 															style={{ backgroundColor: "#F66B0E" }}
 														>
 															Add Moderator
-														</Button>
+														</Button> */}
+
+																	<button
+																		className="register.loginbuttonsize btn btn-success "
+																		type="submit"
+																		style={{backgroundColor: '#F66B0E'}} 
+																		>
+																		Add Moderator
+																		</button>
 													</div>
 													{/* <div className='col-3'></div> */}
 												</div>
-											</form>
-										</CardContent>
-									</Card>
+											</Form>
+											</Formik>
+										{/* </CardContent>
+									</Card> */}
 								</div>
 							</div>
 						</div>

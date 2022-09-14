@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Sidebar from "../components/sidebar";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
@@ -6,6 +8,14 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 function viewmedications() {
+	const [listOfMedicines, setListOfMedicines] = useState([]);
+	// let history = useHistory();
+
+	useEffect(() => {
+		axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
+			setListOfMedicines(response.data);
+		});
+	}, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -24,7 +34,7 @@ function viewmedications() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-													Admin Dashboard/
+														Admin Dashboard/
 													</a>
 													<a href="/mdpostsection" className="header-topic">
 														Medicines
@@ -32,7 +42,6 @@ function viewmedications() {
 												</li>
 											</ol>
 										</nav>
-
 										<br />
 									</div>
 								</div>
@@ -43,9 +52,31 @@ function viewmedications() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right">
-									</div>
-									<br />
+									<div class="col col-xs-6 text-right"></div>
+									<div
+										class="input-group"
+										style={{ width: 430, float: "right" }}
+									>
+										<input
+											type="search"
+											class="form-control rounded"
+											placeholder="Search Medicines"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+										/>
+										<button
+											type="button"
+											class="btn"
+											style={{
+												height: 40,
+												backgroundColor: "#205375",
+												color: "white",
+											}}
+										>
+											Search
+										</button>
+									</div><br/><br/><br/>
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
@@ -55,62 +86,49 @@ function viewmedications() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">Medicine ID</th>
-														<th scope="col">Medicine Name</th>
-														<th scope="col">Description</th>
-														<th></th>
+														<th scope="col">
+															<b>
+																<strong>Medicine ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Medicine Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Description</strong>
+															</b>
+														</th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
-													<tr>
-														<td>001</td>
-														<td>Feb 15, 2021</td>
-														<td>
-															zdsdsf sfsd dsfsdgsdfs g gadadfgdf f dsgd fsgd
-														</td>
-													</tr>
+													{listOfMedicines.map((value, key) => {
+														return (
+															<tr>
+																<td>{value.medID}</td>
+																<td>{value.medName}</td>
+																<td>{value.descr}</td>
+															</tr>
+															//   <div
+															//     key={key}
+															//     className="post"
+															//     onClick={() => {
+															//       history.push(`/post/${value.id}`);
+															//     }}
+															//   >
+															//     <div className="title"> {value.title} </div>
+															//     <div className="body">{value.postText}</div>
+															//     <div className="footer">{value.username}</div>
+															//   </div>
+														);
+													})}
 												</tbody>
 											</table>
 										</div>
 										<div class="card-footer border-0 py-5">
-											<span class="text-muted text-sm">
-												Showing 10 items of Medicines
-											</span>
+											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
 								</div>

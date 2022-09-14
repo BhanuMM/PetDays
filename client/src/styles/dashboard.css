@@ -42,7 +42,23 @@
   font-weight: 400;
   text-decoration: none;
 }
+.btn-view{
+  height: 40px;
+  width: 200px;
+  margin-left: 50px;
+  border: none;
+  background-color: #205375;
+  border-radius: 0.2rem;
+  color: #fdfeff;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  text-decoration: none;
+}
 .dashboard-image{
   height: 50px;
   width: 50px;
 }
+
+

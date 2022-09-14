@@ -30,7 +30,8 @@
    font-weight: 500;
 }
 .cards .card{
-   height: 425px;
+   height: 300px;
+   width: 200px;
 }
 .btn-res{
     height: 50px;

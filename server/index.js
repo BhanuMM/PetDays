@@ -8,12 +8,14 @@ app.use(cors());
 const db = require("./models");
 
 //Routers will be list down here
-const usersRouter = require("./routes/Users");
-app.use("/auth", usersRouter);
+const authRouter = require("./routes/Auth");
+app.use("/auth", authRouter);
 
 const adminsRouter = require("./routes/Admins");
 app.use("/admin", adminsRouter);
 
+const moderatorsRouter = require("./routes/Moderators");
+app.use("/mod", moderatorsRouter);
 
 const PORT = process.env.PORT;
 db.sequelize.sync().then(() => {

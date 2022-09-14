@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   
-    Petcatagories.associate = (models) => {
-      Petcatagories.hasMany(models.Breeds, {
-        foreignKey: 'catId',
-        onDelete: "cascade",
-      });
-    };
+    // Petcatagories.associate = (models) => {
+    //   Petcatagories.hasMany(models.Breeds, {
+    //     foreignKey: 'catId',
+    //     onDelete: "cascade",
+    //   });
+    // };
     return Petcatagories;
   };
   

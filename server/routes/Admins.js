@@ -3,10 +3,9 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const { Petcatagories , Breeds ,Moderators } = require("../models");
-const registerUser = require("./Users.js")
-// const breeds = require('../models/breeds');
+var us = require("./Auth")
 
-// router.use(bodyParser.json());
+router.use(bodyParser.json());
 
 
 router.post("/addcategory", async (req, res) => {
@@ -45,26 +44,56 @@ router.post("/addbreed", async (req, res) => {
   
 });
 router.post("/addmoderator", async (req, res) => {
-  const { firstName,lastName,conNum,modEmail,modNIC } = req.body;
+  const { firstName,lastName,conNum,uemail,modNIC,username,password } = req.body;
   
  const chckq = Moderators.create({
     firstName: firstName,
     lastName: lastName,
     conNum: conNum,
-    modEmail:modEmail,
+    modEmail:uemail,
     modNIC:modNIC
 
   });
-  if(chckq){
-    res.json("SUCCESS");
+  const role = "moderator";
+  const chck2 =us.registerUser(req, res ,role);
+  if(chck2){
+    res.json("Mod SUCCESS");
   }else{
     res.json("Not SUCCESS");
   }
   
 });
 
-
-
+router.get("/getpetcategories", async (req, res) => {
+  const listOfPetcatagories = await Petcatagories.findAll();
+  res.json(listOfPetcatagories);
+});
+router.get("/getpetbreeds", async (req, res) => {
+  const listOfBreeds = await Breeds.findAll();
+  res.json(listOfBreeds);
+});
+router.get("/getpetbreeds/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfBreeds = await Breeds.findAll(
+    {where: {
+      catId: id
+    }}
+  );
+  res.json(listOfBreeds);
+});
+router.get("/getserviceproviders", async (req, res) => {
+  const listOfServiceproviders = await Users.findAll(
+    {where: {
+      userrole: "service",
+      isverified :"yes"
+    }}
+  );
+  res.json(listOfServiceproviders);
+});
+router.get("/getmoderators", async (req, res) => {
+  const listOfModerators = await Moderators.findAll();
+  res.json(listOfModerators);
+});
 
 
 

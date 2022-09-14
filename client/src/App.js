@@ -66,6 +66,7 @@ import Viewvitamins   from './pages/viewvitamins';
 import Viewbreedscats   from './pages/viewbreedscats';
 import Viewdietplanscats   from './pages/viewdietplanscats';
 import Viewsellers   from './pages/viewsellers';
+import Viewcategories   from './pages/viewcategories';
 
 import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
@@ -105,16 +106,26 @@ import Approvad from './pages/approveadd';
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
 import Mdviewad from './pages/mdviewad';
-
+import Mdeditdiet from './pages/mdeditdiet';
+import Mdeditmed from './pages/mdeditmed';
+import Mdeditvacc from './pages/mdeditvacc';
+import Mdeditvitamin from './pages/mdeditvitamin';
+import Newspdashboard from './pages/newspdashboard';
 
 // import Newdashboard from './pages/newdashboard';
 
 import Spdashboard from './pages/spdashboard';
 import Test from './pages/test';
-
-
-
-
+import Myprofile from './pages/myprofile';
+import Editbreed from './pages/editbreed';
+import Viewadvertisements from './pages/viewadvertisements';
+import Myprofileadmin from './pages/myprofileadmin';
+import Myprofileservice from './pages/myprofileservice';
+import Spviewad from './pages/spviewad';
+import Spmyads from './pages/spmyads';
+import Sppendingads from './pages/sppendingads';
+import Sppublishedads from './pages/sppublishedads';
+import Sprejectedads from './pages/sprejectedads';
 // import Signinform from './components/signinform';
 
 function App() {
@@ -202,6 +213,7 @@ function App() {
           <Route path="/viewvaccines" element={<Viewvaccines/>}/>
           <Route path="/viewbreedscats" element={<Viewbreedscats/>}/>
           <Route path="/viewdietplanscats" element={<Viewdietplanscats/>}/>
+          <Route path="/viewcategories" element={<Viewcategories/>}/>
 
           <Route path="/dashcheckup" element={<Dashcheckup/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
@@ -225,7 +237,22 @@ function App() {
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
           <Route path="/test" element={<Test/>}/>
           <Route path="/mdviewad" element={<Mdviewad/>}/>
+          <Route path="/myprofile" element={<Myprofile/>}/>
 
+          <Route path="/mdeditdiet" element={<Mdeditdiet/>}/>
+          <Route path="/mdeditmed" element={<Mdeditmed/>}/>
+          <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
+          <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
+          <Route path="/newspdashboard" element={<Newspdashboard/>}/>
+          <Route path="/editbreed" element={<Editbreed/>}/>
+          <Route path="/viewadvertisements" element={<Viewadvertisements/>}/>
+          <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
+          <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+          <Route path="/spviewad" element={<Spviewad/>}/>
+          <Route path="/spmyads" element={<Spmyads/>}/>
+          <Route path="/sppendingads" element={<Sppendingads/>}/>
+          <Route path="/sppublishedads" element={<Sppublishedads/>}/>
+          <Route path="/sprejectedads" element={<Sprejectedads/>}/>
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
 

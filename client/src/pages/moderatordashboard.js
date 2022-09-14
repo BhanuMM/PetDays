@@ -23,7 +23,7 @@ function moderatordashboard() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard
 													</a>
 													
@@ -48,22 +48,15 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Verified Posts
 													</span>
-													<span class="h3 font-bold mb-0">$750.90</span>
+													<span class="h3 font-bold mb-0">50</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto"  style={{paddingLeft:110}}>
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-														<i class="bi bi-credit-card"></i>
+													<i class="bi bi-file-earmark-post"></i>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-success text-success me-2">
-													<i class="bi bi-arrow-up me-1"></i>13%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
+										
 										</div>
 									</div>
 								</div>
@@ -73,24 +66,17 @@ function moderatordashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-													Verified Advertisments
+													Verified Ads
 													</span>
-													<span class="h3 font-bold mb-0">$750.90</span>
+													<span class="h3 font-bold mb-0">90</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto"  style={{paddingLeft:120}}>
 													<div class="icon icon-shape  bg-primary text-white text-lg rounded-circle">
-														<i class="bi bi bi-people"></i>
+													<i class="bi bi-file-earmark-check"></i>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-success text-success me-2">
-													<i class="bi bi-arrow-up me-1"></i>13%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
+										
 										</div>
 									</div>
 								</div>
@@ -100,24 +86,17 @@ function moderatordashboard() {
 											<div class="row">
 												<div class="col">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Diet
+														Diets
 													</span>
-													<span class="h3 font-bold mb-0">1.400</span>
+													<span class="h3 font-bold mb-0">200</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto"  style={{paddingLeft:150}}>
 													<div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-														<i class="bi bi-clock-history"></i>
+													<i class="bi bi-egg"></i>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -129,22 +108,15 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Total Medications
 													</span>
-													<span class="h3 font-bold mb-0">1.400</span>
+													<span class="h3 font-bold mb-0">400</span>
 												</div>
-												<div class="col-auto">
+												<div class="col-auto"  style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-														<i class="bi bi-clock-history"></i>
+													<i class="bi bi-bag-plus"/>
 													</div>
 												</div>
 											</div>
-											<div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-danger text-danger me-2">
-													<i class="bi bi-arrow-down me-1"></i>-5%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -166,12 +138,12 @@ function moderatordashboard() {
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-																Diet Plans - Dogs
+																View Diet Plans
 															</button>
 														</a>
-														<a href="\mdcatdiet" role="button" aria-pressed="true">
+														<a href="\mdadddogdiet" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Diet Plans - Cats
+																Add Diet Plans
 															</button>
 														</a>
 													</div>

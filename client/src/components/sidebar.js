@@ -5,7 +5,8 @@ function sidebar() {
 	return (
 		<nav
 			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
-			id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
+			id="navbarVertical"
+			style={{ backgroundColor: "#EFEFEF" }}
 		>
 			<div class="container-fluid">
 				<button
@@ -20,7 +21,12 @@ function sidebar() {
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-					<img class="dashboard-image" src={dog} alt="" style={{ height:150 , width: 150, marginLeft: 30}} />
+					<img
+						class="dashboard-image"
+						src={dog}
+						alt=""
+						style={{ height: 150, width: 150, marginLeft: 30 }}
+					/>
 				</a>
 				<div class="navbar-user d-lg-none">
 					<div class="dropdown">
@@ -46,18 +52,24 @@ function sidebar() {
 				<div class="collapse navbar-collapse" id="sidebarCollapse">
 					<ul class="navbar-nav">
 						<li class="nav-item">
+							<a class="nav-link" href="\index">
+								<i class="bi bi-house"></i> Home
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" href="\admindashboard">
-								<i class="bi bi-house"></i> Dashboard
+							<i class="bi bi-bar-chart"></i>Dashboard
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="\reportgeneration">
-								<i class="bi bi-bar-chart"></i> Report Generation
+								<i class="fa fa-line-chart" aria-hidden="true"></i> Report
+								Generation
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<i class="bi bi-bar-chart"></i> Advertisements
+							<a class="nav-link" href="\viewadvertisements">
+								<i class="fa fa-file" aria-hidden="true"></i> Advertisements
 							</a>
 						</li>
 						<li class="nav-item">
@@ -75,7 +87,7 @@ function sidebar() {
 													<i
 														class="fa fa-caret-down"
 														aria-hidden="true"
-														style={{ paddingLeft: 120 }}
+														style={{ paddingLeft: 115 }}
 													></i>
 												</a>
 											</a>
@@ -86,18 +98,9 @@ function sidebar() {
 											<a
 												class="nav-link "
 												style={{ paddingLeft: 70 }}
-												href="\viewdietplanscats"
-											>
-												Diet Plans-Cats
-											</a>
-										</div>
-										<div class="panel-footer">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
 												href="\viewdietplans"
 											>
-												Diet Plans-Dogs
+												View Diet Plans
 											</a>
 										</div>
 									</div>
@@ -174,19 +177,19 @@ function sidebar() {
 										<div class="panel-body">
 											<a
 												class="nav-link"
-												href="\viewbreeds"
+												href="\viewcategories"
 												style={{ paddingLeft: 70 }}
 											>
-												Petcategories-dogs
+												View Animal Categories
 											</a>
 										</div>
 										<div class="panel-body">
 											<a
 												class="nav-link"
-												href="\viewbreedscats"
+												href="\addpetcategories"
 												style={{ paddingLeft: 70 }}
 											>
-												Petcategories-cats
+												Add new category
 											</a>
 										</div>
 									</div>
@@ -204,7 +207,7 @@ function sidebar() {
 													<i
 														class="fa fa-caret-down"
 														aria-hidden="true"
-														style={{ paddingLeft: 62 }}
+														style={{ paddingLeft: 65 }}
 													></i>
 												</a>
 											</a>
@@ -238,7 +241,7 @@ function sidebar() {
 					<div class="mt-auto"></div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link" href="/myprofileadmin">
 								<i class="bi bi-person-square"></i> Account
 							</a>
 						</li>

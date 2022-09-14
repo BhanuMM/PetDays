@@ -28,10 +28,10 @@ function mdnewverifyposts() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/admindashboard" className="header-topic">
+													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/mdnewverifyposts" className="header-topic">
 														 Verified Posts
 													</a>
 												</li>
@@ -48,7 +48,54 @@ function mdnewverifyposts() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                           
+                                <p class="fw-semibold " style={{paddingRight:40}}>Filtery by :</p>
+                                <div class="search-line"  style={{display: "flex"}}>
+									
+
+									<p class="fw-semibold ">  
+									<div class="dropdown" style={{paddingRight:40,paddingLeft:20}}>
+									<button
+										class="btn btn-dark dropdown-toggle"
+										type="button"
+										id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+
+										style={{height:40 , backgroundColor: '#205375', width:200, borderColor:'#205375'}}
+									>
+										Recently Published
+									</button>
+									<div
+										class="dropdown-menu"
+										aria-labelledby="dropdownMenuButton"
+									>
+										<a class="dropdown-item" href="#">
+										Recent Week
+										</a>
+										<a class="dropdown-item" href="#">
+										Last Month
+										</a>
+									</div>
+									</div></p>
+
+									
+									<div class="dropdown" style={{paddingRight:40}}>
+									<button
+										class="btn btn-dark"
+										type="button"
+										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
+									>
+										Filter
+									</button>
+									</div>
+									
+
+									<div class="input-group" style={{width:575,marginLeft:270}}>
+										<input type="search" class="form-control rounded" placeholder="Search Forum Posts" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
+										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
+									</div>
+								</div>
                                 <CardContent>
                                 <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
                                 <div class="card-body">
@@ -60,7 +107,7 @@ function mdnewverifyposts() {
                                     <div>
                                     Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
                                     </div>
-                                    <div class='comment'>
+                                    <div class='comment'style={{  paddingRight:50}}>
                                         <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">5 Comments</a></p>
                                     </div>
                             </div>
@@ -77,7 +124,7 @@ function mdnewverifyposts() {
                                     <div>
                                     Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
                                     </div>
-                                    <div class='comment'>
+                                    <div class='comment'style={{  paddingRight:50}}>
                                         <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">25 Comments</a></p>
                                     </div>
                             </div>
@@ -94,7 +141,7 @@ function mdnewverifyposts() {
                                     <div>
                                     Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
                                     </div>
-                                    <div class='comment'>
+                                    <div class='comment'style={{  paddingRight:50}}>
                                         <p class="fw-semibold fs-7"><a href="#" class="link-success text-decoration-none">10 Comments</a></p>
                                     </div>
                             </div>
