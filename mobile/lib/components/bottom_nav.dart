@@ -19,17 +19,19 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNav extends State<BottomNav>{
+
+
   late int indexNumber =0;
   int _selectedIndex=0;
   _BottomNav(int pageindex){
     _selectedIndex = pageindex;
+    print(_selectedIndex);
   }
 
   late PageController _pageController;
 
   var pages = [
     DashboardScreen(),
-    MyPetsScreen(),
     PetMartHome(),
     DashboardScreen(),
     ProfileSettings(),
@@ -44,7 +46,7 @@ class _BottomNav extends State<BottomNav>{
   Widget build(BuildContext context){
     return BottomNavigationBar(
         unselectedItemColor: Colors.black,
-
+        currentIndex: _selectedIndex,
         selectedLabelStyle: const TextStyle(
             color: Colors.black
         ),
@@ -55,10 +57,7 @@ class _BottomNav extends State<BottomNav>{
             icon: new Image.asset('assets/images/home.png',width: 35,height: 35,),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: new Image.asset('assets/images/petd.png',width: 50,height: 50,),
-            label: 'My Pets',
-          ),
+
           BottomNavigationBarItem(
             icon: new Image.asset('assets/images/petm.png',width: 50,height: 50,),
             label: 'Pet Mart',

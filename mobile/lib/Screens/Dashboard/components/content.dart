@@ -4,6 +4,7 @@ import 'dart:convert';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../AddPet/add_pet_screen.dart';
 import '../../Mypets/my_pets_screen.dart';
 import '../../PetMartHome/Pet_Mart_Home_Screen.dart';
 import '../../../models/globals.dart' as globals;
@@ -123,11 +124,23 @@ class _DashboardContentState extends State<DashboardContent> {
                           SizedBox(height: 8,),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Text("Let's add your pets",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20
+                            child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return AddPetScreen();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Text("Let's add your pets",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20
+                                ),
                               ),
                             ),
                           ),
@@ -203,10 +216,22 @@ class _DashboardContentState extends State<DashboardContent> {
                     fontWeight: FontWeight.bold
                   ),
                   ),
-                  Text(
-                    "Add a pet",
-                    style: TextStyle(
-                      fontSize: 14
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AddPetScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Add a pet",
+                      style: TextStyle(
+                        fontSize: 14
+                      ),
                     ),
                   )
                 ],
