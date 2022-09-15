@@ -13,7 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:http/http.dart' as http;
-
+import '../../../models/pet.dart';
 class DashboardContent extends StatefulWidget {
   const DashboardContent({
     Key? key,
@@ -259,8 +259,20 @@ class _DashboardContentState extends State<DashboardContent> {
                   padding: const EdgeInsets.all(8),
                   itemCount: pets.length,
                   itemBuilder: (BuildContext context, int index) {
+                    print(pets[index]);
                     return Container(
-                        child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(), img: pets[index]['profileImage'])
+                        child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
+                            pets[index]['petName'],
+                            pets[index]['DOB'] ,
+                            pets[index]['weight'],
+                            pets[index]['breedid'].toString() ,
+                            pets[index]['UserID'].toString() ,
+                            pets[index]['catID'].toString(),
+                            pets[index]['profileImage'],
+                            pets[index]['petID'].toString(),
+                        )
+                        ),
+                            img: pets[index]['profileImage'])
                     );
                   }
               )

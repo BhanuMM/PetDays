@@ -6,8 +6,10 @@ class Pet{
   String? UserID;
   String? catID;
   String? profileImage;
+  String? petID;
 
   Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage);
+  Pet.frompets(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage,this.petID);
 
   Pet.fromJson(Map<String, dynamic> json)
       : petName = json['petName'].toString(),

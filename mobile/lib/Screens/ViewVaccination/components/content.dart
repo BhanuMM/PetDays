@@ -5,7 +5,10 @@ import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 
 class VaccineContent extends StatelessWidget {
-  const VaccineContent({Key? key}) : super(key: key);
+  String petID= '';
+  VaccineContent(String petID, {Key? key}) : super(key: key) {
+    this.petID = petID;
+  }
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -23,7 +26,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return AddVaccinationScreen();
+                        return AddVaccinationScreen(petID);
                       },
                     ),
                   );

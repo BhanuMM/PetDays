@@ -4,6 +4,7 @@ import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../../models/pet.dart';
 class AddPetFormStep2 extends StatefulWidget {
   const AddPetFormStep2({
     Key? key,
@@ -153,7 +154,7 @@ class _AddPetFormState extends State<AddPetFormStep2>{
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return PetDashboard();
+                              return PetDashboard(new Pet('','',0,'','','',''));
                             },
                           ),
                         );
@@ -176,7 +177,7 @@ class _AddPetFormState extends State<AddPetFormStep2>{
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return PetDashboard();
+                              return PetDashboard(new Pet('','',0,'','','',''));
                             },
                           ),
                         );
