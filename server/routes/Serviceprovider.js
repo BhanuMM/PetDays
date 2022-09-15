@@ -65,6 +65,12 @@ router.get("/getpendingads", async (req, res) => {
   res.json(listOfpendingads);
 });
 
+router.get("/getpendingads/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleAd= await Publishedads.findByPk(id);
+  res.json(SingleAd);
+});
+
 
 // router.get("/getdietplans", async (req, res) => {
 //   const listOfDietplans = await Dietplans.findAll(
@@ -90,14 +96,14 @@ router.get("/getpendingads", async (req, res) => {
 
 //updates----------
 
-// router.post("/updatemedicine", async (req, res) => {
+router.post("/updatependingad/:id", async (req, res) => {
+  const id = req.params.id;
   
-//   const { medID,medName, descr } = req.body;
 
-//   await Medicines.update({medName :medName ,descr :descr} ,{ where: { medID: medID }} );
+  await Publishedads.update({adStatus :"approved"} ,{ where: { adID: id }} );
  
-//   res.json("SUCCESS"); 
-// });
+  res.json("SUCCESS"); 
+});
 
 
 

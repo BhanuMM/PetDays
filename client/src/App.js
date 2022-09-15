@@ -143,7 +143,7 @@ function App() {
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
           <Route path="/admindashboard" element={<Admindashboard/>} />  
-          <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} /> 
+          {/* <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} />  */}
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
           <Route path="/mdpendingposts" element={<Mdpendingposts />} />
