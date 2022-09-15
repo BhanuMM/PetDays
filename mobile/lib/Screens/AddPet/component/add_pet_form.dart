@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../../../models/globals.dart' as globals;
@@ -10,6 +12,10 @@ import '../../Dashboard/dashboard_screen.dart';
 import '../../AddPetStep2/add_pet_screen.dart';
 import '../../../models/pet.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+
 
 class AddPetForm extends StatefulWidget {
   const AddPetForm({
@@ -49,12 +55,18 @@ class _AddPetFormState extends State<AddPetForm>{
   DateTime? dob = new DateTime(1);
   List data = [];
   List breeds = [];
-  Pet pet = Pet('','',0,'','','');
+  Pet pet = Pet('','',0,'','','','');
+  late File image;
   Future addPet() async {
-
+    String imagepath = '';
+    if(image != null){
+      final File img = await saveImage(image.path);
+      imagepath = img.path;
+    }
     pet.UserID = globals.uid.toString();
     pet.catID = _SelectedCatID;
     pet.breedid = _SelectedBreedID;
+    pet.profileImage = imagepath;
 
     final DateTime now = DateTime.now();
     final DateFormat formatter = DateFormat('yyyy-MM-dd');
@@ -69,6 +81,7 @@ class _AddPetFormState extends State<AddPetForm>{
     print(pet.breedid);
     print(pet.UserID);
     print(pet.catID);
+    print(pet.profileImage);
     // 10.0.2.2
     var res = await http.post(Uri.http(url, addPetRoute),
         headers: headers,
@@ -81,7 +94,7 @@ class _AddPetFormState extends State<AddPetForm>{
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
       showDialog<void>(
-        context: context,
+        context: this.context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text("Pet successfully added"),
@@ -412,6 +425,22 @@ class _AddPetFormState extends State<AddPetForm>{
               fillColor: Colors.white,
             ),
           ),
+          Padding(
+              padding: const EdgeInsets.only(top: 20,bottom: 20),
+              child:SizedBox(
+                width: 250,
+                height: 60,
+                child:ElevatedButton(
+                  onPressed: () {
+                    pickImage();
+                  },
+                  child: Text(
+                    "Add Pet profile Picture".toUpperCase(),
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              )
+          ),
         Padding(
           padding: const EdgeInsets.only(top: 20,bottom: 20),
           child:SizedBox(
@@ -435,6 +464,25 @@ class _AddPetFormState extends State<AddPetForm>{
 
       )
     );
+  }
+
+  Future pickImage() async{
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if(image == null) return;
+
+    final tempImg = File(image.path);
+    setState(() {
+      this.image = tempImg;
+    });
+  }
+
+  Future<File> saveImage(String path) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name= basename(path);
+    final image = File('${directory.path}/$name');
+
+    return File(path).copy(image.path);
+    // return await image.saveTo(image);
   }
 
 
