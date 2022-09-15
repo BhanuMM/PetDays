@@ -67,13 +67,15 @@ class _LoginFormState extends State<LoginForm> {
     }else{
       user = User.fromJson(userMap);
       globals.uemail = user.email;
+      globals.uid = user.userID;
+      globals.uname = user.userName;
       Navigator.push(
           context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
     }
 
   }
 
-  User user = User('','','','','');
+  User user = User('','','','','','');
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
     if (!match) 
       {res.json({ error: "Wrong Username And Password Combination" });}
     else
-      { res.json({ email: email, role: uemail.userrole });  }
+      { res.json({ email: email, role: uemail.userrole, id: uemail.userID, username: uemail.username });  }
     
   });
 });

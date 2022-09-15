@@ -33,7 +33,7 @@ class DashboardContent extends StatelessWidget {
                       ),
                       SizedBox(height: 6,),
                       Text(
-                        globals.uemail,
+                        globals.uname,
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold

@@ -10,11 +10,7 @@ router.use(bodyParser.json());
 
 router.post("/addpet", async (req, res) => {
     const { petName, DOB ,weight, profileImage, breedId,UserID,catId} = req.body;
-    // const uemail = await Users.findOne({ where: { email: email } });
-    // const uname = await Users.findOne({ where: { username: username } });
-  
-    // if (uemail) res.json({ error: "Email is already registered" });
-    Pets.create({
+    const pet = Pets.create({
         petName: petName,
         DOB: DOB,
         weight: weight,
@@ -23,6 +19,11 @@ router.post("/addpet", async (req, res) => {
         UserID: UserID,
         catId: catId,
     });
-    res.json("SUCCESS"); 
+    if(pet){
+        res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
   });
   
+  module.exports = router ;
