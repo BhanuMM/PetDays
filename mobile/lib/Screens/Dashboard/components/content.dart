@@ -1,17 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'dart:convert';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../Mypets/my_pets_screen.dart';
 import '../../PetMartHome/Pet_Mart_Home_Screen.dart';
 import '../../../models/globals.dart' as globals;
+import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+import 'package:http/http.dart' as http;
 
-class DashboardContent extends StatelessWidget {
+class DashboardContent extends StatefulWidget {
   const DashboardContent({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<DashboardContent> createState() => _DashboardContentState();
+}
+
+class _DashboardContentState extends State<DashboardContent> {
+  final url = '10.0.2.2:3001';
+  final getPetRoute = '/user/getpets';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List pets = [];
+  Future getPetBreeds() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetRoute+'/'+globals.uid),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      pets = list ;
+    });
+    print(pets);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    this.getPetBreeds();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -170,21 +212,38 @@ class DashboardContent extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              height: 220,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg"),
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg"),
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg")
-                ],
-              ),
-            )
+            // Container(
+            //   height: 220,
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: [
+            //       pets.map((item) {
+            //         return PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg")
+            //       }).toList(),
+            //
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg"),
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg"),
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg")
+            //     ],
+            //   ),
+            // ),
+              Container(
+                height: 240,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.all(8),
+                  itemCount: pets.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                        child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(), img: pets[index]['profileImage'])
+                    );
+                  }
+              )
+              )
           ],
         )
     );
 
 
   }
-  }
+}

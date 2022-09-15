@@ -10,13 +10,13 @@ class Pet{
   Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage);
 
   Pet.fromJson(Map<String, dynamic> json)
-      : petName = json['pcatID'].toString(),
-        DOB = json['pcatName'],
-        weight = json['descr'],
-        breedid = json['pcatID'].toString(),
-        UserID = json['pcatName'],
+      : petName = json['petName'].toString(),
+        DOB = json['DOB'],
+        weight = json['weight'],
+        breedid = json['breedid'].toString(),
+        UserID = json['UserID'],
         profileImage = json['profileImage'],
-        catID = json['pcatID'].toString();
+        catID = json['catID'].toString();
 
   Map toJson() => {
     'petName': petName,

@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
-
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
@@ -53,9 +56,12 @@ class PetDashboardItemCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
                   image: DecorationImage(
-                    image: AssetImage("assets/images/$img"),
-                    fit: BoxFit.cover,
-                  )
+                    image: FileImage(
+                      File(img),
+                    // AssetImage("assets/images/$img"),
+                ),
+                fit: BoxFit.cover,
+                ),
                 ),
                 ),
                 SizedBox(height: 5,),

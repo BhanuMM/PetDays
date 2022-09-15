@@ -43,4 +43,13 @@ router.post("/addpet", async (req, res) => {
     }
   });
   
+  router.get("/getpets/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPets = await Pets.findAll(
+      {where: {
+        UserId: id
+      }}
+    );
+    res.json(listOfPets);
+  });
   module.exports = router ;
