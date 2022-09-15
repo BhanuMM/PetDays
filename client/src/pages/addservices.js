@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/nav.css";
 import "../styles/footer.css";
 import Navbar from "../components/navbarspecial";
-import Serviceprovidersidebar from "../components/serviceprovidersidebar";
+// import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 function addservices() {
   return (
     <div class="container-fluid">
@@ -16,7 +16,7 @@ function addservices() {
 
           <div className="row flex-nowrap pt-5 pl-5 ml-5">
             <div className='col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4'>
-                <Serviceprovidersidebar />
+                {/* <Serviceprovidersidebar /> */}
             </div>
             <div className='col-9 g-5'>
             <h3 className='mb-5'> + Create New Advertiesment <hr/></h3>

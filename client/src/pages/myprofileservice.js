@@ -1,5 +1,5 @@
 import React from 'react'
-import Serviceprovidersidebar from "../components/serviceprovidersidebar";
+// import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -9,7 +9,7 @@ function myprofileservice() {
     <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
-					<Serviceprovidersidebar />
+					{/* <Serviceprovidersidebar /> */}
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 				<header class="bg-surface-primary border-bottom pt-6">

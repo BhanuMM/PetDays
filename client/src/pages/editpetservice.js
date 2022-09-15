@@ -50,7 +50,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
-import Sellersidebar from "../components/serviceprovidersidebar";
+// import Sellersidebar from "../components/serviceprovidersidebar";
 
 import '../styles/spdashboard.css';
 
@@ -61,7 +61,7 @@ function addpetmartadd() {
     <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
-					<Sellersidebar />
+					{/* <Sellersidebar /> */}
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 					<header class="bg-surface-primary border-bottom pt-6">
