@@ -5,14 +5,11 @@ import { useNavigate  } from "react-router-dom";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
 import Profilepic from '../images/profile.jpg';
 import Button from '@mui/material/Button';
 import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import Moderatorsidebar from "../components/moderatorsidebar";
 
 function mdpendingads() {
