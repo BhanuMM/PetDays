@@ -134,9 +134,15 @@ function mdpendingads() {
                         
                         {value.adDescr}<br/><br/>
                         
-                        <a href="/mdviewad" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+                        {/* <a href="/mdviewad" role="button" aria-pressed="true">  */}
+						<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}} onClick={() => {
+										navigate('/mdviewad',{state: value.adId});
+										  }}>
                           View
-                        </Button></a>
+						  
+
+                        </Button>
+						{/* </a> */}
                       </CardContent>
                     </Box>
                     
