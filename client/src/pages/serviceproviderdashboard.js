@@ -10,7 +10,7 @@ import cat from "../images/cat-01.png";
 import diet from "../images/health.png";
 import postmd from "../images/postsmd.png";
 import addmd from "../images/addmd.png";
-import Serviceprovidersidebar from "../components/serviceprovidersidebar";
+// import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 function serviceproviderdashboard() {
 	return (
 		<div class="container-fluid moderatordashboard">
@@ -20,7 +20,7 @@ function serviceproviderdashboard() {
 			<div className="row mt-4">
 				<div className="row flex-nowrap pt-5">
 					<div className="col-2 side-color pl-5">
-						<Serviceprovidersidebar />
+						{/* <Serviceprovidersidebar /> */}
 					</div>
 					<div className="col-10">
 						<main>
