@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds ,Publishedads} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds ,Publishedads,Rejectedads} = require("../models");
 const vitamins = require('../models/vitamins');
 // const breeds = require('../models/breeds');
 
@@ -165,6 +165,23 @@ router.post("/updatependingad/:id", async (req, res) => {
   await Publishedads.update({adStatus :"approved"} ,{ where: { adID: id }} );
  
   res.json("SUCCESS"); 
+});
+
+router.post("/updaterejectedad/:id", async (req, res) => {
+  const id = req.params.id;
+  const chckq= await Publishedads.update({adStatus :"rejected"} ,{ where: { adID: id }} );
+   
+
+    if(chckq){
+      await Rejectedads.create({
+        rejReason : "This ad is rejected bcz no img",
+        adId : id
+      });
+      res.json("Ad SUCCESS");
+    }else{
+      res.json("Ad Not SUCCESS");
+    }
+  
 });
 
 
