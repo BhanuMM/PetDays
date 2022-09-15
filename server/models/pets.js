@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       },
      
       weight: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DOUBLE,
         allowNull: false,
       },
       profileImage: {

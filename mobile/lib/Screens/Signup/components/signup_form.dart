@@ -24,7 +24,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final registerRoute = '/auth/register';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
-  User user = User('','','','','');
+  User user = User('','','','','','');
 
   Future register() async {
     // 10.0.2.2
