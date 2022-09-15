@@ -10,7 +10,7 @@ import cat from "../images/cat-01.png";
 import diet from "../images/health.png";
 import postmd from "../images/postsmd.png";
 import addmd from "../images/addmd.png";
-import Serviceprovidersidebar from "../components/serviceprovidersidebar";
+// import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 import '../styles/petmart.css';
 import '../styles/forum.css';
 import A1 from '../images/pw2.jpg';
@@ -31,7 +31,7 @@ function serviceprovideralladds() {
 			<div className="row mt-4">
 				<div className="row flex-nowrap pt-5">
 					<div className="col-2 side-color col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4">
-						<Serviceprovidersidebar />
+						{/* <Serviceprovidersidebar /> */}
 					</div>
 					<div className="col-10">
 						<main>

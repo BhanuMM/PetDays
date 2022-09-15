@@ -11,7 +11,7 @@ import cat from "../images/cat-01.png";
 import diet from "../images/health.png";
 import postmd from "../images/postsmd.png";
 import addmd from "../images/addmd.png";
-import Serviceprovidersidebar from "../components/serviceprovidersidebar";
+// import Serviceprovidersidebar from "../components/serviceprovidersidebar";
 import "../styles/moderatordashboard.css";
 import '../styles/petmart.css';
 import '../styles/forum.css';
@@ -54,7 +54,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PersonIcon from '@mui/icons-material/Person';
 import IconButton from '@mui/material/IconButton';
-import Sellersidebar from "../components/serviceprovidersidebar";
+// import Sellersidebar from "../components/serviceprovidersidebar";
 
 import '../styles/spdashboard.css';
 
@@ -65,7 +65,7 @@ function pendingads() {
     <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
-					<Sellersidebar />
+					{/* <Sellersidebar /> */}
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 					<header class="bg-surface-primary border-bottom pt-6">

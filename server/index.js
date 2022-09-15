@@ -17,8 +17,13 @@ app.use("/admin", adminsRouter);
 const moderatorsRouter = require("./routes/Moderators");
 app.use("/mod", moderatorsRouter);
 
+
 const usersRouter = require("./routes/Users");
 app.use("/user", usersRouter);
+
+const serviceRouter = require("./routes/Serviceprovider");
+app.use("/service", serviceRouter);
+
 
 const PORT = process.env.PORT;
 db.sequelize.sync().then(() => {

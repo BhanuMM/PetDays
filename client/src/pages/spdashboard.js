@@ -1,18 +1,10 @@
 import React from "react";
 import "../styles/footerspecial.css";
-import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import "../styles/spdashboard.css";
-import dog from "../images/PetDays.png";
-import AddIcon from '@mui/icons-material/Add';
-import Man from "../images/man.jpg";
 import Navbarsp from "../components/navsp";
 import Spsidebar from "../components/spsidebar";
 import Button from '@mui/material/Button';
-// import AddIcon from '@mui/icons-material/Add';
-
-
-import Sellersidebar from "../components/serviceprovidersidebar";
 function dashboard() {
 	return (
 		

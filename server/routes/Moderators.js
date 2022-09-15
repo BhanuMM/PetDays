@@ -133,8 +133,28 @@ router.get("/getmedicines/:id", async (req, res) => {
   // res.json(SingleMed);
 });
 
-
-
+router.get("/getvitamins/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleVit = await Vitamins.findByPk(id);
+  res.json(SingleVit);
+  // const SingleVit = await Vitamins.findOne(
+  //   {where: {
+  //     vitID: id
+  //   }}
+  // );
+  // res.json(SingleVit);
+});
+router.get("/getvaccines/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleVac = await Vaccines.findByPk(id);
+  res.json(SingleVac);
+  // const SingleVac = await Vaccines.findOne(
+  //   {where: {
+  //     vacID: id
+  //   }}
+  // );
+  // res.json(SingleVac);
+});
 //updates----------
 
 router.post("/updatemedicine", async (req, res) => {
@@ -142,6 +162,24 @@ router.post("/updatemedicine", async (req, res) => {
   const { medID,medName, descr } = req.body;
 
   await Medicines.update({medName :medName ,descr :descr} ,{ where: { medID: medID }} );
+ 
+  res.json("SUCCESS"); 
+});
+
+router.post("/updatevitamin", async (req, res) => {
+  
+  const { vitID,vitName,vitType, descr } = req.body;
+
+  await Vitamins.update({vitName :vitName ,vitType :vitType ,descr :descr} ,{ where: { vitID: vitID }} );
+ 
+  res.json("SUCCESS"); 
+});
+
+router.post("/updatevaccine", async (req, res) => {
+  
+  const { vacID,vacName,descr,vacNextIter } = req.body;
+
+  await Vaccines.update({vacName :vacName ,descr :descr,vacNextIter :vacNextIter } ,{ where: { vacID: vacID }} );
  
   res.json("SUCCESS"); 
 });
@@ -163,5 +201,26 @@ router.delete("/deletemed/:medId", async (req, res) => {
   res.json("DELETED SUCCESSFULLY");
 });
 
+router.delete("/deletevit/:vitId", async (req, res) => {
+  const vitId = req.params.vitId;
+
+  await Vitamins.destroy({
+    where: {
+      vitID: vitId,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
+
+router.delete("/deletevacc/:vacId", async (req, res) => {
+  const vacId = req.params.vacId;
+
+  await Vaccines.destroy({
+    where: {
+      vacID: vacId,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
 
 module.exports = router;

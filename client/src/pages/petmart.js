@@ -1,23 +1,31 @@
 import React from "react";
-
 import "../styles/nav.css";
 import "../styles/footer.css";
 import "../styles/petcategories.css";
 import "../styles/petmart.css";
 import "../styles/forum.css";
-import A1 from "../images/pw2.jpg";
-import A2 from "../images/a2.jpg";
-import A3 from "../images/a3.jpg";
-import A4 from "../images/a4.jpg";
-import G3 from "../images/g3.jpg";
-import G2 from "../images/g2.jpg";
-import G1 from "../images/g1.jpg";
-import G4 from "../images/g4.jpg";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import "../styles/petcategories.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate  } from "react-router-dom";
+
+
 
 function petmart() {
+
+	const [listOfpendingads, setlistOfpendingads] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/service/getpetmartads").then((response) => {
+      setlistOfpendingads(response.data);
+    });
+  }, []);
+
+  const navigate = useNavigate();
+
 	return (
 		<div className="Petmart">
 			<Navbar />
@@ -145,6 +153,8 @@ function petmart() {
 				<main class="py-6 bg-surface-secondary">
 					<div class="petmart-container-fluid">
 						<div className="row">
+						{listOfpendingads.map((value, key) => {
+                            return (
 							<div className="col-3">
 								<div class="petmart-card">
 									<div class="petmart-inner-card">
@@ -154,19 +164,17 @@ function petmart() {
 											class="img-fluid rounded"
 										/>
 										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>Pet Day Care</h4>
-											<small>21 Aug 2022</small>
+											<h4>{value.adTitle}</h4>
+											<small>{value.adDate}</small>
 										</div>
 										<div class="mt-2 px-2">
 											{" "}
 											<small>
-												Best care has qualified team of doctors and
-												professionally trained team of Veterinary Assistants and
-												Dog Handlers to offer you the best service.
+											{value.adDescr}
 											</small>{" "}
 										</div>
 										<div class="px-2">
-											<h3>Rs.500/=</h3>
+											<h3>{value.adPrice}</h3>
 										</div>
 										<div class="px-2 mt-3">
 											{" "}
@@ -177,102 +185,8 @@ function petmart() {
 									</div>
 								</div>
 							</div>
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img
-											src="https://cdn.cdnparenting.com/articles/2018/12/196619114-H.jpg"
-											class="img-fluid rounded"
-										/>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>Pet Day Care</h4>
-											<small>21 Aug 2022</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-												Best care has qualified team of doctors and
-												professionally trained team of Veterinary Assistants and
-												Dog Handlers to offer you the best service.
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>Rs.500/=</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img
-											src="https://www.thedoghouseps.com/wp-content/uploads/2020/01/combing-the-head-of-yorkshire-terrier-picjumbo-com-1-1024x683.jpg"
-											class="img-fluid rounded"
-										/>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>Pet Day Care</h4>
-											<small>21 Aug 2022</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-												Best care has qualified team of doctors and
-												professionally trained team of Veterinary Assistants and
-												Dog Handlers to offer you the best service.
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>Rs.500/=</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img
-											src="https://i0.wp.com/sanantonioreport.org/wp-content/uploads/2019/01/BonnieArbittier_lucys_doggy_daycare_dog_pet_boarding_1604_new_location_grooming_1-16-2019-8.jpg?fit=1170%2C780&ssl=1"
-											class="img-fluid rounded"
-										/>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>Pet Day Care</h4>
-											<small>21 Aug 2022</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-												Best care has qualified team of doctors and
-												professionally trained team of Veterinary Assistants and
-												Dog Handlers to offer you the best service.
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>Rs.500/=</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
-										</div>
-									</div>
-								</div>
-							</div>
+							);
+						})}
 						</div>
 					</div>
 				</main>
