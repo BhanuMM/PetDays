@@ -71,7 +71,22 @@ router.get("/getpendingads/:id", async (req, res) => {
   res.json(SingleAd);
 });
 
+
 //for user
+
+//petmart view ads
+router.get("/getpetmartads", async (req, res) => {
+  const listOfapprovedads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "approved",
+      },
+    }
+  );
+  res.json(listOfapprovedads);
+});
+
+
 
 router.get("/getalladsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
