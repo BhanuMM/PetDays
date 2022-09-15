@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate  } from "react-router-dom";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
@@ -13,6 +16,16 @@ import IconButton from '@mui/material/IconButton';
 import Moderatorsidebar from "../components/moderatorsidebar";
 
 function mdpendingads() {
+  const [listOfpendingads, setlistOfpendingads] = useState([]);
+  // let history = useHistory();
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/service/getpendingads").then((response) => {
+      setlistOfpendingads(response.data);
+    });
+  }, []);
+
+  const navigate = useNavigate();
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -100,6 +113,9 @@ function mdpendingads() {
 									</div>
 								</div>       
                     <CardContent>
+                    {listOfpendingads.map((value, key) => {
+                            return (
+                             < div>
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
@@ -110,13 +126,13 @@ function mdpendingads() {
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
                       <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5}}>
                         <Typography component="div" variant="h5">
-                          Pet Grooming
+                        {value.adTitle}
                         </Typography>
                         <Typography variant="subtitle1" color="text.secondary" component="div" class="font-italic">
-                        <p class="font-italic text-success fs-7">Posted 5 minutes ago.</p>
+                        <p class="font-italic text-success fs-7">Posted On : {value.adDate} at {value.adTime} </p>
                         </Typography><br/>
                         
-                        Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs<br/><br/>
+                        {value.adDescr}<br/><br/>
                         
                         <a href="/mdviewad" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
                           View
@@ -125,84 +141,9 @@ function mdpendingads() {
                     </Box>
                     
                     </Card><br/>
-
-                    <Card sx={{ display: 'flex', width:900, height: 250 }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 200 }}
-                      image={Profilepic}
-                      alt="Live from space album cover"
-                    />
-                    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
-                        <Typography component="div" variant="h5">
-                          Pet Grooming
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div" class="font-italic">
-                        <p class="font-italic text-success fs-7">Posted 5 minutes ago.</p>
-                        </Typography><br/>
-                        
-                        Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs<br/><br/>
-                        
-                        <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                          View
-                        </Button></a>
-                      </CardContent>
-                    </Box>
-                    
-                    </Card><br/>
-
-                    <Card sx={{ display: 'flex', width:900, height: 250 }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 200 }}
-                      image={Profilepic}
-                      alt="Live from space album cover"
-                    />
-                    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
-                        <Typography component="div" variant="h5">
-                          Pet Grooming
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div" class="font-italic">
-                        <p class="font-italic text-success fs-7">Posted 5 minutes ago.</p>
-                        </Typography><br/>
-                        
-                        Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs<br/><br/>
-                        
-                        <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                          View
-                        </Button></a>
-                      </CardContent>
-                    </Box>
-                    
-                    </Card><br/>
-
-                    <Card sx={{ display: 'flex', width:900, height: 250 }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 200 }}
-                      image={Profilepic}
-                      alt="Live from space album cover"
-                    />
-                    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
-                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3, paddingLeft:5 }}>
-                        <Typography component="div" variant="h5">
-                          Pet Grooming
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div" class="font-italic">
-                        <p class="font-italic text-success fs-7">Posted 5 minutes ago.</p>
-                        </Typography><br/>
-                        
-                        Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs<br/><br/>
-                        
-                        <a href="/mdviewad" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                          View
-                        </Button></a>
-                      </CardContent>
-                    </Box>
-                    
-                    </Card><br/>
+                    </div>
+);
+})}
                   </CardContent>
                             
             				</div>
