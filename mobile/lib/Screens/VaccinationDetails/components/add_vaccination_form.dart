@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../AddPetStep2/component/add_pet_form.dart';
@@ -7,24 +8,97 @@ import '../../Signup/signup_screen.dart';
 import '../../Dashboard/dashboard_screen.dart';
 import '../../AddPetStep2/add_pet_screen.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../../models/pet.dart';
+import '../../../models/petVaccination.dart';
 
 class AddVaccinationtForm extends StatefulWidget {
-  const AddVaccinationtForm({
+  String petID = '';
+  AddVaccinationtForm(String petID, {
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key) {
+    this.petID = petID;
+  }
   @override
-  State<StatefulWidget> createState() => _AddVaccinationFormState();
+  State<StatefulWidget> createState() => _AddVaccinationFormState(petID);
 }
 class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   late DateTime? _dateTime = null;
-  String initialCat = 'Distemper vaccine';
+  String initialCat = 'distemper vaccine';
   String NextVacDate = ' ';
   bool isManualDate = false;
   bool isRemindersOn = true;
+  final url = '10.0.2.2:3001';
+  final getvaccinesRoute = '/mod/getvaccines';
+  final addVacRoute = '/user/addvaccine';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List vaccines = [];
+  String _SelectedVac = '';
+  String _SelectedVacID = '';
+  DateTime? nextDate = new DateTime(1);
   var Catagories = [
     'Distemper vaccine',
     'Canine parvovirus vaccine',
   ];
+  PetVaccination petVaccination = new PetVaccination('', '', 'note', 'nextVacDate');
+  String petID = '';
+  _AddVaccinationFormState(String petID) {
+    this.petID = petID;
+    print("petID");
+    print(petID);
+  }
+
+  Future addPetVaccine() async {
+
+
+    petVaccination.vacID = _SelectedVacID;
+
+
+
+    String nextDatestr = nextDate.toString();
+    final splitted = nextDatestr.split(' ');
+    print(splitted[0]);
+    petVaccination.nextVacDate = splitted[0];
+    petVaccination.petID = petID;
+    print(petVaccination.petID);
+    print(petVaccination.note);
+    print(petVaccination.nextVacDate);
+    print(petVaccination.vacID);
+    // 10.0.2.2
+    var res = await http.post(Uri.http(url, addVacRoute),
+        headers: headers,
+        body: json.encode(
+            petVaccination
+        ),
+        encoding: encoding
+    );
+
+    print(json.decode(res.body));
+    if(json.decode(res.body)=="SUCCESS"){
+      showDialog<void>(
+        context: this.context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Vaccine added"),
+            content: const Text('Vaccine detail successfully added'),
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('okay'),
+                onPressed: () {
+                  Navigator.push(
+                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
+  }
 
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -36,6 +110,29 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
       return Colors.blue;
     }
     return Colors.red;
+  }
+  Future getVaccines() async {
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getvaccinesRoute),
+    );
+
+    final list = json.decode(res.body) as List<dynamic>;
+    setState(() {
+      vaccines = list;
+    });
+    print(list);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.getVaccines();
   }
 
   @override
@@ -83,18 +180,21 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                           ),
 
                           // Array list of items
-                          items: Catagories.map((String items) {
+                          items: vaccines.map((item) {
                             return DropdownMenuItem(
-                              value: items,
-                              child: Text(items),
+                              value: item['vacName'].toString(),
+                              child: Text(item['vacName'].toString()),
                             );
                           }).toList(),
                           // After selecting the desired option,it will
                           // change button value to selected value
-                          onChanged: (String? newValue) {
+                          onChanged: (newValue) {
                             NextVacDate = '2022/12/26';
                             setState(() {
-                              initialCat = newValue!;
+                              initialCat = newValue.toString();
+                              _SelectedVac = newValue.toString();
+                              print(_SelectedVac);
+                              getSelectedVacID();
                             }
                             );
                           },
@@ -123,6 +223,9 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                   ),
                 ),
                 TextFormField(
+                  onChanged: (value) {
+                    petVaccination.note = value;
+                  },
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   cursorColor: formBG,
@@ -194,6 +297,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                                   ).then((date){
                                     setState(() {
                                       _dateTime = date;
+                                      nextDate = date;
                                     });
                                   });
                                 },
@@ -232,14 +336,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                       height: 30,
                       child:ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return PetDashboard();
-                              },
-                            ),
-                          );
+                          addPetVaccine();
                         },
                         child: Text(
                           "ADD Vaccinaction".toUpperCase(),
@@ -255,6 +352,15 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
 
         )
     );
+  }
+
+  void getSelectedVacID() {
+    vaccines.map((item) {
+      if (item['vacName'].toString() == _SelectedVac){
+        _SelectedVacID = item['vacID'].toString();
+        print(_SelectedVacID);
+      }
+    }).toList();
   }
 
 

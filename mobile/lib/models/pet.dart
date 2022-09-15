@@ -5,22 +5,26 @@ class Pet{
   String? breedid;
   String? UserID;
   String? catID;
+  String? profileImage;
+  String? petID;
 
-  Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID);
+  Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage);
+  Pet.frompets(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage,this.petID);
 
   Pet.fromJson(Map<String, dynamic> json)
-      : petName = json['pcatID'].toString(),
-        DOB = json['pcatName'],
-        weight = json['descr'],
-        breedid = json['pcatID'].toString(),
-        UserID = json['pcatName'],
-        catID = json['pcatID'].toString();
+      : petName = json['petName'].toString(),
+        DOB = json['DOB'],
+        weight = json['weight'],
+        breedid = json['breedid'].toString(),
+        UserID = json['UserID'],
+        profileImage = json['profileImage'],
+        catID = json['catID'].toString();
 
   Map toJson() => {
     'petName': petName,
     'DOB': DOB.toString(),
     'weight': weight,
-    'profileImage' : '',
+    'profileImage' : profileImage,
     'breedId' : breedid,
     'UserID': UserID,
     'catId' : catID

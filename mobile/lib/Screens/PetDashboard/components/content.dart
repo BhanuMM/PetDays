@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile/models/pet.dart';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../Dashboard/dashboard_screen.dart';
@@ -10,12 +11,22 @@ import '../../Reminders/Reminders_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class PetDiaryContent extends StatefulWidget{
+  Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
+  PetDiaryContent(Pet pet) {
+   this.pet =pet;
+  }
+
   @override
-  _PetDiaryContentState createState() => _PetDiaryContentState();
+  _PetDiaryContentState createState() => _PetDiaryContentState(pet);
 
 
 }
 class _PetDiaryContentState extends State<PetDiaryContent> {
+  Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
+  _PetDiaryContentState(Pet pet) {
+    this.pet =pet;
+  }
+
 
 
 
@@ -81,10 +92,10 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children:  [
 
                         SizedBox(height: 6,),
-                        Text("Snowy's Diary",
+                        Text(pet.petName.toString() +"'s Diary",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold
@@ -129,7 +140,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Vaccinations",ado: ViewVaccinationsScreen(),img: "vaccine"),
+                      PetDashboardItemCard(label: "Vaccinations",ado: ViewVaccinationsScreen(pet.petID.toString()),img: "vaccine"),
                       Spacer(),
                       PetDashboardItemCard(label: "Edit profile",ado: PetDiaryScreen(),img: "settings"),
                       Spacer(),

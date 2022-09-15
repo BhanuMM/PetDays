@@ -51,7 +51,7 @@ class ProfileSettings extends StatelessWidget {
               ),
             ) ,
 
-          bottomNavigationBar: BottomNav(1),
+          bottomNavigationBar: BottomNav(3),
         )
 
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
-
+import '../../../models/pet.dart';
 class ItemCard extends StatelessWidget {
 
   @override
@@ -14,7 +14,7 @@ class ItemCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return PetDashboard();
+              return PetDashboard(new Pet('','',0,'','','',''));
             },
           ),
         );

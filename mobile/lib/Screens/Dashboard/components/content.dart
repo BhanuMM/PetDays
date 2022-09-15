@@ -1,17 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'dart:convert';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../AddPet/add_pet_screen.dart';
 import '../../Mypets/my_pets_screen.dart';
 import '../../PetMartHome/Pet_Mart_Home_Screen.dart';
 import '../../../models/globals.dart' as globals;
-
-class DashboardContent extends StatelessWidget {
+import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+import 'package:http/http.dart' as http;
+import '../../../models/pet.dart';
+class DashboardContent extends StatefulWidget {
   const DashboardContent({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<DashboardContent> createState() => _DashboardContentState();
+}
+
+class _DashboardContentState extends State<DashboardContent> {
+  final url = '10.0.2.2:3001';
+  final getPetRoute = '/user/getpets';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List pets = [];
+  Future getPets() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetRoute+'/'+globals.uid),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      pets = list ;
+    });
+    print(pets);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    this.getPets();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,11 +124,23 @@ class DashboardContent extends StatelessWidget {
                           SizedBox(height: 8,),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Text("Let's add your pets",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20
+                            child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return AddPetScreen();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Text("Let's add your pets",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20
+                                ),
                               ),
                             ),
                           ),
@@ -161,30 +216,71 @@ class DashboardContent extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),
                   ),
-                  Text(
-                    "Add a pet",
-                    style: TextStyle(
-                      fontSize: 14
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AddPetScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Add a pet",
+                      style: TextStyle(
+                        fontSize: 14
+                      ),
                     ),
                   )
                 ],
               ),
             ),
-            Container(
-              height: 220,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg"),
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg"),
-                  PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg")
-                ],
-              ),
-            )
+            // Container(
+            //   height: 220,
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: [
+            //       pets.map((item) {
+            //         return PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg")
+            //       }).toList(),
+            //
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "pp1.jpg"),
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg"),
+            //       PetDashboardItemCard(label: "Lassie", ado: PetDashboard(), img: "roug.jpg")
+            //     ],
+            //   ),
+            // ),
+              Container(
+                height: 240,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.all(8),
+                  itemCount: pets.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    print(pets[index]);
+                    return Container(
+                        child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
+                            pets[index]['petName'],
+                            pets[index]['DOB'] ,
+                            pets[index]['weight'],
+                            pets[index]['breedid'].toString() ,
+                            pets[index]['UserID'].toString() ,
+                            pets[index]['catID'].toString(),
+                            pets[index]['profileImage'],
+                            pets[index]['petID'].toString(),
+                        )
+                        ),
+                            img: pets[index]['profileImage'])
+                    );
+                  }
+              )
+              )
           ],
         )
     );
 
 
   }
-  }
+}
