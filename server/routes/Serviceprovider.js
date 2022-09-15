@@ -71,6 +71,9 @@ router.get("/getpendingads/:id", async (req, res) => {
   res.json(SingleAd);
 });
 
+
+//for user
+
 //petmart view ads
 router.get("/getpetmartads", async (req, res) => {
   const listOfapprovedads = await Publishedads.findAll(
@@ -84,6 +87,53 @@ router.get("/getpetmartads", async (req, res) => {
 });
 
 
+
+router.get("/getalladsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+
+router.get("/getpendingadsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "pending", userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+router.get("/getrejectedadsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "rejected", userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+router.get("/getacceptedadsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "verified",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+router.get("/getpendingadsuser/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleAd= await Publishedads.findByPk(id);
+  res.json(SingleAd);
+});
 // router.get("/getdietplans", async (req, res) => {
 //   const listOfDietplans = await Dietplans.findAll(
 //     {
