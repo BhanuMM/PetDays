@@ -56,8 +56,13 @@ class _AddPetFormState extends State<AddPetForm>{
     pet.catID = _SelectedCatID;
     pet.breedid = _SelectedBreedID;
 
-    
-
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    final String formatted = formatter.format(DateTime.parse(dob.toString()));
+    pet.DOB = dob.toString();
+    final splitted = pet.DOB.split(' ');
+    print(splitted[0]);
+    pet.DOB = splitted[0];
     print(pet.petName);
     print(pet.DOB);
     print(pet.weight);
@@ -73,39 +78,31 @@ class _AddPetFormState extends State<AddPetForm>{
         encoding: encoding
     );
 
-
     print(json.decode(res.body));
-
-    Map<String, dynamic> petMap = jsonDecode(res.body);
-    if (petMap?.containsKey("error") ?? false) {
+    if(json.decode(res.body)=="SUCCESS"){
       showDialog<void>(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Error"),
-            content: Text(petMap?['error']),
+            title: const Text("Pet successfully added"),
+            content: const Text('The pet has been successfully added. you can enter pets profile through home'),
             actions: <Widget>[
               TextButton(
                 style: TextButton.styleFrom(
-                  textStyle: Theme
-                      .of(context)
-                      .textTheme
-                      .labelLarge,
+                  textStyle: Theme.of(context).textTheme.labelLarge,
                 ),
                 child: const Text('okay'),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.push(
+                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
                 },
               ),
             ],
           );
         },
       );
-    } else {
-      Navigator.push(
-          context,
-          new MaterialPageRoute(builder: (context) => DashboardScreen()));
     }
+
   }
   Future getPetCats() async {
     // 10.0.2.2
