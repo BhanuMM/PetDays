@@ -3,11 +3,51 @@ import 'package:mobile/constants.dart';
 import 'package:mobile/responsive.dart';
 import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class VaccineContent extends StatelessWidget {
+class VaccineContent extends StatefulWidget {
   String petID= '';
   VaccineContent(String petID, {Key? key}) : super(key: key) {
     this.petID = petID;
+  }
+
+  @override
+  State<VaccineContent> createState() => _VaccineContentState();
+}
+
+class _VaccineContentState extends State<VaccineContent> {
+    final url = '10.0.2.2:3001';
+    final getPetVaccineRoute = '/user/getpetvaccines';
+    final headers = {'Content-Type': 'application/json'};
+    final encoding = Encoding.getByName('utf-8');
+    List vaccineDtails = [];
+
+    Future getPetBreeds() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetVaccineRoute+'/'+widget.petID),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      vaccineDtails = list ;
+    });
+    print(vaccineDtails);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    this.getPetBreeds();
   }
   @override
   Widget build(BuildContext context) {
@@ -26,7 +66,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return AddVaccinationScreen(petID);
+                        return AddVaccinationScreen(widget.petID);
                       },
                     ),
                   );
@@ -46,34 +86,52 @@ class VaccineContent extends StatelessWidget {
             ],
           ),
           SizedBox(height: defaultPadding,),
-          Table(
-            defaultColumnWidth: FixedColumnWidth(120.0),
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            border: TableBorder.all(
-                color: Colors.black,
-                style: BorderStyle.solid,
-                width: 1),
-            children:[
-              TableRow(children: [
-                Column(children:[Text('Vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-                Column(children:[Text('Vaccined Date',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-                Column(children:[Text('Next Vaccination',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-
-              ]),
-              TableRow( children: [
-                Column(children:[Text('Parvo', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/06/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/10/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-
-              ]),
-              TableRow( children: [
-                Column(children:[Text('Distemper vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/08/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/12/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-
-              ]),
-            ],
-          ),
+          DataTable(
+              columns:  <DataColumn>[
+                DataColumn(label: Text("VaccineID"), tooltip: "To Display name"),
+                DataColumn(label: Text("Note"), tooltip: "To Display Email"),
+                DataColumn(label: Text("Next Date"), tooltip: "Update data"),
+              ],
+              rows: vaccineDtails.map((vac) => DataRow(
+                  cells: [
+                    DataCell(
+                        Text(vac['vacID'].toString())
+                    ),
+                    DataCell(
+                        Text(vac['note'])
+                    ),
+                    DataCell(
+                        Text(vac['nextVacDate'])
+                    ),
+                  ]
+              )
+              ).toList()
+          )
+          // Table(
+          //   defaultColumnWidth: FixedColumnWidth(120.0),
+          //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          //   border: TableBorder.all(
+          //       color: Colors.black,
+          //       style: BorderStyle.solid,
+          //       width: 1),
+          //   children:[
+          //     ListView.builder(
+          //         scrollDirection: Axis.horizontal,
+          //         padding: const EdgeInsets.all(8),
+          //         itemCount: vaccineDtails.length,
+          //         itemBuilder:(BuildContext context, int index) {
+          //           return TableRow(children: [
+          //             Column(children:[Text('Vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+          //             Column(children:[Text('Vaccined Date',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+          //             Column(children:[Text('Next Vaccination',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+          //
+          //           ])
+          //         }
+          //     )
+          //
+          //
+          //   ],
+          // ),
 
 
         ],

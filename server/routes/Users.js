@@ -69,4 +69,13 @@ router.post("/addpet", async (req, res) => {
     );
     res.json(listOfPets);
   });
+  router.get("/getpetvaccines/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPetVaccines = await PetVaccines.findAll(
+      {where: {
+        petId: id
+      }}
+    );
+    res.json(listOfPetVaccines);
+  });
   module.exports = router ;

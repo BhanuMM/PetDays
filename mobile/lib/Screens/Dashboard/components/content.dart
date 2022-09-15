@@ -29,7 +29,7 @@ class _DashboardContentState extends State<DashboardContent> {
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   List pets = [];
-  Future getPetBreeds() async {
+  Future getPets() async {
 
     // 10.0.2.2
     final res = await http.get(Uri.http(url,getPetRoute+'/'+globals.uid),
@@ -53,7 +53,7 @@ class _DashboardContentState extends State<DashboardContent> {
   @override
   void initState() {
     super.initState();
-    this.getPetBreeds();
+    this.getPets();
   }
   @override
   Widget build(BuildContext context) {
