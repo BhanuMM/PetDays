@@ -45,8 +45,8 @@ function pendingads() {
 							<div className="row">
 								{listOfpublishedads.map((value, key) => {
 									return (
-										<div className="col-3">
-											<div class="petmart-card" style={{ width: 300 }}>
+										<div className="col-4">
+											<div class="petmart-card" style={{ width: 400 }}>
 												<div class="petmart-inner-card">
 													{" "}
 													<img
@@ -91,14 +91,13 @@ function pendingads() {
 																	</Button>
 																</a>
 															</div>
-
 															<div>
 																<a href="" role="button" aria-pressed="true">
 																	<Button
 																		variant="contained"
 																		component="label"
 																		style={{
-																			backgroundColor: "#F66B0E",
+																			backgroundColor: "#112b3c",
 																			width: 100,
 																		}}
 																	>
@@ -106,6 +105,22 @@ function pendingads() {
 																	</Button>
 																</a>
 															</div>
+															<div style={{
+																		paddingLeft: 20
+																	}}>
+															<a href="" role="button" aria-pressed="true">
+																<Button
+																	variant="contained"
+																	component="label"
+																	style={{
+																		backgroundColor: "#F66B0E",
+																		width: 100,
+																	}}
+																>
+																	Remove
+																</Button>
+															</a>
+														</div>
 														</div>
 													</div>
 												</div>

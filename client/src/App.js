@@ -127,6 +127,7 @@ import Spmyads from './pages/spmyads';
 import Sppendingads from './pages/sppendingads';
 import Sppublishedads from './pages/sppublishedads';
 import Sprejectedads from './pages/sprejectedads';
+import Speditad from './pages/speditad';
 // import Signinform from './components/signinform';
 
 function App() {
@@ -255,6 +256,7 @@ function App() {
           <Route path="/sppendingads" element={<Sppendingads/>}/>
           <Route path="/sppublishedads" element={<Sppublishedads/>}/>
           <Route path="/sprejectedads" element={<Sprejectedads/>}/>
+          <Route path="/speditad" element={<Speditad/>}/>
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
 
