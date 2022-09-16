@@ -2,14 +2,34 @@ import React from 'react';
 import '../styles/nav.css';
 import '../styles/footer.css';
 import '../styles/forum.css';
-import Profilepic from '../images/profile.jpg';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
 import Button from '@mui/material/Button';
 import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
-
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function forum() {
+
+  const initialValues = {
+      postTitle:"",
+      postDescr:"", 
+
+	  };
+
+    const navigate = useNavigate();
+	
+	  const onSubmit = (data) => {
+		axios.post("http://localhost:3001/user/addpost", data).then((response) => {
+		  if (response.data.error) {
+			alert(response.data.error);
+		  } else {
+			navigate("/forum");
+		  }
+		});
+	  };
+
   return (
     <div className='forum'>
       <Navbar/><br/><br/><br/><br/>
@@ -23,11 +43,12 @@ function forum() {
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
               <div style={{paddingLeft:950}}>
-                <a href="\mdadddogdiet" className="header-topic">
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+                {/* <a href="\mdadddogdiet" className="header-topic"> */}
+                
+									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}} data-toggle="modal" data-target="#exampleModalCenter">
                     Start New Disscussion
                   </Button>
-								</a>
+								{/* </a> */}
               </div>
               <br/><br/>
 
@@ -145,6 +166,67 @@ function forum() {
         </div>     
       </div>
       </div>
+
+     
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Start New Disscussion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+       >
+      <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Title</label>
+            <Field
+              className="form-control"
+              id="postTitle"
+              autocomplete="off"
+              name="postTitle"
+              placeholder=""
+            />
+            {/* <input type="text" class="form-control" id="recipient-name"/> */}
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message</label>
+            <Field
+              className="form-control"
+              id="postDescr"
+              autocomplete="off"
+              name="postDescr"
+              placeholder=""
+            />
+            {/* <textarea class="form-control" id="message-text"></textarea> */}
+          </div>
+        
+      
+      <div class="modal-footer">
+        <div style={{paddingRight:15}}>
+        <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}} data-dismiss="modal">
+                    Close
+          </Button>
+        </div>
+      
+      <Button variant="contained" type="submit" component="label"  style={{backgroundColor: '#205375'}}>
+                    Submit
+      </Button>
+        
+      </div>
+      </form>
+        
+      </Formik>
+      </div>
+    </div>
+  </div>
+</div>
       
     </div>
     <Footer/>
