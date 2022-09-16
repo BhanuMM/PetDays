@@ -70,6 +70,7 @@ import Viewcategories   from './pages/viewcategories';
 
 import Usertype from './pages/usertype';
 import Addnewadd from './pages/addpetmartadd';
+import Addnewadimage from './pages/addpetmartimages';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
 import Viewadd from './pages/viewpetmartadd';
@@ -167,6 +168,7 @@ function App() {
           <Route path="/verifyemail" element={<Verifyemail/>} /> 
           <Route path="/activate/:hash" element={<Activateaccount/>} />
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
+          <Route path="/addpetmartimages" element={<Addnewadimage/>} />
           <Route path="/addseller" element={<Addseller/>} />
           <Route path="/newadd" element={<Newadd/>} /> 
           <Route path="/editpetmartadd" element={<Editadd/>} /> 
