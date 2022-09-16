@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts } = require("../models");
+const { Pets , Forumposts ,PetVaccines } = require("../models");
+
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
 
@@ -25,6 +26,7 @@ router.post("/addpet", async (req, res) => {
         res.json("NOT SUCCESS"); 
     }
   });
+
 
   router.post("/addpost", async (req, res) => {
     const { postTitle,postDescr,postStatus,userId} = req.body;  
@@ -56,6 +58,21 @@ router.post("/addpet", async (req, res) => {
         userId: userId,
     });
     if(forumposts){
+         res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
+
+  router.post("/addvaccine", async (req, res) => {
+    const { petID, vacID ,note, nextVacDate} = req.body;
+    const petVaccines = PetVaccines.create({
+        petID: petID,
+        vacID: vacID,
+        note: note,
+        nextVacDate: nextVacDate,
+    });
+    if(petVaccines){
         res.json("SUCCESS"); 
     }else{
         res.json("NOT SUCCESS"); 
@@ -74,10 +91,28 @@ router.post("/addpet", async (req, res) => {
         catId: catId,
     });
     if(pet){
-        res.json("SUCCESS"); 
+        res.json(pet.toJSON); 
     }else{
         res.json("NOT SUCCESS"); 
     }
   });
   
+  router.get("/getpets/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPets = await Pets.findAll(
+      {where: {
+        UserId: id
+      }}
+    );
+    res.json(listOfPets);
+  });
+  router.get("/getpetvaccines/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPetVaccines = await PetVaccines.findAll(
+      {where: {
+        petId: id
+      }}
+    );
+    res.json(listOfPetVaccines);
+  });
   module.exports = router ;

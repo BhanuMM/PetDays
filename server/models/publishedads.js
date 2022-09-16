@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      adImage: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       adPrice: {
         type: DataTypes.DOUBLE,
         allowNull: false,

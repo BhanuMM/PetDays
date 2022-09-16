@@ -20,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
               child: DashboardContent()
           ),
 
-          bottomNavigationBar: BottomNav(1),
+          bottomNavigationBar: BottomNav(0),
           )
 
     );

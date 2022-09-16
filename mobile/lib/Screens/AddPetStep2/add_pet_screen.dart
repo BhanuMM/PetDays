@@ -8,7 +8,7 @@ import 'component/add_pet_topbar.dart';
 
 
 class AddPetScreenStep2 extends StatelessWidget {
-  const AddPetScreenStep2({Key? key}) : super(key: key);
+  const AddPetScreenStep2(String s, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Background(

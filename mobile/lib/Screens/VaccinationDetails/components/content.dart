@@ -8,14 +8,17 @@ import 'add_vaccination_form.dart';
 
 
 class AddVaccinationScreenContent extends StatelessWidget {
-  const AddVaccinationScreenContent({Key? key}) : super(key: key);
+  String petID = '';
+  AddVaccinationScreenContent(String petID, {Key? key}) : super(key: key) {
+    this.petID = petID;
+  }
   @override
   Widget build(BuildContext context) {
     return Background(
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children:  const <Widget>[
+        children:   <Widget>[
           SizedBox(height: 50),
           Text(
               "Pet Vaccination",
@@ -34,7 +37,7 @@ class AddVaccinationScreenContent extends StatelessWidget {
           ),
           Expanded(
             flex: 4,
-            child:AddVaccinationtForm(),
+            child:AddVaccinationtForm(petID),
           ),
 
 
