@@ -8,7 +8,10 @@ import '../../../constants.dart';
 import 'components/top_bar.dart';
 
 class ViewVaccinationsScreen extends StatelessWidget {
-  const ViewVaccinationsScreen({Key? key}) : super(key: key);
+  String petID = '';
+  ViewVaccinationsScreen(String petID, {Key? key}) : super(key: key) {
+    this.petID=petID.toString();
+  }
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -26,7 +29,7 @@ class ViewVaccinationsScreen extends StatelessWidget {
                   VaccineTopBanner(),
                   Container(
                     height: 700,
-                    child: VaccineContent(),
+                    child: VaccineContent(petID),
                   ),
 
 

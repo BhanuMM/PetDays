@@ -1,11 +1,21 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'dart:convert';
+import '../../../models/globals.dart' as globals;
+import 'package:http/http.dart' as http;
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../AddPetStep2/component/add_pet_form.dart';
 import '../../Signup/signup_screen.dart';
 import '../../Dashboard/dashboard_screen.dart';
 import '../../AddPetStep2/add_pet_screen.dart';
+import '../../../models/pet.dart';
+import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
+
 
 class AddPetForm extends StatefulWidget {
   const AddPetForm({
@@ -14,6 +24,7 @@ class AddPetForm extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _AddPetFormState();
 }
+
 class _AddPetFormState extends State<AddPetForm>{
   late DateTime? _dateTime = null;
   String initialCat = 'Dog';
@@ -30,6 +41,144 @@ class _AddPetFormState extends State<AddPetForm>{
     'Beagle',
   ];
 
+  final url = '10.0.2.2:3001';
+  final petCatRoute = '/admin/getpetcategories';
+  final petBreedRoute = '/admin/getpetbreeds';
+  final addPetRoute = '/user/addpet';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  late List<dynamic> petcatagories;
+  String _SelectedCat = 'Dog';
+  String _SelectedBreed = 'select';
+  String _SelectedCatID = '';
+  String _SelectedBreedID = '';
+  DateTime? dob = new DateTime(1);
+  List data = [];
+  List breeds = [];
+  Pet pet = Pet('','',0,'','','','');
+  late File image;
+
+  Future addPet() async {
+    String imagepath = '';
+    if(image != null){
+      final File img = await saveImage(image.path);
+      imagepath = img.path;
+    }
+    pet.UserID = globals.uid.toString();
+    pet.catID = _SelectedCatID;
+    pet.breedid = _SelectedBreedID;
+    pet.profileImage = imagepath;
+
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    final String formatted = formatter.format(DateTime.parse(dob.toString()));
+    pet.DOB = dob.toString();
+    final splitted = pet.DOB.split(' ');
+    print(splitted[0]);
+    pet.DOB = splitted[0];
+    print(pet.petName);
+    print(pet.DOB);
+    print(pet.weight);
+    print(pet.breedid);
+    print(pet.UserID);
+    print(pet.catID);
+    print(pet.profileImage);
+    // 10.0.2.2
+    var res = await http.post(Uri.http(url, addPetRoute),
+        headers: headers,
+        body: json.encode(
+            pet
+        ),
+        encoding: encoding
+    );
+
+    print(json.decode(res.body));
+    if(json.decode(res.body)=="SUCCESS"){
+      showDialog<void>(
+        context: this.context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Pet successfully added"),
+            content: const Text('The pet has been successfully added. you can enter pets profile through home'),
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('okay'),
+                onPressed: () {
+                  Navigator.push(
+                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
+  }
+  Future getPetCats() async {
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,petCatRoute),
+    );
+
+    final list = json.decode(res.body) as List<dynamic>;
+    setState(() {
+      data = list;
+    });
+    print(list);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  Future getPetBreeds() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,petBreedRoute+'/'+_SelectedCatID),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      breeds = list ;
+
+    });
+
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    this.getPetCats();
+  }
+
+  void getSelectedCatID() {
+    data.map((item) {
+      if (item['pcatName'].toString() == _SelectedCat){
+        _SelectedCatID = item['pcatID'].toString();
+        print(_SelectedCatID);
+      }
+    }).toList();
+  }
+  void getSelectedBreedID() {
+    breeds.map((item) {
+      if (item['breedName'].toString() == _SelectedBreed){
+        _SelectedBreedID = item['breedID'].toString();
+        print(_SelectedBreedID);
+      }
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +188,13 @@ class _AddPetFormState extends State<AddPetForm>{
         width: MediaQuery.of(context).size.width -80,
         child: Column(
         children: [
+          // FutureBuilder<dynamic>(
+          //   future: getPetCats(),
+          //   builder: (context, data) {
+          //     var cats = data.data as List<PetCatagory>;
+          //     return Text(data.hasData.toString());
+          //   },
+          // ),
           Padding(
               padding: const EdgeInsets.only(top: 20),
             child: Container(
@@ -55,6 +211,10 @@ class _AddPetFormState extends State<AddPetForm>{
             ),
           ),
           TextFormField(
+            controller: TextEditingController(text: pet.petName),
+            onChanged: (value) {
+              pet.petName = value;
+            },
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: formBG,
@@ -105,6 +265,7 @@ class _AddPetFormState extends State<AddPetForm>{
                                 lastDate:  DateTime.now()
                             ).then((date){
                               setState(() {
+                                dob= date;
                                 _dateTime = date;
                               });
                             });
@@ -138,7 +299,7 @@ class _AddPetFormState extends State<AddPetForm>{
                   child: DropdownButton(
 
                     // // Initial Value
-                   value: initialCat,
+                   value: _SelectedCat,
                     hint: Text(
                         "Select a pet Catagory",
                       style: TextStyle(
@@ -153,17 +314,20 @@ class _AddPetFormState extends State<AddPetForm>{
                     ),
 
                     // Array list of items
-                    items: Catagories.map((String items) {
+                    items: data.map((item) {
                       return DropdownMenuItem(
-                        value: items,
-                        child: Text(items),
+                        value: item['pcatName'],
+                        child: Text(item['pcatName'].toString()),
                       );
                     }).toList(),
                     // After selecting the desired option,it will
                     // change button value to selected value
-                    onChanged: (String? newValue) {
+                    onChanged: (newValue) {
                       setState(() {
-                        initialCat = newValue!;
+                        _SelectedBreed = 'select';
+                        _SelectedCat = newValue.toString();
+                        getSelectedCatID();
+                        getPetBreeds();
                       }
                       );
                     },
@@ -191,7 +355,7 @@ class _AddPetFormState extends State<AddPetForm>{
                   child: DropdownButton(
 
                     // // Initial Value
-                    value: initialBreed,
+                    value: _SelectedBreed,
                     isExpanded: true,
                     hint: const Text(
                         "Select a pet breed",
@@ -207,17 +371,19 @@ class _AddPetFormState extends State<AddPetForm>{
                     ),
 
                     // Array list of items
-                    items: DogBreeds.map((String items) {
+                    items: breeds.map((item) {
                       return DropdownMenuItem(
-                        value: items,
-                        child: Text(items),
+                        value: item['breedName'],
+                        child: Text(item['breedName'].toString()),
                       );
                     }).toList(),
                     // After selecting the desired option,it will
                     // change button value to selected value
-                    onChanged: (String? newValue) {
+                    onChanged: (newValue) {
                       setState(() {
-                        initialBreed = newValue!;
+                        getPetBreeds();
+                        _SelectedBreed = newValue.toString();
+                        getSelectedBreedID();
                       }
                       );
                     },
@@ -243,10 +409,14 @@ class _AddPetFormState extends State<AddPetForm>{
             ),
           ),
           TextFormField(
-            keyboardType: TextInputType.emailAddress,
+            // controller: TextEditingController(),
+            onChanged: (value) {
+              pet.weight = int.tryParse(value);
+            },
+            enabled: true,
+            keyboardType: TextInputType.number,
             textInputAction: TextInputAction.next,
             cursorColor: formBG,
-            onSaved: (email) {},
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Enter your pet\'s Weight here',
@@ -256,6 +426,22 @@ class _AddPetFormState extends State<AddPetForm>{
               fillColor: Colors.white,
             ),
           ),
+          Padding(
+              padding: const EdgeInsets.only(top: 20,bottom: 20),
+              child:SizedBox(
+                width: 250,
+                height: 60,
+                child:ElevatedButton(
+                  onPressed: () {
+                    pickImage();
+                  },
+                  child: Text(
+                    "Add Pet profile Picture".toUpperCase(),
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              )
+          ),
         Padding(
           padding: const EdgeInsets.only(top: 20,bottom: 20),
           child:SizedBox(
@@ -263,14 +449,7 @@ class _AddPetFormState extends State<AddPetForm>{
             height: 30,
             child:ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return AddPetScreenStep2();
-                    },
-                  ),
-                );
+                addPet();
               },
               child: Text(
                 "Next".toUpperCase(),
@@ -287,6 +466,27 @@ class _AddPetFormState extends State<AddPetForm>{
       )
     );
   }
+
+  Future pickImage() async{
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if(image == null) return;
+
+    final tempImg = File(image.path);
+    setState(() {
+      this.image = tempImg;
+    });
+  }
+
+  Future<File> saveImage(String path) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name= basename(path);
+    final image = File('${directory.path}/$name');
+
+    return File(path).copy(image.path);
+    // return await image.saveTo(image);
+  }
+
+
 
 
 

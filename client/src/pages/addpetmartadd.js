@@ -26,6 +26,7 @@ function addpetmartadd() {
   const initialValues = {
 	adTitle : "",
 	adDescr : "",
+  adImage : "",
 	adPrice : "",
 	adContact : "",
 	adEmail : "",
@@ -62,9 +63,10 @@ function addpetmartadd() {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        navigate("/spdashboard");
+        navigate("/addpetmartimages",{state: response.data});
       }
     });
+    console.log(data);
   };
 
   return (
@@ -88,7 +90,9 @@ function addpetmartadd() {
               <div className="row">
                 <main class="py-6 bg-surface-secondary">
 					
-                  <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                  <Formik initialValues={initialValues} onSubmit={onSubmit}
+                  
+                  >
                     <Form>
                       {/* <Box
                 component="form"
@@ -125,6 +129,14 @@ function addpetmartadd() {
                         name="adDescr"
                         placeholder=""
                       />
+                      <Field
+                        className="form-control"
+                        type="hidden"
+                        id="adImage"
+                        autocomplete="off"
+                        name="adImage"
+                        placeholder=""
+                      />
                       <label className="form-label">Price</label>
                       <Field
                         className="form-control"
@@ -142,6 +154,8 @@ function addpetmartadd() {
                         name="adContact"
                         placeholder=""
                       />
+                      {/* <input type="text" id="fname" name="fname"></input> */}
+                      {/* <input id="file" name="file" type="file" /> */}
                       <label className="form-label">Email</label>
                       <Field
                         className="form-control"
@@ -160,15 +174,22 @@ function addpetmartadd() {
                       />
                       <label className="form-label">Province</label>
                       <Field as="select" name="adProvince" className="form-select">
-             <option value="red">Red</option>
-             <option value="green">Green</option>
-             <option value="blue">Blue</option>
+             <option value="Central Province">Central Province</option>
+             <option value="Eastern Province">Eastern Province </option>
+             <option value="Northern Province">Northern Province</option>
+             <option value="Southern Province">Southern Province </option>
+             <option value="Western Province">Western Province</option>
+             <option value="North Western Province">North Western Province </option>
+             <option value="Northern Province">Northern Province</option>
+             <option value="North Central Province">North Central Province </option>
+             <option value="Uva Province">Uva Province</option>
            </Field>
                       <label className="form-label">District</label>
                       <Field as="select" name="adDistrict" className="form-select">
-             <option value="red">Red</option>
-             <option value="green">Green</option>
-             <option value="blue">Blue</option>
+             <option value="red">Galle</option>
+             <option value="green">Matara</option>
+             <option value="blue">Hambantota</option>
+             <option value="blue">Colombo</option>
            </Field>
                       {/* </Box> */}
 
@@ -182,9 +203,9 @@ function addpetmartadd() {
                           <button
                             className="register.loginbuttonsize btn btn-success "
                             type="submit"
-                            style={{ backgroundColor: "#F66B0E" }}
+                            style={{ backgroundColor: "#266305" }}
                           >
-                            Submit
+                            Next
                           </button>
                           <Button
                             variant="contained"
@@ -192,7 +213,7 @@ function addpetmartadd() {
                             sx={{ margin: 1 }}
                             style={{ backgroundColor: "#e30b0b" }}
                           >
-                            Delete
+                            Cancel
                           </Button>
                         </div>
                         <div className="col-3"></div>

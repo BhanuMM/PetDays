@@ -94,6 +94,28 @@ router.post("/addmoderator", async (req, res) => {
   
 });
 
+router.post("/addpost", async (req, res) => {
+  const { firstName,lastName,conNum,uemail,modNIC,username,password } = req.body;
+  
+ const chckq = Moderators.create({
+    firstName: firstName,
+    lastName: lastName,
+    conNum: conNum,
+    modEmail:uemail,
+    modNIC:modNIC
+
+  });
+  if(chckq){
+    // const role = "moderator";
+    // const userreg = us.registerUser(req, res ,role);
+    
+    res.json("Mod SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+  
+});
+
 router.get("/getmedicines", async (req, res) => {
   const listOfMedicines = await Medicines.findAll();
   res.json(listOfMedicines);

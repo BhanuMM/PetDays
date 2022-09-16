@@ -4,6 +4,7 @@ import 'package:mobile/constants.dart';
 import 'package:mobile/responsive.dart';
 import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
+import '../../../models/pet.dart';
 
 class VaccineContent extends StatelessWidget {
   const VaccineContent({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return PetDashboard();
+                        return PetDashboard(new Pet('','',0,'','','',''));
                       },
                     ),
                   );

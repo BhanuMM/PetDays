@@ -2,15 +2,35 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds ,Publishedads} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds ,Publishedads,Rejectedads} = require("../models");
 const vitamins = require('../models/vitamins');
-// const breeds = require('../models/breeds');
+const cors = require("cors");
+const multer = require("multer");
+const upload = multer({ dest: "./uploads/"});
+var fs = require("fs");
 
 router.use(bodyParser.json());
+router.use(cors());
+
+router.use("/static", express.static("uploads"));
+
+router.post("/uploadphoto", upload.single("file"), async (req, res) => {
+  
+  let fileType = req.file.mimetype.split("/")[1];
+  let newFileName = req.file.filename+"."+fileType;
+  console.log("newFileName", newFileName)
+  fs.rename(`./uploads/${req.file.filename}`,`./uploads/${newFileName}`,async function  () {
+    await Publishedads.update({adImage : newFileName} ,{ where: { adID: "1" }} );
+      res.send("200");
+    }
+  )
+ 
+});
+
 
 
 router.post("/publishad", async (req, res) => {
-  const { adTitle,adDescr,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,userId } = req.body;
+  const { adTitle,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,userId } = req.body;
   
 
   let date_ob = new Date();
@@ -31,9 +51,10 @@ router.post("/publishad", async (req, res) => {
   // current minutes
   let minutes = date_ob.getMinutes();
 
- const chckq = Publishedads.create({
+ const chckq = Publishedads.build({
   adTitle : adTitle,
   adDescr : adDescr,
+  adImage : adImage ,
   adPrice : adPrice,
   adContact : adContact,
   adEmail : adEmail,
@@ -45,14 +66,18 @@ router.post("/publishad", async (req, res) => {
   adTime : hours + ":" + minutes,
   userId : "19"
 
-  });
+  },
+  { isNewRecord: true });
+  await chckq.save();
+
   if(chckq){
-    res.json("Ad SUCCESS");
+    res.json(chckq.adId);
   }else{
     res.json("Ad Not SUCCESS");
   }
   
 });
+
 
 router.get("/getpendingads", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
@@ -105,11 +130,11 @@ router.get("/viewad/:id", async (req, res) => {
 
 router.get("/getalladsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
-    {
-      where: {
-        userId: "1",
-      },
-    }
+    // {
+    //   where: {
+    //     userId: "1",
+    //   },
+    // }
   );
   res.json(listOfpendingads);
 });
@@ -118,7 +143,7 @@ router.get("/getpendingadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
       where: {
-        adStatus: "pending", userId: "1",
+        adStatus: "pending",
       },
     }
   );
@@ -128,7 +153,8 @@ router.get("/getrejectedadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
       where: {
-        adStatus: "rejected", userId: "1",
+        adStatus: "rejected", 
+        // userId: "1",
       },
     }
   );
@@ -190,6 +216,24 @@ router.post("/spupdatead", async (req, res) => {
  
   res.json("SUCCESS"); 
 });
+
+router.post("/updaterejectedad/:id", async (req, res) => {
+  const id = req.params.id;
+  const chckq= await Publishedads.update({adStatus :"rejected"} ,{ where: { adID: id }} );
+   
+
+    if(chckq){
+      await Rejectedads.create({
+        rejReason : "This ad is rejected bcz no img",
+        adId : id
+      });
+      res.json("Ad SUCCESS");
+    }else{
+      res.json("Ad Not SUCCESS");
+    }
+  
+});
+
 
 
 

@@ -7,9 +7,14 @@ import 'components/content.dart';
 import '../../../constants.dart';
 import 'components/top_bar.dart';
 import '../PetDiary/Pet_DIary_Screen.dart';
+import '../../models/pet.dart';
 
 class PetDashboard extends StatelessWidget {
-  const PetDashboard({Key? key}) : super(key: key);
+  late Pet pet;
+   PetDashboard(pet, {Key? key}) : super(key: key) {
+    this.pet = pet;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -27,14 +32,14 @@ class PetDashboard extends StatelessWidget {
 
                 Expanded(
                   flex: 10,
-                  child: PetDiaryContent(),
+                  child: PetDiaryContent(pet),
                 ),
 
               ],
             ),
           ) ,
       ),
-       bottomNavigationBar: BottomNav(1),
+       bottomNavigationBar: BottomNav(0),
       )
 
     );

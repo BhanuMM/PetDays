@@ -143,11 +143,52 @@ function mdviewad() {
 								</div>
 
 								<div>
-									<a href="" role="button" aria-pressed="true">  
-										<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E' , width:100}}>
+										<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E' , width:100}}
+										onClick={() => {
+
+											const { value: text } = Swal.fire({
+												title: 'Enter a Reason for Rejecting the Ad',
+												input: 'textarea',
+												inputPlaceholder: 'Type the reason here...',
+												inputAttributes: {
+												  'aria-label': 'Type the reason here'
+												},
+												showCancelButton: true,
+												confirmButtonText: 'Reject Ad'
+											  }).then((result) => {
+												if (result.isConfirmed) {
+						
+												  
+												  axios.post("http://localhost:3001/service/updaterejectedad/"+SingleAd.adId).then((response) => {
+													if (response.data.error) {
+													  alert(response.data.error);
+													} else {
+													  
+													} 
+												  });
+												  navigate('/mdpendingads')
+													Swal.fire(
+													  'SUCCESS!',
+													  'Advertiement Has been Rejected.',
+													  'success'
+													)
+												   
+												  
+												}
+											  })
+											  
+											//   if (text) {
+											// 	Swal.fire(
+											// 		'Approved!',
+											// 		'Advertiement Has been Approved.',
+											// 		'success'
+											// 	  )
+											//   }
+											
+											  }}
+											  >
 										Reject
 										</Button>
-									</a>
 								</div>
                                 
                             </div>
