@@ -12,8 +12,9 @@ import "../styles/spdashboard.css";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 function pendingads() {
-    const [listOfallads, setlistOfallads] = useState([]);
+	const [listOfallads, setlistOfallads] = useState([]);
 	// let history = useHistory();
 
 	useEffect(() => {
@@ -44,76 +45,100 @@ function pendingads() {
 							<hr />
 							<br />
 							<div className="row">
-                            {listOfallads.map((value, key) => {
-											return (
-								<div className="col-3">
-									<div class="petmart-card" style={{ width: 300 }}>
-										<div class="petmart-inner-card">
-											{" "}
-											<img
-												src="https://www.acs.edu.au/database/images/course_4335051.jpg"
-												class="img-fluid rounded"
-											/>
-											<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-												<h4>{value.adTitle}</h4>
-												<small>{value.adDate} at {value.adTime}{" "}</small>
-											</div>
-											<div class="mt-2 px-2">
-												{" "}
-												<small>
-                                                {value.adDescr}
-												</small>{" "}
-											</div>
-											<div class="px-2">
-												<h3>{value.adPrice}</h3>
-											</div>
-											<div class="px-2 mt-3">
-												<div
-													class="comment"
-													style={{ display: "flex", paddingLeft: 10 }}
-												>
-													<br />
-													<br />
-													<div style={{ paddingRight: 20 }}>
-														<a
-															href="\spviewad"
-															role="button"
-															aria-pressed="true"
-														>
-															<Button
-																variant="contained"
-																component="label"
-																style={{
-																	backgroundColor: "#205375",
-																	width: 100,
-																}}
-															>
-																View
-															</Button>
-														</a>
+								{listOfallads.map((value, key) => {
+									return (
+										<div className="col-4">
+											<div class="petmart-card" style={{ width: 400 }}>
+												<div class="petmart-inner-card">
+													{" "}
+													<img
+														src="https://www.acs.edu.au/database/images/course_4335051.jpg"
+														class="img-fluid rounded"
+													/>
+													<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+														<h4>{value.adTitle}</h4>
+														<small>
+															{value.adDate} at {value.adTime}{" "}
+														</small>
 													</div>
+													<div class="mt-2 px-2">
+														{" "}
+														<small>{value.adDescr}</small>{" "}
+													</div>
+													<div class="px-2">
+														<h3>{value.adPrice}</h3>
+													</div>
+													<div class="px-2 mt-3">
+														<div
+															class="comment"
+															style={{ display: "flex", paddingLeft: 10 }}
+														>
+															<br />
+															<br />
+															<div style={{ paddingRight: 20 }}>
+																<a
+														
+																	role="button"
+																	aria-pressed="true"
+																>
+																	<Button
+																	style={{
+																		backgroundColor: "#205375",
+																		width: 100,
+																	}}
+																		variant="contained"
+																		component="label"
+																		onClick={() => {
+																		navigate('/spviewad',{state: value.adId});
+																			  }}
+																	>
+																		View
+																	</Button>
+																</a>
+															</div>
 
-													<div>
-														<a href="" role="button" aria-pressed="true">
-															<Button
-																variant="contained"
-																component="label"
-																style={{
-																	backgroundColor: "#F66B0E",
-																	width: 100,
-																}}
-															>
-																Edit
-															</Button>
-														</a>
+															<div>
+																<a  role="button" aria-pressed="true">
+																	<Button
+																		variant="contained"
+																		component="label"
+																		style={{
+																			backgroundColor: "#112b3c",
+																			width: 100,
+																		}}
+																		onClick={() => {
+																			navigate('/speditad',{state: value.adId});
+																			  }}
+																	>
+																		Edit
+																	</Button>
+																</a>
+															</div>
+															<div style={{
+																		paddingLeft: 20
+																	}}>
+															<a role="button" aria-pressed="true">
+																<Button
+																	variant="contained"
+																	component="label"
+																	style={{
+																		backgroundColor: "#F66B0E",
+																		width: 100,
+																	}}
+																>
+																	Remove
+																</Button>
+															</a>
+														</div>
+															<br />
+														</div>
+														
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-                                );
-                            })}
+									);
+								})}
 							</div>
 						</div>
 					</main>
