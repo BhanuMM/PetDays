@@ -68,19 +68,17 @@ function mdsinglemed() {
                     class="col col-xs-6 text-right"
                     style={{ display: "flex" }}
                   >
-                    <a
-                      href="\mdaddmed"
-                      className="header-topic"
-                      style={{ paddingRight: 600 }}
-                    >
+                    
                       <Button
                         variant="contained"
                         component="label"
                         style={{ backgroundColor: "#F66B0E" }}
+                        onClick = {() => {
+                          navigate("/mdaddmed");
+                        }}
                       >
                         Add Medicine
                       </Button>
-                    </a>
                     <div class="input-group" style={{ width: 575 }}>
                       <p>Search Medicine</p>
                       <input
