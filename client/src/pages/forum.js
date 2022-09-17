@@ -13,19 +13,20 @@ import { useNavigate } from "react-router-dom";
 function forum() {
 
   const initialValues = {
-      postTitle:"",
-      postDescr:"", 
+    postTitle:"",
+    postDescr:"", 
 
 	  };
 
     const navigate = useNavigate();
 	
 	  const onSubmit = (data) => {
+      console.log("data");
 		axios.post("http://localhost:3001/user/addpost", data).then((response) => {
 		  if (response.data.error) {
 			alert(response.data.error);
 		  } else {
-			navigate("/forum");
+        navigate(0);
 		  }
 		});
 	  };
@@ -183,7 +184,7 @@ function forum() {
         initialValues={initialValues}
         onSubmit={onSubmit}
        >
-      <form>
+      <Form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Title</label>
             <Field
@@ -210,17 +211,18 @@ function forum() {
       
       <div class="modal-footer">
         <div style={{paddingRight:15}}>
-        <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}} data-dismiss="modal">
+        <button variant="contained" type="submit" component="label"  style={{backgroundColor: '#205375'}}>
+                    Submit
+        </button>
+        <button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}} data-dismiss="modal">
                     Close
-          </Button>
+          </button>
         </div>
       
-      <Button variant="contained" type="submit" component="label"  style={{backgroundColor: '#205375'}}>
-                    Submit
-      </Button>
+      
         
       </div>
-      </form>
+      </Form>
         
       </Formik>
       </div>

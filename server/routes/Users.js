@@ -29,7 +29,7 @@ router.post("/addpet", async (req, res) => {
 
 
   router.post("/addpost", async (req, res) => {
-    const { postTitle,postDescr,postStatus,userId} = req.body;  
+    const { postTitle,postDescr} = req.body;  
 
         let date_ob = new Date();
 
@@ -50,12 +50,12 @@ router.post("/addpet", async (req, res) => {
         let minutes = date_ob.getMinutes();
 
     const forumposts = Forumposts.create({
-        postTitle: postTitle,
-        postDescr: postDescr,
+      postTitle: postTitle,
+      postDescr: postDescr,
+      postStatus: "pending",
         postDate : year + "-" + month + "-" + date,
         postTime : hours + ":" + minutes,
-        postStatus: postStatus,
-        userId: userId,
+        userId: "1",
     });
     if(forumposts){
          res.json("SUCCESS"); 
