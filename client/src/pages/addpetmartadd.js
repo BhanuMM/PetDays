@@ -207,14 +207,13 @@ function addpetmartadd() {
                           >
                             Next
                           </button>
-                          <Button
-                            variant="contained"
-                            component="label"
-                            sx={{ margin: 1 }}
-                            style={{ backgroundColor: "#e30b0b" }}
+                          <button
+                           className="register.loginbuttonsize btn btn-success "
+                           type="cancel"
+                           style={{ backgroundColor: "red" }}
                           >
                             Cancel
-                          </Button>
+                          </button>
                         </div>
                         <div className="col-3"></div>
                       </div>

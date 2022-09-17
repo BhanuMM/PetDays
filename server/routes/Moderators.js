@@ -52,7 +52,6 @@ router.post("/adddietplan", async (req, res) => {
   const { planName,planDescr, ageRangeFrom,ageRangeTo , weightRangeFrom,weightRangeTo, breedId,catId} = req.body;
   // const uemail = await Users.findOne({ where: { email: email } });
   // const uname = await Users.findOne({ where: { username: username } });
-
   // if (uemail) res.json({ error: "Email is already registered" });
  const chckq = Dietplans.create({
   planName: planName,
@@ -116,10 +115,13 @@ router.post("/addpost", async (req, res) => {
   
 });
 
+
+
 router.get("/getmedicines", async (req, res) => {
   const listOfMedicines = await Medicines.findAll();
   res.json(listOfMedicines);
 });
+
 router.get("/getvaccines", async (req, res) => {
   const listOfVaccines = await Vaccines.findAll();
   res.json(listOfVaccines);
