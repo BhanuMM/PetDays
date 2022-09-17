@@ -115,6 +115,8 @@ router.post("/addpost", async (req, res) => {
   
 });
 
+
+
 router.get("/getmedicines", async (req, res) => {
   const listOfMedicines = await Medicines.findAll();
   res.json(listOfMedicines);

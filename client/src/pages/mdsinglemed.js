@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 
 
 function mdsinglemed() {
+  const [searchTerm, setSearchTerm] = useState([]);
   const [listOfMedicines, setListOfMedicines] = useState([]);
   // let history = useHistory();
 
@@ -81,25 +82,19 @@ function mdsinglemed() {
                       </Button>
                     </a>
                     <div class="input-group" style={{ width: 575 }}>
+                      <p>Search Medicine</p>
                       <input
                         type="search"
                         class="form-control rounded"
-                        placeholder="Search Medicine"
+                        placeholder="Enter  Medicine Name"
                         aria-label="Search"
                         aria-describedby="search-addon"
                         style={{ height: 40 }}
-                      />
-                      <button
-                        type="button"
-                        class="btn"
-                        style={{
-                          height: 40,
-                          backgroundColor: "#205375",
-                          color: "white",
+                        onChange = {(event) => {
+                         setSearchTerm(event.target.value);
                         }}
-                      >
-                        Search
-                      </button>
+                      />
+                      
                     </div>
                   </div>
                   <br />
@@ -131,7 +126,13 @@ function mdsinglemed() {
                           </tr>
                         </thead>
                         <tbody>
-                          {listOfMedicines.map((value, key) => {
+                          {listOfMedicines.filter((val) => {
+                            if(searchTerm == ""){
+                              return val
+                            }else if (val.medName.toLowerCase().includes(searchTerm.toLowerCase())){
+                              return val
+                            }
+                          }).map((value, key) => {
                             return (
 
 								<tr>
