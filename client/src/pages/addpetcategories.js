@@ -97,11 +97,11 @@ function addpetcategories() {
 								</div>
 							</div>
 						</div>
-					</header>
+					</header><br /><br />
 					<main class="py-6 bg-surface-secondary">
-						<div className="row pt-0 mt-5">
-							<div className="row flex-nowrap pt-0">
-								<div className="col-7 g-5" >
+						<div class="container-fluid">
+							<div class="row g-6 mb-6">
+								<div style={{ paddingLeft: 20 }}>
 									{/* <Card
 										sx={{
 											minWidth: 275,
@@ -117,7 +117,7 @@ function addpetcategories() {
 									onSubmit={onSubmit}
 								
                       				>
-											<Form>
+											<Form class="row g-3" style={{ paddingLeft: 200 }}>
 												<br />
 												<br />
 												<br />
@@ -138,28 +138,47 @@ function addpetcategories() {
 														id="med-desc"
 														label="Description about the Category"
 													/> */}
-													 <label className="form-label">Name of the Category</label>
-														<Field
-														className="form-control"
-														id="pcatName"
-														autocomplete="off"
-														name="pcatName"
-														placeholder=""
-														/>
+
+													<div class="col-10">
+														<label className="form-label">Name of the Category</label>
+															<Field
+															className="form-control"
+															id="pcatName"
+															autocomplete="off"
+															name="pcatName"
+															placeholder=""
+															/>
+													</div>
+													<div class="col-10">
 														<label className="form-label">Description about the Category</label>
-														<Field
-														className="form-control"
-														id="descr"
-														autocomplete="off"
-														name="descr"
-														placeholder=""
-														/>
+															<Field
+															className="form-control"
+															id="descr"
+															autocomplete="off"
+															name="descr"
+															placeholder=""
+															component="textarea"
+															/>
+													</div>
+													<div className="row">
+														<div className="col-9"></div>
+														<div className="col-3 mb-5 mt-5">
+															{" "}
+															<button
+																className="register.loginbuttonsize btn btn-success "
+																type="submit"
+																style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
+															>
+																Add Pet Category
+															</button>
+														</div>
+													</div>
 												{/* </Box> */}
 
-												<div className="row">
+												{/* <div className="row">
 													<div className="col-9"></div>
 													<div className="col-3 mb-5 mt-5">
-														{" "}
+														{" "} */}
 														{/* <Button
 															variant="contained"
 															component="label"
@@ -167,21 +186,19 @@ function addpetcategories() {
 														>
 															Add Pet Category
 														</Button> */}
-														 <button
+														 {/* <button
                               className="register.loginbuttonsize btn btn-success "
                               type="submit"
-							  style={{backgroundColor: '#F66B0E'}} 
+							  style={{backgroundColor: '#F66B0E',borderColor:"#F66B0E"}} 
                             >
                              Add Pet Category
                             </button>
 													</div>
-													{/* <div className='col-3'></div> */}
-												</div>
+													
+												</div> */}
 											</Form>
 											</Formik>
-											{/* </Formik> */}
-										{/* </CardContent>
-									</Card> */}
+											
 								</div>
 							</div>
 						</div>

@@ -93,24 +93,134 @@ function addpetmartadd() {
                   <Formik initialValues={initialValues} onSubmit={onSubmit}
                   
                   >
-                    <Form>
-                      {/* <Box
-                component="form"
-                sx={{
-                    '& .MuiTextField-root': { m: 1, width: '100ch' },
-                }}
-                noValidate
-                autoComplete="off"
-                > */}
-                      {/* <TextField id="ad-name" label="Name of advertiesment" /><br/>
-                    <TextField id="sp-name" label="Name of supplier"/>
-                    <TextField id="descrip" label="Description"/>
-                    <TextField id="Price" label="Price Rs:"/>
-                    <TextField id="image" label="Image (Change the input type)"/>
-                    <TextField id="contact" label="Contact Number"/>
-                    <TextField id="address" label="Address"/>
-                    <TextField id="email" label="Email"/>
-                    <TextField id="fb" label="Facebook"/> */}
+                    <Form class="row g-3" style={{ paddingLeft: 200 }}>
+										<div class="col-10">
+                      <label className="form-label">
+                          Advertiesment Title
+                        </label>
+                        <Field
+                          className="form-control"
+                          id="adTitle"
+                          autocomplete="off"
+                          name="adTitle"
+                          placeholder=""
+                        />
+										</div>
+										<div class="col-10">
+                      <label className="form-label">Advertiesment Description</label>
+                        <Field
+                          className="form-control"
+                          id="adDescr"
+                          autocomplete="off"
+                          name="adDescr"
+                          placeholder=""
+                          component="textarea"
+                        />
+										</div>
+
+                    <div class="col-10">
+                      <label className="form-label">Price</label>
+                        <Field
+                          className="form-control"
+                          id="adPrice"
+                          autocomplete="off"
+                          name="adPrice"
+                          placeholder=""
+                        />
+										</div>
+										
+										<div class="row g-3">
+											<div class="col-5">
+                        <label className="form-label">Contact Number </label>
+                        <Field
+                          className="form-control"
+                          id="adContact"
+                          autocomplete="off"
+                          name="adContact"
+                          placeholder=""
+                        />
+											</div>
+											<div class="col-5">
+                        <label className="form-label">Email</label>
+                        <Field
+                          className="form-control"
+                          id="adEmail"
+                          autocomplete="off"
+                          name="adEmail"
+                          placeholder=""
+                        />
+											</div>
+										</div>
+
+                    <div class="col-10">
+                      <label className="form-label">Address</label>
+                        <Field
+                          className="form-control"
+                          id="adAddress"
+                          autocomplete="off"
+                          name="adAddress"
+                          placeholder=""
+                        />
+										</div>
+										<div class="row g-3">
+											<div class="col-5">
+                      <label className="form-label">Province</label>
+                      <Field as="select" name="adProvince" className="form-select">
+                        <option value="Central Province">Central Province</option>
+                        <option value="Eastern Province">Eastern Province </option>
+                        <option value="Northern Province">Northern Province</option>
+                        <option value="Southern Province">Southern Province </option>
+                        <option value="Western Province">Western Province</option>
+                        <option value="North Western Province">North Western Province </option>
+                        <option value="Northern Province">Northern Province</option>
+                        <option value="North Central Province">North Central Province </option>
+                        <option value="Uva Province">Uva Province</option>
+                      </Field>
+											</div>
+											<div class="col-5">
+                      <label className="form-label">District</label>
+                      <Field as="select" name="adDistrict" className="form-select">
+                        <option value="red">Galle</option>
+                        <option value="green">Matara</option>
+                        <option value="blue">Hambantota</option>
+                        <option value="blue">Colombo</option>
+                      </Field>
+											</div>
+										</div>
+											<div className="row">
+												<div className="col-9"></div>
+												<div className="col-3 mb-5 mt-5">
+													{" "}
+
+                          <button
+                            className="register.loginbuttonsize btn btn-success "
+                            type="submit"
+                            style={{ backgroundColor: "#205375", borderColor:"#205375"}}
+                          >
+                            Next
+                          </button>
+
+                          <Button
+                            variant="contained"
+                            component="label"
+                            sx={{ margin: 1 }}
+                            style={{backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
+                          >
+                            Cancel
+                          </Button>
+
+													{/* <button
+														className="register.loginbuttonsize btn btn-success "
+														type="submit"
+														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
+													>
+														Add Advertisment
+													</button> */}
+												</div>
+											</div>
+										</Form>
+                    {/* <Form>
+                      
                       <label className="form-label">
                         Advertiesment Title
                       </label>
@@ -154,8 +264,7 @@ function addpetmartadd() {
                         name="adContact"
                         placeholder=""
                       />
-                      {/* <input type="text" id="fname" name="fname"></input> */}
-                      {/* <input id="file" name="file" type="file" /> */}
+                     
                       <label className="form-label">Email</label>
                       <Field
                         className="form-control"
@@ -191,15 +300,13 @@ function addpetmartadd() {
              <option value="blue">Hambantota</option>
              <option value="blue">Colombo</option>
            </Field>
-                      {/* </Box> */}
+                     
 
                       <div className="row">
                         <div className="col-6"></div>
                         <div className="col-6 mb-5 mt-5">
                           {" "}
-                          {/* <Button variant="contained" component="label" sx={{margin:1}}  style={{backgroundColor: '#F66B0E'}}>
-                           Submit
-                        </Button> */}
+                          
                           <button
                             className="register.loginbuttonsize btn btn-success "
                             type="submit"
@@ -218,7 +325,7 @@ function addpetmartadd() {
                         </div>
                         <div className="col-3"></div>
                       </div>
-                    </Form>
+                    </Form> */}
                   </Formik>
                 </main>
               </div>

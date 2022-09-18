@@ -102,7 +102,7 @@ function mdaddmed() {
 								</div>
 							</div>
 						</div>
-					</header>
+					</header><br/><br/><br/><br/>
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
@@ -114,7 +114,7 @@ function mdaddmed() {
                         onSubmit={onSubmit}
                        
                       >
-                        <Form><br/><br/>
+                        <Form class="row g-3" style={{ paddingLeft: 200 }}><br/><br/>
 
                        {/* <Box
                             component="form"
@@ -124,7 +124,8 @@ function mdaddmed() {
                             noValidate
                             autoComplete="off"
                             > */}
-								 <label className="form-label">Name of the medicine</label>
+							<div class="col-10">
+							<label className="form-label">Name of the medicine</label>
 								 <Field
                                   className="form-control"
                                   id="medName"
@@ -132,14 +133,20 @@ function mdaddmed() {
                                   name="medName"
                                   placeholder=""
                                 />
-								 <label className="form-label">description about the medicine</label>
+							</div>
+							<div class="col-10">
+								
+							<label className="form-label">description about the medicine</label>
 								 <Field
                                   className="form-control"
                                   id="descr"
                                   autocomplete="off"
                                   name="descr"
                                   placeholder=""
+								  component="textarea"
                                 />
+							</div>
+								 
                                 {/* <TextField id="diet-name" label="Name of the medicine"   name="medName"/><br/>
                                 <TextField id="diet-name" label="Description about the medicine"  name="descr"/><br/>
                                  */}
@@ -154,12 +161,12 @@ function mdaddmed() {
                                         Add Medicine
                                     </Button> */}
 									  <button
-                              className="register.loginbuttonsize btn btn-success "
-                              type="submit"
-							  style={{backgroundColor: '#F66B0E'}} 
-                            >
-                              Add Medicine
-                            </button>
+										className="register.loginbuttonsize btn btn-success "
+										type="submit"
+										style={{backgroundColor: '#F66B0E' , borderColor:'#F66B0E'}} 
+										>
+										Add Medicine
+										</button>
                                 </div>
                                 
                             </div>
