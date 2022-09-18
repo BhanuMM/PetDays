@@ -2,13 +2,8 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
-import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Moderatorsidebar from "../components/moderatorsidebar";
-
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
@@ -109,10 +104,9 @@ function mdadddogdiet() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<Formik initialValues={initialValues} onSubmit={onSubmit}>
-										<Form>
-											<br />
-											<br />
-											<label className="form-label">Name of the diet</label>
+										<Form class="row g-3" style={{ paddingLeft: 200 }}>
+										<div class="col-10">
+											<label for="inputEmail4" class="form-label">Name of the diet</label>
 											<Field
 												className="form-control"
 												id="planName"
@@ -120,61 +114,84 @@ function mdadddogdiet() {
 												name="planName"
 												placeholder=""
 											/>
-											<label className="form-label">
-												Description about the Diet Plann
-											</label>
+										</div>
+										<div class="col-10">
+											<label for="inputAddress" class="form-label">Description about the Diet Plan</label>
 											<Field
 												className="form-control"
 												id="planDescr"
 												autocomplete="off"
 												name="planDescr"
 												placeholder=""
+												component="textarea"
 											/>
-											<label className="form-label">Age range from</label>
-											<Field
+										</div>
+										
+										<div class="row g-3">
+											<div class="col-5">
+												<label className="form-label">Age range from</label>
+												<Field
 												className="form-control"
 												id="ageRangeFrom"
 												autocomplete="off"
 												name="ageRangeFrom"
 												placeholder=""
 											/>
-											<label className="form-label">Age range to</label>
-											<Field
+											</div>
+											<div class="col-5">
+												<label className="form-label">Age range to</label>
+												<Field
 												className="form-control"
 												id="ageRangeTo"
 												autocomplete="off"
 												name="ageRangeTo"
 												placeholder=""
 											/>
-											<label className="form-label">Weight range from</label>
-											<Field
+											</div>
+										</div>
+										
+
+										<div class="row g-3">
+											<div class="col-5">
+												<label className="form-label">Weight range from</label>
+												<Field
 												className="form-control"
 												id="weightRangeFrom"
 												autocomplete="off"
 												name="weightRangeFrom"
 												placeholder=""
-											/>
-											<label className="form-label">Weight range to</label>
-											<Field
-												className="form-control"
-												id="weightRangeTo"
-												autocomplete="off"
-												name="weightRangeTo"
-												placeholder=""
-											/>
-											<label className="form-label">Breed id</label>
-											<Field as="select" name="breedId" className="form-select">
-												<option value="0">select breed</option>
-												<option value="1">german shephard</option>
-												<option value="2">lion shephard</option>
-											</Field>
-											<label className="form-label">Cat id</label>
-											<Field as="select" name="catId" className="form-select">
-												<option value="0">select category</option>
-												<option value="1">dogs</option>
-												<option value="2">cats</option>
-											</Field>
+												/>
+											</div>
+											<div class="col-5">
+												<label className="form-label">Weight range to</label>
+												<Field
+													className="form-control"
+													id="weightRangeTo"
+													autocomplete="off"
+													name="weightRangeTo"
+													placeholder=""
+												/>
+											</div>
+										</div>
 
+										<div class="row g-3">
+											<div class="col-5">
+												<label className="form-label">Breed id</label>
+												<Field as="select" name="breedId" className="form-select">
+													<option value="0">select breed</option>
+													<option value="1">german shephard</option>
+													<option value="2">lion shephard</option>
+												</Field>
+											</div>
+											<div class="col-5">
+												<label className="form-label">Cat id</label>
+												<Field as="select" name="catId" className="form-select">
+													<option value="0">select category</option>
+													<option value="1">dogs</option>
+													<option value="2">cats</option>
+												</Field>
+											</div>
+										</div>
 											<div className="row">
 												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
@@ -182,7 +199,7 @@ function mdadddogdiet() {
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{ backgroundColor: "#F66B0E" }}
+														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
 													>
 														Add Diet Plan
 													</button>

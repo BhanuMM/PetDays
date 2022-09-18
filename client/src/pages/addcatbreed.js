@@ -105,7 +105,7 @@ function addcatbreed() {
 									onSubmit={onSubmit}
 								
                       				>
-                        <Form><br/><br/><br/>
+                        <Form class="row g-3" style={{ paddingLeft: 200 }}><br/><br/><br/>
             {/* <Box
                 component="form"
                 sx={{
@@ -116,22 +116,29 @@ function addcatbreed() {
                 > */}
                     {/* <TextField id="breed-name" label="Name of the Breed" /><br/>
                     <TextField id="breed-desc" label="Description about the Breed"/> */}
-					 <label className="form-label">Name of the Breed</label>
-														<Field
-														className="form-control"
-														id="breedName"
-														autocomplete="off"
-														name="breedName"
-														placeholder=""
-														/>
-														 <label className="form-label">Description about the Breed</label>
-														<Field
-														className="form-control"
-														id="descr"
-														autocomplete="off"
-														name="descr"
-														placeholder=""
-														/>
+
+					<div class="col-10">
+						<label className="form-label">Name of the Breed</label>
+						<Field
+							className="form-control"
+							id="breedName"
+							autocomplete="off"
+							name="breedName"
+							placeholder=""
+							/>
+					</div>
+					<div class="col-10">
+						<label className="form-label">Description about the Breed</label>
+						<Field
+							className="form-control"
+							id="descr"
+							autocomplete="off"
+							name="descr"
+							placeholder=""
+							component="textarea"
+						/>
+					</div>
+					
                 {/* </Box> */}
 
                 <div className="row">
@@ -144,7 +151,7 @@ function addcatbreed() {
 						 <button
                               className="register.loginbuttonsize btn btn-success "
                               type="submit"
-							  style={{backgroundColor: '#F66B0E'}} 
+							  style={{backgroundColor: '#F66B0E', borderColor:"#F66B0E"}} 
                             >
                              Add Breed
                             </button>

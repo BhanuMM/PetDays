@@ -113,7 +113,39 @@ function mdaddvitamin() {
                         onSubmit={onSubmit}
                        
                       >
-                        <Form><br/><br/>
+                         <Form class="row g-3" style={{ paddingLeft: 200 }}><br/><br/>
+
+						 <div class="col-10">
+							<label className="form-label">Name of the vaccine</label>
+									<Field
+									className="form-control"
+									id="vacName"
+									autocomplete="off"
+									name="vacName"
+									placeholder=""
+									/>
+						 </div>
+						 <div class="col-10">
+							<label className="form-label">Description about the vaccine</label>
+									<Field
+									className="form-control"
+									id="descr"
+									autocomplete="off"
+									name="descr"
+									placeholder=""
+									component="textarea"
+									/>
+						 </div>
+						 <div class="col-10">
+							<label className="form-label">Next Iteration On</label>
+									<Field
+									className="form-control"
+									id="vacNextIter"
+									autocomplete="off"
+									name="vacNextIter"
+									placeholder=""
+									/>
+						 </div>
 {/* 
                        <Box
                             component="form"
@@ -123,32 +155,8 @@ function mdaddvitamin() {
                             noValidate
                             autoComplete="off"
                             > */}
-							 <label className="form-label">Name of the vaccine</label>
-								 <Field
-                                  className="form-control"
-                                  id="vacName"
-                                  autocomplete="off"
-                                  name="vacName"
-                                  placeholder=""
-                                />
-
-							
-								<label className="form-label">Description about the vaccine</label>
-								 <Field
-                                  className="form-control"
-                                  id="descr"
-                                  autocomplete="off"
-                                  name="descr"
-                                  placeholder=""
-                                />
-								<label className="form-label">Next Iteration On</label>
-								 <Field
-                                  className="form-control"
-                                  id="vacNextIter"
-                                  autocomplete="off"
-                                  name="vacNextIter"
-                                  placeholder=""
-                                />
+							 
+								
                                 {/* <TextField id="vacc-name" label="Name of the vaccine" /><br/>
                                 <TextField id="next-iteration" label="Next Iteration On" type="date" />
                                 <TextField id="vacc-name" label="Description about the vaccine" /><br/> */}
@@ -166,7 +174,7 @@ function mdaddvitamin() {
 									 <button
                               className="register.loginbuttonsize btn btn-success "
                               type="submit"
-							  style={{backgroundColor: '#F66B0E'}} 
+							  style={{backgroundColor: '#F66B0E', borderColor:'#F66B0E'}} 
                             >
                               Add Vaccine
                             </button>

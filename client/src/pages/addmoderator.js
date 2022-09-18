@@ -122,7 +122,7 @@ function addmoderator() {
 									onSubmit={onSubmit}
 								
                       				>
-											<Form>
+											<Form class="row g-3" style={{ paddingLeft: 200 }}>
 												<br />
 												<br />
 												{/* <Box
@@ -144,23 +144,32 @@ function addmoderator() {
 														label=" "
 														type="file"
 													/> */}
-													<label className="form-label">First Name</label>
-														<Field
+										<div class="row g-3">
+											<div class="col-5">
+												<label className="form-label">First Name</label>
+													<Field
 														className="form-control"
 														id="firstName"
 														autocomplete="off"
 														name="firstName"
 														placeholder=""
-														/>
-														<label className="form-label">Last Name</label>
-														<Field
+													/>
+											</div>
+											<div class="col-5">
+												<label className="form-label">Last Name</label>
+													<Field
 														className="form-control"
 														id="lastName"
 														autocomplete="off"
 														name="lastName"
 														placeholder=""
-														/>
-														<label className="form-label"> Contact Number</label>
+													/>
+											</div>
+										</div>
+
+										<div class="row g-3">
+											<div class="col-5">
+												<label className="form-label"> Contact Number</label>
 														<Field
 														className="form-control"
 														id="conNum"
@@ -168,7 +177,9 @@ function addmoderator() {
 														name="conNum"
 														placeholder=""
 														/>
-														<label className="form-label">E mail</label>
+											</div>
+											<div class="col-5">
+												<label className="form-label">E mail</label>
 														<Field
 														className="form-control"
 														id="uemail"
@@ -176,14 +187,19 @@ function addmoderator() {
 														name="uemail"
 														placeholder=""
 														/>
-														<label className="form-label"> NIC Number</label>
-														<Field
+											</div>
+										</div>
+										<div class="col-10">
+												<label className="form-label"> NIC Number</label>
+												<Field
 														className="form-control"
 														id="modNIC"
 														autocomplete="off"
 														name="modNIC"
 														placeholder=""
-														/>
+												/>
+
+										</div>
 														{/* <label className="form-label">Name of the vitamin</label>
 														<Field
 														className="form-control"
@@ -219,7 +235,7 @@ function addmoderator() {
 																	<button
 																		className="register.loginbuttonsize btn btn-success "
 																		type="submit"
-																		style={{backgroundColor: '#F66B0E'}} 
+																		style={{backgroundColor: '#F66B0E', borderColor:"#F66B0E"}} 
 																		>
 																		Add Moderator
 																		</button>
