@@ -14,6 +14,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 
+
 const bull = (
 	<Box
 		component="span"
@@ -35,29 +36,38 @@ function addmoderator() {
 		conNum:"",
 		uemail:"",
 		modNIC:"",
-		// username:"",
-		// password:"", 
+	
 	
 	  };
 	
-	//   const Schema = Yup.object().shape({
-	// 	email: Yup.string().email("Not a proper email address"),
-	// 	password: Yup.string()
-	// 	  .min(5)
-	// 	  .max(12)
-	// 	  .required("This field is required")
-	// 	  .matches(
-	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-	// 	  ),
-	// 	confirmpassword: Yup.string().when("password", {
-	// 	  is: (val) => (val && val.length > 0 ? true : false),
-	// 	  then: Yup.string().oneOf(
-	// 		[Yup.ref("password")],
-	// 		"Passwords does not match"
-	// 	  ),
-	// 	}),
-	//   });
+	  const Schema = Yup.object().shape({
+		uemail: Yup.string().email("Not a proper email address"),
+
+		firstName: Yup.string()
+		   			  .max(40)
+					  .matches(/^[A-Za-z ]*$/,'Please enter valid name')
+					  .required(),
+
+		lastName: Yup.string()
+					  .max(40)
+				      .matches(/^[A-Za-z ]*$/,'Please enter valid name')
+				      .required(),
+
+		// conNum  : Yup.string()
+		// 			  .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Phone number is not valid'),
+
+		conNum : Yup.string()
+		  			.matches(/^[0-9]{10}$/),
+					//  .phone()
+					//  .max(10)
+					//  .min(10),
+
+		modNIC : Yup.string()
+		            .max(12)
+					.min(10)
+					.matches(/^([0-9]{10} | [0-9]{12})(v|V)$/),
+	
+	  });
 	
 	  const navigate = useNavigate();
 	
@@ -120,6 +130,7 @@ function addmoderator() {
 													<Formik
 									initialValues={initialValues}
 									onSubmit={onSubmit}
+									validationSchema={Schema}
 								
                       				>
 											<Form class="row g-3" style={{ paddingLeft: 200 }}>

@@ -36,22 +36,20 @@ function mdadddogdiet() {
 	};
 
 	const Schema = Yup.object().shape({
-		email: Yup.string().email("Not a proper email address"),
-		password: Yup.string()
-			.min(5)
-			.max(12)
-			.required("This field is required")
-			.matches(
-				/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-				"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-			),
-		confirmpassword: Yup.string().when("password", {
-			is: (val) => (val && val.length > 0 ? true : false),
-			then: Yup.string().oneOf(
-				[Yup.ref("password")],
-				"Passwords does not match"
-			),
-		}),
+		planName:  Yup.string()
+		.matches(/^[A-Za-z ]*$/,"Please enter valid name")
+		.required(),
+
+		ageRangeFrom:Yup.number(),
+
+		ageRangeFrom:Yup.number(),
+
+		weightRangeFrom:Yup.number(),
+
+		weightRangeFrom:Yup.number(),
+
+		
+		
 	});
 
 	const navigate = useNavigate();
@@ -103,7 +101,11 @@ function mdadddogdiet() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<Formik initialValues={initialValues} onSubmit={onSubmit}>
+									<Formik 
+									initialValues={initialValues} 
+									onSubmit={onSubmit} 
+									validationSchema={Schema}
+									>
 										<Form class="row g-3" style={{ paddingLeft: 200 }}>
 										<div class="col-10">
 											<label for="inputEmail4" class="form-label">Name of the diet</label>
