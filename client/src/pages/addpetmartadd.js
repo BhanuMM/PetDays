@@ -37,24 +37,22 @@ function addpetmartadd() {
   
   };
 
-  //   const Schema = Yup.object().shape({
-  // 	email: Yup.string().email("Not a proper email address"),
-  // 	password: Yup.string()
-  // 	  .min(5)
-  // 	  .max(12)
-  // 	  .required("This field is required")
-  // 	  .matches(
-  // 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-  // 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-  // 	  ),
-  // 	confirmpassword: Yup.string().when("password", {
-  // 	  is: (val) => (val && val.length > 0 ? true : false),
-  // 	  then: Yup.string().oneOf(
-  // 		[Yup.ref("password")],
-  // 		"Passwords does not match"
-  // 	  ),
-  // 	}),
-  //   });
+    const Schema = Yup.object().shape({
+
+      adTitle: Yup.string()
+      .matches(/^[A-Za-z ]*$/,"Please enter valid name")
+      .required(),
+
+      adPrice: Yup.number(),
+                  
+
+      adContact: Yup.string()
+                    .matches(/^[0-9]{10}$/),
+      adEmail:Yup.string().email(),
+      adAddress: Yup.string(),
+  
+  	
+    });
 
   const navigate = useNavigate();
 
