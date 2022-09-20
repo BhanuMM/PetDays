@@ -14,6 +14,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:http/http.dart' as http;
 import '../../../models/pet.dart';
+import '../../../components/notification_API.dart';
 class DashboardContent extends StatefulWidget {
   const DashboardContent({
     Key? key,
@@ -54,6 +55,7 @@ class _DashboardContentState extends State<DashboardContent> {
   void initState() {
     super.initState();
     this.getPets();
+
   }
   @override
   Widget build(BuildContext context) {
@@ -124,24 +126,13 @@ class _DashboardContentState extends State<DashboardContent> {
                           SizedBox(height: 8,),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
-                            child: GestureDetector(
-                              onTap: (){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return AddPetScreen();
-                                    },
-                                  ),
-                                );
-                              },
-                              child: Text("Let's add your pets",
+                            child:
+                              Text("Let's add your pets",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 20
                                 ),
-                              ),
                             ),
                           ),
                           const Text("Get started by creating a profile for your pet", textAlign: TextAlign.left,
@@ -165,11 +156,27 @@ class _DashboardContentState extends State<DashboardContent> {
                                   color: Colors.deepPurple[300],
                                   borderRadius: BorderRadius.circular(10)
                                 ),
-                                child: const Text("Get started", textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: Colors.white
+                                child:  GestureDetector(
+                                  onTap: (){
+                                    NotificationAPI.showNotificaton(
+                                      title: "testing notif",
+                                      body: "bla bla bla bla bla bla bal"
+                                    );
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) {
+                                    //       return AddPetScreen();
+                                    //     },
+                                    //   ),
+                                    // );
+                                  },
+                                  child: const Text("Get started", textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Colors.white
+                                    ),
                                   ),
                                 ),
                             ),
