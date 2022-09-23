@@ -2,13 +2,8 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from '@mui/material/Button';
-import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Moderatorsidebar from "../components/moderatorsidebar";
-
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
@@ -47,7 +42,7 @@ function mdaddvitamin() {
 	  });
 	
 	  const navigate = useNavigate();
-	
+
 	  const onSubmit = (data) => {
 		axios.post("http://localhost:3001/mod/addvaccine", data).then((response) => {
 		  if (response.data.error) {
@@ -57,7 +52,7 @@ function mdaddvitamin() {
 		  }
 		});
 	  };
-
+	
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -98,8 +93,7 @@ function mdaddvitamin() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            {/* <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:420, padding: 10, paddingLeft:75}}>
-                        <CardContent> */}
+
 						<Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
@@ -139,31 +133,14 @@ function mdaddvitamin() {
 									placeholder=""
 									/>
 						 </div>
-{/* 
-                       <Box
-                            component="form"
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '100ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                            > */}
-							 
-								
-                                {/* <TextField id="vacc-name" label="Name of the vaccine" /><br/>
-                                <TextField id="next-iteration" label="Next Iteration On" type="date" />
-                                <TextField id="vacc-name" label="Description about the vaccine" /><br/> */}
-                                
-                        {/* </Box> */}
+
 
                             
                             <div className="row">
                                 <div className="col-9"></div>
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
-                                    {/* <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Add Vaccine
-                                    </Button> */}
+
 									 <button
                               className="register.loginbuttonsize btn btn-success "
                               type="submit"
@@ -177,8 +154,6 @@ function mdaddvitamin() {
                         </Form>
 						</Formik>
 
-                    {/* </CardContent>
-                    </Card> */}
             				</div>
 	
 							</div>

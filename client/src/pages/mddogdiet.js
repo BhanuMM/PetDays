@@ -17,6 +17,8 @@ function mddogdiet() {
       setListOfDietplans(response.data);
     });
   }, []);
+
+  
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">

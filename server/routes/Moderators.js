@@ -34,6 +34,7 @@ router.post("/addvitamin", async (req, res) => {
   });
   res.json("SUCCESS"); 
 });
+
 router.post("/addvaccine", async (req, res) => {
   const { vacName, descr ,vacNextIter} = req.body;
   // const uemail = await Users.findOne({ where: { email: email } });
@@ -179,6 +180,19 @@ router.get("/getvaccines/:id", async (req, res) => {
   // );
   // res.json(SingleVac);
 });
+
+router.get("/getverifyposts", async (req, res) => {
+  const listOfverifyposts = await Forumposts.findAll(
+    // {
+    //   where: {
+    //     postStatus: "pending",
+    //   },
+    // }
+    
+  );
+  res.json(listOfverifyposts);
+});
+
 //updates----------
 
 router.post("/updatemedicine", async (req, res) => {

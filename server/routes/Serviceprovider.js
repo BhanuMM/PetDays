@@ -64,7 +64,7 @@ router.post("/publishad", async (req, res) => {
   adStatus : "pending",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "19"
+  userId : "1"
 
   },
   { isNewRecord: true });

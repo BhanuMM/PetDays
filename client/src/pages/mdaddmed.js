@@ -134,20 +134,11 @@ function mdaddmed() {
 								  component="textarea"
                                 />
 							</div>
-								 
-                                {/* <TextField id="diet-name" label="Name of the medicine"   name="medName"/><br/>
-                                <TextField id="diet-name" label="Description about the medicine"  name="descr"/><br/>
-                                 */}
-                        {/* </Box> */}
-
-                            
                             <div className="row">
                                 <div className="col-9"></div>
                                 <div className="col-3 mb-5 mt-5">
                                     {" "}
-                                    {/* <Button variant="contained" component="label"  type="submit" style={{backgroundColor: '#F66B0E'}}>
-                                        Add Medicine
-                                    </Button> */}
+
 									  <button
 										className="register.loginbuttonsize btn btn-success "
 										type="submit"

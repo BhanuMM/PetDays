@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,18 +6,15 @@ import * as Yup from "yup";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/moderatordashboard.css";
-
 import "../styles/moderatordashboard.css";
 import "../styles/petmart.css";
 import "../styles/forum.css";
-
 import "../styles/petcategories.css";
 import "../styles/serviceproviderdashboard.css";
 import Spsidebar from "../components/spsidebar";
 import Navbarsp from "../components/navsp";
 import "../styles/spdashboard.css";
 import Button from "@mui/material/Button";
-
 import Avatar from "@mui/material/Avatar";
 
 
@@ -37,34 +33,36 @@ function addpetmartadd() {
   
   };
 
-    const Schema = Yup.object().shape({
+    // const Schema = Yup.object().shape({
 
-      adTitle: Yup.string()
-      .matches(/^[A-Za-z ]*$/,"Please enter valid name")
-      .required(),
+    //   adTitle: Yup.string()
+    //   .matches(/^[A-Za-z ]*$/,"Please enter valid name")
+    //   .required(),
 
-      adPrice: Yup.number(),
+    //   adPrice: Yup.number(),
                   
 
-      adContact: Yup.string()
-                    .matches(/^[0-9]{10}$/),
-      adEmail:Yup.string().email(),
-      adAddress: Yup.string(),
+    //   adContact: Yup.string()
+    //                 .matches(/^[0-9]{10}$/),
+    //   adEmail:Yup.string().email(),
+    //   adAddress: Yup.string(),
   
   	
-    });
+    // });
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    console.log(data);
     axios.post("http://localhost:3001/service/publishad", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
         navigate("/addpetmartimages",{state: response.data});
       }
+
     });
-    console.log(data);
+    
   };
 
   return (
