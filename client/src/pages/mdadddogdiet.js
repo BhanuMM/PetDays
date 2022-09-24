@@ -55,9 +55,7 @@ function mdadddogdiet() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/mod/adddietplan", data)
-			.then((response) => {
+		axios.post("http://localhost:3001/mod/adddietplan", data).then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
