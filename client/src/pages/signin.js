@@ -25,19 +25,24 @@ function signin() {
 
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
+      alert(response.data.username);
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        if (response.data.role === "admin")
-        navigate('/admindashboard');
-        else if (response.data.role === "service")
-        navigate('/serviceproviderdashboard');
-        else if (response.data.role === "moderator")
-        navigate('/moderatordasboard');
-        else if (response.data.role === "user")
-        navigate('/index');
-        else 
-        navigate('/signin');
+        console.log(response.data.username);
+        alert(response.data.username);
+        localStorage.setItem('myData', response.data.token);
+        // localStorage.setItem("accessToken", response.data.token);
+        // if (response.data.role === "admin")
+        // navigate('/admindashboard');
+        // else if (response.data.role === "service")
+        // navigate('/serviceproviderdashboard');
+        // else if (response.data.role === "moderator")
+        // navigate('/moderatordasboard');
+        // else if (response.data.role === "user")
+        // navigate('/index');
+        // else 
+        // navigate('/signin');
       }
     });
   };

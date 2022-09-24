@@ -1,12 +1,46 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import '../styles/nav.css';
+import { AuthContext } from "../helpers/AuthContext";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function navbar() {
+    const [authState, setAuthState] = useState({
+        username: "",
+        id: 0,
+        role : "",
+        status: false,
+      });
+    
+      useEffect(() => {
+        axios
+          .get("http://localhost:3001/auth/authuser", {
+            headers: {
+              accessToken: localStorage.getItem("accessToken"),
+            },
+          })
+          .then((response) => {
+            if (response.data.error) {
+              setAuthState({ ...authState, status: false });
+            } else {
+              setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                role: response.data.role,
+                status: true,
+              });
+              console.log(response.data.role);
+            }
+          });
+      }, []);
+
   return (
 
     <nav className="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top mybar">
 
         <div className="container-fluid">
+        <AuthContext.Provider value={{ authState, setAuthState }}>
             <img src= "../images/PetDays.png" className="navbarlogo" alt="dog"/>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -22,17 +56,34 @@ function navbar() {
                 <li className="nav-item active">
                     <a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
                 </li>
+                
+                {authState.status && (
+                <>
+                  <li className="nav-item active">
+                  {/* <Link to="/login" className="nav-link"> Login</Link> */}
+               <a className="nav-link" href="signin"> <button type="submit" class="  btn btn-warning">
+               logout
+               </button></a>
+           </li>
+                </>
+              )}
+              {!authState.status && (
+                <>
                 <li className="nav-item active">
                     <a className="nav-link" href="registertype"><h4>Register</h4></a>
                 </li>
                 <li className="nav-item active">
                
-                    <a className="nav-link" href="signin"> <button type="submit" class="  btn btn-warning">
-                    Login
-                    </button></a>
-                </li>
+               <a className="nav-link" href="signin"> <button type="submit" class="  btn btn-warning">
+               Login
+               </button></a>
+           </li>
+                </>
+              )}
+                
             </ul>
             </div>
+            </AuthContext.Provider>
         </div>
 
         
