@@ -48,14 +48,16 @@ function pendingads() {
 							<div className="row">
 								{listOfpendingads.map((value, key) => {
 									return (
-										<div className="col-4">
+										<div className="col-4 mt-5">
 											<div class="petmart-card" style={{ width: 400 }}>
 												<div class="petmart-inner-card">
 													{" "}
-													<img
+													{/* <img
 														src="https://www.acs.edu.au/database/images/course_4335051.jpg"
 														class="img-fluid rounded"
-													/>
+													/> */}
+													<img src={`http://localhost:3001/service/static/${value.adImage}`}
+											class="img-fluid rounded" ></img>
 													<div class="d-flex justify-content-between align-items-center mt-3 px-2">
 														<h4>{value.adTitle}</h4>
 														<small>

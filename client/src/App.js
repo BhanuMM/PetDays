@@ -171,69 +171,34 @@ function App() {
 
       <Router>
         <Routes>
+          
+          <Route path="/register" element={<Register/>} />
           <Route path="/signin" element={<Signin/>} />
           <Route path="/" element={<Index/>} />
+          <Route path="/home" element={<Index/>} />
           <Route path="/index" element={<Index/>} />
-          <Route path="/signup" element={<Signup/>} />  
+          <Route path="/activate/:hash" element={<Activateaccount/>} />
           <Route path="/sellersignup" element={<Sellersignup/>} />
-          <Route path="/admin" element={<Admin/>} /> 
-          { authState.status && authState.role=="admin" && (
+          <Route path="/verifyemail" element={<Verifyemail/>} />           
+          <Route path="/registertype" element={<Usertype/>}/>
+          
+
+          {/* { authState.status && authState.role=="admin" && (
                 <>
                  <Route path="/admindashboard" element={<Admindashboard/>} />
                 </>
-              )}
+              )} */}
+
+          {/* forum */}
+          <Route path="/forum" element={<Forum/>} />
           
 
-
-          {/* <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} />  */}
-          <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
-          <Route path="/mdposts" element={<Mdposts />} />
-          <Route path="/mdpendingposts" element={<Mdpendingposts />} />
-          <Route path="/mdverifyposts" element={<Mdverifyposts />} />
-          <Route path="/mdadvertisments" element={<Mdadvertisments />} />
-          <Route path="/mdpendingadvertisments" element={<Mdpendingadvertisments />} />
-          <Route path="/mdverifyadvertisments" element={<Mdverifyadvertisments />} />
-          <Route path="/mdviewadvertisment" element={<Mdviewadvertisement />} />
-          <Route path="/mdmedications" element={<Mdmedications />} />
-          <Route path="/mdmedicationdetails" element={<Mdmedicationdetails />} />
-          <Route path="/mddietplans" element={<Mddietplans />} />
-          <Route path="/mddietplandetails" element={<Mddietplandetails />} />
-          <Route path="/rejected" element={<Reject />} />
-          <Route path="/approved" element={<Approved />} />
-          <Route path="/approveadd" element={<Approvad />} />
-          <Route path="/spdashboard" element={<Spdashboard />} />
-
-          <Route path="/serviceprovider" element={<Serviceprovider/>} /> 
-          <Route path="/moderator" element={<Moderator/>} /> 
-          <Route path="/userprofile" element={<Userprofile/>} /> 
-          <Route path="/verifyemail" element={<Verifyemail/>} /> 
-          <Route path="/activate/:hash" element={<Activateaccount/>} />
-          <Route path="/addpetmartadd" element={<Addnewadd/>} />
-          <Route path="/addpetmartimages" element={<Addnewadimage/>} />
-          <Route path="/addseller" element={<Addseller/>} />
-          <Route path="/newadd" element={<Newadd/>} /> 
-          <Route path="/editpetmartadd" element={<Editadd/>} /> 
-          <Route path="/viewpetmartadd" element={<Viewadd/>} />  
-          <Route path="/serviceprovideralladds" element={<Allads/>} /> 
-          <Route path="/pendingads" element={<Pending/>} />  
-
-          <Route path="/petcategories" element={<Petcategories/>} />
-          <Route path="/medications" element={<Medications/>} />
-          <Route path="/dietplans" element={<Dietplans/>} />
-          <Route path="/moderators" element={<Moderators/>} />
-          <Route path="/viewusers" element={<Viewusers/>} />
-          <Route path="/viewsellers" element={<Viewsellers/>} />
-          <Route path="/reportgeneration" element={<Reportgeneration/>} />
-          <Route path="/register" element={<Register/>} />
-
-          <Route path="/forum" element={<Forum/>} />
-          <Route path="/forummyposts" element={<Forummyposts/>} />
-          <Route path="/forummylatestposts" element={<Forummylatestposts/>} /> 
-          <Route path="/forumpendingposts" element={<Forumpendingposts/>} />  
-          <Route path="/forumverifiedposts" element={<Forumverifiedposts/>} /> 
-          <Route path="/forumcommonissues" element={<Forumcommonissues/>} /> 
+          {/* petmart */}
           <Route path="/petmart" element={<Petmart/>} />
-          {/* <Route path="/login" element={<Login/>} /> */}
+          <Route path="/viewad" element={<Singlead/>}/>
+          
+          {/* Admin */}
+          <Route path="/admindashboard" element={<Admindashboard/>} />
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
           <Route path="/addpetcategories" element={<Addpetcategory/>} />
@@ -248,7 +213,6 @@ function App() {
           <Route path="/viewbreeds" element={<Viewbreeds/>}/>
           <Route path="/viewmedications" element={<Viewmedications/>}/>
           <Route path="/viewdietplans" element={<Viewdietplans/>}/>
-          <Route path="/registertype" element={<Usertype/>}/>
           <Route path="/addservices" element={<Addservices/>}/>
           <Route path="/adddogbreed" element={<Adddogbreed/>}/>
           <Route path="/addcatbreed" element={<Addcatbreed/>}/>
@@ -257,8 +221,28 @@ function App() {
           <Route path="/viewbreedscats" element={<Viewbreedscats/>}/>
           <Route path="/viewdietplanscats" element={<Viewdietplanscats/>}/>
           <Route path="/viewcategories" element={<Viewcategories/>}/>
+          <Route path="/editbreed" element={<Editbreed/>}/>
+          <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
+          <Route path="/viewsellers" element={<Viewsellers/>} />
 
-          <Route path="/dashcheckup" element={<Dashcheckup/>}/>
+
+          {/* moderator */}
+          <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
+          <Route path="/mdposts" element={<Mdposts />} />
+          <Route path="/mdpendingposts" element={<Mdpendingposts />} />
+          <Route path="/mdverifyposts" element={<Mdverifyposts />} />
+          <Route path="/mdadvertisments" element={<Mdadvertisments />} />
+          <Route path="/mdpendingadvertisments" element={<Mdpendingadvertisments />} />
+          <Route path="/mdverifyadvertisments" element={<Mdverifyadvertisments />} />
+          <Route path="/mdviewadvertisment" element={<Mdviewadvertisement />} />
+          <Route path="/mdmedications" element={<Mdmedications />} />
+          <Route path="/mdmedicationdetails" element={<Mdmedicationdetails />} />
+          <Route path="/mddietplans" element={<Mddietplans />} />
+          <Route path="/mddietplandetails" element={<Mddietplandetails />} />
+          <Route path="/mdeditdiet" element={<Mdeditdiet/>}/>
+          <Route path="/mdeditmed" element={<Mdeditmed/>}/>
+          <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
+          <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
           <Route path="/mdverifyads" element={<Mdverifyads/>}/>
           <Route path="/Mdadssection" element={<Mdadssection/>}/>
@@ -275,28 +259,55 @@ function App() {
           <Route path="/Mdcatdiet" element={<Mdcatdiet/>}/>
           <Route path="/Mdadddogdiet" element={<Mdadddogdiet/>}/>
           <Route path="/Mdaddcatdiet" element={<Mdaddcatdiet/>}/>
-          <Route path="/editservice" element={<Editservice/>}/>
-          <Route path="/viewad" element={<Singlead/>}/>
-          <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
-          <Route path="/test" element={<Test/>}/>
-          <Route path="/mdviewad" element={<Mdviewad/>}/>
           <Route path="/myprofile" element={<Myprofile/>}/>
+          <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
+          <Route path="/mdviewad" element={<Mdviewad/>}/> 
 
-          <Route path="/mdeditdiet" element={<Mdeditdiet/>}/>
-          <Route path="/mdeditmed" element={<Mdeditmed/>}/>
-          <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
-          <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
-          <Route path="/newspdashboard" element={<Newspdashboard/>}/>
-          <Route path="/editbreed" element={<Editbreed/>}/>
-          <Route path="/viewadvertisements" element={<Viewadvertisements/>}/>
-          <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
-          <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+          {/* Serviceprovider */}
+          <Route path="/spdashboard" element={<Spdashboard />} />
           <Route path="/spviewad" element={<Spviewad/>}/>
           <Route path="/spmyads" element={<Spmyads/>}/>
           <Route path="/sppendingads" element={<Sppendingads/>}/>
           <Route path="/sppublishedads" element={<Sppublishedads/>}/>
           <Route path="/sprejectedads" element={<Sprejectedads/>}/>
           <Route path="/speditad" element={<Speditad/>}/>
+          <Route path="/addpetmartadd" element={<Addnewadd/>} />
+          <Route path="/addpetmartimages" element={<Addnewadimage/>} />
+          <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+
+
+
+          {/* <Route path="/forummyposts" element={<Forummyposts/>} /> */}
+          {/* <Route path="/forummylatestposts" element={<Forummylatestposts/>} />  */}
+          {/* <Route path="/forumpendingposts" element={<Forumpendingposts/>} />   */}
+          {/* <Route path="/forumverifiedposts" element={<Forumverifiedposts/>} />  */}
+          {/* <Route path="/forumcommonissues" element={<Forumcommonissues/>} />  */}
+          {/* <Route path="/signup" element={<Signup/>} />   */}
+          {/* <Route path="/admin" element={<Admin/>} />  */}
+          {/* <Route path="/approved" element={<Approved />} /> */}
+          {/* <Route path="/rejected" element={<Reject />} /> */}
+          {/* <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} />  */}          
+          {/* <Route path="/approveadd" element={<Approvad />} /> */}        
+          {/* <Route path="/serviceprovider" element={<Serviceprovider/>} />  */}
+          {/* <Route path="/moderator" element={<Moderator/>} />  */}
+          {/* <Route path="/userprofile" element={<Userprofile/>} />  */}          
+          {/* <Route path="/addseller" element={<Addseller/>} /> */}
+          {/* <Route path="/newadd" element={<Newadd/>} />  */}
+          {/* <Route path="/editpetmartadd" element={<Editadd/>} />  */}
+          {/* <Route path="/viewpetmartadd" element={<Viewadd/>} />   */}
+          {/* <Route path="/serviceprovideralladds" element={<Allads/>} />  */}
+          {/* <Route path="/pendingads" element={<Pending/>} />   */}
+          {/* <Route path="/petcategories" element={<Petcategories/>} /> */}
+          {/* <Route path="/medications" element={<Medications/>} /> */}
+          {/* <Route path="/dietplans" element={<Dietplans/>} /> */}
+          {/* <Route path="/moderators" element={<Moderators/>} /> */}
+          {/* <Route path="/viewusers" element={<Viewusers/>} /> */}
+          {/* <Route path="/login" element={<Login/>} /> */}          
+          {/* <Route path="/dashcheckup" element={<Dashcheckup/>}/> */}
+          {/* <Route path="/editservice" element={<Editservice/>}/> */}     
+          {/* <Route path="/test" element={<Test/>}/> */}
+          {/* <Route path="/newspdashboard" element={<Newspdashboard/>}/> */}          
+          {/* <Route path="/viewadvertisements" element={<Viewadvertisements/>}/> */}   
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
 
 
