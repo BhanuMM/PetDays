@@ -25,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TIME,
         allowNull: false,
       },
-  
+      pcatId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+      },
     },{
       timestamps: false,
       freezeTableName: true
@@ -39,6 +43,13 @@ module.exports = (sequelize, DataTypes) => {
           onUpdate: "cascade",
         });
       };
+      Forumposts.associate = (models) => {
+        Forumposts.belongsTo(models.Petcatagories, {
+            foreignKey: 'pcatId',
+            onDelete: "cascade",
+            onUpdate: "cascade",
+          });
+        }
     return Forumposts;
   };
   
