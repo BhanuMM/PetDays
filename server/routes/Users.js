@@ -27,9 +27,14 @@ router.post("/addpet", async (req, res) => {
     }
   });
 
+  router.get("/getposts", async (req, res) => {
+    const listOfPosts = await Forumposts.findAll(
+    );
+    res.json(listOfPosts);
+  });
 
   router.post("/addpost", async (req, res) => {
-    const { postTitle,postDescr} = req.body;  
+    const { postTitle,postDescr,pcatId} = req.body;  
 
         let date_ob = new Date();
 
@@ -48,14 +53,15 @@ router.post("/addpet", async (req, res) => {
         
         // current minutes
         let minutes = date_ob.getMinutes();
-
+    
     const forumposts = Forumposts.create({
-      postTitle: postTitle,
-      postDescr: postDescr,
-      postStatus: "pending",
+        postTitle: postTitle,
+        postDescr: postDescr,
+        postStatus: "pending",
         postDate : year + "-" + month + "-" + date,
         postTime : hours + ":" + minutes,
         userId: "1",
+        pcatId: pcatId,
     });
     if(forumposts){
          res.json("SUCCESS"); 
