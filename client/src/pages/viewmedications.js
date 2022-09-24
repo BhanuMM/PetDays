@@ -36,7 +36,7 @@ function viewmedications() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/viewmedications" className="header-topic">
 														Medicines
 													</a>
 												</li>

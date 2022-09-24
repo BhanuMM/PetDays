@@ -51,7 +51,7 @@ function viewbreedscats() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/viewbreedscats" className="header-topic">
 														viewbreedscats
 													</a>
 												</li>
