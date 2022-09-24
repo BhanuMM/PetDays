@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
+const { validateToken } = require("../middlewares/AuthMiddleware");
+const { sign } = require("jsonwebtoken");
 
 router.use(bodyParser.json());
 
@@ -47,9 +49,20 @@ router.post("/login", async (req, res) => {
     if (!match) 
       {res.json({ error: "Wrong Username And Password Combination" });}
     else
-      { res.json({ email: email, role: uemail.userrole, id: uemail.userID, username: uemail.username });  }
-    
+      { 
+        const accessToken = sign(
+          { username: uemail.username, id: uemail.userID , role: uemail.userrole },
+          "importantsecret"
+        );
+        res.json({ token: accessToken, role: uemail.userrole, username: uemail.username, id: uemail.userID });
+
+        // res.json({ email: email, role: uemail.userrole, id: uemail.userID, username: uemail.username });  
+      }
   });
+});
+
+router.get("/authuser", validateToken, (req, res) => {
+  res.json(req.user);
 });
 
 // functions=-----------------------------------
@@ -79,30 +92,6 @@ async function  registerUser (req, res ,role){
   }
 };
 module.exports = {registerUser} ;
-// module.exports = {
-//   registerUser: async function (req, res ,role) {
-//     const { username, uemail, password  } = req.body;
-//     const usemail =await Users.findOne({ where: { email: uemail } });
-//     const uname =await Users.findOne({ where: { username: username} });
-  
-//     if (usemail)
-//     {res.json({ error: "Email is already registered" });} 
-//     else if (uname)
-//      {res.json({ error: "Username is already taken" });}
-//     else{
-//       await sendConfirmationEmail({hash: username , useremail:uemail})
-//     bcrypt.hash(password, 10).then((hash) => {
-//       Users.create({
-//         username: username,
-//         email: uemail,
-//         password: hash,
-//         userrole : role,
-//         isverified : "no"
-//       });
-//       res.json("SUCCESS");
-//     });
-//     }
-//   }
-// };
+
 
 module.exports = router ;

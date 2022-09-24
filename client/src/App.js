@@ -2,6 +2,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import { AuthContext } from "./helpers/AuthContext";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import Signin from './pages/login';
 import Petmart from './pages/petmart';
 import Index from './pages/index';
@@ -131,8 +135,37 @@ import Speditad from './pages/speditad';
 // import Signinform from './components/signinform';
 
 function App() {
+  const [authState, setAuthState] = useState({
+    username: "",
+    id: 0,
+    role : "",
+    status: false,
+  });
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/auth/authuser", {
+        headers: {
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      })
+      .then((response) => {
+        if (response.data.error) {
+          setAuthState({ ...authState, status: false });
+        } else {
+          setAuthState({
+            username: response.data.username,
+            id: response.data.id,
+            role: response.data.role,
+            status: true,
+          });
+        }
+      });
+  }, []);
+
   return (
     <div className="page-container">
+      <AuthContext.Provider value={{ authState, setAuthState }}>
       <div className="content-wrap">
         <section />
 
@@ -144,7 +177,14 @@ function App() {
           <Route path="/signup" element={<Signup/>} />  
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/admin" element={<Admin/>} /> 
-          <Route path="/admindashboard" element={<Admindashboard/>} />  
+          { authState.status && authState.role=="admin" && (
+                <>
+                 <Route path="/admindashboard" element={<Admindashboard/>} />
+                </>
+              )}
+          
+
+
           {/* <Route path="/serviceproviderdashboard" element={<Serviceproviderdashboard/>} />  */}
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
@@ -263,7 +303,7 @@ function App() {
         </Routes>   
       </Router>          
       </div>
-
+      </AuthContext.Provider>
       </div>
 
   );

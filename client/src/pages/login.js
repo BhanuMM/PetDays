@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useContext }from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { AuthContext } from "../helpers/AuthContext";
 import axios from "axios";
 import * as Yup from "yup";
 import signin from "../images/login.png";
@@ -9,6 +10,9 @@ import name from "../images/name.png";
 import "../styles/login.css";
 
 function login() {
+  // const { setAuthState } = useContext(AuthContext);
+  const setAuthState  = useContext(AuthContext)
+
   const initialValues = {
     email: "",
     password: "",
@@ -26,6 +30,13 @@ function login() {
       if (response.data.error) {
         alert(response.data.error);
       } else {
+        localStorage.setItem('accessToken', response.data.token);
+        // setAuthState({
+        //   username: response.data.username,
+        //   id: response.data.id,
+        //   status: true,
+        // });
+
         if (response.data.role === "admin") navigate("/admindashboard");
         else if (response.data.role === "service") navigate("/serviceproviderdashboard");
         else if (response.data.role === "moderator") navigate("/moderatordashboard");
