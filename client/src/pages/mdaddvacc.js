@@ -36,13 +36,13 @@ function mdaddvitamin() {
 	  };
 	
 	  const Schema = Yup.object().shape({
-		vitName:  Yup.string()
+		vacName:  Yup.string()
 		.matches(/^[A-Za-z ]*$/,"Please enter valid name")
-		.required(),
+		.required("Please enter Vccine name"),
 
 		vacNextIter:  Yup.string()
-		.matches(/^[0-9]*$/)
-		.required(),
+		.matches(/^[0-9]*$/,"Please enter valid duration")
+		
 		
 	  });
 	
@@ -110,6 +110,9 @@ function mdaddvitamin() {
 
 						 <div class="col-10">
 							<label className="form-label">Name of the vaccine</label>
+							<div className="col">
+                              <ErrorMessage name="vacName" className="errormesage" component="span" />
+                            </div>
 									<Field
 									className="form-control"
 									id="vacName"
@@ -120,6 +123,7 @@ function mdaddvitamin() {
 						 </div>
 						 <div class="col-10">
 							<label className="form-label">Description about the vaccine</label>
+							
 									<Field
 									className="form-control"
 									id="descr"
@@ -131,6 +135,9 @@ function mdaddvitamin() {
 						 </div>
 						 <div class="col-10">
 							<label className="form-label">Next Iteration On</label>
+							<div className="col">
+                              <ErrorMessage name="vacNextIter" className="errormesage" component="span" />
+                            </div>
 									<Field
 									className="form-control"
 									id="vacNextIter"
