@@ -12,8 +12,9 @@ import "../styles/spdashboard.css";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
-function pendingads() {
+function Allads() {
 	const [listOfallads, setlistOfallads] = useState([]);
 	// let history = useHistory();
 
@@ -125,6 +126,41 @@ function pendingads() {
 																		backgroundColor: "#F66B0E",
 																		width: 100,
 																	}}
+																	// type="button"
+																	// class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	onClick={() => {
+
+																	Swal.fire({
+																		title: 'Are you sure?',
+																		text: "You won't be able to revert this!",
+																		icon: 'warning',
+																		showCancelButton: true,
+																		confirmButtonColor: '#3085d6',
+																		cancelButtonColor: '#d33',
+																		confirmButtonText: 'Yes, delete it!'
+																	}).then((result) => {
+																		if (result.isConfirmed) {
+
+																		
+																		axios.delete("http://localhost:3001/service/deletead/"+value. adId).then((response) => {
+																			if (response.data.error) {
+																			alert(response.data.error);
+																			} else {
+																			axios.get("http://localhost:3001/service/getalladsuser").then((response) => {
+																				setlistOfallads(response.data);});
+																			} 
+																		});
+																			Swal.fire(
+																			'Deleted!',
+																			'Advertiesment has been deleted.',
+																			'success'
+																			)
+																		
+																		
+																		}
+																	})
+																	
+																		}}
 																>
 																	Remove
 																</Button>
@@ -148,4 +184,4 @@ function pendingads() {
 	);
 }
 
-export default pendingads;
+export default Allads;

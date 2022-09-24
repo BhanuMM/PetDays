@@ -15,10 +15,10 @@ function spviewad() {
 	// let history = useHistory();
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/viewad" + location.state)
+			.get("http://localhost:3001/service/getpendingadsuser" + location.state)
 			.then((response) => {
 				setlistOfAds(response.data);
-				// console.log(listOfAds);
+				console.log(listOfAds);
 			});
 	}, []);
 
@@ -65,20 +65,19 @@ function spviewad() {
 
 													<div style={{ display: "flex", paddingLeft: 170 }}>
 														<div style={{ width: 400, paddingRight: 100 }}>
-															<h3>Dog Walking Service</h3>
+															{/* <h3>Dog Walking Service</h3> */}
 															<p>
 																<i
 																	class="fa fa-map-marker"
 																	aria-hidden="true"
-																></i>{" "}
-																Gampaha,Sri Lanka
+																></i>{value.adProvince},{value.adDistrict},
+																Sri Lanka
 															</p>
 															<br />
-															<h4>Rs 2000.00 only</h4>
+															<h4>Rs{value.adPrice}</h4>
 															<p>
-																Keep your dog happy and in great space with our
-																help. Let we take care of your pet while you are
-																away.
+																{value. adDescr}
+																
 															</p>
 														</div>
 														<div>
@@ -88,26 +87,20 @@ function spviewad() {
 																	<i
 																		class="fa fa-envelope"
 																		aria-hidden="true"
-																	></i>{" "}
-																	www.dogfriends.lk
+																	></i>{value. adEmail}
+																	
 																</p>
 																<p>
 																	<i class="fa fa-phone" aria-hidden="true"></i>
-																	+94 718 956 953{" "}
+																	{value.adContact}
 																</p>
-																<p>
-																	<i
-																		class="fa fa-facebook-square"
-																		aria-hidden="true"
-																	></i>{" "}
-																	wwww.facebook.com/dogfriends
-																</p>
+																
 																<p>
 																	<i
 																		class="fa fa-map-marker"
 																		aria-hidden="true"
-																	></i>{" "}
-																	Temple Road,Gampaha,Sri Lanka
+																	></i>{value.adAddress}
+																	
 																</p>
 															</p>
 														</div>
@@ -125,6 +118,7 @@ function spviewad() {
 				</div>
 			</div>
 		</div>
+		
 	);
 }
 

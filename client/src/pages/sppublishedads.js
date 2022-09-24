@@ -11,6 +11,8 @@ import Navbarsp from "../components/navsp";
 import "../styles/spdashboard.css";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import Swal from 'sweetalert2';
+
 import { useEffect, useState } from "react";
 function pendingads() {
 	const [listOfpublishedads, setlistOfpublishedads] = useState([]);
@@ -39,7 +41,7 @@ function pendingads() {
 					<br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
-							<h1 class="h2 mb-0 ls-tight">My Advertisments</h1>
+							<h1 class="h2 mb-0 ls-tight">Published Advertisments</h1>
 							<hr />
 							<br />
 							<div className="row">
@@ -75,24 +77,28 @@ function pendingads() {
 															<br />
 															<div style={{ paddingRight: 20 }}>
 																<a
-																	href="\spviewad"
+														
 																	role="button"
 																	aria-pressed="true"
 																>
 																	<Button
+																	style={{
+																		backgroundColor: "#205375",
+																		width: 100,
+																	}}
 																		variant="contained"
 																		component="label"
-																		style={{
-																			backgroundColor: "#205375",
-																			width: 100,
-																		}}
+																		onClick={() => {
+																		navigate('/spviewad',{state: value.adId});
+																			  }}
 																	>
 																		View
 																	</Button>
 																</a>
 															</div>
+
 															<div>
-																<a href="" role="button" aria-pressed="true">
+																<a  role="button" aria-pressed="true">
 																	<Button
 																		variant="contained"
 																		component="label"
@@ -100,6 +106,9 @@ function pendingads() {
 																			backgroundColor: "#112b3c",
 																			width: 100,
 																		}}
+																		onClick={() => {
+																			navigate('/speditad',{state: value.adId});
+																			  }}
 																	>
 																		Edit
 																	</Button>
@@ -108,7 +117,7 @@ function pendingads() {
 															<div style={{
 																		paddingLeft: 20
 																	}}>
-															<a href="" role="button" aria-pressed="true">
+															<a role="button" aria-pressed="true">
 																<Button
 																	variant="contained"
 																	component="label"
@@ -116,12 +125,48 @@ function pendingads() {
 																		backgroundColor: "#F66B0E",
 																		width: 100,
 																	}}
+
+																	onClick={() => {
+
+																		Swal.fire({
+																			title: 'Are you sure?',
+																			text: "You won't be able to revert this!",
+																			icon: 'warning',
+																			showCancelButton: true,
+																			confirmButtonColor: '#3085d6',
+																			cancelButtonColor: '#d33',
+																			confirmButtonText: 'Yes, delete it!'
+																		}).then((result) => {
+																			if (result.isConfirmed) {
+	
+																			
+																			axios.delete("http://localhost:3001/service/deletead/"+value. adId).then((response) => {
+																				if (response.data.error) {
+																				alert(response.data.error);
+																				} else {
+																				axios.get("http://localhost:3001/service/getacceptedadsuser").then((response) => {
+																					setlistOfpublishedads(response.data);});
+																				} 
+																			});
+																				Swal.fire(
+																				'Deleted!',
+																				'Advertiesment has been deleted.',
+																				'success'
+																				)
+																			
+																			
+																			}
+																		})
+																		
+																			}}
 																>
 																	Remove
 																</Button>
 															</a>
 														</div>
+															<br />
 														</div>
+														
 													</div>
 												</div>
 											</div>

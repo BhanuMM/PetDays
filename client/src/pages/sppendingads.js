@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
+import Swal from 'sweetalert2';
 
 function pendingads() {
 	const [listOfpendingads, setlistOfpendingads] = useState([]);
@@ -40,60 +41,65 @@ function pendingads() {
 					<br />
 					<br />
 					<main class="py-6 bg-surface-secondary">
-                    <div class="container-fluid">
-							<h1 class="h2 mb-0 ls-tight">My Advertisments</h1>
+						<div class="container-fluid">
+							<h1 class="h2 mb-0 ls-tight">Pending Advertisments</h1>
 							<hr />
 							<br />
 							<div className="row">
-                            {listOfpendingads.map((value, key) => {
-											return (
-								<div className="col-4">
-									<div class="petmart-card" style={{ width: 400 }}>
-										<div class="petmart-inner-card">
-											
-											<img src={`http://localhost:3001/service/static/${value.adImage}`}
-											class="img-fluid rounded" ></img>
-											<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-												<h4>{value.adTitle}</h4>
-												<small>{value.adDate} at {value.adTime}{" "}</small>
-											</div>
-											<div class="mt-2 px-2">
-												{" "}
-												<small>
-                                                {value.adDescr}
-												</small>{" "}
-											</div>
-											<div class="px-2">
-												<h3>{value.adPrice}</h3>
-											</div>
-											<div class="px-2 mt-3">
-												<div
-													class="comment"
-													style={{ display: "flex", paddingLeft: 10 }}
-												>
-													<br />
-													<br />
-													<div style={{ paddingRight: 20 }}>
-														<a
-															href="\spviewad"
-															role="button"
-															aria-pressed="true"
-														>
-															<Button
-																variant="contained"
-																component="label"
-																style={{
-																	backgroundColor: "#205375",
-																	width: 100,
-																}}
-															>
-																View
-															</Button>
-														</a>
+								{listOfpendingads.map((value, key) => {
+									return (
+										<div className="col-4">
+											<div class="petmart-card" style={{ width: 400 }}>
+												<div class="petmart-inner-card">
+													{" "}
+													<img
+														src="https://www.acs.edu.au/database/images/course_4335051.jpg"
+														class="img-fluid rounded"
+													/>
+													<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+														<h4>{value.adTitle}</h4>
+														<small>
+															{value.adDate} at {value.adTime}{" "}
+														</small>
 													</div>
+													<div class="mt-2 px-2">
+														{" "}
+														<small>{value.adDescr}</small>{" "}
+													</div>
+													<div class="px-2">
+														<h3>{value.adPrice}</h3>
+													</div>
+													<div class="px-2 mt-3">
+														<div
+															class="comment"
+															style={{ display: "flex", paddingLeft: 10 }}
+														>
+															<br />
+															<br />
+															<div style={{ paddingRight: 20 }}>
+																<a
+														
+																	role="button"
+																	aria-pressed="true"
+																>
+																	<Button
+																	style={{
+																		backgroundColor: "#205375",
+																		width: 100,
+																	}}
+																		variant="contained"
+																		component="label"
+																		onClick={() => {
+																		navigate('/spviewad',{state: value.adId});
+																			  }}
+																	>
+																		View
+																	</Button>
+																</a>
+															</div>
 
-													<div>
-																<a href="" role="button" aria-pressed="true">
+															<div>
+																<a  role="button" aria-pressed="true">
 																	<Button
 																		variant="contained"
 																		component="label"
@@ -101,6 +107,9 @@ function pendingads() {
 																			backgroundColor: "#112b3c",
 																			width: 100,
 																		}}
+																		onClick={() => {
+																			navigate('/getpendingadsuser',{state: value.adId});
+																			  }}
 																	>
 																		Edit
 																	</Button>
@@ -109,7 +118,7 @@ function pendingads() {
 															<div style={{
 																		paddingLeft: 20
 																	}}>
-															<a href="" role="button" aria-pressed="true">
+															<a role="button" aria-pressed="true">
 																<Button
 																	variant="contained"
 																	component="label"
@@ -117,18 +126,53 @@ function pendingads() {
 																		backgroundColor: "#F66B0E",
 																		width: 100,
 																	}}
+																	onClick={() => {
+
+																		Swal.fire({
+																			title: 'Are you sure?',
+																			text: "You won't be able to revert this!",
+																			icon: 'warning',
+																			showCancelButton: true,
+																			confirmButtonColor: '#3085d6',
+																			cancelButtonColor: '#d33',
+																			confirmButtonText: 'Yes, delete it!'
+																		}).then((result) => {
+																			if (result.isConfirmed) {
+	
+																			
+																			axios.delete("http://localhost:3001/service/deletead/"+value. adId).then((response) => {
+																				if (response.data.error) {
+																				alert(response.data.error);
+																				} else {
+																				axios.get("http://localhost:3001/service/getpendingadsuser").then((response) => {
+																					setlistOfpendingads(response.data);});
+																				} 
+																			});
+																				Swal.fire(
+																				'Deleted!',
+																				'Advertiesment has been deleted.',
+																				'success'
+																				)
+																			
+																			
+																			}
+																		})
+																		
+																			}}
 																>
 																	Remove
 																</Button>
 															</a>
 														</div>
+															<br />
+														</div>
+														
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-                                );
-                            })}
+									);
+								})}
 							</div>
 						</div>
 					</main>

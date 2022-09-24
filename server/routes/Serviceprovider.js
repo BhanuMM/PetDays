@@ -96,6 +96,7 @@ router.get("/getpendingads/:id", async (req, res) => {
   res.json(listOfAds);
 });
 
+
 router.get("/getad/:id", async (req, res) => {
   const id = req.params.id;
   const SingleAd = await SingleAd.findByPk(id);
@@ -128,17 +129,17 @@ router.get("/viewad/:id", async (req, res) => {
 });
 
 
+
+
+//DISPLAY ALL ADS CARDS
 router.get("/getalladsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
-    // {
-    //   where: {
-    //     userId: "1",
-    //   },
-    // }
+   
   );
   res.json(listOfpendingads);
 });
-
+ 
+//DISPLY PENDING ADS CARDS
 router.get("/getpendingadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
@@ -149,6 +150,7 @@ router.get("/getpendingadsuser", async (req, res) => {
   );
   res.json(listOfpendingads);
 });
+//DISPLAY REJECTED ADS CARDS
 router.get("/getrejectedadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
@@ -160,6 +162,8 @@ router.get("/getrejectedadsuser", async (req, res) => {
   );
   res.json(listOfpendingads);
 });
+
+//DISPLAY APPROVED ADS CARDS
 router.get("/getacceptedadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
@@ -170,11 +174,16 @@ router.get("/getacceptedadsuser", async (req, res) => {
   );
   res.json(listOfpendingads);
 });
+
+//DISPLAY AD AFTER PRESSING VIWE BUTTON IN ADD CARD
 router.get("/getpendingadsuser/:id", async (req, res) => {
   const id = req.params.id;
   const listOfAds= await Publishedads.findByPk(id);
   res.json(listOfAds);
 });
+
+
+
 // router.get("/getdietplans", async (req, res) => {
 //   const listOfDietplans = await Dietplans.findAll(
 //     {
@@ -240,16 +249,19 @@ router.post("/updaterejectedad/:id", async (req, res) => {
 
 
 // deletes------------
-// router.delete("/deletemed/:medId", async (req, res) => {
-//   const medId = req.params.medId;
 
-//   await Medicines.destroy({
-//     where: {
-//       medID: medId,
-//     },
-//   });
-//   res.json("DELETED SUCCESSFULLY");
-// });
+ //DELETE APPROVED PENDING REJECTED AND ALL ADS
+router.delete("/deletead/:adId", async (req, res) => {
+  const adId = req.params.adId;
+
+  await Publishedads.destroy({
+    where: {
+      adId: adId,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
+
 
 
 module.exports = router;
