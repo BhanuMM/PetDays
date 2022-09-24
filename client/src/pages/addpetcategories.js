@@ -153,9 +153,9 @@ function addpetcategories() {
 															component="textarea"
 															/>
 													</div>
-													<div className="row">
-														<div className="col-9"></div>
-														<div className="col-3 mb-5 mt-5">
+													{/* <div className="row"> */}
+														{/* <div className="col-9"></div> */}
+														<div className="col-10 mb-5 mt-5 text-right">
 															{" "}
 															<button
 																className="register.loginbuttonsize btn btn-success "
@@ -165,7 +165,7 @@ function addpetcategories() {
 																Add Pet Category
 															</button>
 														</div>
-													</div>
+													{/* </div> */}
 												{/* </Box> */}
 
 												{/* <div className="row">

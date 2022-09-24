@@ -39,8 +39,7 @@ function spviewad() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									{listOfAds.map((value, key) => {
-										return (
+									
 											<Card
 												sx={{
 													minWidth: 275,
@@ -51,8 +50,8 @@ function spviewad() {
 											>
 												<CardContent style={{ paddingLeft: 50 }}>
 													<div>
-														<h3 className="">{value.adTitle} </h3>
-														<p> Posted on {value.adDate}</p>
+														<h3 className="">{listOfAds.adTitle} </h3>
+														<p> Posted on {listOfAds.adDate}</p>
 														<hr />
 													</div>
 													<div className="row" style={{ paddingLeft: 250 }}>
@@ -70,13 +69,13 @@ function spviewad() {
 																<i
 																	class="fa fa-map-marker"
 																	aria-hidden="true"
-																></i>{value.adProvince},{value.adDistrict},
+																></i>{listOfAds.adProvince},{listOfAds.adDistrict},
 																Sri Lanka
 															</p>
 															<br />
-															<h4>Rs{value.adPrice}</h4>
+															<h4>Rs{listOfAds.adPrice}</h4>
 															<p>
-																{value. adDescr}
+																{listOfAds. adDescr}
 																
 															</p>
 														</div>
@@ -87,19 +86,19 @@ function spviewad() {
 																	<i
 																		class="fa fa-envelope"
 																		aria-hidden="true"
-																	></i>{value. adEmail}
+																	></i>{listOfAds. adEmail}
 																	
 																</p>
 																<p>
 																	<i class="fa fa-phone" aria-hidden="true"></i>
-																	{value.adContact}
+																	{listOfAds.adContact}
 																</p>
 																
 																<p>
 																	<i
 																		class="fa fa-map-marker"
 																		aria-hidden="true"
-																	></i>{value.adAddress}
+																	></i>{listOfAds.adAddress}
 																	
 																</p>
 															</p>
@@ -109,8 +108,7 @@ function spviewad() {
 													<br />
 												</CardContent>
 											</Card>
-										);
-									})}
+										
 								</div>
 							</div>
 						</div>
