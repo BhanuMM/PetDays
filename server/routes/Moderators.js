@@ -133,7 +133,16 @@ router.get("/getvitamins", async (req, res) => {
 });
 
 router.get("/getdietplans", async (req, res) => {
-  const listOfDietplans = await Dietplans.findAll();
+  const listOfDietplans = await Dietplans.findAll(
+    {
+            include: { 
+              model:Breeds ,
+               required: true,
+               include: [{model: Petcatagories  , required: true }]
+              },
+              
+          }
+  );
   res.json(listOfDietplans);
 });
 
