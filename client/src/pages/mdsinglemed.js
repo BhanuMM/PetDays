@@ -65,31 +65,32 @@ function mdsinglemed() {
               <div class="row g-6 mb-6">
                 <div style={{ paddingLeft: 20 }}>
                   <div
-                    class="col col-xs-6 text-right"
+                    class="col col-xs-8 text-right"
                     style={{ display: "flex" }}
                   >
-                    
-                      <Button
-                        variant="contained"
-                        component="label"
-                        style={{ backgroundColor: "#F66B0E" }}
-                        onClick = {() => {
-                          navigate("/mdaddmed");
-                        }}
-                      >
-                        Add Medicine
-                      </Button>
-                    <div class="input-group" style={{ width: 575 }}>
-                      <p>Search Medicine</p>
+                    <div style={{ width: 800 }}>
+                        <Button
+                          variant="contained"
+                          component="label"
+                          style={{ backgroundColor: "#F66B0E" }}
+                          onClick = {() => {
+                            navigate("/mdaddmed");
+                          }}
+                        >
+                          Add Medicine
+                        </Button>
+                      </div>
+                    <div class="input-group" style={{ width: 575}}>
+                      <p class="fw-semibold " style={{paddingRight:10,paddingTop:10}}>Search Medicine</p>
                       <input
                         type="search"
                         class="form-control rounded"
-                        placeholder="Enter  Medicine Name"
+                        placeholder="Enter Medicine Name"
                         aria-label="Search"
                         aria-describedby="search-addon"
                         style={{ height: 40 }}
                         onChange = {(event) => {
-                         setSearchTerm(event.target.value);
+                        setSearchTerm(event.target.value);
                         }}
                       />
                       
