@@ -12,6 +12,14 @@ function mddogdiet() {
 	// const [searchTerm, setSearchTerm] = useState([]);
   const [filterItems, setFilterItems] = useState([]);
   const [listOfDietplans, setListOfDietplans] = useState([]);
+  const [listOfCatagories, setListOfCatagories] = useState([]);
+  const [listOfBreeds, setListOfBreeds] = useState([]);
+  // const [catName, setCatName] = useState('All');
+  // const [breedName, setBreedName] = useState('All');
+  var catName = 'All';
+  var breedName = 'All';
+  
+
   // let history = useHistory();
 
   useEffect(() => {
@@ -19,6 +27,9 @@ function mddogdiet() {
 	  setListOfDietplans(response.data);
       setFilterItems(response.data);
     });
+    axios.get("http://localhost:3001/admin/getpetcategories").then((response) => {
+      setListOfCatagories(response.data);
+      });
   }, []);
 
 //   Search Diet Plan by Name function
@@ -36,41 +47,69 @@ function mddogdiet() {
 	setFilterItems(result);
 	
   }
-//   Diet plan Filters pet categpry
-  const filterResult = (catName) =>{
-	if (catName == "All"){
-		setFilterItems(listOfDietplans);
-	}
-	else{
-		const result = filterItems.filter((val) =>{
-			return val.Breed.Petcatagory.pcatName === catName;
+// //   Diet plan Filters pet categpry
+//   const filterResult = (catName) =>{
+// 	if (catName == "All"){
+// 		setFilterItems(listOfDietplans);
+// 	}
+// 	else{
+// 		const result = filterItems.filter((val) =>{
+// 			return val.Breed.Petcatagory.pcatName === catName;
 			
-		} );
-		setFilterItems(result);
-	}
+// 		} );
+// 		setFilterItems(result);
+// 	}
 	
-  }
+//   }
 
-  //   Diet plan Filters pet breed
-  const filterResult2 = (breedName) =>{
-	if (breedName == "All"){
-		setFilterItems(listOfDietplans);
-	}
-	else{
-		const result = filterItems.filter((val) =>{
-			return val.Breed.breedName === breedName;
-			
-		} );
-		if(result == ""){
-			setFilterItems(listOfDietplans);
-		}
-		else{
-			setFilterItems(result);
-		}
+//   //   Diet plan Filters pet breed
+//   const filterResult2 = (breedName) =>{
+// 	if (breedName == "All"){
+// 		setFilterItems(listOfDietplans);
+// 	}
+// 	else{
+// 		const result = filterItems.filter((val) =>{
+// 			return val.Breed.breedName === breedName;
+// 		} );
+// 		if(result == ""){
+// 			setFilterItems(listOfDietplans);
+// 		}
+// 		else{
+// 			setFilterItems(result);
+// 		}
 	
-	}
+// 	}
 	
-  }
+//   }
+
+    const filterResult = (catagory,breed) =>{
+      console.log("catagory " , catagory);
+      console.log("breed ", breed);
+        if (catagory == "All"){
+          setFilterItems(listOfDietplans);
+        }else if(breed == "All"){
+          const result = listOfDietplans.filter((val) =>{
+            return val.Breed.Petcatagory.pcatID === parseInt(catagory); 
+          } );
+          setFilterItems(result);
+        }
+        else{
+          console.log("ado ", breed);
+          console.log("ado ", catagory);
+          const result = listOfDietplans.filter((val) =>{
+            return val.Breed.Petcatagory.pcatID === parseInt(catagory); 
+          } );
+          
+          const result2 = result.filter((val) =>{
+            return val.Breed.breedName === breed; 
+          } );
+          
+
+
+          setFilterItems(result2);
+        } 
+    }
+  
 
   return (
     <div class="container-fluid">
@@ -130,16 +169,30 @@ function mddogdiet() {
                     <div class="search-line" style={{ display: "flex" }}>
                       <p class="fw-semibold ">
                         <select
-                          id="select1"
+                          id="select"
                           class="btn btn-dark dropdown-toggle"
                           style={{ paddingRight: 40 , marginRight : 20}}
                           onChange={(event) => {
-                            filterResult(event.target.value);
+                            
+                              document.getElementById("select1").value = 'All';
+                            
+                            axios.get("http://localhost:3001/admin/getpetbreeds/"+ event.target.value).then((response) => {
+                              setListOfBreeds(response.data);
+                            });
+                            filterResult(event.target.value,document.getElementById("select1").value);
                           }}
                         >
                           <option value="All">All</option>
-                          <option value="Dog">Dog</option>
-                          <option value="Cat">Cat</option>
+                          {/* <option value="Dog">Dog</option>
+                          <option value="Cat">Cat</option> */}
+                          {listOfCatagories.map((value, key) =>  {
+                            return(
+                              <option value={value.pcatID}>{value.pcatName}</option>
+                            );
+                            
+                          })
+                          }
+                        
                         </select>
                       </p>
 
@@ -149,92 +202,24 @@ function mddogdiet() {
                           class="btn btn-dark dropdown-toggle"
                           style={{ paddingRight: 40 , marginRight : 20 }}
                           onChange={(event) => {
-                            filterResult2(event.target.value);
+                            filterResult(document.getElementById("select").value,event.target.value);
                           }}
                         >
                           <option value="All">All Breeds</option>
-                          <option value="Roti">Roti</option>
-						  <option value="german">german</option>
-                          <option value="bobcat">bobcat</option>
-                          <option value="persian">persian</option>
+                          {listOfBreeds.map((value, key) =>  {
+                            return(
+                              <option value={value.breedName}>{value.breedName}</option>
+                            );
+                            
+                          })
+                          }
+                        
                         </select>
                       </p>
 
-                      <p class="fw-semibold ">
-                        <div class="dropdown" style={{ paddingRight: 40 }}>
-                          <button
-                            class="btn btn-dark dropdown-toggle"
-                            type="button"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            style={{
-                              height: 40,
-                              backgroundColor: "#205375",
-                              width: 150,
-                              borderColor: "#205375",
-                            }}
-                          >
-                            Age Range
-                          </button>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <a class="dropdown-item" href="#">
-                              0-10
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              10-20
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              20-30
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              30-40
-                            </a>
-                          </div>
-                        </div>
-                      </p>
+                      
 
-                      <p class="fw-semibold ">
-                        <div class="dropdown" style={{ paddingRight: 40 }}>
-                          <button
-                            class="btn btn-dark dropdown-toggle"
-                            type="button"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            style={{
-                              height: 40,
-                              backgroundColor: "#205375",
-                              width: 150,
-                              borderColor: "#205375",
-                            }}
-                          >
-                            Weight Range
-                          </button>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <a class="dropdown-item" href="#">
-                              0-10
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              10-20
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              20-30
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              30-40
-                            </a>
-                          </div>
-                        </div>
-                      </p>
+                    
                      
 
                       <div class="input-group" style={{ width: 430 }}>
@@ -245,9 +230,9 @@ function mddogdiet() {
                           aria-label="Search"
                           aria-describedby="search-addon"
                           style={{ height: 40 }}
-						  onChange = {(event) => {
-							searchResult(event.target.value);
-							}}
+                              onChange = {(event) => {
+                              searchResult(event.target.value);
+                              }}
                         />
                         
                       </div>
