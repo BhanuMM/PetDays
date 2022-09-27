@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-
 import Profilepic from '../images/profile.jpg';
 import Button from '@mui/material/Button';
 import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';

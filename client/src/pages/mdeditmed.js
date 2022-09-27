@@ -2,18 +2,13 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
-import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Moderatorsidebar from "../components/moderatorsidebar";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
-import * as Yup from "yup";
+
 
 const bull = (
 	<Box
@@ -46,25 +41,6 @@ function mdeeditmed() {
 		medName: SingleMed.medName,
 		descr: SingleMed.descr,
 	};
-
-	//   const Schema = Yup.object().shape({
-	// 	email: Yup.string().email("Not a proper email address"),
-	// 	password: Yup.string()
-	// 	  .min(5)
-	// 	  .max(12)
-	// 	  .required("This field is required")
-	// 	  .matches(
-	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-	// 	  ),
-	// 	confirmpassword: Yup.string().when("password", {
-	// 	  is: (val) => (val && val.length > 0 ? true : false),
-	// 	  then: Yup.string().oneOf(
-	// 		[Yup.ref("password")],
-	// 		"Passwords does not match"
-	// 	  ),
-	// 	}),
-	//   });
 
 	const navigate = useNavigate();
 

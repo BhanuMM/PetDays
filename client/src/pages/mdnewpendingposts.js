@@ -2,15 +2,25 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Profilepic from '../images/profile.jpg';
 import Button from '@mui/material/Button';
-import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import {Card,  CardContent,  CardMedia, Grid, Container, Typography}  from '@mui/material';
 import Moderatorsidebar from "../components/moderatorsidebar";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 function mdnewpendingposts() {
+
+	const [listOfpendingposts, setlistOfpendingposts] = useState([]);
+	// let history = useHistory();
+  
+	useEffect(() => {
+	  axios.get("http://localhost:3001/mod/getpendingposts").then((response) => {
+		setlistOfpendingposts(response.data);
+	  });
+	}, []);
+  
+	const navigate = useNavigate();
+
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -98,83 +108,42 @@ function mdnewpendingposts() {
 									</div>
 								</div>
 
-
+								
                                 <CardContent>
+								{listOfpendingposts.map((value, key) => {
+                            return (
+								<div>
                                 <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
                                 <div class="card-body">
                                 <div class="content">
                                     <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Posted 5 minutes ago.</p>
+                                        <Typography class="fw-semibold fs-7">{value.postTitle}</Typography>
+                                        <Typography class="font-italic text-success fs-7">{value.postDate}</Typography>
                                     </div>  
                                     <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
+										<Typography>{value.postDescr}</Typography>
                                     </div>
                                     <div class='comment' style={{paddingRight:50}}><br/>
                                             <a href="" role="button" aria-pressed="true">  
-                                                <Button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
+                                                <button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
                                                     Approve
-                                                </Button>
+                                                </button>
                                             </a>
-                                                            <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                                            Reject
-                                                        </Button></a>
-                                        </div>
+                                            <a href="" role="button" aria-pressed="true"> 
+												<button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
+														Reject
+												</button></a>
+                                    </div>
                             </div>
 
                                 </div>
                                 </Card><br/>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Posted 35 minutes ago.</p>
-                                    </div>  
-                                    <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
-                                    </div>
-                                    <div class='comment' style={{paddingRight:50}}><br/>
-                                            <a href="" role="button" aria-pressed="true">  
-                                                <Button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
-                                                    Approve
-                                                </Button>
-                                            </a>
-                                                            <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                                            Reject
-                                                        </Button></a>
-                                        </div>
-                            </div>
-
-                                </div>
-                                </Card><br/>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <p class="fw-semibold fs-7">Dangerous, Potentially Deadly Houseplants Your Dog Should Avoid</p>
-                                        <p class="font-italic text-success fs-7">Posted 15 minutes ago.</p>
-                                    </div>  
-                                    <div>
-                                    Most dog people know that some outdoor plants like oleander and sago palms are toxic to dogs. What you may not realize is that there are tons of household plants that are dangerous, or even deadly, to dogs
-                                    </div>
-                                    <div class='comment' style={{paddingRight:50}}><br/>
-                                            <a href="" role="button" aria-pressed="true">  
-                                                <Button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
-                                                    Approve
-                                                </Button>
-                                            </a>
-                                                            <a href="" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                                            Reject
-                                                        </Button></a>
-                                        </div>
-                            </div>
-
-                                </div>
-                                </Card><br/>
-
+                                
+								</div>	
+								);
+							})}
                                 </CardContent>
-                            
+                            	
             				</div>
 	
 							</div>

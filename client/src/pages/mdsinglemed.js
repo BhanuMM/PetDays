@@ -152,7 +152,7 @@ function mdsinglemed() {
 										  }}
                                     >
                                       <em class="fa fa-pencil"></em>
-                                    </button>
+                   </button>
 										
 									  
 									</div>
@@ -186,9 +186,7 @@ function mdsinglemed() {
                               'Deleted!',
                               'Medicine has been deleted.',
                               'success'
-                            )
-                           
-                          
+                            ) 
                         }
                       })
                       

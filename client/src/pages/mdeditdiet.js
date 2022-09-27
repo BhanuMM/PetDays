@@ -2,12 +2,12 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from '@mui/material/Button';
-import {Card,  CardContent,  CardMedia, Grid, Container}  from '@mui/material';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Box from "@mui/material/Box";
 import Moderatorsidebar from "../components/moderatorsidebar";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
 
 const bull = (
@@ -22,6 +22,42 @@ const bull = (
 
 
 function mdeditdogdiet() {
+
+	const [SingleDietplan, setSingleDietplan] = useState([]);
+	const location = useLocation();
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/mod/getdietplans/" + location.state)
+			.then((response) => {
+				setSingleDietplan(response.data);
+			});
+	}, []);
+
+	const initialValues = {
+		dietPlanID: SingleDietplan.dietPlanID,
+		planName: SingleDietplan.planName,
+		planDescr: SingleDietplan.planDescr,
+		ageRangeFrom: SingleDietplan.ageRangeFrom,
+		ageRangeTo: SingleDietplan.ageRangeTo,
+		weightRangeFrom: SingleDietplan.weightRangeFrom,
+		weightRangeTo: SingleDietplan.weightRangeTo,
+	};
+
+	const navigate = useNavigate();
+
+	const onSubmit = (data) => {
+		axios
+			.post("http://localhost:3001/mod/updatediet", data)
+			.then((response) => {
+				if (response.data.error) {
+					alert(response.data.error);
+				} else {
+					// console.log(data)
+					navigate("/mddogdiet");
+				}
+			});
+	};
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -62,41 +98,107 @@ function mdeditdogdiet() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 							<div style={{paddingLeft:20}}>
-                            <Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} style={{height:630, padding: 10, paddingLeft:75}}>
-                        <CardContent>
-                        <form><br/><br/>
+							<Formik
+										enableReinitialize={true}
+										initialValues={initialValues}
+										onSubmit={onSubmit}
+									>    
+                        <Form><br/><br/>
+						<br />
+											<br />
+											<label className="form-label">Name of the Diet Plan</label>
+											<Field
+												className="form-control"
+												id="dietplanID"
+												autocomplete="off"
+												type="hidden"
+												name="dietplanID"
+												// value ={SingleMed.medID}
+											/>
+											<Field
+												className="form-control"
+												id="planName"
+												autocomplete="off"
+												name="planName"
+												// value ={SingleMed.medName}
+											/>
+											<label className="form-label">
+												Description about the Diet Plan
+											</label>
+											<Field
+												className="form-control"
+												id="planDescr"
+												autocomplete="off"
+												name="planDescr"
+											/>
 
-                       <Box
-                            component="form"
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '100ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                            >
-                                <TextField  id="outlined-required"label="Name of the diet"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Breed / Category"defaultValue="Hello World" type="Dropdown"/>
-                                <TextField  id="outlined-required"label="Description about the Diet Plan"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Age Range of the Dog"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Weight Range of the Dog"defaultValue="Hello World" />
-                                <TextField  id="outlined-required"label="Add items"defaultValue="Hello World" />
-                        </Box>
+											<label className="form-label">
+												Age Range From
+											</label>
+											<Field
+												className="form-control"
+												id="ageRangeFrom"
+												autocomplete="off"
+												name="ageRangeFrom"
+											/>
+											<label className="form-label">
+												Age Range To
+											</label>
+											<Field
+												className="form-control"
+												id="ageRangeTo"
+												autocomplete="off"
+												name="ageRangeTo"
+											/>
+											<label className="form-label">
+												Weight Range From
+											</label>
+											<Field
+												className="form-control"
+												id="weightRangeFrom"
+												autocomplete="off"
+												name="weightRangeFrom"
+											/>
+											<label className="form-label">
+												Weight Range To
+											</label>
+											<Field
+												className="form-control"
+												id="weightRangeTo"
+												autocomplete="off"
+												name="weightRangeTo"
+											/>
+
+											<label className="form-label">Breed id</label>
+												<Field as="select" name="breedId" className="form-select">
+													<option value="0">select breed</option>
+													<option value="1">german shephard</option>
+													<option value="2">lion shephard</option>
+												</Field>
+
+											<label className="form-label">Cat id</label>
+												<Field as="select" name="catId" className="form-select">
+													<option value="0">select category</option>
+													<option value="1">dogs</option>
+													<option value="2">cats</option>
+												</Field>
 
                             
-                            <div className="row">
-                                <div className="col-9"></div>
-                                <div className="col-3 mb-5 mt-5">
-                                    {" "}
-                                    <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                                        Update Diet Plan
-                                    </Button>
-                                </div>
-                                
-                            </div>
-                        </form>
+						<div className="row">
+												<div className="col-9"></div>
+												<div className="col-3 mb-5 mt-5">
+													<button
+														className="register.loginbuttonsize btn btn-success "
+														type="submit"
+														style={{ backgroundColor: "#F66B0E" }}
+													>
+														Update Medicine
+													</button>
+												</div>
+											</div>
+							</Form>
+							</Formik>
 
-                    </CardContent>
-                    </Card>
             				</div>
 	
 							</div>

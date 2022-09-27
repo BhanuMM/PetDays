@@ -90,11 +90,26 @@ router.get("/getpendingads", async (req, res) => {
   res.json(listOfpendingads);
 });
 
+router.get("/getverifiedads", async (req, res) => {
+  const listOfverifiedads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "pending",
+      },
+    }
+  );
+  res.json(listOfverifiedads);
+});
 router.get("/getpendingads/:id", async (req, res) => {
   const id = req.params.id;
   const listOfAds= await Publishedads.findByPk(id);
   res.json(listOfAds);
 });
+// router.get("/getverifiedads/:id", async (req, res) => {
+//   const id = req.params.id;
+//   const listOfAds= await Publishedads.findByPk(id);
+//   res.json(listOfAds);
+// });
 
 
 router.get("/getad/:id", async (req, res) => {
