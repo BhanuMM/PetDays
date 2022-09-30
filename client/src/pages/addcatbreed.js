@@ -31,24 +31,12 @@ function addcatbreed() {
 		// catId:"",
 	  };
 	
-	//   const Schema = Yup.object().shape({
-	// 	email: Yup.string().email("Not a proper email address"),
-	// 	password: Yup.string()
-	// 	  .min(5)
-	// 	  .max(12)
-	// 	  .required("This field is required")
-	// 	  .matches(
-	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-	// 	  ),
-	// 	confirmpassword: Yup.string().when("password", {
-	// 	  is: (val) => (val && val.length > 0 ? true : false),
-	// 	  then: Yup.string().oneOf(
-	// 		[Yup.ref("password")],
-	// 		"Passwords does not match"
-	// 	  ),
-	// 	}),
-	//   });
+	  const Schema = Yup.object().shape({
+		breedName: Yup.string()
+		.matches(/^[A-Za-z]*$/,"Please enter valid name")
+		.required("Please enter breed"),
+	
+	  });
 	
 	  const navigate = useNavigate();
 	
@@ -103,6 +91,7 @@ function addcatbreed() {
 						<Formik
 									initialValues={initialValues}
 									onSubmit={onSubmit}
+									validationSchema={Schema}
 								
                       				>
                         <Form class="row g-3" style={{ paddingLeft: 200 }}><br/><br/><br/>
@@ -119,6 +108,9 @@ function addcatbreed() {
 
 					<div class="col-10">
 						<label className="form-label">Name of the Breed</label>
+						<div className="col">
+                            <ErrorMessage name="pcatName" className="errormesage" component="span" />
+                        </div>
 						<Field
 							className="form-control"
 							id="breedName"

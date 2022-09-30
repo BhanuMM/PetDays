@@ -32,7 +32,7 @@ function mdaddvitamin() {
 	
 	  const Schema = Yup.object().shape({
 		vacName:  Yup.string()
-		.matches(/^[A-Za-z ]*$/,"Please enter valid name")
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
 		.required("Please enter Vccine name"),
 
 		vacNextIter:  Yup.string()
