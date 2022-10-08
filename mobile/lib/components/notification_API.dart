@@ -42,12 +42,12 @@ class NotificationAPI{
       ),
     );
   }
-  static Future scheduleNotificationInit(String? title, String? body) async{
+  static Future scheduleNotificationInit(String? title, String? body,DateTime date) async{
     initTx();
     scheduleNotificaton(
       title: title,
       body: body,
-      scheduleDate: DateTime.now().add(Duration(seconds: 15)),
+      scheduleDate: date,
     );
 
   }

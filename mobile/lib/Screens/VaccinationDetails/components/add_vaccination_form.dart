@@ -10,6 +10,7 @@ import '../../AddPetStep2/add_pet_screen.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../../models/pet.dart';
 import '../../../models/petVaccination.dart';
+import '../../../components/notification_API.dart';
 
 class AddVaccinationtForm extends StatefulWidget {
   String petID = '';
@@ -23,7 +24,7 @@ class AddVaccinationtForm extends StatefulWidget {
 }
 class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   late DateTime? _dateTime = null;
-  String initialCat = 'distemper vaccine';
+  String initialCat = '';
   String NextVacDate = ' ';
   bool isManualDate = false;
   bool isRemindersOn = true;
@@ -36,10 +37,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   String _SelectedVac = '';
   String _SelectedVacID = '';
   DateTime? nextDate = new DateTime(1);
-  var Catagories = [
-    'Distemper vaccine',
-    'Canine parvovirus vaccine',
-  ];
+  var Catagories = [];
   PetVaccination petVaccination = new PetVaccination('', '', 'note', 'nextVacDate');
   String petID = '';
   _AddVaccinationFormState(String petID) {
@@ -75,6 +73,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
+      NotificationAPI.scheduleNotificationInit("Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
       showDialog<void>(
         context: this.context,
         builder: (BuildContext context) {
@@ -121,7 +120,11 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
       vaccines = list;
     });
     print(list);
-
+    vaccines.map((item){
+      Catagories.add(item['vacName'].toString());
+    }).toList();
+    initialCat = Catagories[0];
+    print(initialCat);
     return "Sucess";
     //map json and initialize using DataModel
     // return list;
