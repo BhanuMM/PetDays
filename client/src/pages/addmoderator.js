@@ -2,13 +2,8 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
-import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Sidebar from "../components/sidebar";
-
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
@@ -41,23 +36,27 @@ function addmoderator() {
 	  };
 	
 	  const Schema = Yup.object().shape({
-		uemail: Yup.string().email("Not a proper email address"),
+		uemail: Yup.string().email("Not a proper email address")
+				   .required("Please enter email"),
+
 
 		firstName: Yup.string()
 		   			  .max(40)
 					  .matches(/^[A-Za-z ]*$/,'Please enter valid name')
-					  .required(),
+					  .required("Please enter name"),
 
 		lastName: Yup.string()
 					  .max(40)
 				      .matches(/^[A-Za-z ]*$/,'Please enter valid name')
-				      .required(),
+				      .required("Please enter name"),
 
 		// conNum  : Yup.string()
 		// 			  .matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Phone number is not valid'),
 
 		conNum : Yup.string()
-		  			.matches(/^[0-9]{10}$/),
+		  			.matches(/^[0-9]{10}$/,"Please enter valied number")
+					.required("Please enter contact number"),
+
 					//  .phone()
 					//  .max(10)
 					//  .min(10),
@@ -65,7 +64,8 @@ function addmoderator() {
 		modNIC : Yup.string()
 		            .max(12)
 					.min(10)
-					.matches(/^([0-9]{10} | [0-9]{12})(v|V)$/),
+					.matches(/^([0-9]{9} | [0-9]{11})(v|V)$/,"Please enter valied ID number")
+					.required("Please enter ID number"),
 	
 	  });
 	
@@ -158,6 +158,9 @@ function addmoderator() {
 										<div class="row g-3">
 											<div class="col-5">
 												<label className="form-label">First Name</label>
+												<div className="col">
+                             				 <ErrorMessage name="firstName" className="errormesage" component="span" />
+                            				</div>
 													<Field
 														className="form-control"
 														id="firstName"
@@ -168,6 +171,9 @@ function addmoderator() {
 											</div>
 											<div class="col-5">
 												<label className="form-label">Last Name</label>
+												<div className="col">
+                             				 <ErrorMessage name="lastName" className="errormesage" component="span" />
+                            				</div>
 													<Field
 														className="form-control"
 														id="lastName"
@@ -181,6 +187,9 @@ function addmoderator() {
 										<div class="row g-3">
 											<div class="col-5">
 												<label className="form-label"> Contact Number</label>
+												<div className="col">
+                             				 <ErrorMessage name="conNum" className="errormesage" component="span" />
+                            				</div>
 														<Field
 														className="form-control"
 														id="conNum"
@@ -191,6 +200,9 @@ function addmoderator() {
 											</div>
 											<div class="col-5">
 												<label className="form-label">E mail</label>
+												<div className="col">
+                             				 <ErrorMessage name="uemail" className="errormesage" component="span" />
+                            				</div>
 														<Field
 														className="form-control"
 														id="uemail"
@@ -202,6 +214,9 @@ function addmoderator() {
 										</div>
 										<div class="col-10">
 												<label className="form-label"> NIC Number</label>
+												<div className="col">
+                             				 <ErrorMessage name="modNIC" className="errormesage" component="span" />
+                            				</div>
 												<Field
 														className="form-control"
 														id="modNIC"

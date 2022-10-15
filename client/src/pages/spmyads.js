@@ -53,7 +53,7 @@ function Allads() {
 												<div class="petmart-inner-card">
 													{" "}
 													<img
-														src="https://www.acs.edu.au/database/images/course_4335051.jpg"
+														src={`http://localhost:3001/service/static/${value.adImage}`}
 														class="img-fluid rounded"
 													/>
 													<div class="d-flex justify-content-between align-items-center mt-3 px-2">
@@ -64,10 +64,10 @@ function Allads() {
 													</div>
 													<div class="mt-2 px-2">
 														{" "}
-														<small>{value.adDescr}</small>{" "}
+														<small><i class="fa fa-map-marker" aria-hidden="true"></i> {value. adDistrict},Sri Lanka</small>{" "}
 													</div>
 													<div class="px-2">
-														<h3>{value.adPrice}</h3>
+														<h3>Rs.{value.adPrice}/=</h3>
 													</div>
 													<div class="px-2 mt-3">
 														<div
@@ -90,8 +90,8 @@ function Allads() {
 																		variant="contained"
 																		component="label"
 																		onClick={() => {
-																		navigate('/spviewad',{state: value.adId});
-																			  }}
+																			navigate('/spviewad',{state: value.adId});
+																				  }}
 																	>
 																		View
 																	</Button>

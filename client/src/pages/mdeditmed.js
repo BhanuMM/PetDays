@@ -47,24 +47,13 @@ function mdeeditmed() {
 		descr: SingleMed.descr,
 	};
 
-	//   const Schema = Yup.object().shape({
-	// 	email: Yup.string().email("Not a proper email address"),
-	// 	password: Yup.string()
-	// 	  .min(5)
-	// 	  .max(12)
-	// 	  .required("This field is required")
-	// 	  .matches(
-	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-	// 	  ),
-	// 	confirmpassword: Yup.string().when("password", {
-	// 	  is: (val) => (val && val.length > 0 ? true : false),
-	// 	  then: Yup.string().oneOf(
-	// 		[Yup.ref("password")],
-	// 		"Passwords does not match"
-	// 	  ),
-	// 	}),
-	//   });
+	const Schema = Yup.object().shape({
+		medName:  Yup.string()
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter Vccine name"),
+	  });
+
+	
 
 	const navigate = useNavigate();
 
@@ -121,11 +110,15 @@ function mdeeditmed() {
 										enableReinitialize={true}
 										initialValues={initialValues}
 										onSubmit={onSubmit}
+										validationSchema={Schema}
 									>
 										<Form>
 											<br />
 											<br />
 											<label className="form-label">Name of the medicine</label>
+											<div className="col">
+                             					 <ErrorMessage name="medName" className="errormesage" component="span" />
+                           					 </div>
 											<Field
 												className="form-control"
 												id="medID"

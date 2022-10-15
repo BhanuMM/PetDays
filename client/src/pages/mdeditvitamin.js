@@ -48,24 +48,14 @@ function mdeditdogdiet() {
 		descr: SingleVit.descr,
 	};
 
-	//   const Schema = Yup.object().shape({
-	// 	email: Yup.string().email("Not a proper email address"),
-	// 	password: Yup.string()
-	// 	  .min(5)
-	// 	  .max(12)
-	// 	  .required("This field is required")
-	// 	  .matches(
-	// 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-	// 		"Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
-	// 	  ),
-	// 	confirmpassword: Yup.string().when("password", {
-	// 	  is: (val) => (val && val.length > 0 ? true : false),
-	// 	  then: Yup.string().oneOf(
-	// 		[Yup.ref("password")],
-	// 		"Passwords does not match"
-	// 	  ),
-	// 	}),
-	//   });
+	const Schema = Yup.object().shape({
+		vitName:  Yup.string()
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter vitamin name"),
+
+		vitType: Yup.string()
+		.required("Please select the vitamin type"),
+	  });
 
 	const navigate = useNavigate();
 
@@ -122,11 +112,15 @@ function mdeditdogdiet() {
 										enableReinitialize={true}
 										initialValues={initialValues}
 										onSubmit={onSubmit}
+										validationSchema={Schema}
 									>
 										<Form>
 											<br />
 											<br />
 											<label className="form-label">Name of the vitamin</label>
+											<div className="col">
+                            					<ErrorMessage name="vitName" className="errormesage" component="span" />
+                        					</div>
 
 											<Field
 												className="form-control"
@@ -136,6 +130,9 @@ function mdeditdogdiet() {
 												// value ={SingleVit.vitName}
 											/>
 											<label className="form-label">Type of the vitamin</label>
+											<div className="col">
+                           					 <ErrorMessage name="vitType" className="errormesage" component="span" />
+                        						</div>
 											<Field
 												className="form-control"
 												id="vitType"

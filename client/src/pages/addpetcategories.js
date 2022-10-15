@@ -39,8 +39,8 @@ function addpetcategories() {
 		
 
 		pcatName: Yup.string()
-		             .matches(/^[A-Za-z ]*$/,"Please enter valid name")
-		             .required(),
+		             .matches(/^[A-Za-z]*$/,"Please enter valid name")
+		             .required("Please enter category"),
 		
 
 	
@@ -134,6 +134,9 @@ function addpetcategories() {
 
 													<div class="col-10">
 														<label className="form-label">Name of the Category</label>
+														<div className="col">
+                             				             <ErrorMessage name="pcatName" className="errormesage" component="span" />
+                            				            </div>
 															<Field
 															className="form-control"
 															id="pcatName"

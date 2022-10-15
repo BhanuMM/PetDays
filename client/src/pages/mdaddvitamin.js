@@ -36,8 +36,11 @@ function mdaddvitamin() {
 	
 	  const Schema = Yup.object().shape({
 		vitName:  Yup.string()
-		.matches(/^[A-Za-z ]*$/,"Please enter valid name")
-		.required(),
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter vitamin name"),
+
+		vitType: Yup.string()
+		.required("Please select the vitamin type"),
 	  });
 	
 	  const navigate = useNavigate();
@@ -103,6 +106,9 @@ function mdaddvitamin() {
 
 						<div class="col-10">
 						<label className="form-label">Name of the vitamin</label>
+						<div className="col">
+                            <ErrorMessage name="vitName" className="errormesage" component="span" />
+                        </div>
 								 <Field
                                   className="form-control"
                                   id="vitName"
@@ -126,6 +132,9 @@ function mdaddvitamin() {
 						<div class="col-10">
 							
 							<label className="form-label">Vitamin Type</label>
+							<div className="col">
+                            <ErrorMessage name="vitType" className="errormesage" component="span" />
+                        	</div>
 									<Field
 									className="form-control"
 									id="vitType"
