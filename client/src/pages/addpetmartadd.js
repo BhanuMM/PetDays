@@ -33,22 +33,31 @@ function addpetmartadd() {
   
   };
 
-    // const Schema = Yup.object().shape({
+    const Schema = Yup.object().shape({
 
-    //   adTitle: Yup.string()
-    //   .matches(/^[A-Za-z ]*$/,"Please enter valid name")
-    //   .required(),
+      adTitle: Yup.string()
+      .matches(/^[A-Za-z ]*$/,"Please enter valid title")
+      .required("Please enter title"),
 
-    //   adPrice: Yup.number(),
+      adPrice: Yup.string()
+      .matches(/^[0-9]$/,"please enter valied price"),
+
+      adImage : "",
+
+      adProvince :Yup.string()
+                     .required("please select province"),
+      adDistrict :Yup.string()
+      .required("please select district"),
                   
 
-    //   adContact: Yup.string()
-    //                 .matches(/^[0-9]{10}$/),
-    //   adEmail:Yup.string().email(),
-    //   adAddress: Yup.string(),
+      adContact: Yup.string()
+                    .matches(/^[0-9]{10}$/,"please enter valied contact number"),
+
+      adEmail:Yup.string().email("please enter valied email"),
+      adAddress: Yup.string(),
   
   	
-    // });
+    });
 
   const navigate = useNavigate();
 
@@ -86,8 +95,10 @@ function addpetmartadd() {
               <div className="row">
                 <main class="py-6 bg-surface-secondary">
 					
-                  <Formik initialValues={initialValues} 
+                  <Formik 
+                  initialValues={initialValues} 
                   onSubmit={onSubmit}
+                  validationSchema={Schema}
                 
                   
                   >
@@ -96,6 +107,9 @@ function addpetmartadd() {
                       <label className="form-label">
                           Advertiesment Title
                         </label>
+                        <div className="col">
+                             				 <ErrorMessage name="adTitle" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adTitle"
@@ -106,6 +120,9 @@ function addpetmartadd() {
 										</div>
 										<div class="col-10">
                       <label className="form-label">Advertiesment Description</label>
+                      <div className="col">
+                             				 <ErrorMessage name="adDescr" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adDescr"
@@ -118,6 +135,9 @@ function addpetmartadd() {
 
                     <div class="col-10">
                       <label className="form-label">Price</label>
+                      <div className="col">
+                             				 <ErrorMessage name="adPrice" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adPrice"
@@ -130,6 +150,9 @@ function addpetmartadd() {
 										<div class="row g-3">
 											<div class="col-5">
                         <label className="form-label">Contact Number </label>
+                        <div className="col">
+                             				 <ErrorMessage name="adContact" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adContact"
@@ -140,6 +163,9 @@ function addpetmartadd() {
 											</div>
 											<div class="col-5">
                         <label className="form-label">Email</label>
+                        <div className="col">
+                             				 <ErrorMessage name="adEmail" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adEmail"
@@ -152,6 +178,9 @@ function addpetmartadd() {
 
                     <div class="col-10">
                       <label className="form-label">Address</label>
+                      <div className="col">
+                             				 <ErrorMessage name="adAddress" className="errormesage" component="span" />
+                            				</div>
                         <Field
                           className="form-control"
                           id="adAddress"
@@ -163,6 +192,9 @@ function addpetmartadd() {
 										<div class="row g-3">
 											<div class="col-5">
                       <label className="form-label">Province</label>
+                      <div className="col">
+                             				 <ErrorMessage name="adProvince" className="errormesage" component="span" />
+                            				</div>
                       <Field as="select" name="adProvince" className="form-select">
                         <option value="Central Province">Central Province</option>
                         <option value="Eastern Province">Eastern Province </option>
@@ -177,6 +209,9 @@ function addpetmartadd() {
 											</div>
 											<div class="col-5">
                       <label className="form-label">District</label>
+                      <div className="col">
+                             				 <ErrorMessage name="adDistrict" className="errormesage" component="span" />
+                            				</div>
                       <Field as="select" name="adDistrict" className="form-select">
                         <option value="red">Galle</option>
                         <option value="green">Matara</option>

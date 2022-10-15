@@ -66,10 +66,10 @@ function pendingads() {
 													</div>
 													<div class="mt-2 px-2">
 														{" "}
-														<small>{value.adDescr}</small>{" "}
+														<small><i class="fa fa-map-marker" aria-hidden="true"></i> {value. adDistrict},Sri Lanka</small>{" "}
 													</div>
 													<div class="px-2">
-														<h3>{value.adPrice}</h3>
+														<h3>Rs.{value.adPrice}/=</h3>
 													</div>
 													<div class="px-2 mt-3">
 														<div
@@ -99,7 +99,7 @@ function pendingads() {
 																	</Button>
 																</a>
 															</div>
-
+{/* 
 															<div>
 																<a  role="button" aria-pressed="true">
 																	<Button
@@ -116,7 +116,7 @@ function pendingads() {
 																		Edit
 																	</Button>
 																</a>
-															</div>
+															</div> */}
 															<div style={{
 																		paddingLeft: 20
 																	}}>

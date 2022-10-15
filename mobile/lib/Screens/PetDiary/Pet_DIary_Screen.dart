@@ -14,28 +14,18 @@ class PetDiaryScreen extends StatelessWidget {
     return Background(
 
         child:Scaffold(
-          body:SingleChildScrollView(
+          body:
 
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height *2-300,
-              ),
-              child: Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: const <Widget>[
-                  Expanded(
-                      flex: 2,
-                      child: petDashboardTopBanner()
-                  ),
-                  Expanded(
-                    flex: 10,
-                    child: PetDashboardContent(),
-                  ),
-
+                 petDashboardTopBanner(),
+                 SizedBox(height: 20,),
+                 PetDashboardContent(),
                 ],
               ),
-            ) ,
-          ),
+
+
           bottomNavigationBar: BottomNav(1),
         )
 

@@ -13,44 +13,45 @@ class petDashboardTopBanner extends StatelessWidget {
     return Column(
       children: [
         Row(
-          children: [
-            Container(
+            children: [
+              Container(
                 width: MediaQuery.of(context).size.width,
-                height: 200,
-                decoration:  const BoxDecoration(
-                  image: DecorationImage(
-                    image:  AssetImage("assets/images/roug.jpg"),
-                    fit: BoxFit.cover,
+                height: 60,
+                decoration:  BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius:3,
+                      blurRadius: 4,
+                      offset: Offset(0, 2), // changes position of shadow
                     ),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(25.0),
-                      bottomRight: Radius.circular(25.0)),
+                  ],
+
                   color: kPrimaryColor,
                 ),
                 child:
-                  Row(
-                    children:  [
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 150),
-                        child:Column(
-                          children: const [
-                            Text("Rouger",
-                              style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),
-                              textAlign: TextAlign.center,
-                            ),
-
-                          ],
-                        ),
+                Row(
+                  children:  [
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child:Column(
+                        children: const [
+                          Text("Add Vaccination",
+                            style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-                      const Spacer(),
-                    ],
-                  ),
-
+                    ),
+                    const Spacer(),
+                  ],
                 ),
 
+              ),
 
-          ]
+
+            ]
         )
       ],
     );

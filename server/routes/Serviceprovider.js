@@ -90,6 +90,7 @@ router.get("/getpendingads", async (req, res) => {
   res.json(listOfpendingads);
 });
 
+
 router.get("/getverifiedads", async (req, res) => {
   const listOfverifiedads = await Publishedads.findAll(
     {
@@ -110,6 +111,7 @@ router.get("/getpendingads/:id", async (req, res) => {
 //   const listOfAds= await Publishedads.findByPk(id);
 //   res.json(listOfAds);
 // });
+
 
 
 router.get("/getad/:id", async (req, res) => {
@@ -190,11 +192,24 @@ router.get("/getacceptedadsuser", async (req, res) => {
   res.json(listOfpendingads);
 });
 
-//DISPLAY AD AFTER PRESSING VIWE BUTTON IN ADD CARD
-router.get("/getpendingadsuser/:id", async (req, res) => {
+//DISPLAY SINGLE AD AFTER PRESSING VIEW BURRON IN AD CARD
+router.get("/getadview/:id", async (req, res) => {
   const id = req.params.id;
   const listOfAds= await Publishedads.findByPk(id);
   res.json(listOfAds);
+});
+
+ // UPDATES.........
+
+
+  //UPDATE ADVERTIESMENTNT
+router.post("/updatead", async (req, res) => {
+  
+  const { adTitle,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,adStatus } = req.body;
+
+  await Publishedads.update({ adTitle :adTitle,adDescr :adDescr ,adImage :adImage ,adPrice :adPrice ,adContact :adContact ,adEmail :adEmail ,adAddress :adAddress ,adProvince :adProvince ,adDistrict : adDistrict, adStatus : "pending" } ,{ where: { adId: adId }} );
+ 
+  res.json("SUCCESS"); 
 });
 
 

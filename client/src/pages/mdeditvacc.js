@@ -49,6 +49,16 @@ function mdeditdogdiet() {
 	  descr: SingleVac.descr,
 	  vacNextIter: SingleVac.vacNextIter,
 	};
+	const Schema = Yup.object().shape({
+		vacName:  Yup.string()
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter Vccine name"),
+
+		vacNextIter:  Yup.string()
+		.matches(/^[0-9]*$/,"Please enter valid duration")
+		
+		
+	  });
   
 	//   const Schema = Yup.object().shape({
 	// 	email: Yup.string().email("Not a proper email address"),
@@ -127,11 +137,15 @@ function mdeditdogdiet() {
 										enableReinitialize={true}
 										initialValues={initialValues}
 										onSubmit={onSubmit}
+										validationSchema={Schema}
 									>
 										<Form>
 											<br />
 											<br />
 											<label className="form-label">Name of the vaccine</label>
+											<div className="col">
+                             				 <ErrorMessage name="vacName" className="errormesage" component="span" />
+                            				</div>
 
 											<Field
 												className="form-control"
@@ -151,6 +165,9 @@ function mdeditdogdiet() {
 												name="descr"
 											/>
 											<label className="form-label">Next iteration of the vaccine</label>
+											<div className="col">
+                              					<ErrorMessage name="vacNextIter" className="errormesage" component="span" />
+                            				</div>
 											<Field
 												className="form-control"
 												id="vacNextIter"

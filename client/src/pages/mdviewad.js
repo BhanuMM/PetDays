@@ -14,12 +14,12 @@ import Swal from 'sweetalert2';
 
 function mdviewad() {
 
-	const [SingleAd, setSingleAd] = useState([]);
+ const [SingleAd, setSingleAd] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/service/getpendingads/" +location.state)
+      .get("http://localhost:3001/service/getadview/" +location.state)
       .then((response) => {
         setSingleAd(response.data);
 		// console.log(SingleAd.medID);

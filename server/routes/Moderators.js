@@ -135,6 +135,7 @@ router.get("/getvitamins", async (req, res) => {
 router.get("/getdietplans", async (req, res) => {
   const listOfDietplans = await Dietplans.findAll(
     {
+
       include: { 
         model:Breeds ,
          required: true,
@@ -142,6 +143,7 @@ router.get("/getdietplans", async (req, res) => {
         },
         
     }
+
   );
   res.json(listOfDietplans);
 });

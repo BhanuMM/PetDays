@@ -42,6 +42,14 @@ function mdeeditmed() {
 		descr: SingleMed.descr,
 	};
 
+
+	const Schema = Yup.object().shape({
+		medName:  Yup.string()
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter Vccine name"),
+	  });
+
+	
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
@@ -97,11 +105,15 @@ function mdeeditmed() {
 										enableReinitialize={true}
 										initialValues={initialValues}
 										onSubmit={onSubmit}
+										validationSchema={Schema}
 									>
 										<Form>
 											<br />
 											<br />
 											<label className="form-label">Name of the medicine</label>
+											<div className="col">
+                             					 <ErrorMessage name="medName" className="errormesage" component="span" />
+                           					 </div>
 											<Field
 												className="form-control"
 												id="medID"

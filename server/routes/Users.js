@@ -2,10 +2,11 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines } = require("../models");
+const { Pets , Forumposts ,PetVaccines,petDiaries } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
+
 
 router.use(bodyParser.json());
 
@@ -80,6 +81,23 @@ router.post("/addpet", async (req, res) => {
     });
     if(petVaccines){
         res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
+  router.post("/adddiaryentry", async (req, res) => {
+    const {petID, updateDate ,Title, Description} = req.body;
+    // const Petdiaries = petDiaries.create({
+    //     petID: "1"
+    // });
+  //   const petVaccines = PetVaccines.create({
+  //     petID: "1",
+  //     vacID: "1",
+  //     note: "note",
+  //     nextVacDate: "2018-02-20",
+  // });
+    if(true){
+        res.json("Petdiaries"); 
     }else{
         res.json("NOT SUCCESS"); 
     }

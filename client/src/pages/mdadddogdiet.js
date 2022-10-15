@@ -37,16 +37,30 @@ function mdadddogdiet() {
 
 	const Schema = Yup.object().shape({
 		planName:  Yup.string()
-		.matches(/^[A-Za-z ]*$/,"Please enter valid name")
-		.required(),
+		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
+		.required("Please enter name"),
 
-		ageRangeFrom:Yup.number(),
+		planDescr: Yup.string()
+		.required("Please enter description"),
+		
 
-		ageRangeFrom:Yup.number(),
+		ageRangeFrom: Yup.string()
+		.matches(/^[0-9]*$/,"Please enter valid age"),
 
-		weightRangeFrom:Yup.number(),
+		ageRangeTo: Yup.string()
+		.matches(/^[0-9]*$/,"Please enter valid age"),
 
-		weightRangeFrom:Yup.number(),
+		weightRangeFrom:Yup.string()
+		.matches(/^[0-9]*$/,"Please enter valid weight"),
+
+		weightRangeTo: Yup.string()
+		.matches(/^[0-9]*$/,"Please enter valid weight"),
+
+		breedId: Yup.string()
+		.required("please select breed"),
+
+		catId: Yup.string()
+		.required("please select category"),
 
 		
 		
@@ -100,6 +114,7 @@ function mdadddogdiet() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<Formik 
+									
 									initialValues={initialValues} 
 									onSubmit={onSubmit} 
 									validationSchema={Schema}
@@ -107,6 +122,9 @@ function mdadddogdiet() {
 										<Form class="row g-3" style={{ paddingLeft: 200 }}>
 										<div class="col-10">
 											<label for="inputEmail4" class="form-label">Name of the diet</label>
+											<div className="col">
+                             				 <ErrorMessage name="planName" className="errormesage" component="span" />
+                            				</div>
 											<Field
 												className="form-control"
 												id="planName"
@@ -117,6 +135,9 @@ function mdadddogdiet() {
 										</div>
 										<div class="col-10">
 											<label for="inputAddress" class="form-label">Description about the Diet Plan</label>
+											<div className="col">
+                             				 <ErrorMessage name="planDescr" className="errormesage" component="span" />
+                            				</div>
 											<Field
 												className="form-control"
 												id="planDescr"
@@ -130,6 +151,9 @@ function mdadddogdiet() {
 										<div class="row g-3">
 											<div class="col-5">
 												<label className="form-label">Age range from</label>
+												<div className="col">
+                             				 <ErrorMessage name="ageRangeFrom" className="errormesage" component="span" />
+                            				</div>
 												<Field
 												className="form-control"
 												id="ageRangeFrom"
@@ -140,6 +164,9 @@ function mdadddogdiet() {
 											</div>
 											<div class="col-5">
 												<label className="form-label">Age range to</label>
+												<div className="col">
+                             				 <ErrorMessage name="ageRangeTo" className="errormesage" component="span" />
+                            				</div>
 												<Field
 												className="form-control"
 												id="ageRangeTo"
@@ -154,6 +181,9 @@ function mdadddogdiet() {
 										<div class="row g-3">
 											<div class="col-5">
 												<label className="form-label">Weight range from</label>
+												<div className="col">
+                             				 <ErrorMessage name="weightRangeFrom" className="errormesage" component="span" />
+                            				</div>
 												<Field
 												className="form-control"
 												id="weightRangeFrom"
@@ -164,6 +194,9 @@ function mdadddogdiet() {
 											</div>
 											<div class="col-5">
 												<label className="form-label">Weight range to</label>
+												<div className="col">
+                             				 <ErrorMessage name="weightRangeTo" className="errormesage" component="span" />
+                            				</div>
 												<Field
 													className="form-control"
 													id="weightRangeTo"
@@ -177,6 +210,9 @@ function mdadddogdiet() {
 										<div class="row g-3">
 											<div class="col-5">
 												<label className="form-label">Breed id</label>
+												<div className="col">
+                             				 <ErrorMessage name="breedId" className="errormesage" component="span" />
+                            				</div>
 												<Field as="select" name="breedId" className="form-select">
 													<option value="0">select breed</option>
 													<option value="1">german shephard</option>
@@ -185,6 +221,9 @@ function mdadddogdiet() {
 											</div>
 											<div class="col-5">
 												<label className="form-label">Cat id</label>
+												<div className="col">
+                             				 <ErrorMessage name="catId" className="errormesage" component="span" />
+                            				</div>
 												<Field as="select" name="catId" className="form-select">
 													<option value="0">select category</option>
 													<option value="1">dogs</option>
