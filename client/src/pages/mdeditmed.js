@@ -2,18 +2,13 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
-import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Moderatorsidebar from "../components/moderatorsidebar";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
-import * as Yup from "yup";
+
 
 const bull = (
 	<Box
@@ -47,6 +42,7 @@ function mdeeditmed() {
 		descr: SingleMed.descr,
 	};
 
+
 	const Schema = Yup.object().shape({
 		medName:  Yup.string()
 		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
@@ -54,7 +50,6 @@ function mdeeditmed() {
 	  });
 
 	
-
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {

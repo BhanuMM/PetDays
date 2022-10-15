@@ -135,13 +135,15 @@ router.get("/getvitamins", async (req, res) => {
 router.get("/getdietplans", async (req, res) => {
   const listOfDietplans = await Dietplans.findAll(
     {
-            include: { 
-              model:Breeds ,
-               required: true,
-               include: [{model: Petcatagories  , required: true }]
-              },
-              
-          }
+
+      include: { 
+        model:Breeds ,
+         required: true,
+         include: [{model: Petcatagories  , required: true }]
+        },
+        
+    }
+
   );
   res.json(listOfDietplans);
 });
@@ -181,6 +183,18 @@ router.get("/getvaccines/:id", async (req, res) => {
   // res.json(SingleVac);
 });
 
+// router.get("/getdietplans/:id", async (req, res) => {
+//   const id = req.params.id;
+//   const SingleDietplan = await Dietplans.findByPk(id);
+//   res.json(SingleDietplan);
+  // const SingleMed = await Medicines.findOne(
+  //   {where: {
+  //     medID: id
+  //   }}
+  // );
+  // res.json(SingleMed);
+// });
+
 router.get("/getverifyposts", async (req, res) => {
   const listOfverifyposts = await Forumposts.findAll(
     // {
@@ -191,6 +205,18 @@ router.get("/getverifyposts", async (req, res) => {
     
   );
   res.json(listOfverifyposts);
+});
+
+router.get("/getpendingposts", async (req, res) => {
+  const listOfpendingposts = await Forumposts.findAll(
+    {
+      where: {
+        postStatus: "pending",
+        userId:"1",
+      },
+    }
+  );
+  res.json(listOfpendingposts);
 });
 
 //updates----------
@@ -218,6 +244,15 @@ router.post("/updatevaccine", async (req, res) => {
   const { vacID,vacName,descr,vacNextIter } = req.body;
 
   await Vaccines.update({vacName :vacName ,descr :descr,vacNextIter :vacNextIter } ,{ where: { vacID: vacID }} );
+ 
+  res.json("SUCCESS"); 
+});
+
+router.post("/updatediet", async (req, res) => {
+  
+  const { dietplanID,planName, planDescr, ageRangeFrom, ageRangeTo,weightRangeFrom,weightRangeTo,breedId,catId } = req.body;
+
+  await Dietplans.update({planName :planName ,planDescr :planDescr,ageRangeFrom :ageRangeFrom, ageRangeTo:ageRangeTo,weightRangeFrom :weightRangeFrom, weightRangeTo:weightRangeTo, breedId:breedId,catId:catId} ,{ where: { dietplanID: dietplanID}} );
  
   res.json("SUCCESS"); 
 });
@@ -256,6 +291,17 @@ router.delete("/deletevacc/:vacId", async (req, res) => {
   await Vaccines.destroy({
     where: {
       vacID: vacId,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
+
+router.delete("/deletediet/:dietplanID", async (req, res) => {
+  const dietplanID = req.params.dietplanID;
+
+  await Dietplans.destroy({
+    where: {
+      dietplanID: dietplanID,
     },
   });
   res.json("DELETED SUCCESSFULLY");
