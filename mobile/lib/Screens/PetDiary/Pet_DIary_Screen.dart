@@ -6,9 +6,13 @@ import '../../components/bottom_nav.dart';
 import 'components/content.dart';
 import '../../../constants.dart';
 import 'components/top_bar.dart';
+import '../../models/pet.dart';
 
 class PetDiaryScreen extends StatelessWidget {
-  const PetDiaryScreen({Key? key}) : super(key: key);
+  late Pet pet;
+  PetDiaryScreen(pet, {Key? key}) : super(key: key) {
+    this.pet = pet;
+  }
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -18,10 +22,10 @@ class PetDiaryScreen extends StatelessWidget {
 
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const <Widget>[
+                children:  <Widget>[
                  petDashboardTopBanner(),
                  SizedBox(height: 20,),
-                 PetDashboardContent(),
+                  PetDiaryContent(pet),
                 ],
               ),
 

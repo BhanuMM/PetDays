@@ -6,10 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true
       },
       
-      updateDate: {
-        type: DataTypes.DATEONLY,
-        allowNull: true,
-      },
       entryTitle: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -24,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       }
       
     },{
-      timestamps: false,
+      timestamps: true,
       freezeTableName: true
     }
     );

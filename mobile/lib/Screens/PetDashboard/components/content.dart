@@ -10,20 +10,20 @@ import '../../PetDiary/Pet_DIary_Screen.dart';
 import '../../Reminders/Reminders_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class PetDiaryContent extends StatefulWidget{
+class PetDashboardContent extends StatefulWidget{
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
-  PetDiaryContent(Pet pet) {
+  PetDashboardContent(Pet pet) {
    this.pet =pet;
   }
 
   @override
-  _PetDiaryContentState createState() => _PetDiaryContentState(pet);
+  _PetDashboardContentState createState() => _PetDashboardContentState(pet);
 
 
 }
-class _PetDiaryContentState extends State<PetDiaryContent> {
+class _PetDashboardContentState extends State<PetDashboardContent> {
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
-  _PetDiaryContentState(Pet pet) {
+  _PetDashboardContentState(Pet pet) {
     this.pet =pet;
   }
 
@@ -122,7 +122,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Snowy's Diary",ado: PetDiaryScreen(),img: "pett"),
+                      PetDashboardItemCard(label: "Snowy's Diary",ado: PetDiaryScreen(pet),img: "pett"),
                       Spacer(),
                       PetDashboardItemCard(label: "Reminders",ado: RemindersScreen(),img: "reminder"),
                       Spacer(),
@@ -131,9 +131,9 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Growth chart",ado: PetDiaryScreen(),img: "petd"),
+                      PetDashboardItemCard(label: "Growth chart",ado: PetDiaryScreen(pet),img: "petd"),
                       Spacer(),
-                      PetDashboardItemCard(label: "Medications",ado: PetDiaryScreen(),img: "medication"),
+                      PetDashboardItemCard(label: "Medications",ado: PetDiaryScreen(pet),img: "medication"),
                       Spacer(),
                     ]
                 ),
@@ -142,7 +142,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                       Spacer(),
                       PetDashboardItemCard(label: "Vaccinations",ado: ViewVaccinationsScreen(pet.petID.toString()),img: "vaccine"),
                       Spacer(),
-                      PetDashboardItemCard(label: "Edit profile",ado: PetDiaryScreen(),img: "settings"),
+                      PetDashboardItemCard(label: "Edit profile",ado: PetDiaryScreen(pet),img: "settings"),
                       Spacer(),
                     ]
                 ),

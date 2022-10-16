@@ -37,7 +37,7 @@ class petDashboardTopBanner extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 15),
                       child:Column(
                         children: const [
-                          Text("Add Vaccination",
+                          Text("Pet Diary",
                             style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),

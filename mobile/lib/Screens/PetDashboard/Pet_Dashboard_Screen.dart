@@ -32,7 +32,7 @@ class PetDashboard extends StatelessWidget {
 
                 Expanded(
                   flex: 10,
-                  child: PetDiaryContent(pet),
+                  child: PetDashboardContent(pet),
                 ),
 
               ],
