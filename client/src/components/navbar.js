@@ -34,6 +34,11 @@ function navbar() {
             }
           });
       }, []);
+ 
+      const logout = () => {
+        localStorage.removeItem("accessToken");
+        setAuthState({ username: "", role: "",id: 0, status: false });
+      };
 
   return (
 
@@ -61,8 +66,8 @@ function navbar() {
                 <>
                   <li className="nav-item active">
                   {/* <Link to="/login" className="nav-link"> Login</Link> */}
-               <a className="nav-link" href="signin"> <button type="submit" class="  btn btn-warning">
-               logout
+                  <a className="nav-link" > <button type="submit" onClick={logout} class="  btn btn-warning">
+                 logout
                </button></a>
            </li>
                 </>

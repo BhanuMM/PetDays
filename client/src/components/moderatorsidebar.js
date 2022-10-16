@@ -7,7 +7,7 @@ function moderatorsidebar() {
         class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
         id="navbarVertical"  style={{ backgroundColor:"#EFEFEF" }} 
     >
-					<div class="container-fluid">
+					<div class="container">
 						<button
 							class="navbar-toggler ms-n2"
 							type="button"
