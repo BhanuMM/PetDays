@@ -89,13 +89,13 @@ router.post("/addpet", async (req, res) => {
   });
 
   router.post("/adddiaryentry", async (req, res) => {
-    const {petID, updateDate ,entryTitle, Descr} = req.body;
+    const {petID, entryTitle, Descr} = req.body;
     // const Petdiaries = petDiaries.create({
     //     petID: "1"
     // });
     const dentry = PetDiaries.create({
       
-      updateDate: year + "-" + month + "-" + date,
+      
       entryTitle: entryTitle,
       Descr: Descr,
       petID: petID
@@ -105,6 +105,15 @@ router.post("/addpet", async (req, res) => {
     }else{
         res.json("NOT SUCCESS"); 
     }
+  });
+  router.get("/getentries/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfEntries = await PetDiaries.findAll(
+      {where: {
+        petID: id
+      }}
+    );
+    res.json(listOfEntries);
   });
 
   router.post("/updatePetImage", async (req, res) => {

@@ -13,9 +13,9 @@ import '../../../models/petVaccination.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
 
-class AddVaccinationtForm extends StatefulWidget {
+class AddReminderForm extends StatefulWidget {
   String petID = '';
-  AddVaccinationtForm(String petID, {
+  AddReminderForm(String petID, {
     Key? key,
   }) : super(key: key) {
     this.petID = petID;
@@ -23,8 +23,9 @@ class AddVaccinationtForm extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _AddVaccinationFormState(petID);
 }
-class _AddVaccinationFormState extends State<AddVaccinationtForm>{
+class _AddVaccinationFormState extends State<AddReminderForm>{
   late DateTime? _dateTime = null;
+  late TimeOfDay? _time= null;
   String initialCat = '';
   String NextVacDate = ' ';
   bool isManualDate = false;
@@ -163,69 +164,6 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
             child: Column(
               children: [
                 const SizedBox(height: formPadding),
-
-                Container(
-                  child: Column(
-                    children: [
-                      const SizedBox(height: formPadding),
-                      Row(
-                        children:  const [
-                          Text(
-                            "Select a Vaccination",
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width -80,
-                        child: DropdownButton(
-
-                          // // Initial Value
-                          value: initialCat,
-                          hint: const Text(
-                            "Select a Vaccination",
-                            style: TextStyle(
-                                color: formHintColor
-                            ),
-                          ),
-
-
-                          // Down Arrow Icon
-                          isExpanded: true,
-                          icon: const Icon(
-                            Icons.keyboard_arrow_down,
-                          ),
-
-                          // Array list of items
-                          items: vaccines.map((item) {
-                            return DropdownMenuItem(
-                              value: item['vacName'].toString(),
-                              child: Text(item['vacName'].toString()),
-                            );
-                          }).toList(),
-                          // After selecting the desired option,it will
-                          // change button value to selected value
-                          onChanged: (newValue) {
-                            NextVacDate = '2022/12/26';
-                            setState(() {
-                              initialCat = newValue.toString();
-                              _SelectedVac = newValue.toString();
-                              print(_SelectedVac);
-                              getSelectedVacID();
-                            }
-                            );
-                          },
-                        ),
-                      ),
-
-                      Text("next vaccination date :" + NextVacDate)
-                    ],
-                  ),
-                ),
-                const SizedBox(height: formPadding),
-                const SizedBox(height: formPadding),
                 Padding(
                   padding: const EdgeInsets.only(top: 0),
                   child: Container(
@@ -259,93 +197,100 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                   ),
                 ),
                 const SizedBox(height: formPadding),
-                Row(
-                  children: [
-                  Text("Manually add next vaccination date"),
-                  Spacer(),
-                  Checkbox(
-                  checkColor: Colors.white,
-                  fillColor: MaterialStateProperty.resolveWith(getColor),
-                  value: isManualDate,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isManualDate = value!;
-                    });
-                    print(isManualDate);
-                  },
-                  )
-                  ],
-                ),
 
                 Visibility(
-                  visible: isManualDate,
-                    child: Column(
-                      children:  [
-                        Row(
-                          children: const [
-                            Text(
-                              "Next vaccination date",
-                              style: TextStyle(
-                                fontSize: 18,
+                  visible: true,
+                  child: Column(
+                    children:  [
+                      Row(
+                        children: const [
+                          Text(
+                            "Next reminder date",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          Spacer()
+                        ],
+                      ),
+
+                      Row(
+                        children: [
+
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: 10),
+                            child: Text(
+                              _dateTime == null? "Select Date" : _dateTime.toString().split(' ')[0],
+                              style:  TextStyle(
+                                color: _dateTime == null? formHintColor : Colors.black,
                               ),
                             ),
-                            Spacer()
-                          ],
-                        ),
-
-                        Row(
-                          children: [
-
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: 10),
-                              child: Text(
-                                _dateTime == null? "Select Date" : _dateTime.toString(),
-                                style:  TextStyle(
-                                  color: _dateTime == null? formHintColor : Colors.black,
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            ElevatedButton(
-                                onPressed: (){
-                                  showDatePicker(
-                                      context: context,
-                                      initialDate: DateTime.now(),
-                                      firstDate: DateTime(2000),
-                                      lastDate:  DateTime.now()
-                                  ).then((date){
-                                    setState(() {
-                                      _dateTime = date;
-                                      nextDate = date;
-                                    });
+                          ),
+                          const Spacer(),
+                          ElevatedButton(
+                              onPressed: (){
+                                showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(2000),
+                                    lastDate:  DateTime(2200)
+                                ).then((date){
+                                  setState(() {
+                                    _dateTime = date;
+                                    nextDate = date;
                                   });
-                                },
-                                child: Text("Select")
-                            ),
+                                });
+                              },
+                              child: Text("Select")
+                          ),
 
-                          ],
+                        ],
+                      ),
+
+                    ],
+                  ),
+                ),
+                Column(
+                  children:  [
+                    Row(
+                      children: const [
+                        Text(
+                          "Next reminder time",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+
+                    Row(
+                      children: [
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: 10),
+                          child: Text(
+                            _time == null? "Select Time" : _time.toString().split("(")[1].split(')')[0],
+                            style:  TextStyle(
+                              color: _time == null? formHintColor : Colors.black,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        ElevatedButton(
+                            onPressed: (){
+                              showTimePicker(context: context, initialTime: TimeOfDay(hour: 7, minute: 15)).then((time){
+                                setState(() {
+                                  _time = time;
+                                });
+                              });
+                            },
+                            child: Text("Select")
                         ),
 
                       ],
                     ),
-                ),
-                Row(
-                  children: [
-                    Text("Remind me on the next date"),
-                    Spacer(),
-                    Checkbox(
-                      checkColor: Colors.white,
-                      fillColor: MaterialStateProperty.resolveWith(getColor),
-                      value: isRemindersOn,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          setState(() {
-                            isRemindersOn = value!;
-                          });
-                        });
 
-                      },
-                    )
                   ],
                 ),
                 Padding(
@@ -358,7 +303,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                           addPetVaccine();
                         },
                         child: Text(
-                          "ADD Vaccinaction".toUpperCase(),
+                          "Add Reminder".toUpperCase(),
                           style: TextStyle(color: Colors.black),
                         ),
                       ),
