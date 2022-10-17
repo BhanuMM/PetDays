@@ -122,9 +122,9 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Snowy's Diary",ado: PetDiaryScreen(pet),img: "pett"),
+                      PetDashboardItemCard(label: "Pet Diary",ado: PetDiaryScreen(pet),img: "pett"),
                       Spacer(),
-                      PetDashboardItemCard(label: "Reminders",ado: RemindersScreen(),img: "reminder"),
+                      PetDashboardItemCard(label: "Reminders",ado: RemindersScreen(pet.petID.toString()),img: "reminder"),
                       Spacer(),
                     ]
                 ),

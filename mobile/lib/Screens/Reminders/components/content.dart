@@ -5,9 +5,11 @@ import 'package:mobile/responsive.dart';
 import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import '../../../models/pet.dart';
+import '../../ReminderDetails/Add_Reminder_Screen.dart';
 
-class VaccineContent extends StatelessWidget {
-  const VaccineContent({Key? key}) : super(key: key);
+class ReminderContent extends StatelessWidget {
+  String petId = '';
+   ReminderContent(this.petId,{Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -25,7 +27,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return PetDashboard(new Pet('','',0,'','','',''));
+                        return AddReminderScreen(petId);
                       },
                     ),
                   );

@@ -37,7 +37,14 @@ class _PetDiaryItemCardState extends State<PetDiaryItemCard> {
                 Spacer(),
                 Container(
                   decoration: BoxDecoration(
-                    color: kPrimaryColor,
+                    gradient: LinearGradient(
+                      begin: Alignment.centerRight,
+                      end: Alignment.centerLeft,
+                      colors: [
+                        kPrimaryColor,
+                        kPrimaryLightColor,
+                      ],
+                    ),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   width: 350,

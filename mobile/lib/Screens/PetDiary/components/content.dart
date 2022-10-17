@@ -53,23 +53,68 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
   _PetDiaryContentState(this.pet);
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child:
-                        Container(
-                          height: 500,
-                          child: ListView.builder(
-                              scrollDirection: Axis.vertical,
-                              padding: const EdgeInsets.all(8),
-                              itemCount: entries.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                print(entries[index]);
-                                return Container(
-                                    child:PetDiaryItemCard(Date: entries[index]['createdAt'],desc: entries[index]['Descr'],title: entries[index]['entryTitle'])
-                                );
-                              }
-                          ),
-                        ),
+    return SingleChildScrollView(
+      child: Expanded(
+        child:
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Spacer(
+                                    flex: 8,
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(15),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.topRight,
+                                          end: Alignment.bottomLeft,
+                                          colors: [
+                                            kPrimaryColor,
+                                            kPrimaryLightColor,
+                                          ],
+                                        ),
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    child:  GestureDetector(
+                                      onTap: (){
 
+                                      },
+                                      child: const Text("Add a reminder", textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                ],
+                              ),
+                              Container(
+                              height: 500,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  padding: const EdgeInsets.all(8),
+                                  itemCount: entries.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    print(entries[index]);
+                                    return Column(
+                                      children: [Container(
+                                          child:PetDiaryItemCard(Date: entries[index]['createdAt'],desc: entries[index]['Descr'],title: entries[index]['entryTitle'])
+                                      ),
+                                        SizedBox(
+                                          height: 10,
+                                        )
+                                      ],
+                                    );
+                                  }
+                              ),
+                            ),
+                            ]
+                          ),
+
+      ),
     );
   }
 }

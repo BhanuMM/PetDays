@@ -51,92 +51,94 @@ class _VaccineContentState extends State<VaccineContent> {
   }
   @override
   Widget build(BuildContext context) {
-    return Background(
+    return SingleChildScrollView(
+      child: Container(
 
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children:  <Widget>[
-          SizedBox(height: defaultPadding,),
-          Row(
-            children: [
-              Spacer(),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return AddVaccinationScreen(widget.petID);
-                      },
-                    ),
-                  );
-                },
-                child: Text("Add Vaccination"),
-              ),
-              Spacer()
-            ],
-          ),
-          SizedBox(height: defaultPadding,),
-          Row(
-
-            children: [
-              Spacer(),
-              Text("click a vaccine to edit/Delete",style: TextStyle(color: Colors.grey),),
-              Spacer(),
-            ],
-          ),
-          SizedBox(height: defaultPadding,),
-          DataTable(
-              columns:  <DataColumn>[
-                DataColumn(label: Text("VaccineID"), tooltip: "To Display name"),
-                DataColumn(label: Text("Note"), tooltip: "To Display Email"),
-                DataColumn(label: Text("Next Date"), tooltip: "Update data"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children:  <Widget>[
+            SizedBox(height: defaultPadding,),
+            Row(
+              children: [
+                Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return AddVaccinationScreen(widget.petID);
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("Add Vaccination"),
+                ),
+                Spacer()
               ],
-              rows: vaccineDtails.map((vac) => DataRow(
-                  cells: [
-                    DataCell(
-                        Text(vac['vacID'].toString())
-                    ),
-                    DataCell(
-                        Text(vac['note'])
-                    ),
-                    DataCell(
-                        Text(vac['nextVacDate'])
-                    ),
-                  ]
-              )
-              ).toList()
-          )
-          // Table(
-          //   defaultColumnWidth: FixedColumnWidth(120.0),
-          //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          //   border: TableBorder.all(
-          //       color: Colors.black,
-          //       style: BorderStyle.solid,
-          //       width: 1),
-          //   children:[
-          //     ListView.builder(
-          //         scrollDirection: Axis.horizontal,
-          //         padding: const EdgeInsets.all(8),
-          //         itemCount: vaccineDtails.length,
-          //         itemBuilder:(BuildContext context, int index) {
-          //           return TableRow(children: [
-          //             Column(children:[Text('Vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-          //             Column(children:[Text('Vaccined Date',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-          //             Column(children:[Text('Next Vaccination',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-          //
-          //           ])
-          //         }
-          //     )
-          //
-          //
-          //   ],
-          // ),
+            ),
+            SizedBox(height: defaultPadding,),
+            Row(
+
+              children: [
+                Spacer(),
+                Text("click a vaccine to edit/Delete",style: TextStyle(color: Colors.grey),),
+                Spacer(),
+              ],
+            ),
+            SizedBox(height: defaultPadding,),
+            DataTable(
+                columns:  <DataColumn>[
+                  DataColumn(label: Text("VaccineID"), tooltip: "To Display name"),
+                  DataColumn(label: Text("Note"), tooltip: "To Display Email"),
+                  DataColumn(label: Text("Next Date"), tooltip: "Update data"),
+                ],
+                rows: vaccineDtails.map((vac) => DataRow(
+                    cells: [
+                      DataCell(
+                          Text(vac['vacID'].toString())
+                      ),
+                      DataCell(
+                          Text(vac['note'])
+                      ),
+                      DataCell(
+                          Text(vac['nextVacDate'])
+                      ),
+                    ]
+                )
+                ).toList()
+            )
+            // Table(
+            //   defaultColumnWidth: FixedColumnWidth(120.0),
+            //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            //   border: TableBorder.all(
+            //       color: Colors.black,
+            //       style: BorderStyle.solid,
+            //       width: 1),
+            //   children:[
+            //     ListView.builder(
+            //         scrollDirection: Axis.horizontal,
+            //         padding: const EdgeInsets.all(8),
+            //         itemCount: vaccineDtails.length,
+            //         itemBuilder:(BuildContext context, int index) {
+            //           return TableRow(children: [
+            //             Column(children:[Text('Vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+            //             Column(children:[Text('Vaccined Date',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+            //             Column(children:[Text('Next Vaccination',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+            //
+            //           ])
+            //         }
+            //     )
+            //
+            //
+            //   ],
+            // ),
 
 
-        ],
+          ],
+        ),
+
       ),
-
     );
 
   }
