@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
-class petDashboardTopBanner extends StatelessWidget {
-  const petDashboardTopBanner({
-    Key? key,
+class TopBanner extends StatelessWidget {
+  String label ='';
+  TopBanner({
+    Key? key, required this.label
   }) : super(key: key);
 
   @override
@@ -36,8 +37,8 @@ class petDashboardTopBanner extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child:Column(
-                        children: const [
-                          Text("Pet Diary",
+                        children:  [
+                          Text(label,
                             style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),

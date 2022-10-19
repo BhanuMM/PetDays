@@ -20,25 +20,21 @@ class PetDashboard extends StatelessWidget {
     return Background(
 
       child:Scaffold(
-        body:SingleChildScrollView(
+        body:
 
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height ,
-            ),
-            child: Column(
+
+             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children:  <Widget>[
 
                 Expanded(
-                  flex: 10,
-                  child: PetDiaryContent(pet),
+                  child: PetDashboardContent(pet),
                 ),
 
               ],
             ),
-          ) ,
-      ),
+
+
        bottomNavigationBar: BottomNav(0),
       )
 

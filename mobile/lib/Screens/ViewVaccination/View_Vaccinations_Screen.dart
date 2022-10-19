@@ -17,27 +17,22 @@ class ViewVaccinationsScreen extends StatelessWidget {
     return Background(
 
         child:Scaffold(
-          body:SingleChildScrollView(
+          body:
 
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height *2-300,
+
+               Container(
+                 height:MediaQuery.of(context).size.height,
+                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children:  <Widget>[
+                    VaccineTopBanner(),
+                    VaccineContent(petID),
+                  ],
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children:  <Widget>[
-                  VaccineTopBanner(),
-                  Container(
-                    height: 700,
-                    child: VaccineContent(petID),
-                  ),
+               ),
 
 
-                ],
-              ),
-            ) ,
-          ),
-          bottomNavigationBar: BottomNav(1),
+          bottomNavigationBar: BottomNav(2),
         )
 
     );

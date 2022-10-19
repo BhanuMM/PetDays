@@ -11,6 +11,7 @@ import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../../models/pet.dart';
 import '../../../models/petVaccination.dart';
 import '../../../components/notification_API.dart';
+import '../../../models/petdiary.dart';
 
 class AddVaccinationtForm extends StatefulWidget {
   String petID = '';
@@ -31,6 +32,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   final url = '10.0.2.2:3001';
   final getvaccinesRoute = '/mod/getvaccines';
   final addVacRoute = '/user/addvaccine';
+  final addEntryRoute = '/user/adddiaryentry';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   List vaccines = [];
@@ -44,6 +46,19 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
     this.petID = petID;
     print("petID");
     print(petID);
+  }
+  Future addDiaryEntry() async {
+
+    PetDiary petDiary = new PetDiary(int.parse(petID), petVaccination.note, "Vaccination added for "  + _SelectedVac );
+    var res = await http.post(Uri.http(url, addEntryRoute),
+        headers: headers,
+        body: json.encode(
+            petDiary
+        ),
+        encoding: encoding
+    );
+    print(json.decode(res.body));
+
   }
 
   Future addPetVaccine() async {
@@ -74,6 +89,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
       NotificationAPI.scheduleNotificationInit("Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
+      addDiaryEntry();
       showDialog<void>(
         context: this.context,
         builder: (BuildContext context) {

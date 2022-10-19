@@ -8,7 +8,10 @@ import '../../../constants.dart';
 import 'components/top_bar.dart';
 
 class RemindersScreen extends StatelessWidget {
-  const RemindersScreen({Key? key}) : super(key: key);
+  String petID = '';
+  RemindersScreen(String petID,{Key? key}) : super(key: key){
+    this.petID=petID.toString();
+  }
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -26,7 +29,7 @@ class RemindersScreen extends StatelessWidget {
                   VaccineTopBanner(),
                   Container(
                     height: 700,
-                    child: VaccineContent(),
+                    child: ReminderContent(petID),
                   ),
 
 
