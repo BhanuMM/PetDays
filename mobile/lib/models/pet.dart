@@ -1,10 +1,10 @@
 class Pet{
-  String? petName;
+  String petName;
   String DOB;
   int? weight;
-  String? breedid;
-  String? UserID;
-  String? catID;
+  String breedid;
+  String UserID;
+  String catID;
   String profileImage;
   String? petID;
 
