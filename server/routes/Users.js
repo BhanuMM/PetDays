@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -87,6 +87,20 @@ router.post("/addpet", async (req, res) => {
         res.json("NOT SUCCESS"); 
     }
   });
+  router.post("/addreminder", async (req, res) => {
+    const { petID,note,nextRemDate,nextRemTime} = req.body;
+    const petReminders = PetReminders.create({
+        petID: petID,
+        note: note,
+        nextRemDate: nextRemDate,
+        nextRemTime: nextRemTime,
+    });
+    if(petReminders){
+        res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
 
   router.post("/adddiaryentry", async (req, res) => {
     const {petID, entryTitle, Descr} = req.body;
@@ -151,5 +165,14 @@ router.post("/addpet", async (req, res) => {
       }}
     );
     res.json(listOfPetVaccines);
+  });
+  router.get("/getpetreminders/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPetReminders = await PetReminders.findAll(
+      {where: {
+        petId: id
+      }}
+    );
+    res.json(listOfPetReminders);
   });
   module.exports = router ;
