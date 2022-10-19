@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/components/topbar.dart';
 import 'package:mobile/constants.dart';
 import 'package:mobile/responsive.dart';
 import '../../components/background.dart';
@@ -26,7 +27,7 @@ class PetDashboard extends StatelessWidget {
              Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children:  <Widget>[
-
+                TopBanner(label: pet.petName+ "'s Dashboard"),
                 Expanded(
                   child: PetDashboardContent(pet),
                 ),

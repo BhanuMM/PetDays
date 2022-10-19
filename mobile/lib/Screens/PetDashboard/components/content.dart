@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ import '../../PetDiary/Pet_DIary_Screen.dart';
 import '../../Reminders/Reminders_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../../PetGallery/PetGallery.dart';
+import 'package:http/http.dart' as http;
+import '../../../models/petImage.dart';
 
 class PetDashboardContent extends StatefulWidget{
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
@@ -29,19 +32,42 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
   _PetDashboardContentState(Pet pet) {
     this.pet =pet;
   }
+  final url = '10.0.2.2:3001';
+  final getPetImagesRoute = '/user/getpetimages';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  PetImage petImg = PetImage('petID', 'imagePath');
+  List imagesDetails = [];
 
+  Future getPetImages() async {
+    // 10.0.2.2
+    final res = await http.get(
+      Uri.http(url, getPetImagesRoute + '/' + widget.pet.petID.toString()),
+    );
 
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      imagesDetails = list;
+    });
+    print(imagesDetails);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+  }
+  @override
+  void initState() {
+    getPetImages();
+    super.initState();
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    final List<String> imgList = [
-      pet.profileImage,
-      pet.profileImage,
-      pet.profileImage,
-      pet.profileImage,
-    ];
-    final List<Widget> imageSliders = imgList.map((item) => GestureDetector(
+
+    final List<Widget> imageSliders = imagesDetails.map((item) => GestureDetector(
       onTap: () {
         Navigator.push(
           context,
@@ -60,36 +86,9 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
               child: Stack(
                 children: <Widget>[
                   Image.file(
-                    File(item),
+                    File(item['ImagePath']),
                   ),
                   // Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                  Positioned(
-                    bottom: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(200, 0, 0, 0),
-                            Color.fromARGB(0, 0, 0, 0)
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                        ),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      child: Text(
-                        'Images of Snowy',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               )
           ),
@@ -110,7 +109,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                       children:  [
 
                         SizedBox(height: 6,),
-                        Text(pet.petName.toString() +"'s Diary",
+                        Text("Pet Gallery",
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold
@@ -120,20 +119,38 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
 
                   ],
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Container(
                     child: CarouselSlider(
                       options: CarouselOptions(
                         aspectRatio: 2.0,
                         enlargeCenterPage: true,
-                        enableInfiniteScroll: false,
+                        enableInfiniteScroll: true,
                         initialPage: 2,
-                        autoPlay: true,
+                        autoPlay: false,
                       ),
                       items: imageSliders,
                     )
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children:  [
+
+                        SizedBox(height: 6,),
+                        Text("Pet Diary",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                          ),)
+                      ],
+                    ),
+
+                  ],
+                ),
                 Row(
                     children: [
                       Spacer(),
@@ -146,7 +163,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Growth chart",ado: PetDiaryScreen(pet),img: "petd"),
+                      PetDashboardItemCard(label: "Diet Plans",ado: PetDiaryScreen(pet),img: "petd"),
                       Spacer(),
                       PetDashboardItemCard(label: "Medications",ado: PetDiaryScreen(pet),img: "medication"),
                       Spacer(),

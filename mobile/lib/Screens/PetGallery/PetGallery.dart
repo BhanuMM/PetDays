@@ -203,6 +203,19 @@ class _PetGalleryState extends State<PetGallery> {
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Container(
                       child: Column(children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                          child: Row(
+                              children: [
+                                Text("Preview :",
+                                style: TextStyle(
+                                  fontSize: 18
+                                ),
+                                ),
+                                Spacer()
+                              ]
+                          ),
+                        ),
                       Image.file(image),
                       Row(
                         children: [
