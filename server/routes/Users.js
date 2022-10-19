@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -147,7 +147,28 @@ router.post("/addpet", async (req, res) => {
         res.json("NOT SUCCESS"); 
     }
   });
-  
+
+  router.post("/addpetimage", async (req, res) => {
+    const { petID,ImagePath} = req.body;
+    const petGallery = PetGallery.create({
+        petID: petID,
+        ImagePath: ImagePath,
+    });
+    if(petGallery){
+        res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
+  router.get("/getpetimages/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPetImages = await PetGallery.findAll(
+      {where: {
+        PetID: id
+      }}
+    );
+    res.json(listOfPetImages);
+  });
   router.get("/getpets/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPets = await Pets.findAll(
