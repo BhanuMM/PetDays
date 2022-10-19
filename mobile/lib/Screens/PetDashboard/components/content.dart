@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/models/pet.dart';
@@ -9,6 +11,7 @@ import '../../ViewVaccination/View_Vaccinations_Screen.dart';
 import '../../PetDiary/Pet_DIary_Screen.dart';
 import '../../Reminders/Reminders_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import '../../PetGallery/PetGallery.dart';
 
 class PetDashboardContent extends StatefulWidget{
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
@@ -33,52 +36,64 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-      'pp1.jpg',
-      'pp2.jpg',
-      'pp3.jpg',
-      'pp4.jpg',
+      pet.profileImage,
+      pet.profileImage,
+      pet.profileImage,
+      pet.profileImage,
     ];
-    final List<Widget> imageSliders = imgList.map((item) => Container(
+    final List<Widget> imageSliders = imgList.map((item) => GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return PetGallery(pet);
+            },
+          ),
+        );
+      },
       child: Container(
-        margin: EdgeInsets.all(5.0),
-        child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            child: Stack(
-              children: <Widget>[
-                Image.asset(
-                  "assets/images/$item",
-
-                ),
-                // Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromARGB(200, 0, 0, 0),
-                          Color.fromARGB(0, 0, 0, 0)
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
+        child: Container(
+          margin: EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Stack(
+                children: <Widget>[
+                  Image.file(
+                    File(item),
+                  ),
+                  // Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(200, 0, 0, 0),
+                            Color.fromARGB(0, 0, 0, 0)
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
                       ),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 20.0),
-                    child: Text(
-                      'Images of Snowy',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      child: Text(
+                        'Images of Snowy',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              )
+          ),
+        ),
       ),
     ))
         .toList();

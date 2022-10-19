@@ -5,7 +5,7 @@ class Pet{
   String? breedid;
   String? UserID;
   String? catID;
-  String? profileImage;
+  String profileImage;
   String? petID;
 
   Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage);
