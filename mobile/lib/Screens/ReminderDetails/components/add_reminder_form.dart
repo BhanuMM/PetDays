@@ -46,7 +46,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
   }
   Future addDiaryEntry() async {
 
-    PetDiary petDiary = new PetDiary(int.parse(petID), petReminder.note, "Vaccination added for "  + _SelectedVac );
+    PetDiary petDiary = new PetDiary(int.parse(petID), petReminder.note, "Reminder added for "  + petReminder.nextRemDate.toString() + " at " + petReminder.nextRemTime.toString());
     var res = await http.post(Uri.http(url, addEntryRoute),
         headers: headers,
         body: json.encode(
