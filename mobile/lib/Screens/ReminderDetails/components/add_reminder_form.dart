@@ -9,7 +9,7 @@ import '../../Dashboard/dashboard_screen.dart';
 import '../../AddPetStep2/add_pet_screen.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../../models/pet.dart';
-import '../../../models/petVaccination.dart';
+import '../../../models/reminder.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
 
@@ -21,18 +21,13 @@ class AddReminderForm extends StatefulWidget {
     this.petID = petID;
   }
   @override
-  State<StatefulWidget> createState() => _AddVaccinationFormState(petID);
+  State<StatefulWidget> createState() => _AddReminderFormState(petID);
 }
-class _AddVaccinationFormState extends State<AddReminderForm>{
+class _AddReminderFormState extends State<AddReminderForm>{
   late DateTime? _dateTime = null;
   late TimeOfDay? _time= null;
-  String initialCat = '';
-  String NextVacDate = ' ';
-  bool isManualDate = false;
-  bool isRemindersOn = true;
   final url = '10.0.2.2:3001';
-  final getvaccinesRoute = '/mod/getvaccines';
-  final addVacRoute = '/user/addvaccine';
+  final addRemRoute = '/user/addreminder';
   final addEntryRoute = '/user/adddiaryentry';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -40,17 +35,18 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
   String _SelectedVac = '';
   String _SelectedVacID = '';
   DateTime? nextDate = new DateTime(1);
+  TimeOfDay? nextTime = new TimeOfDay(hour: 0, minute: 0);
   var Catagories = [];
-  PetVaccination petVaccination = new PetVaccination('', '', 'note', 'nextVacDate');
+  PetReminder petReminder = new PetReminder('', 'note', 'nextRemDate', 'nextRemTime');
   String petID = '';
-  _AddVaccinationFormState(String petID) {
+  _AddReminderFormState(String petID) {
     this.petID = petID;
     print("petID");
     print(petID);
   }
   Future addDiaryEntry() async {
 
-    PetDiary petDiary = new PetDiary(int.parse(petID), petVaccination.note, "Vaccination added for "  + _SelectedVac );
+    PetDiary petDiary = new PetDiary(int.parse(petID), petReminder.note, "Vaccination added for "  + _SelectedVac );
     var res = await http.post(Uri.http(url, addEntryRoute),
         headers: headers,
         body: json.encode(
@@ -62,34 +58,31 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
 
   }
 
-  Future addPetVaccine() async {
-
-
-    petVaccination.vacID = _SelectedVacID;
-
+  Future addPetReminder() async {
 
 
     String nextDatestr = nextDate.toString();
     final splitted = nextDatestr.split(' ');
     print(splitted[0]);
-    petVaccination.nextVacDate = splitted[0];
-    petVaccination.petID = petID;
-    print(petVaccination.petID);
-    print(petVaccination.note);
-    print(petVaccination.nextVacDate);
-    print(petVaccination.vacID);
+    petReminder.nextRemDate = splitted[0];
+    petReminder.petID = petID;
+    petReminder.nextRemTime = nextTime.toString().split("(")[1].split(')')[0];
+    print(petReminder.petID);
+    print(petReminder.note);
+    print(petReminder.nextRemDate);
+    print(petReminder.nextRemTime);
     // 10.0.2.2
-    var res = await http.post(Uri.http(url, addVacRoute),
+    var res = await http.post(Uri.http(url, addRemRoute),
         headers: headers,
         body: json.encode(
-            petVaccination
+            petReminder
         ),
         encoding: encoding
     );
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit("Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
+      NotificationAPI.scheduleNotificationInit("Reminder", petReminder.note + "for Date: " + petReminder.nextRemDate.toString(),DateTime.now().add(Duration(seconds: 15)));
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
@@ -127,32 +120,10 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
     }
     return Colors.red;
   }
-  Future getVaccines() async {
-    // 10.0.2.2
-    final res = await http.get(Uri.http(url,getvaccinesRoute),
-    );
-
-    final list = json.decode(res.body) as List<dynamic>;
-    setState(() {
-      vaccines = list;
-    });
-    print(list);
-    vaccines.map((item){
-      Catagories.add(item['vacName'].toString());
-    }).toList();
-    initialCat = Catagories[0];
-    print(initialCat);
-    return "Sucess";
-    //map json and initialize using DataModel
-    // return list;
-    // return list.map((e) => PetCatagory.fromJson(e)).toList();
-
-  }
 
   @override
   void initState() {
     super.initState();
-    this.getVaccines();
   }
 
   @override
@@ -181,7 +152,7 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
                 ),
                 TextFormField(
                   onChanged: (value) {
-                    petVaccination.note = value;
+                    petReminder.note = value;
                   },
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
@@ -282,6 +253,7 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
                               showTimePicker(context: context, initialTime: TimeOfDay(hour: 7, minute: 15)).then((time){
                                 setState(() {
                                   _time = time;
+                                  nextTime = time;
                                 });
                               });
                             },
@@ -300,7 +272,7 @@ class _AddVaccinationFormState extends State<AddReminderForm>{
                       height: 30,
                       child:ElevatedButton(
                         onPressed: () {
-                          addPetVaccine();
+                          addPetReminder();
                         },
                         child: Text(
                           "Add Reminder".toUpperCase(),

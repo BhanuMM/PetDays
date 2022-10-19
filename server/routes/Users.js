@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -82,6 +82,20 @@ router.post("/addpet", async (req, res) => {
         nextVacDate: nextVacDate,
     });
     if(petVaccines){
+        res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
+  router.post("/addreminder", async (req, res) => {
+    const { petID,note,nextRemDate,nextRemTime} = req.body;
+    const petReminders = PetReminders.create({
+        petID: petID,
+        note: note,
+        nextRemDate: nextRemDate,
+        nextRemTime: nextRemTime,
+    });
+    if(petReminders){
         res.json("SUCCESS"); 
     }else{
         res.json("NOT SUCCESS"); 
