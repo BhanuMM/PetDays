@@ -34,6 +34,7 @@ function mdeeditmed() {
 			.get("http://localhost:3001/mod/getmedicines/" + location.state)
 			.then((response) => {
 				setSingleMed(response.data);
+				
 			});
 	}, []);
 
@@ -60,7 +61,7 @@ function mdeeditmed() {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					// console.log(data)
+					console.log(data)
 					navigate("/mdsinglemed");
 				}
 			});
