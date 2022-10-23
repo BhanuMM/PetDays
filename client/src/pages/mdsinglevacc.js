@@ -10,6 +10,7 @@ import Moderatorsidebar from "../components/moderatorsidebar";
 import Swal from "sweetalert2";
 
 function mdsinglevacc() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfVaccines, setListOfVaccines] = useState([]);
 	// let history = useHistory();
 
@@ -84,6 +85,9 @@ function mdsinglevacc() {
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
+												onChange = {(event) => {
+													setSearchTerm(event.target.value);
+												}}
 											/>
 											<button
 												type="button"
@@ -132,7 +136,13 @@ function mdsinglevacc() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfVaccines.map((value, key) => {
+													{listOfVaccines.filter((val) => {
+															if(searchTerm == ""){
+															return val
+															}else if (val.vacName.toLowerCase().includes(searchTerm.toLowerCase())){
+															return val
+															}
+														}).map((value, key) => {
 														return (
 															<tr>
 																<td>{value.vacID}</td>

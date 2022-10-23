@@ -24,7 +24,7 @@ function mddogdiet() {
 
   useEffect(() => {
     axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
-	  setListOfDietplans(response.data);
+	    setListOfDietplans(response.data);
       setFilterItems(response.data);
     });
     axios.get("http://localhost:3001/admin/getpetcategories").then((response) => {

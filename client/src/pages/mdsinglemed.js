@@ -2,11 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate  } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import Swal from 'sweetalert2';
@@ -198,17 +196,6 @@ function mdsinglemed() {
 								  </div>
 								</td>
 							  </tr>
-                            //   <div
-                            //     key={key}
-                            //     className="post"
-                            //     onClick={() => {
-                            //       history.push(`/post/${value.id}`);
-                            //     }}
-                            //   >
-                            //     <div className="title"> {value.title} </div>
-                            //     <div className="body">{value.postText}</div>
-                            //     <div className="footer">{value.username}</div>
-                            //   </div>
 
                             );
                           })}
