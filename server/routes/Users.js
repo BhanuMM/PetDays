@@ -52,6 +52,18 @@ router.post("/addpet", async (req, res) => {
     res.json(listOfPosts);
   });
 
+  router.get("/getpostswithuser", async (req, res) => {
+    const listOfPosts = await Forumposts.findAll(
+      {
+        include: { 
+          model:Users ,
+           required: true,
+          },
+      }
+    );
+    res.json(listOfPosts);
+  });
+
   router.post("/addpost", async (req, res) => {
     const { postTitle,postDescr,pcatId} = req.body;  
 

@@ -109,11 +109,14 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                       children:  [
 
                         SizedBox(height: 6,),
-                        Text("Pet Gallery",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold
-                          ),)
+                        GestureDetector(
+
+                          child: Text("Pet Gallery",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
+                            ),),
+                        )
                       ],
                     ),
 
@@ -133,6 +136,27 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                     )
                 ),
                 SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Spacer(),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return PetGallery(pet);
+                              },
+                            ),
+                          );
+                        },
+                        child: Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                            child: Text("view full gallery")
+                        )
+                    )
+                  ],
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
