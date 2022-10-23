@@ -3,10 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
+
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import Swal from "sweetalert2";
@@ -99,8 +99,12 @@ function mdsinglemed() {
 											/>
 										</div>
 									</div>
-									<br />
 
+								  </div>
+								</td>
+							  </tr>
+
+									
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Available Medicines</h5>

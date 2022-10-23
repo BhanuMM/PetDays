@@ -10,9 +10,9 @@ import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import Swal from "sweetalert2";
 
-function mdsinglemed() {
+function mdsinglevitamin() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfVitamins, setListOfVitamins] = useState([]);
-	// let history = useHistory();
 
 	useEffect(() => {
 		axios.get("http://localhost:3001/mod/getvitamins").then((response) => {
@@ -85,6 +85,9 @@ function mdsinglemed() {
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
+												onChange = {(event) => {
+													setSearchTerm(event.target.value);
+												}}
 											/>
 											<button
 												type="button"
@@ -133,7 +136,13 @@ function mdsinglemed() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfVitamins.map((value, key) => {
+													{listOfVitamins.filter((val) => {
+														if(searchTerm == ""){
+														return val
+														}else if (val.vitName.toLowerCase().includes(searchTerm.toLowerCase())){
+														return val
+														}
+													}).map((value, key) => {
 														return (
 															<tr>
 																<td>{value.vitID}</td>
@@ -227,4 +236,4 @@ function mdsinglemed() {
 	);
 }
 
-export default mdsinglemed;
+export default mdsinglevitamin;
