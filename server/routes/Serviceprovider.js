@@ -11,6 +11,7 @@ var fs = require("fs");
 
 router.use(bodyParser.json());
 router.use(cors());
+router.use(bodyParser.urlencoded({extended: true}));
 
 router.use("/static", express.static("uploads"));
 
@@ -18,9 +19,10 @@ router.post("/uploadphoto", upload.single("file"), async (req, res) => {
   
   let fileType = req.file.mimetype.split("/")[1];
   let newFileName = req.file.filename+"."+fileType;
-  console.log("newFileName", newFileName)
+  let adid =req.body.idhid;
+  console.log("newFileName", adid )
   fs.rename(`./uploads/${req.file.filename}`,`./uploads/${newFileName}`,async function  () {
-    await Publishedads.update({adImage : newFileName} ,{ where: { adID: "1" }} );
+    await Publishedads.update({adImage : newFileName} ,{ where: { adID: adid }} );
       res.send("200");
     }
   )

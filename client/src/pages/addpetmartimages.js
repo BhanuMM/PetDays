@@ -36,7 +36,8 @@ function addpetmartadd() {
 
   const sendImage = (event) => {
     let formData = new FormData();
-    formData.append("file", image);
+    formData.append("file", image );
+    formData.append("idhid", location.state );
     
     fetch("http://localhost:3001/service/uploadphoto",{ method : "post", body: formData} ).then((res) => res.text()).then((resBody)=> {
       console.log(resBody)
@@ -74,7 +75,7 @@ function addpetmartadd() {
 					
                 <div className="App">
       <form>
-        
+      {/* <input type="hidden" value={25} name="hiddenid" id="hiddenid" /> */}
         <input type="file" onChange={fileOnChange} />
         <br />
         <br /><br />
