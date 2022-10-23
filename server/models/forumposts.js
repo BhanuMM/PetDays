@@ -36,13 +36,18 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: "cascade",
           onUpdate: "cascade",
         });
+
         Forumposts.belongsTo(models.Petcatagories, {
           foreignKey: 'pcatId',
           onDelete: "cascade",
           onUpdate: "cascade",
         });
       };
-        
+
+      // Forumposts.associate = (models) => {
+       
+      //   }
+
     return Forumposts;
   };
   

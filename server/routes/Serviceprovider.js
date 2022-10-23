@@ -218,51 +218,61 @@ router.get("/getserviceprovider", async (req, res) => {
   //UPDATE ADVERTIESMENTNT
 router.post("/updatead", async (req, res) => {
   
-  const { adTitle,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,adStatus } = req.body;
+  const {adTitle,adId,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,adStatus} = req.body;
 
-  await Publishedads.update({ adTitle :adTitle,adDescr :adDescr ,adImage :adImage ,adPrice :adPrice ,adContact :adContact ,adEmail :adEmail ,adAddress :adAddress ,adProvince :adProvince ,adDistrict : adDistrict, adStatus : "pending" } ,{ where: { adId: adId }} );
+  await Publishedads.update({ adTitle :adTitle,adDescr :adDescr ,adImage :adImage ,adPrice :adPrice ,adContact :adContact ,adEmail :adEmail ,adAddress :adAddress ,adProvince :adProvince ,adDistrict : adDistrict, adStatus : "pending"} ,{ where: { adId: adId }} );
  
   res.json("SUCCESS"); 
 });
+
+// router.post("/updatead", async (req, res) => {
+  
+//   const {adTitle,adId} = req.body;
+
+//   await Publishedads.update({ adTitle :adTitle} ,{ where: { adId: adId }} );
+//   console.log(req.body);
+ 
+//   res.json("SUCCESS"); 
+// });
 
 
 
 //updates----------
 
-router.post("/updatependingad/:id", async (req, res) => {
-  const id = req.params.id;
+// router.post("/updatependingad/:id", async (req, res) => {
+//   const id = req.params.id;
   
 
-  await Publishedads.update({adStatus :"approved"} ,{ where: { adID: id }} );
+//   await Publishedads.update({adStatus :"approved"} ,{ where: { adID: id }} );
  
-  res.json("SUCCESS"); 
-});
+//   res.json("SUCCESS"); 
+// });
 
-router.post("/spupdatead", async (req, res) => {
+// router.post("/spupdatead", async (req, res) => {
 
-  const { adId,adTitle,adDescr, adPrice, adContact,adEmail,adAddress,adProvince, adDistrict} = req.body;
+//   const { adId,adTitle,adDescr, adPrice, adContact,adEmail,adAddress,adProvince, adDistrict} = req.body;
 
-  await Publishedads.update({adId :adId ,adTitle :adTitle,adDescr :adDescr,adPrice :adPrice,adContact :adContact,adEmail :adEmail,adAddress :adAddress,adProvince :adProvince,adDistrict :adDistrict} ,{ where: { adId: adId }} );
+//   await Publishedads.update({adId :adId ,adTitle :adTitle,adDescr :adDescr,adPrice :adPrice,adContact :adContact,adEmail :adEmail,adAddress :adAddress,adProvince :adProvince,adDistrict :adDistrict} ,{ where: { adId: adId }} );
  
-  res.json("SUCCESS"); 
-});
+//   res.json("SUCCESS"); 
+// });
 
-router.post("/updaterejectedad/:id", async (req, res) => {
-  const id = req.params.id;
-  const chckq= await Publishedads.update({adStatus :"rejected"} ,{ where: { adID: id }} );
+// router.post("/updaterejectedad/:id", async (req, res) => {
+//   const id = req.params.id;
+//   const chckq= await Publishedads.update({adStatus :"rejected"} ,{ where: { adID: id }} );
    
 
-    if(chckq){
-      await Rejectedads.create({
-        rejReason : "This ad is rejected bcz no img",
-        adId : id
-      });
-      res.json("Ad SUCCESS");
-    }else{
-      res.json("Ad Not SUCCESS");
-    }
+//     if(chckq){
+//       await Rejectedads.create({
+//         rejReason : "This ad is rejected bcz no img",
+//         adId : id
+//       });
+//       res.json("Ad SUCCESS");
+//     }else{
+//       res.json("Ad Not SUCCESS");
+//     }
   
-});
+// });
 
 
 

@@ -5,10 +5,24 @@ import "../styles/dashboard.css";
 import Swal from 'sweetalert2';
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Spsidebar from "../components/spsidebar";
-import Navbarsp from "../components/navsp";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
+import "../styles/footerspecial.css";
+import "../styles/sellerdashboard.css";
+
+import "../styles/petmart.css";
+import "../styles/forum.css";
+import "../styles/petcategories.css";
+import "../styles/serviceproviderdashboard.css";
+
+
+import "../styles/spdashboard.css";
+import Button from "@mui/material/Button";
+
+
 
 function spviewad() {
 	const [SingleAd, setSingleAd] = useState([]);
@@ -19,7 +33,7 @@ function spviewad() {
 		  .get("http://localhost:3001/service/getadview/" +location.state)
 		  .then((response) => {
 			setSingleAd(response.data);
-			// console.log(SingleAd.medID);
+			
 		  });
 	  }, []);
 
@@ -94,91 +108,87 @@ function spviewad() {
 						</div><br/><br/>
 						<div class='comment'  style={{paddingLeft:600, display:"flex"}}><br/><br/>
 							<div style={{paddingLeft:100,paddingRight:20}}>
-									{/* <Button variant="contained" component="label"  style={{backgroundColor: '#205375' , width:100}}
-									onClick={() => {
-
-										Swal.fire({
-										  title: 'Are you sure?',
-										  text: "Do you want to approve this Advertiesment?",
-										  icon: 'warning',
-										  showCancelButton: true,
-										  confirmButtonColor: '#3085d6',
-										  cancelButtonColor: '#d33',
-										  confirmButtonText: 'Approve Ad'
-										}).then((result) => {
-										  if (result.isConfirmed) {
-				  
-											
-											axios.post("http://localhost:3001/service/updatependingad/"+SingleAd.adId).then((response) => {
-											  if (response.data.error) {
-												alert(response.data.error);
-											  } else {
-												navigate('/mdpendingads')
-											  } 
-											});
-											  Swal.fire(
-												'Approved!',
-												'Advertiement Has been Approved.',
-												'success'
-											  )
-											 
-											
-										  }
-										})
-										
-										  }}>
-										Approve
-									</Button> */}
+								
 								
 							</div>
 
 							<div>
-									{/* <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E' , width:100}}
-									onClick={() => {
+									
+							<div class="comment" style={{ display: "flex", paddingLeft: 10 }}>
+															<br />
+															<br />
+															
 
-										const { value: text } = Swal.fire({
-											title: 'Enter a Reason for Rejecting the Ad',
-											input: 'textarea',
-											inputPlaceholder: 'Type the reason here...',
-											inputAttributes: {
-											  'aria-label': 'Type the reason here'
-											},
-											showCancelButton: true,
-											confirmButtonText: 'Reject Ad'
-										  }).then((result) => {
-											if (result.isConfirmed) {
-					
-											  
-											  axios.post("http://localhost:3001/service/updaterejectedad/"+SingleAd.adId).then((response) => {
-												if (response.data.error) {
-												  alert(response.data.error);
-												} else {
-												  
-												} 
-											  });
-											  navigate('/mdpendingads')
-												Swal.fire(
-												  'SUCCESS!',
-												  'Advertiement Has been Rejected.',
-												  'success'
-												)
-											   
-											  
-											}
-										  })
-										  
-										//   if (text) {
-										// 	Swal.fire(
-										// 		'Approved!',
-										// 		'Advertiement Has been Approved.',
-										// 		'success'
-										// 	  )
-										//   }
-										
-										  }}
-										  >
-									Reject
-									</Button> */}
+															<div>
+																<a  role="button" aria-pressed="true">
+																	<Button
+																		variant="contained"
+																		component="label"
+																		style={{
+																			backgroundColor: "#112b3c",
+																			width: 100,
+																		}}
+																		onClick={() => {
+																			navigate('/speditad',{state: SingleAd.adId});
+																			  }}
+																	>
+																		Edit
+																	</Button>
+																</a>
+															</div>
+															<div style={{
+																		paddingLeft: 20
+																	}}>
+															<a role="button" aria-pressed="true">
+																<Button
+																	variant="contained"
+																	component="label"
+																	style={{
+																		backgroundColor: "#F66B0E",
+																		width: 100,
+																	}}
+																	// type="button"
+																	// class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																	onClick={() => {
+
+																	Swal.fire({
+																		title: 'Are you sure?',
+																		text: "You won't be able to revert this!",
+																		icon: 'warning',
+																		showCancelButton: true,
+																		confirmButtonColor: '#3085d6',
+																		cancelButtonColor: '#d33',
+																		confirmButtonText: 'Yes, delete it!'
+																	}).then((result) => {
+																		if (result.isConfirmed) {
+
+																		
+																		axios.delete("http://localhost:3001/service/deletead/"+SingleAd. adId).then((response) => {
+																			if (response.data.error) {
+																			alert(response.data.error);
+																			} else {
+																			axios.get("http://localhost:3001/service/getalladsuser").then((response) => {
+																				setSingleAd(response.data);});
+																			} 
+																		});
+																			Swal.fire(
+																			'Deleted!',
+																			'Advertiesment has been deleted.',
+																			'success'
+																			)
+																		
+																		
+																		}
+																	})
+																	
+																		}}
+																>
+																	Remove
+																</Button>
+															</a>
+														</div>
+															<br />
+														</div>
 							</div>
 							
 						</div>

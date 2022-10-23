@@ -2,13 +2,8 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
-import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Spsidebar from "../components/spsidebar";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -38,7 +33,7 @@ function speditad() {
 			.get("http://localhost:3001/service/getadview/" + location.state)
 			.then((response) => {
 				setSingleAd(response.data);
-				// console.log(SingleAd.adId);
+				
 			});
 	}, []);
 
@@ -55,7 +50,9 @@ function speditad() {
         adStatus: SingleAd.adStatus,
 		adDate: SingleAd.adDate,
 		adTime: SingleAd.adTime,
+	
 	};
+	
 
 	const Schema = Yup.object().shape({
 
@@ -64,7 +61,7 @@ function speditad() {
 		.required("Please enter title"),
   
 		adPrice: Yup.string()
-		.matches(/^[0-9]$/,"please enter valied price"),
+		.matches(/^[0-9]*$/,"please enter valied price"),
   
 		adImage : "",
   
@@ -140,6 +137,7 @@ function speditad() {
 										validationSchema={Schema}
 									>
 										<Form>
+										
 											<br />
 											<br />
 
@@ -154,6 +152,16 @@ function speditad() {
 												id="adId"
 												autocomplete="off"
 												name="adId"
+												type="hidden"
+												
+											/>
+
+
+											<Field
+												className="form-control"
+												id="adStatus"
+												autocomplete="off"
+												name="adStatus"
 												type="hidden"
 												
 											/>
@@ -248,6 +256,8 @@ function speditad() {
 												<option value="blue">Hambantota</option>
 												<option value="blue">Colombo</option>
 											</Field>
+
+											
                                            
 											<div className="row">
 												<div className="col-9"></div>
@@ -259,6 +269,7 @@ function speditad() {
 													>
 														Update Advertisments
 													</button>
+													console.log(adTitle);
 												</div>
 											</div>
 										</Form>
