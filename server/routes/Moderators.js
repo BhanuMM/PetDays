@@ -152,35 +152,20 @@ router.get("/getmedicines/:id", async (req, res) => {
   const id = req.params.id;
   const SingleMed = await Medicines.findByPk(id);
   res.json(SingleMed);
-  // const SingleMed = await Medicines.findOne(
-  //   {where: {
-  //     medID: id
-  //   }}
-  // );
-  // res.json(SingleMed);
+  
 });
 
 router.get("/getvitamins/:id", async (req, res) => {
   const id = req.params.id;
   const SingleVit = await Vitamins.findByPk(id);
   res.json(SingleVit);
-  // const SingleVit = await Vitamins.findOne(
-  //   {where: {
-  //     vitID: id
-  //   }}
-  // );
-  // res.json(SingleVit);
+
 });
 router.get("/getvaccines/:id", async (req, res) => {
   const id = req.params.id;
   const SingleVac = await Vaccines.findByPk(id);
   res.json(SingleVac);
-  // const SingleVac = await Vaccines.findOne(
-  //   {where: {
-  //     vacID: id
-  //   }}
-  // );
-  // res.json(SingleVac);
+  
 });
 
 // router.get("/getdietplans/:id", async (req, res) => {

@@ -21,6 +21,8 @@ const bull = (
 	</Box>
 );
 function viewvaccines() {
+	const [searchTerm, setSearchTerm] = useState([]);
+
 	const [listOfVaccines, setListOfVaccines] = useState([]);
 	// let history = useHistory();
 
@@ -70,27 +72,25 @@ function viewvaccines() {
 									<div class="col col-xs-6 text-right"></div>
 									<div
 										class="input-group"
-										style={{ width: 430, float: "right" }}
+										style={{ width: 575, float: "right" }}
 									>
+										<p
+											class="fw-semibold "
+											style={{ paddingRight: 10, paddingTop: 10 }}
+										>
+											Search Vaccine
+										</p>
 										<input
 											type="search"
 											class="form-control rounded"
-											placeholder="Search Vaccines"
+											placeholder="Enter Vaccine Name"
 											aria-label="Search"
 											aria-describedby="search-addon"
 											style={{ height: 40 }}
-										/>
-										<button
-											type="button"
-											class="btn"
-											style={{
-												height: 40,
-												backgroundColor: "#205375",
-												color: "white",
+											onChange={(event) => {
+												setSearchTerm(event.target.value);
 											}}
-										>
-											Search
-										</button>
+										/>
 									</div>
 									<br/><br/><br/>
 
@@ -125,7 +125,19 @@ function viewvaccines() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfVaccines.map((value, key) => {
+													{listOfVaccines
+													.filter((val) => {
+														if (searchTerm == "") {
+															return val;
+														} else if (
+															val.vacName
+																.toLowerCase()
+																.includes(searchTerm.toLowerCase())
+														) {
+															return val;
+														}
+													})
+													.map((value, key) => {
 														return (
 															<tr>
 																<td>{value.vacID}</td>
