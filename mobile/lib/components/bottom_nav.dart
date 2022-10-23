@@ -5,6 +5,7 @@ import '../Screens/PetMartHome/Pet_Mart_Home_Screen.dart';
 import '../Screens/Mypets/my_pets_screen.dart';
 import '../Screens/EditProfile/Edit_profile_screen.dart';
 import '../models/user.dart';
+import '../Screens/PetTalkHome/Pet_Talk_Home_Screen.dart';
 
 import '../constants.dart';
 
@@ -33,7 +34,7 @@ class _BottomNav extends State<BottomNav>{
   var pages = [
     DashboardScreen(),
     PetMartHome(),
-    DashboardScreen(),
+    PetTalkHome(),
     ProfileSettings(),
   ];
   void initState() {
