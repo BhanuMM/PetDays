@@ -102,23 +102,18 @@ function index() {
                 Pet Services ?
               </p>
 
-              <p className="lead">
+              <p className="lead mb-3">
                 Visit out pet mart and find services easily for you beloved pet
               </p>
 
               <p className="lead">
-                <a
-                  className="btn btn-md"
-                  id="learn"
-                  href="signup"
-                  role="button"
-                >
+                
                   <div class="button-1">
-                    <button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset">
-                      Visit Pet Mart
-                    </button>
+                  <a href="petmart"><button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset ">
+                     Visit Pet Mart
+                    </button></a>
                   </div>
-                </a>
+              
               </p>
             </div>
           </div>
@@ -140,7 +135,7 @@ function index() {
                   padding: "10px",
                 }}
               /> */}
-              <p className="lead">
+              <p className="lead mb-3">
                 The pet care forum provides a platform to interact with the
                 community and resolve your pet needs with the help of other pet
                 lovers. With the pet forum, users can post any question about
@@ -157,9 +152,9 @@ function index() {
                 }}
               /> */}
               <div class="button-1 pb-5 ">
-                <button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset ">
+              <a href="forum"> <button type="submit" class=" pl-5 btn btn-warning index-mainbuttonset ">
                  Visit Pet Talk
-                </button>
+                </button></a>
               </div>
             </div>
           </div>
@@ -200,9 +195,9 @@ function index() {
         </p>
         <p class="display-6 fw-bolder">Register as a Service Provider</p>
         <center>
-          <button type="submit" class="btn btn-warning reg-btn index-mainbuttonset">
-            Register
-          </button>
+        <a href='sellersignup'><button type="submit" class="btn btn-warning reg-btn index-mainbuttonset mt-3">
+            Register Now
+          </button></a>
         </center>
         <center>
           <img
