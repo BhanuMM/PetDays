@@ -100,6 +100,7 @@ function pendingads() {
 																</a>
 															</div>
 
+															
 															<div>
 																<a  role="button" aria-pressed="true">
 																	<Button
@@ -110,7 +111,7 @@ function pendingads() {
 																			width: 100,
 																		}}
 																		onClick={() => {
-																			navigate('/getpendingadsuser',{state: value.adId});
+																			navigate('/speditad',{state: value.adId});
 																			  }}
 																	>
 																		Edit
