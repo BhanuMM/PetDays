@@ -101,9 +101,7 @@ function mdsinglemed() {
 									</div>
 
 								  </div>
-								</td>
-							  </tr>
-
+								
 									
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
@@ -242,7 +240,7 @@ function mdsinglemed() {
 									</div>
 								</div>
 							</div>
-						</div>
+						
 					</main>
 				</div>
 			</div>
