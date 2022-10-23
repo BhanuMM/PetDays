@@ -39,7 +39,7 @@ function login() {
         });
 
         if (response.data.role === "admin") navigate("/admindashboard");
-        else if (response.data.role === "service") navigate("/serviceproviderdashboard");
+        else if (response.data.role === "service") navigate("/spdashboard");
         else if (response.data.role === "moderator") navigate("/moderatordashboard");
         else if (response.data.role === "user") navigate("/index");
         else navigate("/signin");

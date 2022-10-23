@@ -61,7 +61,16 @@ function navbar() {
                 <li className="nav-item active">
                     <a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
                 </li>
-                
+                {authState.status && authState.role=="service" && (
+                <>
+                  <li className="nav-item active">
+                  
+                  <a className="nav-link" href="spdashboard"><h4>My Account</h4></a>
+           </li>
+                </>
+              )}
+              
+            
                 {authState.status && (
                 <>
                   <li className="nav-item active">
@@ -72,6 +81,7 @@ function navbar() {
            </li>
                 </>
               )}
+              
               {!authState.status && (
                 <>
                 <li className="nav-item active">

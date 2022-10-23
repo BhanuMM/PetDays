@@ -1,7 +1,46 @@
 import React from 'react';
 import '../styles/nav.css';
+import { AuthContext } from "../helpers/AuthContext";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function navbar() {
+    const [authState, setAuthState] = useState({
+        username: "",
+        id: 0,
+        role : "",
+        status: false,
+      });
+    
+      const navigate = useNavigate();
+      useEffect(() => {
+        axios
+          .get("http://localhost:3001/auth/authuser", {
+            headers: {
+              accessToken: localStorage.getItem("accessToken"),
+            },
+          })
+          .then((response) => {
+            if (response.data.error) {
+              setAuthState({ ...authState, status: false });
+            } else {
+              setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                role: response.data.role,
+                status: true,
+              });
+              console.log(response.data.role);
+            }
+          });
+      }, []);
+ 
+      const logout = () => {
+        localStorage.removeItem("accessToken");
+        setAuthState({ username: "", role: "",id: 0, status: false });
+        navigate("/home");
+      };
   return (
 
     <nav className="navbar navbar-expand-lg py-3 px-4 auto-hiding-navbar fixed-top mybar">
@@ -22,7 +61,16 @@ function navbar() {
                 <li className="nav-item active">
                     <a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
                 </li>
-                
+                {authState.status && (
+                <>
+                  <li className="nav-item active">
+                  {/* <Link to="/login" className="nav-link"> Login</Link> */}
+                  <a className="nav-link" > <button type="submit" onClick={logout} class="  btn btn-warning">
+                 logout
+               </button></a>
+           </li>
+                </>
+              )}
                 
             </ul>
             </div>
