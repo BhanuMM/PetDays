@@ -25,31 +25,29 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TIME,
         allowNull: false,
       },
-      pcatId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-      },
     },{
       timestamps: false,
       freezeTableName: true
     }
     );
-  
     Forumposts.associate = (models) => {
       Forumposts.belongsTo(models.Users, {
           foreignKey: 'userId',
           onDelete: "cascade",
           onUpdate: "cascade",
         });
-      };
-      Forumposts.associate = (models) => {
+
         Forumposts.belongsTo(models.Petcatagories, {
-            foreignKey: 'pcatId',
-            onDelete: "cascade",
-            onUpdate: "cascade",
-          });
-        }
+          foreignKey: 'pcatId',
+          onDelete: "cascade",
+          onUpdate: "cascade",
+        });
+      };
+
+      // Forumposts.associate = (models) => {
+       
+      //   }
+
     return Forumposts;
   };
   

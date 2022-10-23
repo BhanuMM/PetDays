@@ -1,11 +1,11 @@
 class Pet{
-  String? petName;
+  String petName;
   String DOB;
   int? weight;
-  String? breedid;
-  String? UserID;
-  String? catID;
-  String? profileImage;
+  String breedid;
+  String UserID;
+  String catID;
+  String profileImage;
   String? petID;
 
   Pet(this.petName,this.DOB,this.weight,this.breedid,this.UserID,this.catID,this.profileImage);

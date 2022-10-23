@@ -8,22 +8,9 @@ import Sidebar from "../components/sidebar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-const bull = (
-	<Box
-		component="span"
-		sx={{
-			display: "inline-block",
-			mx: "2px",
-			transform: "scale(0.8)",
-			maxHeight: "1000",
-		}}
-	>
-		•
-	</Box>
-);
 function viewmoderators() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfModerators, setListOfModerators] = useState([]);
-	// let history = useHistory();
   
 	useEffect(() => {
 	  axios.get("http://localhost:3001/admin/getmoderators").then((response) => {
@@ -78,29 +65,27 @@ function viewmoderators() {
 												Add Modertor
 											</Button>
 										</a>
-									<div
+										<div
 										class="input-group"
-										style={{ width: 430, float: "right" }}
+										style={{ width: 575, float: "right" }}
 									>
+										<p
+											class="fw-semibold "
+											style={{ paddingRight: 10, paddingTop: 10 }}
+										>
+											Search Moderator
+										</p>
 										<input
 											type="search"
 											class="form-control rounded"
-											placeholder="Search Moderators"
+											placeholder="Enter Moderator Name"
 											aria-label="Search"
 											aria-describedby="search-addon"
 											style={{ height: 40 }}
-										/>
-										<button
-											type="button"
-											class="btn"
-											style={{
-												height: 40,
-												backgroundColor: "#205375",
-												color: "white",
+											onChange={(event) => {
+												setSearchTerm(event.target.value);
 											}}
-										>
-											Search
-										</button>
+										/>
 									</div>
 									<br />
 									<br />
@@ -136,7 +121,21 @@ function viewmoderators() {
 													</tr>
 												</thead>
 												<tbody id="myTable">
-												{listOfModerators.map((value, key) => {
+												{listOfModerators
+												.filter((val) => {
+													if (searchTerm == "") {
+														return val;
+													} else if (
+														val.username
+															.toLowerCase()
+															.includes(searchTerm.toLowerCase())
+													) {
+														return val;
+													}
+												})
+												
+												
+												.map((value, key) => {
                             return (
 													<tr>
 														<td class="hidden-xs">{value.modID}</td>

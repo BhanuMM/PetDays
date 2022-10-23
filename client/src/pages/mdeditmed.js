@@ -10,21 +10,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 
-
-const bull = (
-	<Box
-		component="span"
-		sx={{
-			display: "inline-block",
-			mx: "2px",
-			transform: "scale(0.8)",
-			maxHeight: "1000",
-		}}
-	>
-		•
-	</Box>
-);
-
 function mdeeditmed() {
 	const [SingleMed, setSingleMed] = useState([]);
 	const location = useLocation();
@@ -34,6 +19,7 @@ function mdeeditmed() {
 			.get("http://localhost:3001/mod/getmedicines/" + location.state)
 			.then((response) => {
 				setSingleMed(response.data);
+				
 			});
 	}, []);
 
@@ -43,14 +29,12 @@ function mdeeditmed() {
 		descr: SingleMed.descr,
 	};
 
-
 	const Schema = Yup.object().shape({
-		medName:  Yup.string()
-		.matches(/^[A-Za-z0-9 ]*$/,"Please enter valid name")
-		.required("Please enter Vccine name"),
-	  });
+		medName: Yup.string()
+			.matches(/^[A-Za-z0-9 ]*$/, "Please enter valid name")
+			.required("Please enter Vccine name"),
+	});
 
-	
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
@@ -60,7 +44,7 @@ function mdeeditmed() {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					// console.log(data)
+					console.log(data)
 					navigate("/mdsinglemed");
 				}
 			});
@@ -113,8 +97,12 @@ function mdeeditmed() {
 											<br />
 											<label className="form-label">Name of the medicine</label>
 											<div className="col">
-                             					 <ErrorMessage name="medName" className="errormesage" component="span" />
-                           					 </div>
+												<ErrorMessage
+													name="medName"
+													className="errormesage"
+													component="span"
+												/>
+											</div>
 											<Field
 												className="form-control"
 												id="medID"

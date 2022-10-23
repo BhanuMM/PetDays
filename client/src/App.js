@@ -1,10 +1,11 @@
 
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import {Navigate , BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import { Redirect  } from "react-router-dom";
 
 import Signin from './pages/login';
 import Petmart from './pages/petmart';
@@ -133,7 +134,7 @@ import Sppublishedads from './pages/sppublishedads';
 import Sprejectedads from './pages/sprejectedads';
 import Speditad from './pages/speditad';
 // import Signinform from './components/signinform';
-
+import Testingposts from './pages/testingposts';
 function App() {
   const [authState, setAuthState] = useState({
     username: "",
@@ -142,6 +143,7 @@ function App() {
     status: false,
   });
 
+  
   useEffect(() => {
     axios
       .get("http://localhost:3001/auth/authuser", {
@@ -170,8 +172,11 @@ function App() {
         <section />
 
       <Router>
+        
         <Routes>
-          
+
+        <Route path="/Testingposts" element={<Testingposts/>} />
+
           <Route path="/register" element={<Register/>} />
           <Route path="/signin" element={<Signin/>} />
           <Route path="/" element={<Index/>} />
@@ -189,6 +194,14 @@ function App() {
                 </>
               )} */}
 
+               {/* { authState.status && authState.role=="admin" && (
+                <>
+                 <Route path="/admindashboard" element={<Admindashboard/>} />
+                </>
+              )} */}
+
+       
+
           {/* forum */}
           <Route path="/forum" element={<Forum/>} />
           
@@ -196,9 +209,16 @@ function App() {
           {/* petmart */}
           <Route path="/petmart" element={<Petmart/>} />
           <Route path="/viewad" element={<Singlead/>}/>
+
+
           
-          {/* Admin */}
-          <Route path="/admindashboard" element={<Admindashboard/>} />
+
+
+          
+        {/* Admin */}
+          { authState.status && authState.role=="admin" && (
+                <>
+                  <Route path="/admindashboard" element={<Admindashboard/>}  />
           <Route path="/addmoderator" element={<Addmoderator/>} />
           <Route path="/addnewmedication" element={<Addnewmedication/>} />
           <Route path="/addpetcategories" element={<Addpetcategory/>} />
@@ -224,9 +244,16 @@ function App() {
           <Route path="/editbreed" element={<Editbreed/>}/>
           <Route path="/myprofileadmin" element={<Myprofileadmin/>}/>
           <Route path="/viewsellers" element={<Viewsellers/>} />
+                </>
+              ) 
+              }
+          
+         
 
 
           {/* moderator */}
+          { authState.status && authState.role=="moderator" && (
+                <>
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
           <Route path="/mdpendingposts" element={<Mdpendingposts />} />
@@ -262,9 +289,14 @@ function App() {
           <Route path="/myprofile" element={<Myprofile/>}/>
           <Route path="/mdverifiedsingle" element={<Mdverifiedsingle/>}/>
           <Route path="/mdviewad" element={<Mdviewad/>}/> 
+                </>
+              )}
+          
 
           {/* Serviceprovider */}
-          <Route path="/spdashboard" element={<Spdashboard />} />
+          { authState.status && authState.role=="service" && (
+                <>
+                  <Route path="/spdashboard" element={<Spdashboard />} />
           <Route path="/spviewad" element={<Spviewad/>}/>
           <Route path="/spmyads" element={<Spmyads/>}/>
           <Route path="/sppendingads" element={<Sppendingads/>}/>
@@ -274,6 +306,9 @@ function App() {
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
           <Route path="/addpetmartimages" element={<Addnewadimage/>} />
           <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+                </>
+              )}
+         
 
 
 
@@ -309,8 +344,8 @@ function App() {
           {/* <Route path="/newspdashboard" element={<Newspdashboard/>}/> */}          
           {/* <Route path="/viewadvertisements" element={<Viewadvertisements/>}/> */}   
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
-
-
+          <Route path="*" element={<Index/>} />
+          
         </Routes>   
       </Router>          
       </div>

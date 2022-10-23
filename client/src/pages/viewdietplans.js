@@ -6,14 +6,15 @@ import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 function viewdietplans() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfDietplans, setListOfDietplans] = useState([]);
-  // let history = useHistory();
+	// let history = useHistory();
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
-      setListOfDietplans(response.data);
-    });
-  }, []);
+	useEffect(() => {
+		axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
+			setListOfDietplans(response.data);
+		});
+	}, []);
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -211,72 +212,99 @@ function viewdietplans() {
 											</button>
 										</div>
 
-										<div class="input-group" style={{ width: 430 }}>
+										<div class="input-group" style={{ width: 575 }}>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10 }}
+											>
+												Search Dietplans
+											</p>
 											<input
 												type="search"
 												class="form-control rounded"
-												placeholder="Search Diet Plans"
+												placeholder="Enter Dietplan Name"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
-											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
+												onChange={(event) => {
+													setSearchTerm(event.target.value);
 												}}
-											>
-												Search
-											</button>
+											/>
 										</div>
 									</div>
 									<br />
 									<br />
 									<div class="card shadow border-0 mb-7">
-								<div class="card-header">
-									<h5 class="mb-0">Available Diet Plans</h5>
-								</div>
-								<div class="table-responsive">
-									<table class="table table-hover table-nowrap text-center">
-									<thead class="thead-light">
-										<tr>
-										<th scope="col"><b><strong>Diet Plan ID</strong></b></th>
-										<th scope="col"><b><strong>Pet Category</strong></b></th>
-										<th scope="col"><b><strong>Diet Plan Name</strong></b></th>
-										<th scope="col"><b><strong>Description</strong></b></th>
-										<th scope="col"><b><strong>Breed</strong></b></th>
-										<th scope="col"><b><strong>Age Range</strong></b></th>
-										<th scope="col"><b><strong>Weight Range</strong></b></th>
-										</tr>
-									</thead>
-									<tbody>
-									{listOfDietplans.map((value, key) => {
-                            return (
-										<tr>
-										<td>{value.dietplanID}</td>
-										<td>{value.Breed.Petcatagory.pcatName}</td>
-										<td>{value.planName}</td>
-										<td>{value.planDescr}</td>
-										<td>{value.Breed.breedName}</td>
-										<td>{value.ageRangeFrom} -{value.ageRangeTo} Yrs</td>
-										<td>{value.weightRangeFrom} -{value.weightRangeTo} kg</td>
-										
-										</tr>
-									);
-								})}
-									</tbody>
-									</table>
-								</div>
-								<div class="card-footer border-0 py-5">
-									<span class="text-muted text-sm">
-									
-									</span>
-								</div>
-								</div>
-
+										<div class="card-header">
+											<h5 class="mb-0">Available Diet Plans</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>Diet Plan ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Pet Category</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Diet Plan Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Description</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Breed</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Age Range</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Weight Range</strong>
+															</b>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													{listOfDietplans.map((value, key) => {
+														return (
+															<tr>
+																<td>{value.dietplanID}</td>
+																<td>{value.Breed.Petcatagory.pcatName}</td>
+																<td>{value.planName}</td>
+																<td>{value.planDescr}</td>
+																<td>{value.Breed.breedName}</td>
+																<td>
+																	{value.ageRangeFrom} -{value.ageRangeTo} Yrs
+																</td>
+																<td>
+																	{value.weightRangeFrom} -{value.weightRangeTo}{" "}
+																	kg
+																</td>
+															</tr>
+														);
+													})}
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm"></span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

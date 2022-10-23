@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobile/Screens/PetDashboard/Pet_Dashboard_Screen.dart';
 import 'package:mobile/constants.dart';
@@ -5,9 +7,50 @@ import 'package:mobile/responsive.dart';
 import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import '../../../models/pet.dart';
+import '../../ReminderDetails/Add_Reminder_Screen.dart';
+import 'package:http/http.dart' as http;
 
-class VaccineContent extends StatelessWidget {
-  const VaccineContent({Key? key}) : super(key: key);
+class ReminderContent extends StatefulWidget {
+  String petId = '';
+   ReminderContent(this.petId,{Key? key}) : super(key: key);
+
+  @override
+  State<ReminderContent> createState() => _ReminderContentState();
+}
+
+class _ReminderContentState extends State<ReminderContent> {
+  final url = '10.0.2.2:3001';
+  final getPetReminderRoute = '/user/getpetreminders';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List reminderDetails = [];
+
+  void initState() {
+    super.initState();
+    this.getPetReminders();
+  }
+  Future getPetReminders() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetReminderRoute+'/'+widget.petId),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      reminderDetails = list ;
+    });
+    print(reminderDetails);
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -25,7 +68,7 @@ class VaccineContent extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return PetDashboard(new Pet('','',0,'','','',''));
+                        return AddReminderScreen(widget.petId);
                       },
                     ),
                   );
@@ -45,35 +88,34 @@ class VaccineContent extends StatelessWidget {
             ],
           ),
           SizedBox(height: defaultPadding,),
-          Table(
-            defaultColumnWidth: FixedColumnWidth(120.0),
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            border: TableBorder.all(
-                color: Colors.black,
-                style: BorderStyle.solid,
-                width: 1),
-            children:[
-              TableRow(children: [
-                Column(children:[Text('Reminder', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-                Column(children:[Text('Reminder Date',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
-                Column(children:[Text('Reminder time',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold))]),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
 
-              ]),
-              TableRow( children: [
-                Column(children:[Text('Medication', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/8/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('8.00 PM',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
+            child: Container(
 
-              ]),
-              TableRow( children: [
-                Column(children:[Text('Next parvo vaccination', textAlign: TextAlign.center,style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('2022/10/23',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-                Column(children:[Text('8.00 AM',textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0,))]),
-
-              ]),
-
-            ],
-          ),
+              child: DataTable(
+                  columns:  <DataColumn>[
+                    DataColumn(label: Text("Reminder"), tooltip: "To Display name"),
+                    DataColumn(label: Text("Next Date"), tooltip: "To Display Email"),
+                    DataColumn(label: Text("Next Time"), tooltip: "Update data"),
+                  ],
+                  rows: reminderDetails.map((vac) => DataRow(
+                      cells: [
+                        DataCell(
+                            Text(vac['note'].toString())
+                        ),
+                        DataCell(
+                            Text(vac['nextRemDate'])
+                        ),
+                        DataCell(
+                            Text(vac['nextRemTime'])
+                        ),
+                      ]
+                  )
+                  ).toList()
+              ),
+            ),
+          )
 
 
         ],

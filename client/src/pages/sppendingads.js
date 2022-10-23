@@ -99,7 +99,7 @@ function pendingads() {
 																	</Button>
 																</a>
 															</div>
-{/* 
+
 															<div>
 																<a  role="button" aria-pressed="true">
 																	<Button
@@ -116,7 +116,7 @@ function pendingads() {
 																		Edit
 																	</Button>
 																</a>
-															</div> */}
+															</div>
 															<div style={{
 																		paddingLeft: 20
 																	}}>

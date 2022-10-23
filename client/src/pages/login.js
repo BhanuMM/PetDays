@@ -11,7 +11,7 @@ import "../styles/login.css";
 
 function login() {
   // const { setAuthState } = useContext(AuthContext);
-  const setAuthState  = useContext(AuthContext)
+  const { setAuthState } = useContext(AuthContext);
 
   const initialValues = {
     email: "",
@@ -31,11 +31,12 @@ function login() {
         alert(response.data.error);
       } else {
         localStorage.setItem('accessToken', response.data.token);
-        // setAuthState({
-        //   username: response.data.username,
-        //   id: response.data.id,
-        //   status: true,
-        // });
+        setAuthState({
+          username: response.data.username,
+          id: response.data.id,
+          role: response.data.role,
+          status: true,
+        });
 
         if (response.data.role === "admin") navigate("/admindashboard");
         else if (response.data.role === "service") navigate("/serviceproviderdashboard");
