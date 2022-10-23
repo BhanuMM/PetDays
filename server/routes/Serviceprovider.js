@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds ,Publishedads,Rejectedads} = require("../models");
+const {Publishedads,Rejectedads} = require("../models");
 const vitamins = require('../models/vitamins');
 const cors = require("cors");
 const multer = require("multer");
@@ -199,6 +199,19 @@ router.get("/getadview/:id", async (req, res) => {
   res.json(listOfAds);
 });
 
+//DISPLAY SERVICE PROVIDERS
+router.get("/getserviceprovider", async (req, res) => {
+  const listOfServiceproviders = await Users.findAll(
+    {
+      where: {
+        userrole: "moderator", isverified: "yes",
+      },
+    }
+  );
+  res.json(listOfServiceproviders);
+});
+
+
  // UPDATES.........
 
 
@@ -220,28 +233,6 @@ router.post("/updatead", async (req, res) => {
 //   console.log(req.body);
  
 //   res.json("SUCCESS"); 
-// });
-
-
-
-// router.get("/getdietplans", async (req, res) => {
-//   const listOfDietplans = await Dietplans.findAll(
-//     {
-//       include: { 
-//         model:Breeds ,
-//          required: true,
-//          include: [{model: Petcatagories  , required: true }]
-//         },
-        
-//     }
-//   );
-//   res.json(listOfDietplans);
-// });
-
-// router.get("/getmedicines/:id", async (req, res) => {
-//   const id = req.params.id;
-//   const SingleMed = await Medicines.findByPk(id);
-//   res.json(SingleMed);
 // });
 
 
@@ -301,6 +292,7 @@ router.delete("/deletead/:adId", async (req, res) => {
   });
   res.json("DELETED SUCCESSFULLY");
 });
+
 
 
 

@@ -94,7 +94,29 @@ router.get("/getmoderators", async (req, res) => {
   const listOfModerators = await Moderators.findAll();
   res.json(listOfModerators);
 });
+//update, delete and get category
 
+router.get("/getcategory/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfCategory = await Petcatagories.findByPk(id);
+  res.json(listOfCategory);
+});
 
+router.post("/updatecategory", async (req, res) => {
+  const { pcatID,pcatName, descr } = req.body;
+  await Petcatagories.update({pcatName :pcatName ,descr :descr} ,{ where: { pcatID: pcatID }} );
+  res.json("SUCCESS"); 
+});
+
+router.delete("/deletecategory/:pcatID", async (req, res) => {
+  const pcatID = req.params.pcatID;
+
+  await Petcatagories.destroy({
+    where: {
+      pcatID: pcatID,
+    },
+  });
+  res.json("DELETED SUCCESSFULLY");
+});
 
 module.exports = router;

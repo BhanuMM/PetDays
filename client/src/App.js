@@ -134,7 +134,7 @@ import Sppublishedads from './pages/sppublishedads';
 import Sprejectedads from './pages/sprejectedads';
 import Speditad from './pages/speditad';
 // import Signinform from './components/signinform';
-
+import Testingposts from './pages/testingposts';
 function App() {
   const [authState, setAuthState] = useState({
     username: "",
@@ -174,6 +174,9 @@ function App() {
       <Router>
         
         <Routes>
+
+        <Route path="/Testingposts" element={<Testingposts/>} />
+
           <Route path="/register" element={<Register/>} />
           <Route path="/signin" element={<Signin/>} />
           <Route path="/" element={<Index/>} />

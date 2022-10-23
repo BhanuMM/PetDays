@@ -178,12 +178,24 @@ function forum() {
 																	>
 																		<p class="fw-semibold fs-7">
 																			<a
-																				href="#"
+																				href="\testingposts"
 																				class="link-success text-decoration-none"
 																			>
 																				5 Comments
 																			</a>
 																		</p>
+																		<Button
+																	variant="contained"
+																	component="label"
+																	style={{ backgroundColor: "#F66B0E" }}
+																	onClick={() => {
+																		navigate("/testingposts", {
+																			state: value.postId,
+																		});
+																	}}
+																>
+																	View
+																</Button>
 																	</div>
 																</div>
 															</div>

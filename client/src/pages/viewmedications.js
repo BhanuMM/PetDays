@@ -6,8 +6,9 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
-import Button from "@mui/material/Button";
+
 function viewmedications() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfMedicines, setListOfMedicines] = useState([]);
 	// let history = useHistory();
 
@@ -55,28 +56,29 @@ function viewmedications() {
 									<div class="col col-xs-6 text-right"></div>
 									<div
 										class="input-group"
-										style={{ width: 430, float: "right" }}
+										style={{ width: 575, float: "right" }}
 									>
+										<p
+											class="fw-semibold "
+											style={{ paddingRight: 10, paddingTop: 10 }}
+										>
+											Search Medicine
+										</p>
 										<input
 											type="search"
 											class="form-control rounded"
-											placeholder="Search Medicines"
+											placeholder="Enter Medicine Name"
 											aria-label="Search"
 											aria-describedby="search-addon"
 											style={{ height: 40 }}
-										/>
-										<button
-											type="button"
-											class="btn"
-											style={{
-												height: 40,
-												backgroundColor: "#205375",
-												color: "white",
+											onChange={(event) => {
+												setSearchTerm(event.target.value);
 											}}
-										>
-											Search
-										</button>
-									</div><br/><br/><br/>
+										/>
+									</div>
+									<br />
+									<br />
+									<br />
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
@@ -104,24 +106,26 @@ function viewmedications() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfMedicines.map((value, key) => {
+													{listOfMedicines
+													.filter((val) => {
+														if (searchTerm == "") {
+															return val;
+														} else if (
+															val.medName
+																.toLowerCase()
+																.includes(searchTerm.toLowerCase())
+														) {
+															return val;
+														}
+													})
+													
+													.map((value, key) => {
 														return (
 															<tr>
 																<td>{value.medID}</td>
 																<td>{value.medName}</td>
 																<td>{value.descr}</td>
 															</tr>
-															//   <div
-															//     key={key}
-															//     className="post"
-															//     onClick={() => {
-															//       history.push(`/post/${value.id}`);
-															//     }}
-															//   >
-															//     <div className="title"> {value.title} </div>
-															//     <div className="body">{value.postText}</div>
-															//     <div className="footer">{value.username}</div>
-															//   </div>
 														);
 													})}
 												</tbody>

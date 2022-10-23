@@ -25,17 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TIME,
         allowNull: false,
       },
-      pcatId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-      },
     },{
       timestamps: false,
       freezeTableName: true
     }
     );
-  
     Forumposts.associate = (models) => {
       Forumposts.belongsTo(models.Users, {
           foreignKey: 'userId',
@@ -49,9 +43,11 @@ module.exports = (sequelize, DataTypes) => {
           onUpdate: "cascade",
         });
       };
+
       // Forumposts.associate = (models) => {
        
       //   }
+
     return Forumposts;
   };
   

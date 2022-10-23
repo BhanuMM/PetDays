@@ -1,0 +1,199 @@
+.postPage{
+  display: flex;
+}
+.postPage .post{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    border: 1px solid lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+  
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
+  .postPage .post:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+  }
+  .postPage .post .title{
+    flex: 20%;
+    border-bottom: 1px solid lightgray;
+    background-color: dodgerblue;
+    display: grid;
+    place-content: center;
+    color: white;
+  }
+  
+  .postPage .post .body {
+    flex: 60%;
+    display: grid;
+    place-content: center;
+  }
+  
+  .postPage .post .footer {
+    flex: 20%;
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    background-color: dodgerblue;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* CREATE POST PAGE CSS */
+  
+.postPage .createPostPage {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .postPage .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    border: 5px solid dodgerblue;
+    border-radius: 5px;
+  }
+  
+  .postPage .formContainer #inputCreatePost {
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+  .postPage .formContainer button {
+    margin-top: 15px;
+    height: 40px;
+    border: none;
+    background-color: lightskyblue;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .postPage .formContainer button:hover {
+    cursor: pointer;
+    background-color: dodgerblue;
+  }
+  /* INDIVIDUAL POST */
+.postPage .postPage {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .postPage .leftSide {
+    flex: 50%;
+    height: calc(100vh - 70px);
+    display: grid;
+    place-items: center;
+  }
+  
+  .postPage .rightSide {
+    flex: 50%;
+    height: calc(100vh - 70px);
+    display: grid;
+    place-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .postPage .rightSide .addCommentContainer {
+    flex: 20%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 25px;
+  }
+  
+  .postPage .addCommentContainer input,
+  button {
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .postPage .addCommentContainer button {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .postPage .addCommentContainer input {
+    border: 2px solid dodgerblue;
+  }
+  
+  .postPage .rightSide .listOfComments {
+    flex: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .postPage .listOfComments .comment {
+    width: 70%;
+    height: auto;
+    padding: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .postPage #individual {
+    height: 500px;
+    width: 600px;
+  }
+  
+  .postPage #individual .title,
+  #individual .footer {
+    font-size: 30px;
+  }
+  
+  #individual .body {
+    font-size: 25px;
+  }
+  
+  /* LOGIN */
+  
+.postPage .loginContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+  }
+  
+  .postPage .loginContainer input,
+  button {
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+  }
+  
+  .postPage .loginContainer button {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .postPage .loginContainer input {
+    border: 2px solid dodgerblue;
+  }

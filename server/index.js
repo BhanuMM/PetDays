@@ -24,6 +24,8 @@ app.use("/user", usersRouter);
 const serviceRouter = require("./routes/Serviceprovider");
 app.use("/service", serviceRouter);
 
+const forumRouter = require("./routes/Forum");
+app.use("/forum", forumRouter);
 
 const PORT = process.env.PORT;
 db.sequelize.sync().then(() => {
