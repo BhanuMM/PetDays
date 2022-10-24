@@ -106,8 +106,9 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+import Rejectedadview from './pages/sprejectviewad';
 
-import Approvad from './pages/approveadd';
+
 
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
@@ -313,6 +314,7 @@ function App() {
           <Route path="/addpetmartimages" element={<Addnewadimage/>} />
           <Route path="/myprofileservice" element={<Myprofileservice/>}/>
           <Route path="/adpayment" element={<Adpayment/>}/>
+          <Route path="/rejectedadview" element={<Rejectedadview/>}/>
 
                 </>
               )}
