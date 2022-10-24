@@ -7,15 +7,17 @@ import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function viewmoderators() {
 	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfModerators, setListOfModerators] = useState([]);
-  
+	const navigate = useNavigate();
 	useEffect(() => {
-	  axios.get("http://localhost:3001/admin/getmoderators").then((response) => {
-		setListOfModerators(response.data);
-	  });
+		axios.get("http://localhost:3001/admin/getmoderators").then((response) => {
+			setListOfModerators(response.data);
+		});
 	}, []);
 	return (
 		<div class="container-fluid">
@@ -54,38 +56,41 @@ function viewmoderators() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right"></div>
-									<br />
-									<a href="/addmoderator" className="header-topic">
+								<div
+										class="col col-xs-8 text-right"
+										style={{ display: "flex" }}
+									>
+										<div style={{ width: 800 }}>
 											<Button
 												variant="contained"
 												component="label"
 												style={{ backgroundColor: "#F66B0E" }}
+												onClick={() => {
+													navigate("/addmoderator");
+												}}
 											>
-												Add Modertor
+												Add Moderator
 											</Button>
-										</a>
-										<div
-										class="input-group"
-										style={{ width: 575, float: "right" }}
-									>
-										<p
-											class="fw-semibold "
-											style={{ paddingRight: 10, paddingTop: 10 }}
-										>
-											Search Moderator
-										</p>
-										<input
-											type="search"
-											class="form-control rounded"
-											placeholder="Enter Moderator Name"
-											aria-label="Search"
-											aria-describedby="search-addon"
-											style={{ height: 40 }}
-											onChange={(event) => {
-												setSearchTerm(event.target.value);
-											}}
-										/>
+										</div>
+										<div class="input-group" style={{ width: 575 }}>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10 }}
+											>
+												Search Moderator
+											</p>
+											<input
+												type="search"
+												class="form-control rounded"
+												placeholder="Enter Moderator Name"
+												aria-label="Search"
+												aria-describedby="search-addon"
+												style={{ height: 40 }}
+												onChange={(event) => {
+													setSearchTerm(event.target.value);
+												}}
+											/>
+										</div>
 									</div>
 									<br />
 									<br />
@@ -100,12 +105,12 @@ function viewmoderators() {
 													<tr>
 														<th scope="col">
 															<b>
-																<strong>User ID</strong>
+																<strong>Moderator ID</strong>
 															</b>
 														</th>
 														<th scope="col">
 															<b>
-																<strong>User Name</strong>
+																<strong>Moderator Name</strong>
 															</b>
 														</th>
 														<th scope="col">
@@ -121,41 +126,83 @@ function viewmoderators() {
 													</tr>
 												</thead>
 												<tbody id="myTable">
-												{listOfModerators
-												.filter((val) => {
-													if (searchTerm == "") {
-														return val;
-													} else if (
-														val.username
-															.toLowerCase()
-															.includes(searchTerm.toLowerCase())
-													) {
-														return val;
-													}
-												})
-												
-												
-												.map((value, key) => {
-                            return (
-													<tr>
-														<td class="hidden-xs">{value.modID}</td>
-														<td>{value.firstName} {value.lastName}</td>
-														<td>{value.modEmail}</td>
-														<td class="text-end">
-															<div style={{ display: "flex" }}>
-																<div>
-																	<button
-																		type="button"
-																		class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																	>
-																		<i class="bi bi-trash"></i>
-																	</button>
-																</div>
-															</div>
-														</td>
-													</tr>
-													);
-								})}
+													{listOfModerators
+														.filter((val) => {
+															if (searchTerm == "") {
+																return val;
+															} else if (
+																val.username
+																	.toLowerCase()
+																	.includes(searchTerm.toLowerCase())
+															) {
+																return val;
+															}
+														})
+
+														.map((value, key) => {
+															return (
+																<tr>
+																	<td class="hidden-xs">{value.userID}</td>
+																	<td>{value.username}</td>
+																	<td>{value.email}</td>
+																	<td class="text-end">
+																		<div style={{ display: "flex" }}>
+																			<div>
+																			<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						Swal.fire({
+																							title: "Are you sure?",
+																							text:
+																								"You won't be able to revert this!",
+																							icon: "warning",
+																							showCancelButton: true,
+																							confirmButtonColor: "#3085d6",
+																							cancelButtonColor: "#d33",
+																							confirmButtonText:
+																								"Yes, delete it!",
+																						}).then((result) => {
+																							if (result.isConfirmed) {
+																								axios
+																									.delete(
+																										"http://localhost:3001/admin/deletemoderator/" +
+																											value.userID
+																									)
+																									.then((response) => {
+																										if (response.data.error) {
+																											alert(
+																												response.data.error
+																											);
+																										} else {
+																											axios
+																												.get(
+																													"http://localhost:3001/admin/getmoderators"
+																												)
+																												.then((response) => {
+																													setListOfModerators(
+																														response.data
+																													);
+																												});
+																										}
+																									});
+																								Swal.fire(
+																									"Removed!",
+																									"Moderator has been Removed.",
+																									"success"
+																								);
+																							}
+																						});
+																					}}
+																				>
+																					<i class="bi bi-trash"></i>
+																				</button>
+																			</div>
+																		</div>
+																	</td>
+																</tr>
+															);
+														})}
 												</tbody>
 											</table>
 										</div>

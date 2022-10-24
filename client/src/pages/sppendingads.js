@@ -43,6 +43,18 @@ function pendingads() {
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
 							<h1 class="h2 mb-0 ls-tight">Pending Advertisments</h1>
+							<nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item">
+												<a href="/spdashboard" className="header-topic">
+													Dashboard /
+												</a>
+												<a href="/sppendingads" className="header-topic">
+													 Pending Advertisment
+												</a>
+											</li>
+										</ol>
+									</nav>
 							<hr />
 							<br />
 							<div className="row">

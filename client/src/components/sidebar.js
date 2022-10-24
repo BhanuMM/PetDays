@@ -1,7 +1,45 @@
 import "../styles/sidebar.css";
 import React from "react";
 import dog from "../images/PetDays.png";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function sidebar() {
+
+	const [authState, setAuthState] = useState({
+        username: "",
+        id: 0,
+        role : "",
+        status: false,
+      });
+	  const navigate = useNavigate();
+      useEffect(() => {
+        axios
+          .get("http://localhost:3001/auth/authuser", {
+            headers: {
+              accessToken: localStorage.getItem("accessToken"),
+            },
+          })
+          .then((response) => {
+            if (response.data.error) {
+              setAuthState({ ...authState, status: false });
+            } else {
+              setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                role: response.data.role,
+                status: true,
+              });
+              console.log(response.data.role);
+            }
+          });
+      }, []);
+ 
+	const logout = () => {
+        localStorage.removeItem("accessToken");
+        setAuthState({ username: "", role: "",id: 0, status: false });
+		navigate("/home");
+      };
 	return (
 		<nav
 			class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 border-bottom border-bottom-lg-0 border-end-lg"
@@ -246,9 +284,9 @@ function sidebar() {
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<i class="bi bi-box-arrow-left"></i> Logout
-							</a>
+						<button type="submit" onClick={logout} >
+								 <i class="bi bi-box-arrow-left"></i>   logout
+               </button>
 						</li>
 					</ul>
 				</div>

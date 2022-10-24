@@ -66,7 +66,7 @@ router.post("/uploadphoto", upload.single("file"), async (req, res) => {
 
 
 router.post("/publishad", async (req, res) => {
-  const { adTitle,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,userId } = req.body;
+  const { adTitle,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adType,adProvince,adDistrict,userId } = req.body;
   
 
   let date_ob = new Date();
@@ -95,6 +95,7 @@ router.post("/publishad", async (req, res) => {
   adContact : adContact,
   adEmail : adEmail,
   adAddress : adAddress,
+  adType : adType,
   adProvince : adProvince,
   adDistrict : adDistrict,
   adStatus : "pending",
@@ -188,6 +189,11 @@ router.get("/viewad/:id", async (req, res) => {
 //DISPLAY ALL ADS CARDS
 router.get("/getalladsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        paymentStatus: "pending",
+      },
+    }
    
   );
   res.json(listOfpendingads);
@@ -204,6 +210,7 @@ router.get("/getpendingadsuser", async (req, res) => {
   );
   res.json(listOfpendingads);
 });
+
 //DISPLAY REJECTED ADS CARDS
 router.get("/getrejectedadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
@@ -233,9 +240,69 @@ router.get("/getacceptedadsuser", async (req, res) => {
 router.get("/getadview/:id", async (req, res) => {
   const id = req.params.id;
   const listOfAds= await Publishedads.findByPk(id);
-  const listOfrejec= await Rejectedads.findByPk(id);
+  
   res.json(listOfAds);
 });
+
+//Display Reject View Ad
+router.get("/getrejectedadview/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfAds= await Rejectedads.findByPk((id),
+    {
+        include:{ 
+
+          model:Publishedads,
+          required: true,
+        },
+    }
+ );
+ 
+  res.json(listOfAds);
+});
+
+// DISPLAY PUBLISHED ADD COUNT
+
+
+router.get("/getpublishedadcount", async (req, res) => {
+  const listOfpendingads = await Publishedads.count(
+    {
+      attributes: ["adStatus"],
+      group: "adStatus",
+    
+      
+    }
+  );
+  console.log(listOfpendingads);
+  res.json(listOfpendingads);
+});
+
+// DISPLAY PENDING ADD COUNT
+router.get("/getpendingadcount", async (req, res) => {
+  const listOfpendingads = await Publishedads.count(
+    {
+      where: {
+        adStatus: "pending", 
+       
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+
+// DISPLAY REJECTED ADD COUNT
+router.get("/getrejectedadadcount", async (req, res) => {
+  const listOfpendingads = await Publishedads.count(
+    {
+      where: {
+        adStatus: "rejected", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
+
+
 
 //DISPLAY SERVICE PROVIDERS
 router.get("/getserviceprovider", async (req, res) => {
@@ -249,75 +316,17 @@ router.get("/getserviceprovider", async (req, res) => {
   res.json(listOfServiceproviders);
 });
 
-
- // UPDATES.........
-
-
   //UPDATE ADVERTIESMENTNT
 router.post("/updatead", async (req, res) => {
   
-  const {adTitle,adId,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adProvince,adDistrict,adStatus} = req.body;
+  const {adTitle,adId,adDescr,adImage,adPrice,adContact,adEmail,adAddress,adType,adProvince,adDistrict,adStatus} = req.body;
 
-  await Publishedads.update({ adTitle :adTitle,adDescr :adDescr ,adImage :adImage ,adPrice :adPrice ,adContact :adContact ,adEmail :adEmail ,adAddress :adAddress ,adProvince :adProvince ,adDistrict : adDistrict, adStatus : "pending"} ,{ where: { adId: adId }} );
+  await Publishedads.update({ adTitle :adTitle,adDescr :adDescr ,adImage :adImage ,adPrice :adPrice ,adContact :adContact ,adEmail :adEmail ,adAddress :adAddress ,adType :adType,adProvince :adProvince ,adDistrict : adDistrict, adStatus : "pending"} ,{ where: { adId: adId }} );
  
   res.json("SUCCESS"); 
 });
 
-// router.post("/updatead", async (req, res) => {
-  
-//   const {adTitle,adId} = req.body;
 
-//   await Publishedads.update({ adTitle :adTitle} ,{ where: { adId: adId }} );
-//   console.log(req.body);
- 
-//   res.json("SUCCESS"); 
-// });
-
-
-
-//updates----------
-
-// router.post("/updatependingad/:id", async (req, res) => {
-//   const id = req.params.id;
-  
-
-//   await Publishedads.update({adStatus :"approved"} ,{ where: { adID: id }} );
- 
-//   res.json("SUCCESS"); 
-// });
-
-// router.post("/spupdatead", async (req, res) => {
-
-//   const { adId,adTitle,adDescr, adPrice, adContact,adEmail,adAddress,adProvince, adDistrict} = req.body;
-
-//   await Publishedads.update({adId :adId ,adTitle :adTitle,adDescr :adDescr,adPrice :adPrice,adContact :adContact,adEmail :adEmail,adAddress :adAddress,adProvince :adProvince,adDistrict :adDistrict} ,{ where: { adId: adId }} );
- 
-//   res.json("SUCCESS"); 
-// });
-
-// router.post("/updaterejectedad/:id", async (req, res) => {
-//   const id = req.params.id;
-//   const chckq= await Publishedads.update({adStatus :"rejected"} ,{ where: { adID: id }} );
-   
-
-//     if(chckq){
-//       await Rejectedads.create({
-//         rejReason : "This ad is rejected bcz no img",
-//         adId : id
-//       });
-//       res.json("Ad SUCCESS");
-//     }else{
-//       res.json("Ad Not SUCCESS");
-//     }
-  
-// });
-
-
-
-
-
-
-// deletes------------
 
  //DELETE APPROVED PENDING REJECTED AND ALL ADS
 router.delete("/deletead/:adId", async (req, res) => {

@@ -38,6 +38,7 @@ import Serviceprovider from './pages/serviceprovider';
 import Verifyemail   from './pages/verifyemail';
 import Activateaccount   from './pages/activate';
 import Forum   from './pages/forum';
+import Editcomment   from './pages/editcomment';
 import Forummyposts   from './pages/forummyposts';
 import Forummylatestposts   from './pages/forummylatestposts';
 import Forumpendingposts   from './pages/forumpendingposts';
@@ -106,8 +107,9 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+import Rejectedadview from './pages/sprejectviewad';
 
-import Approvad from './pages/approveadd';
+
 
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
@@ -217,7 +219,7 @@ function App() {
 
           {/* forum */}
           <Route path="/forum" element={<Forum/>} />
-          
+          <Route path="/editcomment" element={<Editcomment/>} />
 
           {/* petmart */}
           <Route path="/petmart" element={<Petmart/>} />
@@ -319,6 +321,7 @@ function App() {
           <Route path="/addpetmartimages" element={<Addnewadimage/>} />
           <Route path="/myprofileservice" element={<Myprofileservice/>}/>
           <Route path="/adpayment" element={<Adpayment/>}/>
+          <Route path="/rejectedadview" element={<Rejectedadview/>}/>
 
                 </>
               )}

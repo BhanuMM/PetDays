@@ -135,7 +135,7 @@ function spsidebar() {
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a class="nav-link" href="\spmyads">
-												<i class="bi bi-people"></i> My Advertisments
+												<i class="bi bi-people"></i> Payment Pending Ads
 											</a>
 										</h4>
 									</div>
@@ -154,6 +154,15 @@ function spsidebar() {
 										<h4 class="panel-title">
 											<a class="nav-link" href="\sppublishedads">
 												<i class="bi bi-bookmarks"></i>Published Advertisments
+											</a>
+										</h4>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="nav-link" href="\sprejectedads">
+												<i class="bi bi-bag-plus"></i> Rejected Advertisments
 											</a>
 										</h4>
 									</div>

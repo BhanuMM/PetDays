@@ -21,7 +21,7 @@
   .postPage .post .title{
     flex: 20%;
     border-bottom: 1px solid lightgray;
-    background-color: dodgerblue;
+    background-color: rgb(245, 155, 36);
     display: grid;
     place-content: center;
     color: white;
@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     padding-left: 15px;
-    background-color: dodgerblue;
+    background-color: rgb(245, 155, 36);
     color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -62,7 +62,7 @@
     width: 500px;
     height: auto;
     padding: 20px;
-    border: 5px solid dodgerblue;
+    border: 5px solid rgb(245, 155, 36);
     border-radius: 5px;
   }
   
@@ -87,7 +87,7 @@
   
   .postPage .formContainer button:hover {
     cursor: pointer;
-    background-color: dodgerblue;
+    background-color: rgb(245, 155, 36);
   }
   /* INDIVIDUAL POST */
 .postPage .postPage {
@@ -99,14 +99,14 @@
   
   .postPage .leftSide {
     flex: 50%;
-    height: calc(100vh - 70px);
+    /* height: calc(100vh - 70px); */
     display: grid;
     place-items: center;
   }
   
   .postPage .rightSide {
     flex: 50%;
-    height: calc(100vh - 70px);
+    /* height: calc(100vh - 70px); */
     display: grid;
     place-items: center;
     display: flex;
@@ -130,12 +130,12 @@
   }
   
   .postPage .addCommentContainer button {
-    background-color: dodgerblue;
+    background-color: rgb(245, 155, 36);
     color: white;
   }
   
   .postPage .addCommentContainer input {
-    border: 2px solid dodgerblue;
+    border: 2px solid rgb(245, 155, 36);
   }
   
   .postPage .rightSide .listOfComments {
@@ -190,10 +190,10 @@
   }
   
   .postPage .loginContainer button {
-    background-color: dodgerblue;
+    background-color: rgb(245, 155, 36);
     color: white;
   }
   
   .postPage .loginContainer input {
-    border: 2px solid dodgerblue;
+    border: 2px solid rgb(245, 155, 36);
   }
