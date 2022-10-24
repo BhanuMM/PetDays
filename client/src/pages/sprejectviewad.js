@@ -24,13 +24,13 @@ import Button from "@mui/material/Button";
 
 
 
-function spviewad() {
+function sprejectviewad() {
 	const [SingleAd, setSingleAd] = useState([]);
   const location = useLocation();
 	// let history = useHistory();
 	useEffect(() => {
 		axios
-		  .get("http://localhost:3001/service/getadview/" +location.state)
+		  .get("http://localhost:3001/service/getrejectedadview/" +location.state)
 		  .then((response) => {
 			setSingleAd(response.data);
 			
@@ -200,4 +200,4 @@ function spviewad() {
 	);
 }
 
-export default spviewad;
+export default sprejectviewad;

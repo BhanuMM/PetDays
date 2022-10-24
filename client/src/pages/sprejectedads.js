@@ -42,7 +42,19 @@ function pendingads() {
 					<br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
-							<h1 class="h2 mb-0 ls-tight">Published Advertisments</h1>
+							<h1 class="h2 mb-0 ls-tight">Rejected Advertisments</h1>
+							<nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item">
+												<a href="/spdashboard" className="header-topic">
+													Dashboard /
+												</a>
+												<a href="/sprejectedads" className="header-topic">
+													 Rejected Advertisment
+												</a>
+											</li>
+										</ol>
+									</nav>
 							<hr />
 							<br />
 							<div className="row">
@@ -90,7 +102,7 @@ function pendingads() {
 																		variant="contained"
 																		component="label"
 																		onClick={() => {
-																			navigate('/spviewad',{state: value.adId});
+																			navigate('/rejectedadview',{state: value.adId});
 																				  }}
 																	>
 																		View

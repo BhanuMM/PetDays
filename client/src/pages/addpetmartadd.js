@@ -38,6 +38,7 @@ function addpetmartadd() {
     adDescr : "",
     adImage : "",
     adPrice : "",
+    adType:"",
     adContact : "",
     adEmail : "",
     adAddress : "",
@@ -52,7 +53,7 @@ function addpetmartadd() {
     const Schema = Yup.object().shape({
 
       adTitle: Yup.string()
-      .matches(/^[A-Za-z ]*$/,"Please enter valid title")
+      .matches(/^[A-Za-z0-9 ]*$/,"Please enter valid title")
       .required("Please enter title"),
 
       adPrice: Yup.string()
@@ -62,8 +63,8 @@ function addpetmartadd() {
 
       // adProvince :Yup.string()
       //                .required("please select province"),
-      // adDistrict :Yup.string()
-      // .required("please select district"),
+      adDistrict :Yup.string()
+      .required("please select district"),
                   
 
       adContact: Yup.string()
@@ -159,7 +160,21 @@ function addpetmartadd() {
             <div class="container-fluid">
               <h1 class="h2 mb-0 ls-tight">Post New Advertisment</h1>
               <h5 class="h5 mb-0 ls-tight" style={{color:'gray'}}>( $ 50 for post an Advertiesment )</h5>
-              <hr />
+              
+              <nav aria-label="breadcrumb">
+										<ol class="breadcrumb pt-3">
+											<li class="breadcrumb-item">
+												<a href="/spdashboard" className="header-topic">
+													Dashboard /
+												</a>
+												<a href="/addpetmartadd" className="header-topic">
+												Create New Advertisment
+												</a>
+											</li>
+										</ol>
+									</nav>
+                  <hr></hr>
+            
               <br />
               <div className="row">
                 <main class="py-6 bg-surface-secondary">
@@ -217,6 +232,16 @@ function addpetmartadd() {
                           name="adPrice"
                           placeholder=""
                         />
+										</div>
+                    <div class="col-10">
+                      <label className="form-label">Ad Type</label>
+                      
+                      <Field as="select" name="adType" className="form-select">
+												<option value="Grooming">Grooming</option>
+												<option value="Day Care">Day Care</option>
+												<option value="Walking">Walking</option>
+												<option value="Other">Other</option>
+											</Field>
 										</div>
 										
 										<div class="row g-3">
@@ -276,7 +301,7 @@ function addpetmartadd() {
 											/>
                       <label className="form-label">Province</label>
                       <div className="col">
-                        <ErrorMessage name="adDistrict" className="errormesage" component="span" />
+                        <ErrorMessage name="adProvince" className="errormesage" component="span" />
                       </div>
                      
                        <select onChange={changeSelectOptionHandler}  className="form-select" >

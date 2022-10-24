@@ -42,7 +42,19 @@ function Allads() {
 					<br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
-							<h1 class="h2 mb-0 ls-tight">My Advertisments</h1>
+							<h1 class="h2 mb-0 ls-tight">Payment Pending Advertisments</h1>
+							<nav aria-label="breadcrumb">
+										<ol class="breadcrumb">
+											<li class="breadcrumb-item">
+												<a href="/spdashboard" className="header-topic">
+													Dashboard /
+												</a>
+												<a href="/spmyads" className="header-topic">
+													 Payment Pending Advertisment
+												</a>
+											</li>
+										</ol>
+									</nav>
 							<hr />
 							<br />
 							<div className="row">
