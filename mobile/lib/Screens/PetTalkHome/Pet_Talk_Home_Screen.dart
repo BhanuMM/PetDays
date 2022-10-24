@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobile/components/background.dart';
 import 'package:mobile/constants.dart';
@@ -8,6 +10,9 @@ import '../../../constants.dart';
 import '../PetDiary/Pet_DIary_Screen.dart';
 import 'components/ForumCard.dart';
 import '../../models/pet.dart';
+import 'package:http/http.dart' as http;
+import '../../models/globals.dart';
+import '../../models/forumPost.dart';
 
 
 class PetTalkHome extends StatefulWidget {
@@ -19,6 +24,35 @@ class PetTalkHome extends StatefulWidget {
 }
 
 class _PetTalkHomeState extends State<PetTalkHome> {
+
+  final getPetRoute = '/user/getpostswithuser';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List forumPosts = [];
+
+  Future getForumPosts() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetRoute),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      forumPosts = list ;
+    });
+    print(forumPosts);
+
+    return "Sucess";
+  }
+
+  void initState() {
+    super.initState();
+    this.getForumPosts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return
@@ -247,11 +281,19 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                       ),
                     ),
                   ),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "Infected with parvo", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "Infected with parvo", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp")
+                  ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                      padding: const EdgeInsets.all(8),
+                      itemCount: forumPosts.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        print(forumPosts[index]);
+                        return Container(
+                            child: PetForumItemCard(forumPost:new ForumPost.fromPost(forumPosts[index]['postId'].toString(),forumPosts[index]['postTitle'], forumPosts[index]['postDescr'], forumPosts[index]['postStatus'], forumPosts[index]['postDate'], forumPosts[index]['postTime'], forumPosts[index]['userId'].toString(), forumPosts[index]['User']['username'], forumPosts[index]['pcatID'].toString()))
+                        );
+                      }
+                  ),
                 ],
               )
 

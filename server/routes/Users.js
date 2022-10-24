@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery, Users } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -55,10 +55,7 @@ router.post("/addpet", async (req, res) => {
   router.get("/getpostswithuser", async (req, res) => {
     const listOfPosts = await Forumposts.findAll(
       {
-        include: { 
-          model:Users ,
-           required: true,
-          },
+        include: {model:Users,required: true}
       }
     );
     res.json(listOfPosts);
