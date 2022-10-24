@@ -12,7 +12,7 @@ function viewsellers() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getserviceprovider")
+			.get("http://localhost:3001/admin/getserviceprovider")
 			.then((response) => {
 				setlistOfServiceproviders(response.data);
 			});
@@ -60,34 +60,36 @@ function viewsellers() {
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
-											<h5 class="mb-0">Available Categories</h5>
+											<h5 class="mb-0">Available Service Providers</h5>
 										</div>
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
-													<th scope="col">
-														<b>
-															<strong>User ID </strong>
-														</b>
-													</th>
-													<th scope="col">
-														<b>
-															<strong>User Name</strong>
-														</b>
-													</th>
-													<th scope="col">
-														<b>
-															<strong>Email</strong>
-														</b>
-													</th>
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>User ID </strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>User Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Email</strong>
+															</b>
+														</th>
 
-													<th scope="col">
-														<b>
-															<strong></strong>
-														</b>
-													</th>
+														<th scope="col">
+															<b>
+																<strong></strong>
+															</b>
+														</th>
+													</tr>
 												</thead>
-												<tbody id="myTable">
+												<tbody>
 													{listOfServiceproviders.map((value, key) => {
 														return (
 															<tr>

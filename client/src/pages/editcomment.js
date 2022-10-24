@@ -1,80 +1,60 @@
 import React from 'react'
-import Sidebar from "../components/sidebar";
+import "../styles/posts.css";
+import Navbar from "../components/navbar";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
-function editbreed() {
-	const [listOfBreeds, setlistOfBreeds] = useState([]);
+function editcomment() {
+    const [listOfComment, setlistOfComment] = useState([]);
 	const location = useLocation();
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/admin/getpetbreeds/" + location.state)
+			.get("http://localhost:3001/admin/getcomment/" + location.state)
 			.then((response) => {
-				setlistOfBreeds(response.data);
-				console.log(listOfBreeds);
+				setlistOfComment(response.data);
 			});
 	}, []);
 
 	const navigate = useNavigate();
 
 	const initialValues = {
-		breedID: listOfBreeds.breedID,
-		breedName: listOfBreeds.breedName,
-		descr: listOfBreeds.descr,
+		postId: listOfComment.postId,
+		commentBody: listOfComment.commentBody,
 	};
+
 	const Schema = Yup.object().shape({
 		pcatName: Yup.string()
 			.matches(/^[A-Za-z0-9 ]*$/, "Please enter valid name")
-			.required("Please enter breed name"),
+			.required("Please enter category name"),
 	});
+
 	const onSubmit = (data) => {
 		axios
-			.post("http://localhost:3001/admin/updatebreed", data)
+			.post("http://localhost:3001/admin/updatecategory", data)
 			.then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					navigate("/viewbreedscats");
+					// console.log(data)
+					navigate("/viewcategories");
 				}
 			});
-	}; 
+	};
+
   return (
     <div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
-					<Sidebar />
+					<Navbar />
 				</div>
-				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
-					<header class="bg-surface-primary border-bottom pt-6">
-						<div class="container-fluid">
-							<div class="mb-npx">
-								<div class="row align-items-center">
-									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Edit Breed</h1>
-										<hr />
-										<nav aria-label="breadcrumb">
-											<ol class="breadcrumb">
-												<li class="breadcrumb-item">
-													<a href="/admindashboard">Admin Dashboard /</a>
-													<a href="/viewbreeds">View Breed/</a>
-													<a href="/editbreed">Edit Breed</a>
-												</li>
-											</ol>
-										</nav>
-
-										<br />
-									</div>
-								</div>
-							</div>
-						</div>
-					</header>
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto pt-8" >
 					<main class="py-6 bg-surface-secondary">
-						<div class="container-fluid">
+						<div class="container-fluid pt-6" >
 							<div class="row g-6 mb-6">
-							<div style={{ paddingLeft: 20 }}>
+								<div style={{ paddingLeft: 20 ,paddingTop: 100}}>
 									<Formik
 										enableReinitialize={true}
 										initialValues={initialValues}
@@ -84,28 +64,22 @@ function editbreed() {
 										<Form>
 											<br />
 											<br />
-											<label className="form-label">Name of the breed</label>
+											<label className="form-label">Edit a comment</label>
 											<div className="col">
 												<ErrorMessage
-													name="catName"
+													name="medName"
 													className="errormesage"
 													component="span"
 												/>
 											</div>
 											<Field
 												className="form-control"
-												id="breedName"
+												id="commentBody"
 												autocomplete="off"
-												name="breedName"
-									
+												name="commentBody"
+												
 											/>
-											<label className="form-label">Description</label>
-											<Field
-												className="form-control"
-												id="descr"
-												autocomplete="off"
-												name="descr"
-											/>
+											
 											<div className="row">
 												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
@@ -114,7 +88,7 @@ function editbreed() {
 														type="submit"
 														style={{ backgroundColor: "#F66B0E" }}
 													>
-														Update Breed
+														Update Comment
 													</button>
 												</div>
 											</div>
@@ -130,4 +104,4 @@ function editbreed() {
   )
 }
 
-export default editbreed
+export default editcomment
