@@ -23,6 +23,7 @@
     "nodemon": "^2.0.19",
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1",
+    "stripe": "^10.15.0",
     "supervisor": "^0.12.0"
   }
 }

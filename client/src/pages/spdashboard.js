@@ -25,6 +25,11 @@ function dashboard() {
                     Add New Advertisment
                   </Button>
 								</a>
+								{/* <a href="\adpayment" className="header-topic">
+									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
+                    payment
+                  </Button>
+								</a> */}
               </div><br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
