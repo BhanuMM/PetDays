@@ -51,6 +51,15 @@ router.post("/addpet", async (req, res) => {
     );
     res.json(listOfPosts);
   });
+  router.get("/getpostsbyuser/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPosts = await Forumposts.findAll(
+      {where: {
+        userId: id
+      }}
+    );
+    res.json(listOfPosts);
+  });
 
   router.get("/getpostswithuser", async (req, res) => {
     const listOfPosts = await Forumposts.findAll(
@@ -62,7 +71,7 @@ router.post("/addpet", async (req, res) => {
   });
 
   router.post("/addpost", async (req, res) => {
-    const { postTitle,postDescr,pcatId} = req.body;  
+    const { postTitle,postDescr,pcatID,userId} = req.body;  
 
        
     
@@ -72,8 +81,8 @@ router.post("/addpet", async (req, res) => {
         postStatus: "pending",
         postDate : year + "-" + month + "-" + date,
         postTime : hours + ":" + minutes,
-        userId: "1",
-        pcatId: pcatId,
+        userId: userId,
+        pcatId: pcatID,
     });
     if(forumposts){
          res.json("SUCCESS"); 

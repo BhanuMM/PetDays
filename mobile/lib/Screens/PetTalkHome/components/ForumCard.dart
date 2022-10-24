@@ -75,7 +75,7 @@ class PetForumItemCard extends StatelessWidget {
                               ),
                               ),
                               Spacer(),
-                              Text("27/10/2022",
+                              Text(forumPost.postDate,
                               style: TextStyle(
                                   color: Colors.black26,
                                   fontSize: 12
