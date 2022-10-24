@@ -101,7 +101,7 @@ router.post("/publishad", async (req, res) => {
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "1"
+  userId : "7"
 
   },
   { isNewRecord: true });
@@ -233,6 +233,7 @@ router.get("/getacceptedadsuser", async (req, res) => {
 router.get("/getadview/:id", async (req, res) => {
   const id = req.params.id;
   const listOfAds= await Publishedads.findByPk(id);
+  const listOfrejec= await Rejectedads.findByPk(id);
   res.json(listOfAds);
 });
 

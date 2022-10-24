@@ -19,19 +19,35 @@ import Avatar from "@mui/material/Avatar";
 
 
 function addpetmartadd() {
-  const initialValues = {
-	adTitle : "",
-	adDescr : "",
-  adImage : "",
-	adPrice : "",
-	adContact : "",
-	adEmail : "",
-	adAddress : "",
-	adProvince : "",
-	adDistrict : ""
+  const [selected, setSelected] = React.useState("");
+  // const [initialValues, setinit] = React.useState({
+  //   adTitle : "",
+  //   adDescr : "",
+  //   adImage : "",
+  //   adPrice : "",
+  //   adContact : "",
+  //   adEmail : "",
+  //   adAddress : "",
+  //   adProvince :"",
+  //   adDistrict : ""
+    
+  //   });
 
+  const initialValues = {
+    adTitle : "",
+    adDescr : "",
+    adImage : "",
+    adPrice : "",
+    adContact : "",
+    adEmail : "",
+    adAddress : "",
+    adProvince :"",
+    adDistrict : ""
+    
+    }
+    
   
-  };
+   
 
     const Schema = Yup.object().shape({
 
@@ -44,10 +60,10 @@ function addpetmartadd() {
 
       adImage : "",
 
-      adProvince :Yup.string()
-                     .required("please select province"),
-      adDistrict :Yup.string()
-      .required("please select district"),
+      // adProvince :Yup.string()
+      //                .required("please select province"),
+      // adDistrict :Yup.string()
+      // .required("please select district"),
                   
 
       adContact: Yup.string()
@@ -58,6 +74,58 @@ function addpetmartadd() {
   
   	
     });
+   
+    
+  
+  
+     
+    const changeSelectOptionHandler = (event) => {
+      setSelected(event.target.value);
+      
+      
+    };
+    
+  
+    const central = [
+      "Kandy", "Matale", "Nuwara Eliya"
+    ];
+    const north = ["Anuradhapura", "Polonnaruwa"];
+    const eastern = ["Ampara", "Batticaloa", "Trincomalee"];
+    const northern =["Jaffna","Kilinochchi","Mannar","Vavuniya","Mullativu"];
+    const nwestern = ["Kurunegala","Puttalam"];
+    const southern =["Galle","Matara","Hambantota"];
+    const uva =["Badulla","Monaragala"];
+    
+    let type = null;
+    
+    
+    let options = null;
+ 
+    if (selected === "Central") {
+      type = central;
+    } else if (selected === "North Central") {
+      type = north;
+    } else if (selected === "Eastern") {
+      type = eastern;
+    }
+   else if (selected === "Northern") {
+    type = northern;
+  }
+  else if (selected === "North Western") {
+    type = nwestern;
+  }
+  else if (selected === "Southern") {
+    type = southern;
+  }
+  else if (selected === "Uva") {
+    type = uva;
+  }
+    
+   
+    if (type) {
+      options = type.map((el) => <option key={el} value={el}>{el}</option>);
+    }
+    
 
   const navigate = useNavigate();
 
@@ -90,15 +158,18 @@ function addpetmartadd() {
           <main class="py-6 bg-surface-secondary">
             <div class="container-fluid">
               <h1 class="h2 mb-0 ls-tight">Post New Advertisment</h1>
+              <h5 class="h5 mb-0 ls-tight" style={{color:'gray'}}>( $ 50 for post an Advertiesment )</h5>
               <hr />
               <br />
               <div className="row">
                 <main class="py-6 bg-surface-secondary">
 					
                   <Formik 
+                  enableReinitialize={true}
                   initialValues={initialValues} 
                   onSubmit={onSubmit}
                   validationSchema={Schema}
+                  
                 
                   
                   >
@@ -118,6 +189,7 @@ function addpetmartadd() {
                           placeholder=""
                         />
 										</div>
+                    
 										<div class="col-10">
                       <label className="form-label">Advertiesment Description</label>
                       <div className="col">
@@ -190,34 +262,48 @@ function addpetmartadd() {
                         />
 										</div>
 										<div class="row g-3">
-											<div class="col-5">
+                    <div class="col-5">
+                    <Field
+												className="form-control"
+												id="adProvince"
+												autocomplete="off"
+                        name="adProvince"
+												type="hidden"
+                        value={selected}
+                        placeholder={selected}
+
+												
+											/>
                       <label className="form-label">Province</label>
                       <div className="col">
-                             				 <ErrorMessage name="adProvince" className="errormesage" component="span" />
-                            				</div>
-                      <Field as="select" name="adProvince" className="form-select">
-                        <option value="Central Province">Central Province</option>
-                        <option value="Eastern Province">Eastern Province </option>
-                        <option value="Northern Province">Northern Province</option>
-                        <option value="Southern Province">Southern Province </option>
-                        <option value="Western Province">Western Province</option>
-                        <option value="North Western Province">North Western Province </option>
-                        <option value="Northern Province">Northern Province</option>
-                        <option value="North Central Province">North Central Province </option>
-                        <option value="Uva Province">Uva Province</option>
-                      </Field>
+                        <ErrorMessage name="adDistrict" className="errormesage" component="span" />
+                      </div>
+                     
+                       <select onChange={changeSelectOptionHandler}  className="form-select" >
+          
+            <option>Central</option>
+            <option>North Central</option>
+            <option>Eastern</option>
+            <option>Northern</option>
+            <option>North Western</option>
+            <option>Southern</option>
+            <option>Uva</option>
+          </select>
 											</div>
 											<div class="col-5">
-                      <label className="form-label">District</label>
+                      <label className="form-label">district</label>
                       <div className="col">
                              				 <ErrorMessage name="adDistrict" className="errormesage" component="span" />
                             				</div>
-                      <Field as="select" name="adDistrict" className="form-select">
-                        <option value="red">Galle</option>
-                        <option value="green">Matara</option>
-                        <option value="blue">Hambantota</option>
-                        <option value="blue">Colombo</option>
+                      <Field as ="select" name="adDistrict" className="form-select" onchange="byprovince">
+                      {
+              
+              options
+            }
+                        
+
                       </Field>
+                    
 											</div>
 										</div>
 											<div className="row">

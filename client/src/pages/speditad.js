@@ -231,12 +231,12 @@ function speditad() {
 												name="adAddress"
 												
 											/>
-											<label className="form-label">Province</label>
+											<label className="form-label">District</label>
 											<div className="col">
                              				 <ErrorMessage name="adProvince" className="errormesage" component="span" />
                             				</div>
 											<Field as="select" name="adProvince" className="form-select">
-												<option value="Central Province">Central Province</option>
+												{/* <option value="Central Province">Central Province</option>
 												<option value="Eastern Province">Eastern Province </option>
 												<option value="Northern Province">Northern Province</option>
 												<option value="Southern Province">Southern Province </option>
@@ -244,7 +244,33 @@ function speditad() {
 												<option value="North Western Province">North Western Province </option>
 												<option value="Northern Province">Northern Province</option>
 												<option value="North Central Province">North Central Province </option>
-												<option value="Uva Province">Uva Province</option>
+												<option value="Uva Province">Uva Province</option> */}
+												 <option value="Central Province">Anuradhapura</option>
+												<option value="Eastern Province">Jaffna </option>
+												<option value="Northern Province">Colombo</option>
+												<option value="Southern Province">Galle</option>
+												<option value="Western Province">Badulla</option>
+												<option value="North Western Province">Kurunegala</option>
+												<option value="Northern Province">Kandy</option>
+												<option value="North Central Province">Ratnapura</option>
+												<option value="Uva Province">Puttalam</option>
+                        						<option value="Central Province">Ampara</option>
+												<option value="Eastern Province"> Matara</option>
+												<option value="Northern Province">Gampaha</option>
+												<option value="Southern Province">Kalutara</option>
+												<option value="Western Province">Polonnaruwa</option>
+												<option value="North Western Province">Batticaloa</option>
+												<option value="Northern Province">Mullaitivu</option>
+												<option value="North Central Province">Nuwara Eliya</option>
+												<option value="Uva Province">Kilinochchi</option>
+                        						<option value="Central Province">Matale</option>
+												<option value="Eastern Province"> Mannar</option>
+												<option value="Northern Province">Kegalle</option>
+												<option value="Southern Province">Vavuniya</option>
+												<option value="Western Province">Hambantota</option>
+												<option value="North Western Province">Moneragala</option>
+												<option value="Northern Province">Ratnapura</option>
+												<option value="North Central Province">Trincomlee</option>
 											</Field>
 											<label className="form-label">District</label>
 											<div className="col">
@@ -269,7 +295,7 @@ function speditad() {
 													>
 														Update Advertisments
 													</button>
-													console.log(adTitle);
+													
 												</div>
 											</div>
 										</Form>

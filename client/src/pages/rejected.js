@@ -115,7 +115,7 @@ function pendingads() {
                       <div class="px-2 mt-3"> 
                       <div class='comment'  style={{ display:"flex",paddingLeft:10}}><br/><br/>
 								<div style={{paddingRight:20}}>
-									<a href="\spviewad" role="button" aria-pressed="true">  
+									<a href="\spviewrejectedad" role="button" aria-pressed="true">  
 										<Button variant="contained" component="label"  style={{backgroundColor: '#205375' , width:100}}>
 											View
 										</Button>
