@@ -21,6 +21,7 @@ import Spsidebar from "../components/spsidebar";
 import Navbarsp from "../components/navsp";
 import "../styles/spdashboard.css";
 import Button from "@mui/material/Button";
+import Swal from 'sweetalert2';
 
 import Avatar from "@mui/material/Avatar";
 
@@ -42,16 +43,59 @@ function addpetmartadd() {
     fetch("http://localhost:3001/service/uploadphoto",{ method : "post", body: formData} ).then((res) => res.text()).then((resBody)=> {
       console.log(resBody)
       
-    // axios.post("http://localhost:3001/service/uploadphoto",{ method : "post", body: formData} ).then((response) => {
-    //   if (response.data.error) {
-    //     alert(response.data.error);
-    //   } else {
-    //     navigate("/spdashboard");
-    //   }
-    // });
+   
   });
-  navigate("/spdashboard"); 
+  navigate("/adpayment",{state: location.state}); 
 }
+const sendImageonly = (event) => {
+  let formData = new FormData();
+  formData.append("file", image );
+  formData.append("idhid", location.state );
+  
+  fetch("http://localhost:3001/service/uploadphoto",{ method : "post", body: formData} ).then((res) => res.text()).then((resBody)=> {
+    console.log(resBody)
+    
+ 
+});
+Swal.fire(
+  'Saved!',
+  'Advertiesment has been Saved.',
+  'success'
+  )
+navigate("/spdashboard"); 
+}
+const cancelad = (event) => {
+  
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+    
+    axios.delete("http://localhost:3001/service/deletead/"+location.state).then((response) => {
+      if (response.data.error) {
+      alert(response.data.error);
+      }  else{
+        Swal.fire(
+          'Canceled!',
+          'Advertiesment has been canceled.',
+          'success'
+          )
+          navigate("/spdashboard"); 
+      }
+    });
+   
+      
+    
+      }});
+}
+
   return (
     <div class="container-fluid">
       <Navbarsp />
@@ -76,7 +120,7 @@ function addpetmartadd() {
                 <div className="App">
       <form>
       {/* <input type="hidden" value={25} name="hiddenid" id="hiddenid" /> */}
-        <input type="file" onChange={fileOnChange} />
+        <input type="file" onChange={fileOnChange} required/>
         <br />
         <br /><br />
         <button
@@ -88,22 +132,25 @@ function addpetmartadd() {
                             Proceed to Payment
                           </button>
                           <br /><br />
-                          <button
+                         
+      </form>
+      <button
                             className="register.loginbuttonsize btn btn-success "
                             type="submit"
+                            onClick ={sendImageonly}
                             style={{ backgroundColor: "#dd7313" }}
                           >
-                            Skip
+                            Pay Later
                           </button>
                           <br /><br />
                           <button
                             className="register.loginbuttonsize btn btn-success ml-3"
                             type="submit"
+                            onClick ={cancelad}
                             style={{ backgroundColor: "#a10000" }}
                           >
                             Cancel
                           </button>
-      </form>
     </div>
 
 

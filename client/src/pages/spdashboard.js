@@ -5,7 +5,30 @@ import "../styles/spdashboard.css";
 import Navbarsp from "../components/navsp";
 import Spsidebar from "../components/spsidebar";
 import Button from '@mui/material/Button';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 function dashboard() {
+	
+	const [x, setx] = useState([]);
+	const [y, sety] = useState([]);
+	const [z, setz] = useState([]);
+
+
+	useEffect(() => {
+		axios.get("http://localhost:3001/service/getpublishedadcount").then((response) => {
+			
+			
+			// setx(response.data[0].count);
+			// sety(response.data[1].count);
+			// setz(response.data[2].count);
+			// console.log(x);
+			// console.log(response.data[0].count);
+
+			
+		  });
+	  }, []);
+
 	return (
 		
 		
@@ -25,6 +48,11 @@ function dashboard() {
                     Add New Advertisment
                   </Button>
 								</a>
+								{/* <a href="\adpayment" className="header-topic">
+									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
+                    payment
+                  </Button>
+								</a> */}
               </div><br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
@@ -35,12 +63,12 @@ function dashboard() {
 											<div class="row">
 												<div class="col-6">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Publised Advertiesments
+														Published Advertiesments
 													</span>
 												
 												</div>
 												<div className="col-4">
-												<span class="h3 font-bold mb-0">13</span>
+												<span class="h3 font-bold mb-0">{y}</span>
 												</div>
 												<div class="col-2">
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -63,7 +91,7 @@ function dashboard() {
 												
 												</div>
                         <div className="col-4">
-                        <span class="h3 font-bold mb-0">03</span>
+                        <span class="h3 font-bold mb-0">{x}</span>
                         </div>
 												<div class="col-2">
 													<div class="icon icon-shape  bg-primary text-white text-lg rounded-circle">
@@ -93,7 +121,7 @@ function dashboard() {
 													</span>
 													
 												</div>
-                        <div class="col-4"><span class="h3 font-bold mb-0">02</span></div>
+                        <div class="col-4"><span class="h3 font-bold mb-0">{z}</span></div>
 												<div class="col-2">
 													<div class="icon icon-shape bg-info text-white text-lg rounded-circle">
 													<i class="bi bi bi-people"></i>
@@ -113,7 +141,7 @@ function dashboard() {
 								<div className="col-6">
 									<div class="card shadow border-0 mb-6 bg-white">
 										<div class="card-header">
-											<h5 class="mb-0 ">MY ADVERTIESMENTS</h5>
+											<h5 class="mb-0 ">PAYMENT PENDING ADVERTIESMENTS</h5>
 										</div>
 										<div class="table-responsive"></div>
 										<div class="card-footer border-0 py-5">

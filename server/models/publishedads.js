@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      adType: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       adProvince: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -42,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       adStatus: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      paymentStatus: {
         type: DataTypes.STRING,
         allowNull: false,
       },

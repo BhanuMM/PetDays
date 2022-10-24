@@ -107,8 +107,9 @@ import Allads from './pages/serviceprovideralladds';
 import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
+import Rejectedadview from './pages/sprejectviewad';
 
-import Approvad from './pages/approveadd';
+
 
 import Singlead from './pages/viewsinglead';
 import Mdverifiedsingle from './pages/mdverifiedsingle';
@@ -118,6 +119,7 @@ import Mdeditmed from './pages/mdeditmed';
 import Mdeditvacc from './pages/mdeditvacc';
 import Mdeditvitamin from './pages/mdeditvitamin';
 import Newspdashboard from './pages/newspdashboard';
+
 
 // import Newdashboard from './pages/newdashboard';
 
@@ -134,8 +136,13 @@ import Sppendingads from './pages/sppendingads';
 import Sppublishedads from './pages/sppublishedads';
 import Sprejectedads from './pages/sprejectedads';
 import Speditad from './pages/speditad';
+import Adpayment from './pages/adpayment';
 // import Signinform from './components/signinform';
 import Testingposts from './pages/testingposts';
+
+
+
+
 function App() {
   const [authState, setAuthState] = useState({
     username: "",
@@ -307,6 +314,9 @@ function App() {
           <Route path="/addpetmartadd" element={<Addnewadd/>} />
           <Route path="/addpetmartimages" element={<Addnewadimage/>} />
           <Route path="/myprofileservice" element={<Myprofileservice/>}/>
+          <Route path="/adpayment" element={<Adpayment/>}/>
+          <Route path="/rejectedadview" element={<Rejectedadview/>}/>
+
                 </>
               )}
          

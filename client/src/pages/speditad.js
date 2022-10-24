@@ -27,6 +27,7 @@ const bull = (
 function speditad() {
 	const [SingleAd, setSingleAd] = useState([]);
 	const location = useLocation();
+	const [selected, setSelected] = React.useState("");
 
 	useEffect(() => {
 		axios
@@ -42,6 +43,7 @@ function speditad() {
 		adTitle: SingleAd.adTitle,
 		adDescr: SingleAd.adDescr,
 		adPrice: SingleAd.adPrice,
+		adType:SingleAd.adType,
 		adContact: SingleAd.adContact,
 		adEmail: SingleAd.adEmail,
 		adAddress: SingleAd.adAddress,
@@ -57,7 +59,7 @@ function speditad() {
 	const Schema = Yup.object().shape({
 
 		adTitle: Yup.string()
-		.matches(/^[A-Za-z ]*$/,"Please enter valid title")
+		.matches(/^[A-Z a-z 0-9]*$/,"Please enter valid title")
 		.required("Please enter title"),
   
 		adPrice: Yup.string()
@@ -65,8 +67,8 @@ function speditad() {
   
 		adImage : "",
   
-		adProvince :Yup.string()
-					   .required("please select province"),
+		// adProvince :Yup.string()
+		// 			   .required("please select province"),
 		adDistrict :Yup.string()
 		.required("please select district"),
 					
@@ -79,6 +81,54 @@ function speditad() {
 	
 		
 	  });
+	  
+     
+	  const changeSelectOptionHandler = (event) => {
+		setSelected(event.target.value);
+		
+		
+	  };
+	  
+	
+	  const central = [
+		"Kandy", "Matale", "Nuwara Eliya"
+	  ];
+	  const north = ["Anuradhapura", "Polonnaruwa"];
+	  const eastern = ["Ampara", "Batticaloa", "Trincomalee"];
+	  const northern =["Jaffna","Kilinochchi","Mannar","Vavuniya","Mullativu"];
+	  const nwestern = ["Kurunegala","Puttalam"];
+	  const southern =["Galle","Matara","Hambantota"];
+	  const uva =["Badulla","Monaragala"];
+	  
+	  let type = null;
+	  
+	  
+	  let options = null;
+   
+	  if (selected === "Central") {
+		type = central;
+	  } else if (selected === "North Central") {
+		type = north;
+	  } else if (selected === "Eastern") {
+		type = eastern;
+	  }
+	 else if (selected === "Northern") {
+	  type = northern;
+	}
+	else if (selected === "North Western") {
+	  type = nwestern;
+	}
+	else if (selected === "Southern") {
+	  type = southern;
+	}
+	else if (selected === "Uva") {
+	  type = uva;
+	}
+	  
+	 
+	  if (type) {
+		options = type.map((el) => <option key={el} value={el}>{el}</option>);
+	  }
 
 	const navigate = useNavigate();
 
@@ -198,6 +248,16 @@ function speditad() {
 												name="adPrice"
 											
 											/>
+											  <div class="col-10">
+                     							 <label className="form-label">Ad Type</label>
+                      
+                      								<Field as="select" name="adType" className="form-select">
+												<option value="Grooming">Grooming</option>
+												<option value="Day Care">Day Care</option>
+												<option value="Walking">Walking</option>
+												<option value="Other">Other</option>
+											</Field>
+										</div>
 											<label className="form-label">Contact</label>
 											<div className="col">
                              				 <ErrorMessage name="adContact" className="errormesage" component="span" />
@@ -231,31 +291,52 @@ function speditad() {
 												name="adAddress"
 												
 											/>
-											<label className="form-label">Province</label>
-											<div className="col">
-                             				 <ErrorMessage name="adProvince" className="errormesage" component="span" />
-                            				</div>
-											<Field as="select" name="adProvince" className="form-select">
-												<option value="Central Province">Central Province</option>
-												<option value="Eastern Province">Eastern Province </option>
-												<option value="Northern Province">Northern Province</option>
-												<option value="Southern Province">Southern Province </option>
-												<option value="Western Province">Western Province</option>
-												<option value="North Western Province">North Western Province </option>
-												<option value="Northern Province">Northern Province</option>
-												<option value="North Central Province">North Central Province </option>
-												<option value="Uva Province">Uva Province</option>
-											</Field>
-											<label className="form-label">District</label>
-											<div className="col">
+													<div class="row g-3">
+                    <div class="col-5">
+                    <Field
+												className="form-control"
+												id="adProvince"
+												autocomplete="off"
+                        name="adProvince"
+												type="hidden"
+                        value={selected}
+                        placeholder={selected}
+
+												
+											/>
+                      <label className="form-label">Province</label>
+                      <div className="col">
+                        <ErrorMessage name="adProvince" className="errormesage" component="span" />
+                      </div>
+                     
+                       <select onChange={changeSelectOptionHandler}  className="form-select" >
+          
+            <option>Central</option>
+            <option>North Central</option>
+            <option>Eastern</option>
+            <option>Northern</option>
+            <option>North Western</option>
+            <option>Southern</option>
+            <option>Uva</option>
+          </select>
+											</div>
+											<div class="col-5">
+                      <label className="form-label">district</label>
+                      <div className="col">
                              				 <ErrorMessage name="adDistrict" className="errormesage" component="span" />
                             				</div>
-											<Field as="select" name="adDistrict" className="form-select">
-												<option value="red">Galle</option>
-												<option value="green">Matara</option>
-												<option value="blue">Hambantota</option>
-												<option value="blue">Colombo</option>
-											</Field>
+                      <Field as ="select" name="adDistrict" className="form-select" onchange="byprovince">
+                      {
+              
+              options
+            }
+                        
+
+                      </Field>
+                    
+											</div>
+										</div>
+											
 
 											
                                            
@@ -269,7 +350,7 @@ function speditad() {
 													>
 														Update Advertisments
 													</button>
-													console.log(adTitle);
+													
 												</div>
 											</div>
 										</Form>
