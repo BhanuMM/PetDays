@@ -148,10 +148,13 @@ function App() {
     role : "",
     status: false,
   });
+  const [loadState, setloadState] = useState({
+    status: true,
+  });
 
   
-  useEffect(() => {
-    axios
+  useEffect( () => {
+   axios
       .get("http://localhost:3001/auth/authuser", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
@@ -167,10 +170,14 @@ function App() {
             role: response.data.role,
             status: true,
           });
+          setloadState({
+            status: false,
+          });
         }
       });
   }, []);
 
+ 
   return (
     <div className="page-container">
       <AuthContext.Provider value={{ authState, setAuthState }}>
@@ -180,6 +187,15 @@ function App() {
       <Router>
         
         <Routes>
+
+        { authState.status && !loadState.status && (
+                <>
+          <Route path="*" element={<Index/>} />
+                </>
+              )}
+
+        
+
 
         <Route path="/Testingposts" element={<Testingposts/>} />
 
@@ -194,18 +210,7 @@ function App() {
           <Route path="/registertype" element={<Usertype/>}/>
           
 
-          {/* { authState.status && authState.role=="admin" && (
-                <>
-                 <Route path="/admindashboard" element={<Admindashboard/>} />
-                </>
-              )} */}
-
-               {/* { authState.status && authState.role=="admin" && (
-                <>
-                 <Route path="/admindashboard" element={<Admindashboard/>} />
-                </>
-              )} */}
-
+         
        
 
           {/* forum */}
@@ -217,11 +222,10 @@ function App() {
           <Route path="/viewad" element={<Singlead/>}/>
 
 
-          
-
-
-          
         {/* Admin */}
+         
+          
+          
           { authState.status && authState.role=="admin" && (
                 <>
                   <Route path="/admindashboard" element={<Admindashboard/>}  />
@@ -318,8 +322,6 @@ function App() {
               )}
          
 
-
-
           {/* <Route path="/forummyposts" element={<Forummyposts/>} /> */}
           {/* <Route path="/forummylatestposts" element={<Forummylatestposts/>} />  */}
           {/* <Route path="/forumpendingposts" element={<Forumpendingposts/>} />   */}
@@ -352,7 +354,7 @@ function App() {
           {/* <Route path="/newspdashboard" element={<Newspdashboard/>}/> */}          
           {/* <Route path="/viewadvertisements" element={<Viewadvertisements/>}/> */}   
           {/* <Route path="/newdashboard" element={<Newdashboard/>}/> */}
-          <Route path="*" element={<Index/>} />
+          
           
         </Routes>   
       </Router>          
