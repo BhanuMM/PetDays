@@ -85,8 +85,9 @@ function spviewad() {
 						<div className="row" style={{paddingLeft:250}}>
 							<img src={`http://localhost:3001/service/static/${SingleAd.adImage}`} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
 						</div><br/>
-						
+						<div style={{display:"flex", paddingLeft:170 , color:'red'}}><p>this is y it is rejected{SingleAd.rejReason}</p></div>
 						<div style={{display:"flex", paddingLeft:170}}>
+							
 							<div style={{width:400, paddingRight:100}}>
 								<h3>{SingleAd.adTitle}</h3>
 								<p><i class="fa fa-map-marker" aria-hidden="true"></i> {SingleAd.adDistrict},{SingleAd.adProvince}</p><br/>
