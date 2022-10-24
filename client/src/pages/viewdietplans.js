@@ -4,17 +4,108 @@ import { useEffect, useState } from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
+import dog from "../images/PetDays.png";
+import Button from "@mui/material/Button";
 import Sidebar from "../components/sidebar";
+
 function viewdietplans() {
 	const [searchTerm, setSearchTerm] = useState([]);
+	const [filterItems, setFilterItems] = useState([]);
 	const [listOfDietplans, setListOfDietplans] = useState([]);
+	const [listOfCatagories, setListOfCatagories] = useState([]);
+	const [listOfBreeds, setListOfBreeds] = useState([]);
+	// const [catName, setCatName] = useState('All');
+	// const [breedName, setBreedName] = useState('All');
+	var catName = "All";
+	var breedName = "All";
+
 	// let history = useHistory();
 
 	useEffect(() => {
 		axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
 			setListOfDietplans(response.data);
+			setFilterItems(response.data);
 		});
+		axios
+			.get("http://localhost:3001/admin/getpetcategories")
+			.then((response) => {
+				setListOfCatagories(response.data);
+			});
 	}, []);
+
+	//   Search Diet Plan by Name function
+	const searchResult = (searchName) => {
+		const result = listOfDietplans.filter((val) => {
+			if (searchName == "") {
+				return val;
+			} else if (
+				val.planName.toLowerCase().includes(searchName.toLowerCase())
+			) {
+				return val;
+			}
+		});
+		setFilterItems(result);
+	};
+	// //   Diet plan Filters pet categpry
+	//   const filterResult = (catName) =>{
+	// 	if (catName == "All"){
+	// 		setFilterItems(listOfDietplans);
+	// 	}
+	// 	else{
+	// 		const result = filterItems.filter((val) =>{
+	// 			return val.Breed.Petcatagory.pcatName === catName;
+
+	// 		} );
+	// 		setFilterItems(result);
+	// 	}
+
+	//   }
+
+	//   //   Diet plan Filters pet breed
+	//   const filterResult2 = (breedName) =>{
+	// 	if (breedName == "All"){
+	// 		setFilterItems(listOfDietplans);
+	// 	}
+	// 	else{
+	// 		const result = filterItems.filter((val) =>{
+	// 			return val.Breed.breedName === breedName;
+	// 		} );
+	// 		if(result == ""){
+	// 			setFilterItems(listOfDietplans);
+	// 		}
+	// 		else{
+	// 			setFilterItems(result);
+	// 		}
+
+	// 	}
+
+	//   }
+
+	const filterResult = (catagory, breed) => {
+		console.log("catagory ", catagory);
+		console.log("breed ", breed);
+		if (catagory == "All") {
+			setFilterItems(listOfDietplans);
+		} else if (breed == "All") {
+			const result = listOfDietplans.filter((val) => {
+				return val.Breed.Petcatagory.pcatID === parseInt(catagory);
+			});
+			setFilterItems(result);
+		} else {
+			console.log("ado ", breed);
+			console.log("ado ", catagory);
+			const result = listOfDietplans.filter((val) => {
+				return val.Breed.Petcatagory.pcatID === parseInt(catagory);
+			});
+
+			const result2 = result.filter((val) => {
+				return val.Breed.breedName === breed;
+			});
+
+			setFilterItems(result2);
+		}
+	};
+
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -33,7 +124,7 @@ function viewdietplans() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-														Admin Dashboard/
+														Admin Dashboard//
 													</a>
 													<a href="/viewdietplans" className="header-topic">
 														Diet Plans
@@ -52,188 +143,104 @@ function viewdietplans() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right"></div>
-									<br />
-									<p class="fw-semibold " style={{ paddingRight: 40 }}>
-										Filtery by :
-									</p>
-									<div class="search-line" style={{ display: "flex" }}>
-										<p class="fw-semibold ">
-											<div class="dropdown" style={{ paddingRight: 40 }}>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Pet Category
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														Cats
-													</a>
-													<a class="dropdown-item" href="#">
-														Dogs
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<p class="fw-semibold ">
-											<div class="dropdown" style={{ paddingRight: 40 }}>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Pet Breed
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														Bullmastiff
-													</a>
-													<a class="dropdown-item" href="#">
-														Golden Retriever
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<p class="fw-semibold ">
-											<div class="dropdown" style={{ paddingRight: 40 }}>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Age Range
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														0-10
-													</a>
-													<a class="dropdown-item" href="#">
-														10-20
-													</a>
-													<a class="dropdown-item" href="#">
-														20-30
-													</a>
-													<a class="dropdown-item" href="#">
-														30-40
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<p class="fw-semibold ">
-											<div class="dropdown" style={{ paddingRight: 40 }}>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Weight Range
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														0-10
-													</a>
-													<a class="dropdown-item" href="#">
-														10-20
-													</a>
-													<a class="dropdown-item" href="#">
-														20-30
-													</a>
-													<a class="dropdown-item" href="#">
-														30-40
-													</a>
-												</div>
-											</div>
-										</p>
-										<div class="dropdown" style={{ paddingRight: 40 }}>
-											<button
-												class="btn btn-dark"
-												type="button"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													width: 150,
-													borderColor: "#205375",
-												}}
+									<div class="col col-xs-6 text-right">
+										<a href="\mdadddogdiet" className="header-topic">
+											<Button
+												variant="contained"
+												component="label"
+												style={{ backgroundColor: "#F66B0E" }}
 											>
-												Filter
-											</button>
-										</div>
+												Add Diet Plan
+											</Button>
+										</a>
+										<br />
+										<br />
+										<p class="fw-semibold " style={{ paddingRight: 40 }}>
+											Filtery by :
+										</p>
+										<div class="search-line" style={{ display: "flex" }}>
+											<p class="fw-semibold ">
+												<select
+													id="select"
+													class="btn btn-dark dropdown-toggle"
+													style={{ paddingRight: 40, marginRight: 20 }}
+													onChange={(event) => {
+														document.getElementById("select1").value = "All";
 
-										<div class="input-group" style={{ width: 575 }}>
-											<p
-												class="fw-semibold "
-												style={{ paddingRight: 10, paddingTop: 10 }}
-											>
-												Search Dietplans
+														axios
+															.get(
+																"http://localhost:3001/admin/getpetbreeds/" +
+																	event.target.value
+															)
+															.then((response) => {
+																setListOfBreeds(response.data);
+															});
+														filterResult(
+															event.target.value,
+															document.getElementById("select1").value
+														);
+													}}
+												>
+													<option value="All">All</option>
+													{/* <option value="Dog">Dog</option>
+                          <option value="Cat">Cat</option> */}
+													{listOfCatagories.map((value, key) => {
+														return (
+															<option value={value.pcatID}>
+																{value.pcatName}
+															</option>
+														);
+													})}
+												</select>
 											</p>
-											<input
-												type="search"
-												class="form-control rounded"
-												placeholder="Enter Dietplan Name"
-												aria-label="Search"
-												aria-describedby="search-addon"
-												style={{ height: 40 }}
-												onChange={(event) => {
-													setSearchTerm(event.target.value);
-												}}
-											/>
+
+											<p class="fw-semibold ">
+												<select
+													id="select1"
+													class="btn btn-dark dropdown-toggle"
+													style={{ paddingRight: 40, marginRight: 20 }}
+													onChange={(event) => {
+														filterResult(
+															document.getElementById("select").value,
+															event.target.value
+														);
+													}}
+												>
+													<option value="All">All Breeds</option>
+													{listOfBreeds.map((value, key) => {
+														return (
+															<option value={value.breedName}>
+																{value.breedName}
+															</option>
+														);
+													})}
+												</select>
+											</p>
+
+											<div class="input-group" style={{ width: 575, marginLeft: 420 }}>
+												<p
+													class="fw-semibold "
+													style={{ paddingRight: 10, paddingTop: 10 }}
+												>
+													Search Dietplans
+												</p>
+												<input
+													type="search"
+													class="form-control rounded"
+													placeholder="Enter Dietplan Name"
+													aria-label="Search"
+													aria-describedby="search-addon"
+													style={{ height: 40 }}
+													onChange={(event) => {
+														setSearchTerm(event.target.value);
+													}}
+												/>
+											</div>
 										</div>
 									</div>
 									<br />
 									<br />
+
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Available Diet Plans</h5>
@@ -277,27 +284,41 @@ function viewdietplans() {
 																<strong>Weight Range</strong>
 															</b>
 														</th>
+														<th></th>
 													</tr>
 												</thead>
 												<tbody>
-													{listOfDietplans.map((value, key) => {
-														return (
-															<tr>
-																<td>{value.dietplanID}</td>
-																<td>{value.Breed.Petcatagory.pcatName}</td>
-																<td>{value.planName}</td>
-																<td>{value.planDescr}</td>
-																<td>{value.Breed.breedName}</td>
-																<td>
-																	{value.ageRangeFrom} -{value.ageRangeTo} Yrs
-																</td>
-																<td>
-																	{value.weightRangeFrom} -{value.weightRangeTo}{" "}
-																	kg
-																</td>
-															</tr>
-														);
-													})}
+													{filterItems
+														.filter((val) => {
+															if (searchTerm == "") {
+																return val;
+															} else if (
+																val.planName
+																	.toLowerCase()
+																	.includes(searchTerm.toLowerCase())
+															) {
+																return val;
+															}
+														})
+														.map((value, key) => {
+															return (
+																<tr>
+																	<td>{value.dietplanID}</td>
+																	<td>{value.Breed.Petcatagory.pcatName}</td>
+																	<td>{value.planName}</td>
+																	<td>{value.planDescr}</td>
+																	<td>{value.Breed.breedName}</td>
+																	<td>
+																		{value.ageRangeFrom} -{value.ageRangeTo} Yrs
+																	</td>
+																	<td>
+																		{value.weightRangeFrom} -
+																		{value.weightRangeTo} kg
+																	</td>
+																	
+																</tr>
+															);
+														})}
 												</tbody>
 											</table>
 										</div>

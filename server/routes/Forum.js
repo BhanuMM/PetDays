@@ -32,5 +32,10 @@ router.get("/getpost/:id", async (req, res) => {
     res.json("DELETED SUCCESSFULLY");
   });
   
+router.get("/getcomment/:postId", async (req, res) => {
+  const postId = req.params.postId;
+  const listOfComments= await Comments.findAll({ where: { postId: postId } });
+  res.json(listOfComments);
+});
 
 module.exports = router;

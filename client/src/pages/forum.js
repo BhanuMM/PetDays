@@ -8,10 +8,11 @@ import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function forum() {
+	const location = useLocation();
 	const initialValues = {
 		postTitle: "",
 		postDescr: "",
