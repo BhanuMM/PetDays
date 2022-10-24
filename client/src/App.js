@@ -137,6 +137,7 @@ import Speditad from './pages/speditad';
 import Adpayment from './pages/adpayment';
 // import Signinform from './components/signinform';
 import Testingposts from './pages/testingposts';
+import Reports from './pages/reports';
 
 
 
@@ -196,7 +197,8 @@ function App() {
 
         
 
-
+<Route path="/reports" element={<Reports/>} />
+<Route path="/reportgen" element={<Reportgeneration/>} />
         <Route path="/Testingposts" element={<Testingposts/>} />
 
           <Route path="/register" element={<Register/>} />

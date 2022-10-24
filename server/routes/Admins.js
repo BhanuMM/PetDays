@@ -3,8 +3,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const { Petcatagories , Breeds ,Moderators } = require("../models");
-var us = require("./Auth")
-
+var us = require("./Auth");
 router.use(bodyParser.json());
 
 
@@ -118,5 +117,11 @@ router.delete("/deletecategory/:pcatID", async (req, res) => {
   });
   res.json("DELETED SUCCESSFULLY");
 });
+
+
+
+
+
+
 
 module.exports = router;
