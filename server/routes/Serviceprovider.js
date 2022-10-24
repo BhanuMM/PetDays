@@ -8,10 +8,42 @@ const cors = require("cors");
 const multer = require("multer");
 const upload = multer({ dest: "./uploads/"});
 var fs = require("fs");
-
+// This is your test secret API key.
+const stripe = require("stripe")('sk_test_51LwBrDCeYmYZru3yONIzLWTzoYUKyFSH9zPJJqoMeLIVDtfLz9TXxkqEtNh3ii7qsw1hKEfKoHtvOnePQIJsqTIo00DQfT7k8O');
+router.use(express.static("public"));
+router.use(express.json());
 router.use(bodyParser.json());
 router.use(cors());
 router.use(bodyParser.urlencoded({extended: true}));
+
+// payment gateway
+
+const calculateOrderAmount = (items) => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
+
+router.post("/create-payment-intent", async (req, res) => {
+  const adid = req.body.id;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 300,
+    currency: "usd",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+
+  const updatead =await Publishedads.update({paymentStatus : "paid"} ,{ where: { adID: adid }} );
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
+
+// end payment gateway
 
 router.use("/static", express.static("uploads"));
 
@@ -28,6 +60,8 @@ router.post("/uploadphoto", upload.single("file"), async (req, res) => {
   )
  
 });
+
+
 
 
 
@@ -64,6 +98,7 @@ router.post("/publishad", async (req, res) => {
   adProvince : adProvince,
   adDistrict : adDistrict,
   adStatus : "pending",
+  paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
   userId : "1"
@@ -294,6 +329,19 @@ router.delete("/deletead/:adId", async (req, res) => {
   });
   res.json("DELETED SUCCESSFULLY");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
