@@ -23,6 +23,7 @@ class PetForumItemCard extends StatelessWidget {
               title: Padding(
                   padding: EdgeInsets.symmetric(vertical: 5),
                   child: Container(
+
                     // decoration:  BoxDecoration(
                     //   boxShadow: [
                     //     BoxShadow(
@@ -41,11 +42,15 @@ class PetForumItemCard extends StatelessWidget {
                       children: [
                         Row(
                             children: [
-
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: Text(forumPost.postTitle,
-                                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width-120,
+                                  child: Expanded(
+                                    child: Text(forumPost.postTitle,
+                                      style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
                                 ),
                               ),
                               Spacer(),

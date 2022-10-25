@@ -46,12 +46,13 @@ class _AddPostFormState extends State<AddPostForm>{
         encoding: encoding
     );
     if(json.decode(res.body)=="SUCCESS"){
+      print(forumPost);
       showDialog<void>(
         context: this.context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text("Your post has been submitted"),
-            content: const Text('The pet has been successfully added. you can enter pets profile through home'),
+            content: const Text('Your post has been subbmitted for approval'),
             actions: <Widget>[
               TextButton(
                 style: TextButton.styleFrom(
