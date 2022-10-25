@@ -71,10 +71,9 @@ router.post("/addpet", async (req, res) => {
   });
 
   router.post("/addpost", async (req, res) => {
+
     const { postTitle,postDescr,pcatID,userId} = req.body;  
 
-       
-    
     const forumposts = Forumposts.create({
         postTitle: postTitle,
         postDescr: postDescr,

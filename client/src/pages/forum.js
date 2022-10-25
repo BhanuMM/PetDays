@@ -8,10 +8,11 @@ import Button from "@mui/material/Button";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function forum() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const location = useLocation();
 	const initialValues = {
 		postTitle: "",
@@ -125,27 +126,25 @@ function forum() {
 
 												<div
 													class="input-group"
-													style={{ width: 575, paddingRight: 50 }}
+													style={{ width: 575, float: "right" }}
 												>
+													<p
+														class="fw-semibold "
+														style={{ paddingRight: 10, paddingTop: 10 }}
+													>
+														Search Forum posts
+													</p>
 													<input
 														type="search"
 														class="form-control rounded"
-														placeholder="Search Forum Posts"
+														placeholder="Enter Forum posts"
 														aria-label="Search"
 														aria-describedby="search-addon"
 														style={{ height: 40 }}
-													/>
-													<button
-														type="button"
-														class="btn"
-														style={{
-															height: 40,
-															backgroundColor: "#205375",
-															color: "white",
+														onChange={(event) => {
+															setSearchTerm(event.target.value);
 														}}
-													>
-														Search
-													</button>
+													/>
 												</div>
 											</div>
 											<CardContent>
@@ -158,21 +157,15 @@ function forum() {
 															<div class="card-body">
 																<div class="content">
 																	<div>
-																	<p class="fw-semibold fs-7">
-																		Published date {value.postDate}
-																		</p>
 																		<p class="fw-semibold fs-7">
-																		{value.postTitle}
+																			Published date {value.postDate}
 																		</p>
+																		<p class="fw-semibold fs-7"></p>
 																		<p class="font-italic text-success fs-7">
-																		 Published 5 minutes ago.
+																			{value.postTitle}
 																		</p>
 																	</div>
-																	<div>
-																	
-																		{value.postDescr} 
-																
-																	</div>
+																	<div>{value.postDescr}</div>
 																	<div
 																		class="comment"
 																		style={{ paddingRight: 50 }}
@@ -182,21 +175,21 @@ function forum() {
 																				href="\testingposts"
 																				class="link-success text-decoration-none"
 																			>
-																				5 Comments
+																				Comments
 																			</a>
 																		</p>
 																		<Button
-																	variant="contained"
-																	component="label"
-																	style={{ backgroundColor: "#F66B0E" }}
-																	onClick={() => {
-																		navigate("/testingposts", {
-																			state: value.postId,
-																		});
-																	}}
-																>
-																	View
-																</Button>
+																			variant="contained"
+																			component="label"
+																			style={{ backgroundColor: "#F66B0E" }}
+																			onClick={() => {
+																				navigate("/testingposts", {
+																					state: value.postId,
+																				});
+																			}}
+																		>
+																			View
+																		</Button>
 																	</div>
 																</div>
 															</div>
