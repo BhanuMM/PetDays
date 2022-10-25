@@ -45,10 +45,10 @@ router.get("/getsinglecomment/:id", async (req, res) => {
 });
 
 router.post("/updatecomment", async (req, res) => {
-  const { id,commentBody} = req.body;     
+  const { commentId,commentBody} = req.body;     
   await Comments.update({
       commentBody: commentBody,      
-  },{where:{id: id}});
+  },{where:{id: commentId}});
   res.json("SUCCESS");
 });
 

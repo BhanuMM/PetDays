@@ -6,32 +6,61 @@ import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar";
 function testingposts() {
+
+	const [authState, setAuthState] = useState({
+        username: "",
+        id: 0,
+        role : "",
+        status: false,
+      });
+    
+      useEffect(() => {
+        axios
+          .get("http://localhost:3001/auth/authuser", {
+            headers: {
+              accessToken: localStorage.getItem("accessToken"),
+            },
+          })
+          .then((response) => {
+            if (response.data.error) {
+              setAuthState({ ...authState, status: false });
+            } else {
+              setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                role: response.data.role,
+                status: true,
+              });
+            }
+          });
+      }, []);
+
 	const [PostObject, SetpostObject] = useState([]);
 	const [CommentObject, SetCommentObject] = useState([]);
 	const [newComment, setNewComment] = useState("");
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		axios
-			.get("http://localhost:3001/forum/getpost/" + location.state)
+	useEffect( () => {
+		 axios.get("http://localhost:3001/forum/getpost/"+location.state)
 			.then((response) => {
 				SetpostObject(response.data);
-				console.log(PostObject.postId);
+				console.log(PostObject);
 			});
-		axios
-			.get("http://localhost:3001/forum/" + location.state)
+		 axios.get("http://localhost:3001/forum/getcomment/"+location.state)
 			.then((response) => {
 				SetCommentObject(response.data);
-				console.log(CommentObject.postId);
+				console.log(CommentObject);
 			});
 	}, []);
+
 	const id = PostObject.postId;
+
 	const addComment = () => {
-		axios
-			.post("http://localhost:3001/forum", {
+		axios.post("http://localhost:3001/forum", {
 				commentBody: newComment,
 				postId: id,
+				userId : authState.id
 			})
 			.then((response) => {
 				const commentToAdd = { commentBody: newComment };
@@ -40,7 +69,8 @@ function testingposts() {
 			});
 	};
 
-
+console.log(PostObject);
+console.log(CommentObject);
 	
 	return (
 		<div className="posts">
@@ -113,8 +143,7 @@ function testingposts() {
 																	if (result.isConfirmed) {
 																		axios
 																			.delete(
-																				"http://localhost:3001/forum/deletecom/" +
-																					CommentObject.id
+																				"http://localhost:3001/forum/deletecom/"+CommentObject.id
 																			)
 																			.then((response) => {
 																				if (response.data.error) {
@@ -132,6 +161,7 @@ function testingposts() {
 																			"Vaccine has been deleted.",
 																			"success"
 																		);
+																		navigate(0);
 																	}
 																});
 															}}
@@ -142,8 +172,8 @@ function testingposts() {
 															type="button"
 															class="btn btn-sm btn-square btn-neutral text-danger-hover"
 															onClick={() => {
-																navigate("/editcomment", {
-																	state: CommentObject.id,
+																alert(CommentObject.id);
+																navigate("/editcomment", {state: CommentObject.id,
 																});
 															}}
 														>
