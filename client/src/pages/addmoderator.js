@@ -51,6 +51,7 @@ function addmoderator() {
 			  console.log('I was closed by the timer')
 			}
 		  })
+
 		axios.post("http://localhost:3001/admin/addmoderator", data).then((response) => {
 				if (response.data.error) {
 					// alert(response.data.error);

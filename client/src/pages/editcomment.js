@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "../styles/posts.css";
 import Navbar from "../components/navbar";
 import { useEffect, useState } from "react";
@@ -8,22 +8,20 @@ import axios from "axios";
 import * as Yup from "yup";
 function editcomment() {
 	const location = useLocation();
-    const [listOfComment, setlistOfComment] = useState([]);
-	
-	
+	const [listOfComment, setlistOfComment] = useState([]);
 
-	console.log("http://localhost:3001/forum/getsinglecomment/"+location.state);
 	useEffect(() => {
-		axios.get("http://localhost:3001/forum/getsinglecomment/"+location.state)
+		axios
+			.get("http://localhost:3001/forum/getsinglecomment/"+location.state)
 			.then((response) => {
-				setlistOfComment(response.data[0]);
+				setlistOfComment(response.data);
 			});
 	}, []);
 
 	const navigate = useNavigate();
 
 	const initialValues = {
-		commentId: listOfComment.id,
+		id: listOfComment.id,
 		commentBody: listOfComment.commentBody,
 	};
 
@@ -34,34 +32,31 @@ function editcomment() {
 	});
 
 	const onSubmit = (data) => {
-		alert(data);
-		axios.post("http://localhost:3001/forum/updatecomment", data)
-			.then((response) => {
+		axios.post("http://localhost:3001/forum/updatecomment",data).then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					navigate("/testingposts");
+					navigate("/forum");
 				}
 			});
 	};
 
-  return (
-    <div class="container-fluid">
+	return (
+		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Navbar />
 				</div>
-				
-				<div class="h-screen flex-grow-1 overflow-y-lg-auto pt-8" >
+
+				<div class="h-screen flex-grow-1 overflow-y-lg-auto pt-8">
 					<main class="py-6 bg-surface-secondary">
-						<div class="container-fluid pt-6" >
+						<div class="container-fluid pt-6">
 							<div class="row g-6 mb-6">
-								<div style={{ paddingLeft: 20 ,paddingTop: 100}}>
+								<div style={{ paddingLeft: 20, paddingTop: 100 }}>
 									<Formik
 										enableReinitialize={true}
 										initialValues={initialValues}
 										onSubmit={onSubmit}
-										validationSchema={Schema}
 									>
 										<Form>
 											<br />
@@ -79,17 +74,15 @@ function editcomment() {
 												id="commentBody"
 												autocomplete="off"
 												name="commentBody"
-												
 											/>
 											<Field
 												className="form-control"
-												id="commentId"
+												id="id"
 												type="hidden"
 												autocomplete="off"
-												name="commentId"
-												
+												name="id"
 											/>
-											
+
 											<div className="row">
 												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
@@ -105,14 +98,13 @@ function editcomment() {
 										</Form>
 									</Formik>
 								</div>
-								
 							</div>
 						</div>
 					</main>
 				</div>
 			</div>
 		</div>
-  )
+	);
 }
 
-export default editcomment
+export default editcomment;

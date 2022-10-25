@@ -5,7 +5,7 @@ import "../styles/posts.css";
 import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar";
-function testingposts() {
+function comments() {
 
 	const [authState, setAuthState] = useState({
         username: "",
@@ -158,7 +158,7 @@ console.log(CommentObject);
 																			});
 																		Swal.fire(
 																			"Deleted!",
-																			"Vaccine has been deleted.",
+																			"Comment has been deleted.",
 																			"success"
 																		);
 																		navigate(0);
@@ -194,4 +194,4 @@ console.log(CommentObject);
 	);
 }
 
-export default testingposts;
+export default comments;

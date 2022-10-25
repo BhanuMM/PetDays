@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
-
 import signin from "../images/login.png";
 import Bgimage from "../images/bkimage.jpg";
 import name from "../images/name.png";
@@ -61,7 +60,7 @@ function register() {
         backgroundImage: `url(${Bgimage})`,
       }}
     >
-      <section className="vh-100 ">
+      <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col col-xl-10 ">
@@ -69,7 +68,7 @@ function register() {
                 className="card register-cardsize flex-center register-cardmargins"
                 border-radius="2rem; "
               >
-                <div className="row g-0">
+                <div className="row g-0" style={{ paddingBottom: 70}} >
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body p-4 p-lg-5 text-black">
                       <Formik
@@ -77,7 +76,8 @@ function register() {
                         onSubmit={onSubmit}
                         validationSchema={Schema}
                       >
-                        <Form>
+                        <Form  style={{ paddingLeft: 70,paddingTop:20}}>
+                        
                           <h3
                             className="fw-normal mb-3 pb-3 text-center text-bold register.caption"
                             letter-spacing="1px;"
@@ -86,8 +86,6 @@ function register() {
                           </h3>
 
                           <div class="form-outline mb-4">
-                            {/* <label className="form-label" for="">User Name </label>
-                                            <input type="text" id="form2Example17" className=" register-inputfieldwidth form-control form-control-lg" /> */}
                             <label className="form-label">User Name</label>
                             <div className="row">
                               <div className="col">
@@ -103,9 +101,7 @@ function register() {
                           </div>
 
                           <div class="form-outline mb-4">
-                            {/* <label class="form-label" for="form2Example27">E-mail</label>
-                                            <input type="email" id="form2Example27" class=" register-inputfieldwidth form-control form-control-lg" />
-                                            */}
+                            
                             <label className="form-label">Email</label>
                             <div className="col">
                               <ErrorMessage name="uemail" className="registererror" component="span" />
@@ -119,9 +115,7 @@ function register() {
                             />
                           </div>
                           <div class="form-outline mb-4">
-                            {/* <label class="form-label" for="form2Example27">Password</label>
-                                            <input type="password" id="form2Example27" class=" register-inputfieldwidth form-control form-control-lg" />
-                                            */}
+                           
                             <label className="form-label">Password</label>
 
                             <div className="row">
@@ -144,14 +138,11 @@ function register() {
                                 contain Uppercase and Lowercase letters ,numbers
                                 and Special Case characters.
                               </div>
-                              {/* <div class="col">
-                            <input type="text" className="form-control" placeholder="Confirm Password" aria-label="Last name"/>
-                        </div> */}
+                            
                             </div>
                           </div>
                           <div class="form-outline mb-4">
-                            {/* <label class="form-label" for="form2Example27">Confirm Password</label>
-                                            <input type="password" id="form2Example27" class=" register-inputfieldwidth form-control form-control-lg" /> */}
+                          
                             <label className="form-label">
                               Confirm Password
                             </label>
@@ -175,8 +166,8 @@ function register() {
                           </div>
                           
                           <p className="pb-lg-2" >
-                            Alredy have an account?{" "}
-                            <a href="signin" color="#393f81;">
+                            Already have an account?{" "}
+                            <a href="signin" style={{color:'#205375'}}>
                               Sign In
                             </a>
                           </p>
@@ -184,15 +175,18 @@ function register() {
                             <button
                               className="register.loginbuttonsize btn btn-success "
                               type="submit" 
+                              style={{ backgroundColor:"205375" }}
                             >
                               REGISTER
                             </button>
+                          <a href="\index" role="button" aria-pressed="true" style={{color:'#205375'}} ><p>Back To Home</p></a>
+                        
                           </div>
                         </Form>
                       </Formik>
                     </div>
                   </div>
-                  <div className="col-md-6 col-lg-5 d-none d-md-block mt-5 text-center">
+                  <div className="col-md-6 col-lg-5 d-none d-md-block mt-5 text-center"  style={{ paddingRight: 50,paddingTop:70 }}>
                     <img
                       src={signin}
                       alt="login form"

@@ -3,11 +3,12 @@ import { useNavigate  } from "react-router-dom";
 import { Formik, Form, Field ,ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from 'yup';
-
 import '../styles/nav.css';
 import '../styles/footer.css';
+
 import Signinimage from '../images/signin.png';
 import Swal from "sweetalert2";
+
 
 
 function signin() {
@@ -38,17 +39,6 @@ function signin() {
         console.log(response.data.username);
         alert(response.data.username);
         localStorage.setItem('myData', response.data.token);
-        // localStorage.setItem("accessToken", response.data.token);
-        // if (response.data.role === "admin")
-        // navigate('/admindashboard');
-        // else if (response.data.role === "service")
-        // navigate('/serviceproviderdashboard');
-        // else if (response.data.role === "moderator")
-        // navigate('/moderatordasboard');
-        // else if (response.data.role === "user")
-        // navigate('/index');
-        // else 
-        // navigate('/signin');
       }
     });
   };
@@ -57,11 +47,11 @@ function signin() {
     <div className='Signin'>
       <header className="header"/> 
       <div className="Signinform">
-         <div className="container mt-5">
-            <div className="row ">
+         <div className="container mt-5" style={{ paddingLeft: 200 }}>
+            <div className="row " >
               
               <div className="col-6 mr-5">
-              <img src={Signinimage}   className="mr-5" alt="signin"/>
+              {/* <img src={Signinimage}   className="mr-5" alt="signin"/> */}
               </div>
               <div className="col-6  mt-5 mr-5 ">
               <h1 className=" mt-5">Welcome To Pet Days</h1>
@@ -103,12 +93,12 @@ function signin() {
                 </div>
               </div>
               <div className="col pl-3 pb-5">
-                  <button
+                  {/* <button
                   type="submit"
                   className="btn btn-warning start-50 end-50"
                 >
                   Login
-                </button>
+                </button> */}
                   </div>
               </Form>
             </Formik>

@@ -10,9 +10,7 @@ function editbreed() {
 	const location = useLocation();
 
 	useEffect(() => {
-		axios
-			.get("http://localhost:3001/admin/getpetbreeds/" + location.state)
-			.then((response) => {
+		axios.get("http://localhost:3001/admin/getsinglebreed/"+location.state).then((response) => {
 				setlistOfBreeds(response.data);
 				console.log(listOfBreeds);
 			});
@@ -26,18 +24,18 @@ function editbreed() {
 		descr: listOfBreeds.descr,
 	};
 	const Schema = Yup.object().shape({
-		pcatName: Yup.string()
+		breedName: Yup.string()
 			.matches(/^[A-Za-z0-9 ]*$/, "Please enter valid name")
 			.required("Please enter breed name"),
 	});
+
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/admin/updatebreed", data)
-			.then((response) => {
+		console.log(data);
+		axios.post("http://localhost:3001/admin/updatebreed",data).then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					navigate("/viewbreedscats");
+					navigate("/viewcategories");
 				}
 			});
 	}; 
@@ -87,11 +85,19 @@ function editbreed() {
 											<label className="form-label">Name of the breed</label>
 											<div className="col">
 												<ErrorMessage
-													name="catName"
+													name="breedName"
 													className="errormesage"
 													component="span"
 												/>
 											</div>
+											<Field
+												className="form-control"
+												id="breedID"
+												type = "hidden"
+												autocomplete="off"
+												name="breedID"
+									
+											/>
 											<Field
 												className="form-control"
 												id="breedName"

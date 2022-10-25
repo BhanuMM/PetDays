@@ -77,7 +77,7 @@ function register() {
                         onSubmit={onSubmit}
                         validationSchema={Schema}
                       >
-                        <Form>
+                        <Form style={{ paddingLeft: 70,paddingTop:20}}>
                           <h3
                             className="fw-normal mb-3 pb-3 text-center text-bold register.caption"
                             letter-spacing="1px;"
@@ -176,7 +176,7 @@ function register() {
                           
                           <p className="pb-lg-2" >
                             Alredy have an account?{" "}
-                            <a href="signin" color="#393f81;">
+                            <a href="signin" style={{color:'#205375'}}>
                               Sign In
                             </a>
                           </p>
@@ -187,12 +187,13 @@ function register() {
                             >
                               REGISTER
                             </button>
+                            <a href="\index" role="button" aria-pressed="true" style={{color:'#205375'}} ><p>Back To Home</p></a>
                           </div>
                         </Form>
                       </Formik>
                     </div>
                   </div>
-                  <div className="col-md-6 col-lg-5 d-none d-md-block mt-5 text-center">
+                  <div className="col-md-6 col-lg-5 d-none d-md-block mt-5 text-center" style={{ paddingRight: 50,paddingTop:70 }}>
                     <img
                       src={signin}
                       alt="login form"

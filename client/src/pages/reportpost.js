@@ -8,13 +8,13 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 
 function viewmedications() {
-	const [searchTerm, setSearchTerm] = useState([]);
-	const [listOfMedicines, setListOfMedicines] = useState([]);
+	const [postreport, setpostreport] = useState([]);
+	
 	// let history = useHistory();
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
-			setListOfMedicines(response.data);
+		axios.get("http://localhost:3001/report/getpostreport").then((response) => {
+			setpostreport(response.data);
 		});
 	}, []);
 	return (
@@ -91,19 +91,15 @@ function viewmedications() {
 													<tr>
 														<th scope="col">
 															<b>
-																<strong>Pending Post Count</strong>
+																<strong>Post Stats</strong>
 															</b>
 														</th>
                                                         <th scope="col">
 															<b>
-																<strong>Approved Post Count</strong>
+																<strong>Count</strong>
 															</b>
 														</th>
-                                                        <th scope="col">
-															<b>
-																<strong>Rejected Post Count</strong>
-															</b>
-														</th>
+                                                       
                                                         
 														
                                                         
@@ -112,25 +108,25 @@ function viewmedications() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfMedicines
-													.filter((val) => {
-														if (searchTerm == "") {
-															return val;
-														} else if (
-															val.medName
-																.toLowerCase()
-																.includes(searchTerm.toLowerCase())
-														) {
-															return val;
-														}
-													})
+													{postreport
+													// .filter((val) => {
+													// 	if (searchTerm == "") {
+													// 		return val;
+													// 	} else if (
+													// 		val.medName
+													// 			.toLowerCase()
+													// 			.includes(searchTerm.toLowerCase())
+													// 	) {
+													// 		return val;
+													// 	}
+													// })
 													
 													.map((value, key) => {
 														return (
 															<tr>
-																<td></td>
-																<td></td>
-                                                                <td></td>
+																<td>{value.postStatus} Post</td>
+																<td>{value.pcount}</td>
+                                                               
 																
 																
 																

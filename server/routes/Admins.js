@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const { Petcatagories, Breeds, Moderators, Users } = require("../models");
 var us = require("./Auth");
 const bcrypt = require("bcrypt");
+
 const { sendmodConfirmationEmail } = require('../mailer');
 
 router.use(bodyParser.json());
@@ -40,6 +41,7 @@ router.post("/addbreed", async (req, res) => {
 	}
 });
 router.post("/addmoderator", async (req, res) => {
+
 	const {username , modemail} = req.body;
 	const role = "moderator";
 	const epassword ="Petdays123"
@@ -70,6 +72,7 @@ router.post("/addmoderator", async (req, res) => {
 	  });
 	  res.json("SUCCESS");
 	});
+
 	}
 });
 
@@ -92,7 +95,15 @@ router.get("/getpetbreeds/:id", async (req, res) => {
 	});
 	res.json(listOfBreeds);
 });
-
+router.get("/getsinglebreed/:id", async (req, res) => {
+	const id = req.params.id;
+	const listOfBreeds = await Breeds.findOne({
+		where: {
+			breedID: id,
+		},
+	});
+	res.json(listOfBreeds);
+});
 router.get("/getserviceprovider", async (req, res) => {
 	const listOfServiceproviders = await Users.findAll({
 		where: {
@@ -164,7 +175,6 @@ router.post("/deletemoderator/:userID", async (req, res) => {
 });
 
 //update breed
-
 router.post("/updatebreed", async (req, res) => {
 	const { breedID, breedName, descr } = req.body;
 	await Breeds.update(
