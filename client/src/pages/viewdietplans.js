@@ -217,7 +217,10 @@ function viewdietplans() {
 												</select>
 											</p>
 
-											<div class="input-group" style={{ width: 575, marginLeft: 420 }}>
+											<div
+												class="input-group"
+												style={{ width: 575, marginLeft: 420 }}
+											>
 												<p
 													class="fw-semibold "
 													style={{ paddingRight: 10, paddingTop: 10 }}
@@ -315,7 +318,6 @@ function viewdietplans() {
 																		{value.weightRangeFrom} -
 																		{value.weightRangeTo} kg
 																	</td>
-																	
 																</tr>
 															);
 														})}

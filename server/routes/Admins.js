@@ -4,7 +4,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const { Petcatagories, Breeds, Moderators, Users } = require("../models");
 var us = require("./Auth");
-
+const bcrypt = require("bcrypt");
 router.use(bodyParser.json());
 
 router.post("/addcategory", async (req, res) => {
@@ -39,15 +39,16 @@ router.post("/addbreed", async (req, res) => {
 });
 router.post("/addmoderator", async (req, res) => {
 	const { email, username, password } = req.body;
-
 	const chckq = Users.create({
 		username: username,
 		email: email,
 		password: password,
+		userrole: "moderator",
+		isverified: "yes",
 	});
-	const role = "moderator";
-	const chck2 = us.registerUser(req, res, role);
-	if (chck2) {
+	// const role = "moderator";
+	// const chck2 = us.registerUser(req, res, role);
+	if (chckq) {
 		res.json("Mod SUCCESS");
 	} else {
 		res.json("Not SUCCESS");
@@ -73,7 +74,15 @@ router.get("/getpetbreeds/:id", async (req, res) => {
 	});
 	res.json(listOfBreeds);
 });
-
+router.get("/getsinglebreed/:id", async (req, res) => {
+	const id = req.params.id;
+	const listOfBreeds = await Breeds.findOne({
+		where: {
+			breedID: id,
+		},
+	});
+	res.json(listOfBreeds);
+});
 router.get("/getserviceprovider", async (req, res) => {
 	const listOfServiceproviders = await Users.findAll({
 		where: {
@@ -145,7 +154,6 @@ router.delete("/deletemoderator/:userID", async (req, res) => {
 });
 
 //update breed
-
 router.post("/updatebreed", async (req, res) => {
 	const { breedID, breedName, descr } = req.body;
 	await Breeds.update(

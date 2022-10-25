@@ -38,8 +38,7 @@ function mdeeditmed() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/mod/updatemedicine", data)
+		axios.post("http://localhost:3001/mod/updatemedicine", data)
 			.then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);

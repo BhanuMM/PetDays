@@ -30,9 +30,8 @@ function addmoderator() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/admin/addmoderator", data)
-			.then((response) => {
+		console.log(data);
+		axios.post("http://localhost:3001/admin/addmoderator", data).then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {

@@ -139,7 +139,7 @@ import Sprejectedads from './pages/sprejectedads';
 import Speditad from './pages/speditad';
 import Adpayment from './pages/adpayment';
 // import Signinform from './components/signinform';
-import Testingposts from './pages/testingposts';
+import Comments from './pages/comments';
 import Reports from './pages/reports';
 import Reportincome from './pages/reportincome';
 import Reportvaccine from './pages/reportvaccineusage';
@@ -207,7 +207,7 @@ function App() {
 
 <Route path="/reports" element={<Reports/>} />
 <Route path="/reportgen" element={<Reportgeneration/>} />
-        <Route path="/Testingposts" element={<Testingposts/>} />
+        <Route path="/comments" element={<Comments/>} />
 
           <Route path="/register" element={<Register/>} />
           <Route path="/signin" element={<Signin/>} />
