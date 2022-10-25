@@ -2,14 +2,26 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Petcatagories , Breeds ,Moderators } = require("../models");
+const { Petcatagories , Breeds ,Moderators,Vaccines,PetVaccines } = require("../models");
 var us = require("./Auth");
 router.use(bodyParser.json());
 const puppeteer = require("puppeteer");
 const fs = require("fs-extra");
 const hbs = require("handlebars");
 const path = require("path");
+const { QueryTypes } = require('sequelize');
+// var Sequelize = require("sequelize");
 
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+ 'petdays',
+ 'root',
+ '',
+  {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+  }
+);
 
 // report generation
 
@@ -69,7 +81,36 @@ router.get('/createpdf', async (req, res) => {
 res.json("SUCCESS");
   });
 
+  //DISPLAY VACCINE REPORT
+  router.get("/getvaccinereport", async (req, res) => {
+    const vacreport = await sequelize.query("SELECT vaccines.vacName,COUNT(petvaccines.petVacID) as vaccount FROM petvaccines JOIN vaccines on petvaccines.vacID=vaccines.vacID GROUP by petvaccines.vacID;", { type: QueryTypes.SELECT });
+  
+    res.json(vacreport);
+  });
 
+  //DISPLAY FORUMPOST REPORT
+  router.get("/getpostreport", async (req, res) => {
+    const postreport = await sequelize.query("SELECT forumposts.postStatus,COUNT(forumposts.postId) as pcount FROM forumposts GROUP by forumposts.postStatus;", { type: QueryTypes.SELECT });
+  
+    res.json(postreport);
+  });
+
+  //DISPLAY FORUMPOST REPORT
+  router.get("/getuserreport", async (req, res) => {
+    const userreport = await sequelize.query("SELECT users.userrole,COUNT(users.userID) as ucount FROM users GROUP by users.userrole,users.createdAt;", { type: QueryTypes.SELECT });
+  
+    res.json(userreport);
+  });
+
+  //DISPLAY INCOME STATEMENT
+  router.get("/getincomereport", async (req, res) => {
+    const incomereport = await sequelize.query("", { type: QueryTypes.SELECT });
+  
+    res.json(incomereport);
+  });
+
+
+  
 
 
 module.exports = router;

@@ -8,13 +8,14 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 
 function viewmedications() {
-	const [searchTerm, setSearchTerm] = useState([]);
-	const [listOfMedicines, setListOfMedicines] = useState([]);
+	
+	const [vaccinereport, setvaccinereport] = useState([]);
+	var vaccinereport2 = [];
 	// let history = useHistory();
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
-			setListOfMedicines(response.data);
+		axios.get("http://localhost:3001/report/getvaccinereport").then((response) => {
+			setvaccinereport(response.data);
 		});
 	}, []);
 	return (
@@ -103,24 +104,13 @@ function viewmedications() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfMedicines
-													.filter((val) => {
-														if (searchTerm == "") {
-															return val;
-														} else if (
-															val.medName
-																.toLowerCase()
-																.includes(searchTerm.toLowerCase())
-														) {
-															return val;
-														}
-													})
-													
-													.map((value, key) => {
+												
+													{
+													vaccinereport.map((value, key) => {
 														return (
 															<tr>
-																<td></td>
-																<td></td>
+																<td>{value.vacName}</td>
+																<td>{value.vaccount}</td>
 																
 															</tr>
 														);
