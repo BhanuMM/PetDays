@@ -19,7 +19,7 @@ function viewmedications() {
 		});
 	}, []);
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -39,7 +39,7 @@ function viewmedications() {
 														Admin Report Dashboard /
 													</a>
                                                     
-													<a href="/viewmedications" className="header-topic">
+													<a href="/reportvaccine" className="header-topic">
 														Vaccine Usage Report
 													</a>
 												</li>

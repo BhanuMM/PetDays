@@ -70,7 +70,7 @@ function addmoderator() {
 
 	};
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -89,7 +89,7 @@ function addmoderator() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Dashboard/
 													</a>
-													<a href="/addmoderators" className="header-topic">
+													<a href="/addmoderator" className="header-topic">
 														Add Moderators
 													</a>
 												</li>
@@ -136,7 +136,7 @@ function addmoderator() {
 											</div>
 											<div class="row g-3">
 												<div class="col-8">
-													<label className="form-label">Username</label>
+													<label className="form-label">Email</label>
 													<div className="col">
 														<ErrorMessage
 															name="modemail"
@@ -155,15 +155,11 @@ function addmoderator() {
 											</div>
 											
 											<div className="row">
-												<div className="col-3 mb-5 mt-5">
+												<div className="col-8 mb-5 mt-5 text-right">
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{
-															backgroundColor: "#F66B0E",
-															borderColor: "#F66B0E",
-														}}
-													>
+														style={{backgroundColor: "#205375", borderColor:"#205375"}}>
 														Add Moderator
 													</button>
 												</div>
