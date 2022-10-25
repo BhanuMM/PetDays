@@ -3,7 +3,7 @@ class PetVaccination{
   String? petID;
   String vacID;
   String note;
-  String? nextVacDate;
+  String nextVacDate;
 
 
 

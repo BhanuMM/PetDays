@@ -16,6 +16,7 @@ import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
+import '../../../models/globals.dart' as globals;
 
 class PetGallery extends StatefulWidget {
   Pet pet = new Pet(
@@ -28,7 +29,6 @@ class PetGallery extends StatefulWidget {
 }
 
 class _PetGalleryState extends State<PetGallery> {
-  final url = '10.0.2.2:3001';
   final getPetImagesRoute = '/user/getpetimages';
   final addPetImagesRoute = '/user/addpetimage';
   final headers = {'Content-Type': 'application/json'};
@@ -46,7 +46,7 @@ class _PetGalleryState extends State<PetGallery> {
   Future getPetImages() async {
     // 10.0.2.2
     final res = await http.get(
-      Uri.http(url, getPetImagesRoute + '/' + widget.pet.petID.toString()),
+      Uri.http(globals.url, getPetImagesRoute + '/' + widget.pet.petID.toString()),
     );
 
     final list = json.decode(res.body) as List<dynamic>;
@@ -74,7 +74,7 @@ class _PetGalleryState extends State<PetGallery> {
     print(petImg.imagePath);
 
     // 10.0.2.2
-    var res = await http.post(Uri.http(url, addPetImagesRoute),
+    var res = await http.post(Uri.http(globals.url, addPetImagesRoute),
         headers: headers,
         body: json.encode(
             petImg

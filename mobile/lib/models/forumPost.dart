@@ -10,6 +10,8 @@ class ForumPost{
   String pcatID;
 
   ForumPost(this.postTitle,this.postDescr,this.postStatus,this.postDate,this.postTime,this.userId,this.username,this.pcatID);
+  ForumPost.fromPost(this.postId,this.postTitle,this.postDescr,this.postStatus,this.postDate,this.postTime,this.userId,this.username,this.pcatID);
+
 
   ForumPost.fromJson(Map<String, dynamic> json)
       : postId = json['postId'].toString(),

@@ -20,7 +20,7 @@ class _SignUpFormState extends State<SignUpForm> {
   String pw = '';
   String pw2 = '';
   final _formKey = GlobalKey<FormState>();
-  final url = '10.0.2.2:3001';
+
   final registerRoute = '/auth/register';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -29,7 +29,7 @@ class _SignUpFormState extends State<SignUpForm> {
   Future register() async {
     // 10.0.2.2
 
-    var res = await http.post(Uri.http(url,'/auth/register'),
+    var res = await http.post(Uri.http(globals.url,'/auth/register'),
         headers: headers,
         body: json.encode(
             user

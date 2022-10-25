@@ -4,13 +4,13 @@ import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../../models/forumPost.dart';
 
 class PetForumItemCard extends StatelessWidget {
-  final String label;
-  final String price;
-  final StatelessWidget ado;
+  final ForumPost forumPost;
 
-  PetForumItemCard({ required this.label, required this.ado, required this.price});
+
+  PetForumItemCard({ required this.forumPost});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +44,7 @@ class PetForumItemCard extends StatelessWidget {
 
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: Text(label,
+                                child: Text(forumPost.postTitle,
                                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
                                 ),
                               ),
@@ -56,7 +56,7 @@ class PetForumItemCard extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: Text( price,
+                                child: Text( forumPost.username,
                                   style: TextStyle(fontSize: 12,
                                       fontWeight: FontWeight.normal,
                                       color: Colors.black26),
@@ -75,7 +75,7 @@ class PetForumItemCard extends StatelessWidget {
                               ),
                               ),
                               Spacer(),
-                              Text("27/10/2022",
+                              Text(forumPost.postDate,
                               style: TextStyle(
                                   color: Colors.black26,
                                   fontSize: 12
@@ -100,7 +100,7 @@ class PetForumItemCard extends StatelessWidget {
                               width: MediaQuery.of(context).size.width-80,
                               child: Expanded(
                                   child: Text(
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                                    forumPost.postDescr,
                                     style: TextStyle(
 
                                     ),
