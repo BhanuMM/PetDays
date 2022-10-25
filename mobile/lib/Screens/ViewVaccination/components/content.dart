@@ -5,6 +5,7 @@ import '../../../components/background.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../../../models/globals.dart' as globals;
 
 class VaccineContent extends StatefulWidget {
   String petID= '';
@@ -17,7 +18,7 @@ class VaccineContent extends StatefulWidget {
 }
 
 class _VaccineContentState extends State<VaccineContent> {
-    final url = '10.0.2.2:3001';
+
     final getPetVaccineRoute = '/user/getpetvaccines';
     final headers = {'Content-Type': 'application/json'};
     final encoding = Encoding.getByName('utf-8');
@@ -26,7 +27,7 @@ class _VaccineContentState extends State<VaccineContent> {
     Future getPetBreeds() async {
 
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,getPetVaccineRoute+'/'+widget.petID),
+    final res = await http.get(Uri.http(globals.url,getPetVaccineRoute+'/'+widget.petID),
     );
 
 

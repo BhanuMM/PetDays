@@ -12,6 +12,7 @@ import '../../../models/pet.dart';
 import '../../../models/petVaccination.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
+import '../../../models/globals.dart' as globals;
 
 class AddVaccinationtForm extends StatefulWidget {
   String petID = '';
@@ -26,10 +27,10 @@ class AddVaccinationtForm extends StatefulWidget {
 class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   late DateTime? _dateTime = null;
   String initialCat = '';
-  String NextVacDate = ' ';
+  String NextVacDate = '';
   bool isManualDate = false;
   bool isRemindersOn = true;
-  final url = '10.0.2.2:3001';
+
   final getvaccinesRoute = '/mod/getvaccines';
   final addVacRoute = '/user/addvaccine';
   final addEntryRoute = '/user/adddiaryentry';
@@ -38,6 +39,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   List vaccines = [];
   String _SelectedVac = '';
   String _SelectedVacID = '';
+  String predNextVac = '';
   DateTime? nextDate = new DateTime(1);
   var Catagories = [];
   PetVaccination petVaccination = new PetVaccination('', '', 'note', 'nextVacDate');
@@ -50,7 +52,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   Future addDiaryEntry() async {
 
     PetDiary petDiary = new PetDiary(int.parse(petID), petVaccination.note, "Vaccination added for "  + _SelectedVac );
-    var res = await http.post(Uri.http(url, addEntryRoute),
+    var res = await http.post(Uri.http(globals.url, addEntryRoute),
         headers: headers,
         body: json.encode(
             petDiary
@@ -67,18 +69,21 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
     petVaccination.vacID = _SelectedVacID;
 
 
-
-    String nextDatestr = nextDate.toString();
-    final splitted = nextDatestr.split(' ');
-    print(splitted[0]);
-    petVaccination.nextVacDate = splitted[0];
+    if(!isManualDate ){
+      petVaccination.nextVacDate = predNextVac;
+    }else {
+      String nextDatestr = nextDate.toString();
+      final splitted = nextDatestr.split(' ');
+      print(splitted[0]);
+      petVaccination.nextVacDate = splitted[0];
+    }
     petVaccination.petID = petID;
     print(petVaccination.petID);
     print(petVaccination.note);
     print(petVaccination.nextVacDate);
     print(petVaccination.vacID);
     // 10.0.2.2
-    var res = await http.post(Uri.http(url, addVacRoute),
+    var res = await http.post(Uri.http(globals.url, addVacRoute),
         headers: headers,
         body: json.encode(
             petVaccination
@@ -128,7 +133,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   }
   Future getVaccines() async {
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,getvaccinesRoute),
+    final res = await http.get(Uri.http(globals.url,getvaccinesRoute),
     );
 
     final list = json.decode(res.body) as List<dynamic>;
@@ -153,6 +158,9 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
     super.initState();
     this.getVaccines();
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +216,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                           // After selecting the desired option,it will
                           // change button value to selected value
                           onChanged: (newValue) {
-                            NextVacDate = '2022/12/26';
+                            NextVacDate = '';
                             setState(() {
                               initialCat = newValue.toString();
                               _SelectedVac = newValue.toString();
@@ -220,7 +228,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                         ),
                       ),
 
-                      Text("next vaccination date :" + NextVacDate)
+                      Text("next vaccination date : " + predNextVac)
                     ],
                   ),
                 ),
@@ -377,7 +385,12 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
     vaccines.map((item) {
       if (item['vacName'].toString() == _SelectedVac){
         _SelectedVacID = item['vacID'].toString();
+        DateTime now = new DateTime.now();
+        int duration = item['vacNextIter'];
+        DateTime next = now.add( Duration(days: duration));
+        predNextVac = next.toString().split(' ')[0];
         print(_SelectedVacID);
+        print(predNextVac);
       }
     }).toList();
   }

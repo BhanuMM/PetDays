@@ -80,7 +80,7 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                           ),
                           borderRadius: BorderRadius.circular(20)
                       ),
-                      height: 150,
+
                       child: Row(
                         children: [
                           Image.asset(
