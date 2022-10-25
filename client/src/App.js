@@ -108,6 +108,7 @@ import Pending from './pages/pendingads';
 import Reject from './pages/rejected';
 import Approved from './pages/appproved';
 import Rejectedadview from './pages/sprejectviewad';
+import Reportgenarationdashboard from './pages/reportgenarationdashboard';
 
 
 
@@ -140,6 +141,11 @@ import Adpayment from './pages/adpayment';
 // import Signinform from './components/signinform';
 import Testingposts from './pages/testingposts';
 import Reports from './pages/reports';
+import Reportincome from './pages/reportincome';
+import Reportvaccine from './pages/reportvaccineusage';
+import Reportuser from './pages/reportuser';
+import Reportpost from './pages/reportpost';
+
 
 
 
@@ -212,6 +218,11 @@ function App() {
           <Route path="/sellersignup" element={<Sellersignup/>} />
           <Route path="/verifyemail" element={<Verifyemail/>} />           
           <Route path="/registertype" element={<Usertype/>}/>
+          <Route path="/reportgenarationdashboard" element={<Reportgenarationdashboard/>} />
+          <Route path="/reportincome" element={<Reportincome/>} />
+          <Route path="/reportvaccine" element={<Reportvaccine/>} />
+          <Route path="/reportuser" element={<Reportuser/>} />
+          <Route path="/reportpost" element={<Reportpost/>} />
           
 
          

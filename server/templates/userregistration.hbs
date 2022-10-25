@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Days</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center" style="color: red;">
+            Pet days User Registration
+        </h1>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Pet Owners Count</th>
+                    <th>Variation Psercentage of Pet Owners </th>
+                    <th>Service Providers Count </th>
+                    <th> Variation Psercentage of Service Providers </th>
+                    <th>Total User Count </th>
+                    <th>Variation Psercentage of Users </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                 {{#each .}}
+                    <tr>
+                        <td>{{vacName}}</td>
+                        <td>{{}}</td>
+                       
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

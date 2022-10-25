@@ -75,8 +75,8 @@ function mdviewad() {
 								<hr/>
 							</div>
 							<div className="row" style={{paddingLeft:250}}>
-								<img src={G1} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
-							</div><br/>
+							<img src={`http://localhost:3001/service/static/${SingleAd.adImage}`} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
+						</div><br/>
 							
 							<div style={{display:"flex", paddingLeft:170}}>
 								<div style={{width:400, paddingRight:100}}>

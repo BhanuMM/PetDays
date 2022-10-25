@@ -102,7 +102,7 @@ router.post("/publishad", async (req, res) => {
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "3"
+  userId : "7"
 
   },
   { isNewRecord: true });
@@ -191,7 +191,7 @@ router.get("/getalladsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
     {
       where: {
-        paymentStatus: "pending",
+        paymentStatus: "unpaid",
       },
     }
    
@@ -247,7 +247,7 @@ router.get("/getadview/:id", async (req, res) => {
 //Display Reject View Ad
 router.get("/getrejectedadview/:id", async (req, res) => {
   const id = req.params.id;
-  const listOfAds= await Rejectedads.findByPk((id),
+  const listOfAds= await Rejectedads.findOne((id),
     {
         include:{ 
 
@@ -260,9 +260,8 @@ router.get("/getrejectedadview/:id", async (req, res) => {
   res.json(listOfAds);
 });
 
-// DISPLAY PUBLISHED ADD COUNT
 
-
+// DISPLAY ADD COUNT
 router.get("/getpublishedadcount", async (req, res) => {
   const listOfpendingads = await Publishedads.count(
     {
@@ -276,31 +275,21 @@ router.get("/getpublishedadcount", async (req, res) => {
   res.json(listOfpendingads);
 });
 
-// DISPLAY PENDING ADD COUNT
-router.get("/getpendingadcount", async (req, res) => {
-  const listOfpendingads = await Publishedads.count(
+
+//DISPLAY VERIFIED AD COUNT
+router.get("/getverifiedadcount", async (req, res) => {
+  const verifiedadcount = await Publishedads.count(
     {
-      where: {
-        adStatus: "pending", 
-       
-      },
+      where: { adStatus: "verified" },
     }
   );
-  res.json(listOfpendingads);
+  console.log(verifiedadcount);
+  res.json(verifiedadcount);
 });
 
-// DISPLAY REJECTED ADD COUNT
-router.get("/getrejectedadadcount", async (req, res) => {
-  const listOfpendingads = await Publishedads.count(
-    {
-      where: {
-        adStatus: "rejected", 
-        // userId: "1",
-      },
-    }
-  );
-  res.json(listOfpendingads);
-});
+
+
+
 
 
 

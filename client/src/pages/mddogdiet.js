@@ -7,6 +7,8 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 import Button from "@mui/material/Button";
 import Moderatorsidebar from "../components/moderatorsidebar";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 function mddogdiet() {
 	// const [searchTerm, setSearchTerm] = useState([]);
@@ -109,6 +111,7 @@ function mddogdiet() {
           setFilterItems(result2);
         } 
     }
+    const navigate = useNavigate();
   
 
   return (
@@ -306,20 +309,68 @@ function mddogdiet() {
                                   <td class="text-end">
                                     <div style={{ display: "flex" }}>
                                       <div style={{ paddingRight: 5 }}>
-                                        <a
-                                          href="/mdeditdiet"
-                                          class="btn btn-sm btn-neutral"
-                                        >
-                                          <em class="fa fa-pencil"></em>
-                                        </a>
+                                      <button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						navigate("/mdeditdiet", {
+																							state: value.dietplanID,
+																						});
+																					}}
+																				>
+																					<em class="fa fa-pencil"></em>
+																				</button>
                                       </div>
                                       <div>
-                                        <button
-                                          type="button"
-                                          class="btn btn-sm btn-square btn-neutral text-danger-hover"
-                                        >
-                                          <i class="bi bi-trash"></i>
-                                        </button>
+                                      <button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						Swal.fire({
+																							title: "Are you sure?",
+																							text:
+																								"You won't be able to revert this!",
+																							icon: "warning",
+																							showCancelButton: true,
+																							confirmButtonColor: "#3085d6",
+																							cancelButtonColor: "#d33",
+																							confirmButtonText:
+																								"Yes, delete it!",
+																						}).then((result) => {
+																							if (result.isConfirmed) {
+																								axios
+																									.delete(
+																										"http://localhost:3001/mod/deletediet/" +
+																											value.dietplanID
+																									)
+																									.then((response) => {
+																										if (response.data.error) {
+																											alert(
+																												response.data.error
+																											);
+																										} else {
+																											axios
+																												.get(
+																													"http://localhost:3001/mod/getdietplans"
+																												)
+																												.then((response) => {
+																													setListOfDietplans(
+																														response.data
+																													);
+																												});
+																										}
+																									});
+																								Swal.fire(
+																									"Deleted!",
+																									"Medicine has been deleted.",
+																									"success"
+																								);
+																							}
+																						});
+																					}}
+																				>
+																					<i class="bi bi-trash"></i>
+																				</button>
                                       </div>
                                     </div>
                                   </td>

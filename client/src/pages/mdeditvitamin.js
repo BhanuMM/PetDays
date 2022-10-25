@@ -133,13 +133,14 @@ function mdeditdogdiet() {
 											<div className="col">
                            					 <ErrorMessage name="vitType" className="errormesage" component="span" />
                         						</div>
-											<Field
-												className="form-control"
-												id="vitType"
-												autocomplete="off"
-												name="vitType"
-												// value ={SingleVit.vitType}
-											/>
+												<Field as="select" name="vitType" className="form-select">
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="E">E</option>
+												<option value="Multi">Multi</option>
+											</Field>
 											<label className="form-label">
 												description about the vitamin
 											</label>
