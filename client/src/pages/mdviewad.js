@@ -155,7 +155,10 @@ function mdviewad() {
 												if (result.isConfirmed) {
 						
 												  
-												  axios.post("http://localhost:3001/service/updaterejectedad/"+SingleAd.adId).then((response) => {
+												  axios.post("http://localhost:3001/mod/updaterejectedad/", {
+													rejReason: result.value,
+													adId: SingleAd.adId
+												} ).then((response) => {
 													if (response.data.error) {
 													  alert(response.data.error);
 													} else {

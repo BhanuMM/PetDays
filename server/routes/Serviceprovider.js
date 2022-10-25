@@ -30,7 +30,7 @@ router.post("/create-payment-intent", async (req, res) => {
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 300,
+    amount: 273,
     currency: "usd",
     automatic_payment_methods: {
       enabled: true,
@@ -102,7 +102,7 @@ router.post("/publishad", async (req, res) => {
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "7"
+  userId : "3"
 
   },
   { isNewRecord: true });
