@@ -13,14 +13,14 @@ import Navbar from "../components/navbar";
 function index() {
   return (
     <div className="index" class="index">
-      <Navbar />
+      <Navbar /><br/>
       <header className="header" />
       <div className="container mt-5 pt-5" id="para">
         <div className="row">
           <div className="col-sm-6">
             <div className="jumbotron" class="details">
               <br />
-              <br />
+              <br /><br /><br />
               <img
                 src={name}
                 className="rounded float-start img-fluid"
@@ -43,7 +43,7 @@ function index() {
                   color: "#D3D3D3",
                   borderColor: "#D3D3D3",
                   height: "0.5px",
-                  padding: "10px",
+                  
                 }}
               />
               <p class="fw-bolder fs-5">
@@ -73,20 +73,11 @@ function index() {
           </div>
         </div>
       </div>
-      {/* <hr
-        style={{
-          background: "#fff",
-          color: "#D3D3D3",
-          borderColor: "#D3D3D3",
-          height: "0.5px",
-          padding: "20px",
-        }}
-      /> */}
       <div
         className="container-fluid pmartsec"
         id="para"
       >
-        <div className="row pt-4 pb-4">
+        <div className="row pt-4 pb-4"  style={{ paddingLeft: 100 }}>
           <div className="col-lg-5 " >
             <img
               src={paw}
@@ -95,8 +86,8 @@ function index() {
             />
           </div>
           <br />
-          <div className="col-lg-7 pt-5 ">
-            <div >
+          <div className="col-lg-7 pt-5 "  style={{ paddingLeft: 90 }}>
+            <div>
               <p class="display-6 fw-bolder pmarttext mt-1">
                 Are you looking for <br />
                 Pet Services ?
@@ -119,22 +110,14 @@ function index() {
           </div>
         </div>
       </div>
-      <div className="container" id="para">
+      <div className="container" id="para"  style={{ paddingLeft: 150 }}>
         <div class="row g-0 pt-5">
           <div class="col-sm-4 col-md-6">
             <div className="jumbotron">
               <p class="display-6 fw-bolder  ">
                 Are you having any Trouble regarding your pet ?
               </p>
-              {/* <hr
-                style={{
-                  background: "#fff",
-                  color: "#D3D3D3",
-                  borderColor: "#D3D3D3",
-                  height: "0.5px",
-                  padding: "10px",
-                }}
-              /> */}
+              <br/>
               <p className="lead mb-3">
                 The pet care forum provides a platform to interact with the
                 community and resolve your pet needs with the help of other pet
