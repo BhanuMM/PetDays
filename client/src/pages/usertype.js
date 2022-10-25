@@ -13,11 +13,11 @@ function usertype() {
       }}>
         <section className="vh-100 ">
             <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100"  style={{ padding: 80 }}>
                     <div className="col col-xl-10 ">
                         <div className="card usertype-largecardsize flex-center forgot-cardmargins" border-radius="2rem; ">
                             <div className="row g-0 text-center">
-                                <h3 className='pt-4 ml-5 pl-5'>  Are you a?</h3>
+                                <h1 className='pt-4 ml-5 pl-5'>  Are you a?</h1>
                                 <div className="col-md-6 col-lg-6 d-none d-md-block ">
                                     <a href='/register'>
                                         <div className="card usertype-cardsize mt-3  ml-5 pl-5" >
