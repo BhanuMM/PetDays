@@ -12,7 +12,7 @@ function editcomment() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/admin/getcomment/" + location.state)
+			.get("http://localhost:3001/forum/getsinglecomment/" + location.state)
 			.then((response) => {
 				setlistOfComment(response.data);
 			});
@@ -33,13 +33,12 @@ function editcomment() {
 
 	const onSubmit = (data) => {
 		axios
-			.post("http://localhost:3001/admin/updatecategory", data)
+			.post("http://localhost:3001/forum/updatecomment", data)
 			.then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					// console.log(data)
-					navigate("/viewcategories");
+					navigate("/testingposts");
 				}
 			});
 	};

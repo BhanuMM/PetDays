@@ -38,4 +38,18 @@ router.get("/getcomment/:postId", async (req, res) => {
   res.json(listOfComments);
 });
 
+router.get("/getsinglecomment/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfComments= await Comments.findAll({ where: { id: id } });
+  res.json(listOfComments);
+});
+
+router.post("/updatecomment", async (req, res) => {
+  const { id,commentBody} = req.body;     
+  await Comments.update({
+      commentBody: commentBody,      
+  },{where:{id: id}});
+  res.json("SUCCESS");
+});
+
 module.exports = router;
