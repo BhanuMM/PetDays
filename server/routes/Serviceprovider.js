@@ -102,7 +102,7 @@ router.post("/publishad", async (req, res) => {
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "7"
+  userId : "3"
 
   },
   { isNewRecord: true });

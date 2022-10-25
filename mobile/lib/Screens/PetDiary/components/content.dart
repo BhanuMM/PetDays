@@ -8,6 +8,7 @@ import '../../Dashboard/dashboard_screen.dart';
 import 'card.dart';
 import '../../../models/pet.dart';
 import 'package:http/http.dart' as http;
+import '../../../models/globals.dart' as globals;
 
 
 class PetDiaryContent extends StatefulWidget {
@@ -18,7 +19,7 @@ class PetDiaryContent extends StatefulWidget {
 }
 
 class _PetDiaryContentState extends State<PetDiaryContent> {
-  final url = '10.0.2.2:3001';
+
   final getPetRoute = '/user/getentries';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -26,7 +27,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
   Future getEntries() async {
 
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,getPetRoute+'/'+pet.petID.toString()),
+    final res = await http.get(Uri.http(globals.url,getPetRoute+'/'+pet.petID.toString()),
     );
 
 

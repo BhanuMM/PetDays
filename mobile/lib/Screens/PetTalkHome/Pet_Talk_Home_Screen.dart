@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobile/components/background.dart';
 import 'package:mobile/constants.dart';
@@ -8,6 +10,11 @@ import '../../../constants.dart';
 import '../PetDiary/Pet_DIary_Screen.dart';
 import 'components/ForumCard.dart';
 import '../../models/pet.dart';
+import 'package:http/http.dart' as http;
+import '../../models/globals.dart';
+import '../../models/forumPost.dart';
+import '../AddForumPost/Add_Forum_Post_Screen.dart';
+import '../MyPosts/My_Posts_Screen.dart';
 
 
 class PetTalkHome extends StatefulWidget {
@@ -19,6 +26,35 @@ class PetTalkHome extends StatefulWidget {
 }
 
 class _PetTalkHomeState extends State<PetTalkHome> {
+
+  final getPetRoute = '/user/getpostswithuser';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List forumPosts = [];
+
+  Future getForumPosts() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetRoute),
+    );
+
+
+
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      forumPosts = list ;
+    });
+    print(forumPosts);
+
+    return "Sucess";
+  }
+
+  void initState() {
+    super.initState();
+    this.getForumPosts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return
@@ -44,7 +80,7 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                           ),
                           borderRadius: BorderRadius.circular(20)
                       ),
-                      height: 150,
+
                       child: Row(
                         children: [
                           Image.asset(
@@ -92,14 +128,14 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                                             ),
                                             child:  GestureDetector(
                                               onTap: (){
-                                                // Navigator.push(
-                                                //   context,
-                                                //   MaterialPageRoute(
-                                                //     builder: (context) {
-                                                //       return AddPetScreen();
-                                                //     },
-                                                //   ),
-                                                // );
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) {
+                                                      return AddPostScreen();
+                                                    },
+                                                  ),
+                                                );
                                               },
                                               child: const Text("Add a forum post", textAlign: TextAlign.center,
                                                 style: TextStyle(
@@ -122,8 +158,33 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                       ),
                     ),
                   ),
+                   ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                          backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return MyPostScreen();
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "My Posts",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
                           color: kPrimaryColor.withOpacity(0.4),
@@ -247,11 +308,22 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                       ),
                     ),
                   ),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "Infected with parvo", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "Infected with parvo", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp"),
-                  PetForumItemCard(label: "My dog has a caugh", ado: PetDiaryScreen(new Pet("petName", "DOB", 12, "23", "2", "2", "profileImage")), price: "Thilinavp")
+                  ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                      padding: const EdgeInsets.all(8),
+                      itemCount: forumPosts.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        print(forumPosts[index]);
+                        if(forumPosts[index]['postStatus'] == 'approved'){
+                          return Container(
+                              child: PetForumItemCard(forumPost:new ForumPost.fromPost(forumPosts[index]['postId'].toString(),forumPosts[index]['postTitle'], forumPosts[index]['postDescr'], forumPosts[index]['postStatus'], forumPosts[index]['postDate'], forumPosts[index]['postTime'], forumPosts[index]['userId'].toString(), forumPosts[index]['User']['username'], forumPosts[index]['pcatID'].toString()))
+                          );
+                        }else return Container();
+                      }
+                  ),
+
                 ],
               )
 

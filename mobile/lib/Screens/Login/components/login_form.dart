@@ -2,7 +2,7 @@ import 'dart:convert';
 import '../../../models/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:mobile/components/background.dart';
-
+import '../../../models/globals.dart' as globals;
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
@@ -20,14 +20,13 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  final url = '10.0.2.2:3001';
   final loginroute = '/auth/login';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   bool incorrectCred = false;
   Future save() async {
     // 10.0.2.2
-    var res = await http.post(Uri.http(url,loginroute),
+    var res = await http.post(Uri.http(globals.url,loginroute),
         headers: headers,
         body: json.encode(
           user

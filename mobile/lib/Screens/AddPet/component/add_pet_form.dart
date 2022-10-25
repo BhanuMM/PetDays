@@ -17,6 +17,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 
 
+
 class AddPetForm extends StatefulWidget {
   const AddPetForm({
     Key? key,
@@ -41,7 +42,7 @@ class _AddPetFormState extends State<AddPetForm>{
     'Beagle',
   ];
 
-  final url = '10.0.2.2:3001';
+
   final petCatRoute = '/admin/getpetcategories';
   final petBreedRoute = '/admin/getpetbreeds';
   final addPetRoute = '/user/addpet';
@@ -84,7 +85,7 @@ class _AddPetFormState extends State<AddPetForm>{
     print(pet.catID);
     print(pet.profileImage);
     // 10.0.2.2
-    var res = await http.post(Uri.http(url, addPetRoute),
+    var res = await http.post(Uri.http(globals.url, addPetRoute),
         headers: headers,
         body: json.encode(
             pet
@@ -120,7 +121,7 @@ class _AddPetFormState extends State<AddPetForm>{
   }
   Future getPetCats() async {
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,petCatRoute),
+    final res = await http.get(Uri.http(globals.url,petCatRoute),
     );
 
     final list = json.decode(res.body) as List<dynamic>;
@@ -138,7 +139,7 @@ class _AddPetFormState extends State<AddPetForm>{
   Future getPetBreeds() async {
 
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,petBreedRoute+'/'+_SelectedCatID),
+    final res = await http.get(Uri.http(globals.url,petBreedRoute+'/'+_SelectedCatID),
     );
 
 

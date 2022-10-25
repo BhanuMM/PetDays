@@ -15,6 +15,7 @@ import 'package:path/path.dart';
 import 'package:http/http.dart' as http;
 import '../../../models/pet.dart';
 import '../../../components/notification_API.dart';
+import '../../../models/globals.dart' as globals;
 class DashboardContent extends StatefulWidget {
   const DashboardContent({
     Key? key,
@@ -25,7 +26,9 @@ class DashboardContent extends StatefulWidget {
 }
 
 class _DashboardContentState extends State<DashboardContent> {
-  final url = '10.0.2.2:3001';
+
+  String search = '';
+
   final getPetRoute = '/user/getpets';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -33,7 +36,7 @@ class _DashboardContentState extends State<DashboardContent> {
   Future getPets() async {
 
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,getPetRoute+'/'+globals.uid),
+    final res = await http.get(Uri.http(globals.url,getPetRoute+'/'+globals.uid),
     );
 
 
@@ -111,7 +114,7 @@ class _DashboardContentState extends State<DashboardContent> {
                   ),
                   borderRadius: BorderRadius.circular(20)
                 ),
-                height: 180,
+
                 child: Row(
                   children: [
                     Image.asset(
@@ -205,6 +208,12 @@ class _DashboardContentState extends State<DashboardContent> {
                     border: InputBorder.none,
                     hintText: "Search your pets"
                   ),
+                  onChanged: (value) {
+                   setState(() {
+                     search = value;
+                   });
+                   print(search);
+                  },
                 ),
               ),
             ),
@@ -265,7 +274,7 @@ class _DashboardContentState extends State<DashboardContent> {
                   itemCount: pets.length,
                   itemBuilder: (BuildContext context, int index) {
                     print(pets[index]);
-                    return Container(
+                    if(search == '') return Container(
                         child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
                             pets[index]['petName'],
                             pets[index]['DOB'] ,
@@ -279,6 +288,22 @@ class _DashboardContentState extends State<DashboardContent> {
                         ),
                             img: pets[index]['profileImage'])
                     );
+                    else if(pets[index]['petName'].toString().toLowerCase().contains(search.toLowerCase()) ){
+                      return Container(
+                          child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
+                            pets[index]['petName'],
+                            pets[index]['DOB'] ,
+                            pets[index]['weight'],
+                            pets[index]['breedid'].toString() ,
+                            pets[index]['UserID'].toString() ,
+                            pets[index]['catID'].toString(),
+                            pets[index]['profileImage'],
+                            pets[index]['petID'].toString(),
+                          )
+                          ),
+                              img: pets[index]['profileImage'])
+                      );
+                    } else return Container();
                   }
               )
               )

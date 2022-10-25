@@ -15,7 +15,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../PetGallery/PetGallery.dart';
 import 'package:http/http.dart' as http;
 import '../../../models/petImage.dart';
-
+import '../../../models/globals.dart' as globals;
 class PetDashboardContent extends StatefulWidget{
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
   PetDashboardContent(Pet pet) {
@@ -32,7 +32,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
   _PetDashboardContentState(Pet pet) {
     this.pet =pet;
   }
-  final url = '10.0.2.2:3001';
+
   final getPetImagesRoute = '/user/getpetimages';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -42,7 +42,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
   Future getPetImages() async {
     // 10.0.2.2
     final res = await http.get(
-      Uri.http(url, getPetImagesRoute + '/' + widget.pet.petID.toString()),
+      Uri.http(globals.url, getPetImagesRoute + '/' + widget.pet.petID.toString()),
     );
 
     final list = json.decode(res.body) as List<dynamic>;

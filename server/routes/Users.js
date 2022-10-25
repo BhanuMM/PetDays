@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery, Users } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -51,29 +51,37 @@ router.post("/addpet", async (req, res) => {
     );
     res.json(listOfPosts);
   });
+  router.get("/getpostsbyuser/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPosts = await Forumposts.findAll(
+      {where: {
+        userId: id
+      }}
+    );
+    res.json(listOfPosts);
+  });
 
   router.get("/getpostswithuser", async (req, res) => {
     const listOfPosts = await Forumposts.findAll(
       {
-        include: { 
-          model:Users ,
-           required: true,
-          },
+        include: {model:Users,required: true}
       }
     );
     res.json(listOfPosts);
   });
 
   router.post("/addpost", async (req, res) => {
-    const { postTitle,postDescr,pcatId} = req.body;     
+
+    const { postTitle,postDescr,pcatID,userId} = req.body;  
+
     const forumposts = Forumposts.create({
         postTitle: postTitle,
         postDescr: postDescr,
         postStatus: "pending",
         postDate : year + "-" + month + "-" + date,
         postTime : hours + ":" + minutes,
-        userId: "1",
-        pcatId: pcatId,
+        userId: userId,
+        pcatId: pcatID,
     });
     if(forumposts){
          res.json("SUCCESS"); 

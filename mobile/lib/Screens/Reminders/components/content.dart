@@ -9,6 +9,7 @@ import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import '../../../models/pet.dart';
 import '../../ReminderDetails/Add_Reminder_Screen.dart';
 import 'package:http/http.dart' as http;
+import '../../../models/globals.dart' as globals;
 
 class ReminderContent extends StatefulWidget {
   String petId = '';
@@ -19,7 +20,7 @@ class ReminderContent extends StatefulWidget {
 }
 
 class _ReminderContentState extends State<ReminderContent> {
-  final url = '10.0.2.2:3001';
+
   final getPetReminderRoute = '/user/getpetreminders';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -32,7 +33,7 @@ class _ReminderContentState extends State<ReminderContent> {
   Future getPetReminders() async {
 
     // 10.0.2.2
-    final res = await http.get(Uri.http(url,getPetReminderRoute+'/'+widget.petId),
+    final res = await http.get(Uri.http(globals.url,getPetReminderRoute+'/'+widget.petId),
     );
 
 

@@ -12,6 +12,7 @@ import '../../../models/pet.dart';
 import '../../../models/reminder.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
+import '../../../models/globals.dart' as globals;
 
 class AddReminderForm extends StatefulWidget {
   String petID = '';
@@ -26,7 +27,7 @@ class AddReminderForm extends StatefulWidget {
 class _AddReminderFormState extends State<AddReminderForm>{
   late DateTime? _dateTime = null;
   late TimeOfDay? _time= null;
-  final url = '10.0.2.2:3001';
+
   final addRemRoute = '/user/addreminder';
   final addEntryRoute = '/user/adddiaryentry';
   final headers = {'Content-Type': 'application/json'};
@@ -47,7 +48,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
   Future addDiaryEntry() async {
 
     PetDiary petDiary = new PetDiary(int.parse(petID), petReminder.note, "Reminder added for "  + petReminder.nextRemDate.toString() + " at " + petReminder.nextRemTime.toString());
-    var res = await http.post(Uri.http(url, addEntryRoute),
+    var res = await http.post(Uri.http(globals.url, addEntryRoute),
         headers: headers,
         body: json.encode(
             petDiary
@@ -72,7 +73,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
     print(petReminder.nextRemDate);
     print(petReminder.nextRemTime);
     // 10.0.2.2
-    var res = await http.post(Uri.http(url, addRemRoute),
+    var res = await http.post(Uri.http(globals.url, addRemRoute),
         headers: headers,
         body: json.encode(
             petReminder

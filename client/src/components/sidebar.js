@@ -100,7 +100,7 @@ function sidebar() {
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="\reportgeneration">
+							<a class="nav-link" href="\reports">
 								<i class="fa fa-line-chart" aria-hidden="true"></i> Report
 								Generation
 							</a>
