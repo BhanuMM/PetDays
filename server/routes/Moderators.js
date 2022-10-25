@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds,Forumposts} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds,Forumposts,Rejectedads,Publishedads} = require("../models");
 const vitamins = require('../models/vitamins');
 // const breeds = require('../models/breeds');
 
@@ -116,6 +116,17 @@ router.post("/addpost", async (req, res) => {
   
 });
 
+router.post("/updaterejectedad", async (req, res) => {
+  const rejected = req.body;
+  const chckq = await Rejectedads.create(rejected);
+  
+  if(chckq){
+    await Publishedads.update({adStatus :"rejected" } ,{ where: { adId: rejected.adId }} );
+    res.json("Mod SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+});
 
 
 router.get("/getmedicines", async (req, res) => {
