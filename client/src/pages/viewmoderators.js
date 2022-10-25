@@ -149,17 +149,6 @@ function viewmoderators() {
 																		<div style={{ display: "flex" }}>
 																			<div style={{ display: "flex" }}>
 																			<div style={{ paddingRight: 5 }}>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					navigate("/editmoderator", {
-																						state: value.userID,
-																					});
-																				}}
-																			>
-																				<em class="fa fa-pencil"></em>
-																			</button>
 																		</div>
 																			<button
 																					type="button"
