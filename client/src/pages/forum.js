@@ -53,7 +53,7 @@ function forum() {
 	const onSubmit = (data) => {
 		console.log(data);
 
-		axios.post("http://localhost:3001/user/addpost", data).then((response) => {
+		axios.post("http://localhost:3001/user/addpost",data).then((response) => {
 			if (response.data.error) {
 				alert(response.data.error);
 			} else {
@@ -177,7 +177,19 @@ function forum() {
 												</div>
 											</div>
 											<CardContent>
-												{listOfPosts.map((value, key) => {
+												{listOfPosts
+												.filter((value) => {
+													if (searchTerm == "") {
+														return value;
+													} else if (
+														value.postTitle
+															.toLowerCase()
+															.includes(searchTerm.toLowerCase())
+													) {
+														return value;
+													}
+												})
+												.map((value, key) => {
 													return (
 														<Card
 															sx={{ minWidth: 250, maxWidth: 1500 }}
@@ -201,7 +213,7 @@ function forum() {
 																	>
 																		<p class="fw-semibold fs-7">
 																			<a
-																				href="\testingposts"
+																				href="\comments"
 																				class="link-success text-decoration-none"
 																			>
 																				Comments
@@ -212,7 +224,7 @@ function forum() {
 																			component="label"
 																			style={{ backgroundColor: "#F66B0E" }}
 																			onClick={() => {
-																				navigate("/testingposts", {
+																				navigate("/comments", {
 																					state: value.postId,
 																				});
 																			}}

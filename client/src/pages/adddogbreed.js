@@ -39,8 +39,7 @@ function adddogbreed() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/admin/addbreed",data)
+		axios.post("http://localhost:3001/admin/addbreed",data)
 			.then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);

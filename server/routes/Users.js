@@ -48,6 +48,9 @@ router.post("/addpet", async (req, res) => {
 
   router.get("/getposts", async (req, res) => {
     const listOfPosts = await Forumposts.findAll(
+      {where: {
+        postStatus: "approved",
+      }}
     );
     res.json(listOfPosts);
   });
