@@ -38,10 +38,10 @@ function addpetmartadd() {
     adDescr : "",
     adImage : "",
     adPrice : "",
-    adType:"",
     adContact : "",
     adEmail : "",
     adAddress : "",
+    adType:"",
     adProvince :"",
     adDistrict : ""
     
@@ -236,7 +236,7 @@ function addpetmartadd() {
                     <div class="col-10">
                       <label className="form-label">Ad Type</label>
                       
-                      <Field as="select" name="adType" className="form-select">
+                      <Field as="select" name="adType" id="adType" className="form-select">
 												<option value="Grooming">Grooming</option>
 												<option value="Day Care">Day Care</option>
 												<option value="Walking">Walking</option>

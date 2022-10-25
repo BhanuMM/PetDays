@@ -18,7 +18,7 @@ function mdverifyads() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getverifiedads")
+			.get("http://localhost:3001/service/getacceptedadsuser")
 			.then((response) => {
 				setlistOfverifiedads(response.data);
 			});
@@ -133,10 +133,20 @@ function mdverifyads() {
                         </Typography><br/>
                         
                         {value.adDescr}<br/><br/>
+						<Button
+																	variant="contained"
+																	component="label"
+																	style={{ backgroundColor: "#F66B0E" }}
+																	onClick={() => {
+																		navigate("/mdverifiedsingle", {
+																			state: value.adId,
+																		});
+																	}}
+																>
+																	View
+																</Button>
                         
-                        <a href="/mdverifiedsingle" role="button" aria-pressed="true"> <Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-                          View
-                        </Button></a>
+                       
                       </CardContent>
                     </Box>
                     

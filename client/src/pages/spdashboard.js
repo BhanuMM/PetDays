@@ -19,11 +19,10 @@ function dashboard() {
 		axios.get("http://localhost:3001/service/getpublishedadcount").then((response) => {
 			
 			
-			// setx(response.data[0].count);
-			// sety(response.data[1].count);
-			// setz(response.data[2].count);
-			// console.log(x);
-			// console.log(response.data[0].count);
+			setx(response.data[0].count);
+			sety(response.data[1].count);
+			setz(response.data[2].count);
+			
 
 			
 		  });

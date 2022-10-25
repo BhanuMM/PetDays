@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds} = require("../models");
+const { Medicines ,Dietplans, Vitamins , Vaccines, Petcatagories ,Breeds,Forumposts} = require("../models");
 const vitamins = require('../models/vitamins');
 // const breeds = require('../models/breeds');
 
@@ -139,12 +139,13 @@ router.get("/getdietplans", async (req, res) => {
       include: { 
         model:Breeds ,
          required: true,
-         include: [{model: Petcatagories  , required: true }]
+         include: {model: Petcatagories  , required: true } 
         },
         
     }
+    );
 
-  );
+  
   res.json(listOfDietplans);
 });
 
@@ -168,6 +169,13 @@ router.get("/getvaccines/:id", async (req, res) => {
   
 });
 
+router.get("/getdietplans/:id", async (req, res) => {
+  const id = req.params.id;
+  const SingleDiet = await Dietplans.findByPk(id);
+  res.json(SingleDiet);
+  
+});
+
 // router.get("/getdietplans/:id", async (req, res) => {
 //   const id = req.params.id;
 //   const SingleDietplan = await Dietplans.findByPk(id);
@@ -180,6 +188,9 @@ router.get("/getvaccines/:id", async (req, res) => {
   // res.json(SingleMed);
 // });
 
+
+
+
 router.get("/getverifyposts", async (req, res) => {
   const listOfverifyposts = await Forumposts.findAll(
     // {
@@ -191,6 +202,32 @@ router.get("/getverifyposts", async (req, res) => {
   );
   res.json(listOfverifyposts);
 });
+
+//DISPLAY VERIFIED POST COUNT
+router.get("/getverifiedpostcount", async (req, res) => {
+  const verifiedpostcount = await Forumposts.count(
+    {
+      where: { postStatus: "verified" },
+    }
+  );
+  console.log(verifiedpostcount);
+  res.json(verifiedpostcount);
+});
+
+//DISPLAY TOTAL MEDICINE COUNT
+router.get("/getverifiedadcount", async (req, res) => {
+  const medicinecount = await Medicines.count();
+  console.log(medicinecount);
+  res.json(medicinecount);
+});
+
+//DISPLAY TOTAL DIET COUNT
+router.get("/getdietcount", async (req, res) => {
+  const dietcount = await Dietplans.count();
+  console.log(dietcount);
+  res.json(dietcount);
+});
+
 
 router.get("/getpendingposts", async (req, res) => {
   const listOfpendingposts = await Forumposts.findAll(
@@ -235,12 +272,14 @@ router.post("/updatevaccine", async (req, res) => {
 
 router.post("/updatediet", async (req, res) => {
   
-  const { dietplanID,planName, planDescr, ageRangeFrom, ageRangeTo,weightRangeFrom,weightRangeTo,breedId,catId } = req.body;
+  const { dietplanID,planName, planDescr, ageRangeFrom, ageRangeTo,weightRangeFrom,weightRangeTo,breedId,catId} = req.body;
 
-  await Dietplans.update({planName :planName ,planDescr :planDescr,ageRangeFrom :ageRangeFrom, ageRangeTo:ageRangeTo,weightRangeFrom :weightRangeFrom, weightRangeTo:weightRangeTo, breedId:breedId,catId:catId} ,{ where: { dietplanID: dietplanID}} );
- 
+  await Dietplans.update({planName :planName ,planDescr :planDescr,ageRangeFrom :ageRangeFrom, ageRangeTo:ageRangeTo,weightRangeFrom :weightRangeFrom, weightRangeTo:weightRangeTo,breedId:breedId,catId:catId} ,{ where: {dietplanID:dietplanID }} );
+ console.log(req);
   res.json("SUCCESS"); 
 });
+
+
 
 
 

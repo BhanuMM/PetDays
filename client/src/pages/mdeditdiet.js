@@ -44,6 +44,9 @@ function mdeditdogdiet() {
 		ageRangeTo: SingleDietplan.ageRangeTo,
 		weightRangeFrom: SingleDietplan.weightRangeFrom,
 		weightRangeTo: SingleDietplan.weightRangeTo,
+		breedId: SingleDietplan.breedId,
+		catId: SingleDietplan.catId,
+
 	};
 	const Schema = Yup.object().shape({
 		planName:  Yup.string()
@@ -85,7 +88,7 @@ function mdeditdogdiet() {
 				if (response.data.error) {
 					alert(response.data.error);
 				} else {
-					// console.log(data)
+					console.log(data)
 					navigate("/mddogdiet");
 				}
 			});
@@ -223,7 +226,7 @@ function mdeditdogdiet() {
 											<div className="col">
                              				 <ErrorMessage name="breedId" className="errormesage" component="span" />
                             				</div>
-												<Field as="select" name="breedId" className="form-select">
+												<Field as="select" name="breedName" className="form-select">
 													<option value="0">select breed</option>
 													<option value="1">german shephard</option>
 													<option value="2">lion shephard</option>
@@ -243,12 +246,12 @@ function mdeditdogdiet() {
 						<div className="row">
 												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
-													<button
+												<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
 														style={{ backgroundColor: "#F66B0E" }}
 													>
-														Update Medicine
+														Update Diet Plan
 													</button>
 												</div>
 											</div>

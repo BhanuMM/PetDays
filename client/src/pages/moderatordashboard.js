@@ -3,8 +3,35 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Moderatorsidebar from "../components/moderatorsidebar";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function moderatordashboard() {
+	const [Verifiedadcount, setVerifiedadcount] = useState([]);
+	const [Medicinecount, setMedicinecount] = useState([]);
+	const [Dietcount, setDietcount] = useState([]);
+	const [Verifiedpostcount, setVerifiedpostcount] = useState([]);
+  const location = useLocation();
+	// let history = useHistory();
+	useEffect(() => {
+		axios
+		  .get("http://localhost:3001/service/getverifiedadcount")
+		  .then((response) => {
+			setVerifiedadcount(response.data);
+		  });
+		  axios.get("http://localhost:3001/mod/getverifiedadcount").then((response) => {
+			setMedicinecount(response.data);
+			});
+			axios.get("http://localhost:3001/mod/getdietcount").then((response) => {
+				setDietcount(response.data);
+				});
+			axios.get("http://localhost:3001/mod//getverifiedpostcount").then((response) => {
+				setVerifiedpostcount(response.data);
+				});
+	  }, []);
+
+	const navigate = useNavigate();
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -48,7 +75,7 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Verified Posts
 													</span>
-													<span class="h3 font-bold mb-0">50</span>
+													<span class="h3 font-bold mb-0">{Verifiedpostcount}</span>
 												</div>
 												<div class="col-auto"  style={{paddingLeft:110}}>
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -68,7 +95,7 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 													Verified Ads
 													</span>
-													<span class="h3 font-bold mb-0">90</span>
+													<span class="h3 font-bold mb-0">{Verifiedadcount}</span>
 												</div>
 												<div class="col-auto"  style={{paddingLeft:120}}>
 													<div class="icon icon-shape  bg-primary text-white text-lg rounded-circle">
@@ -88,7 +115,7 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Diets
 													</span>
-													<span class="h3 font-bold mb-0">200</span>
+													<span class="h3 font-bold mb-0">{Dietcount}</span>
 												</div>
 												<div class="col-auto"  style={{paddingLeft:150}}>
 													<div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -108,7 +135,7 @@ function moderatordashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Total Medications
 													</span>
-													<span class="h3 font-bold mb-0">400</span>
+													<span class="h3 font-bold mb-0">{Medicinecount}</span>
 												</div>
 												<div class="col-auto"  style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
