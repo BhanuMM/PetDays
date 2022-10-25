@@ -8,6 +8,7 @@ import signin from "../images/login.png";
 import Bgimage from "../images/bkimage.jpg";
 import name from "../images/name.png";
 import "../styles/register.css";
+import Swal from "sweetalert2";
 
 function register() {
   const initialValues = {
@@ -21,7 +22,7 @@ function register() {
     email: Yup.string().email("Not a proper email address"),
     password: Yup.string()
       .min(5)
-      .max(12)
+      .max(20)
       .required("This field is required")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
@@ -41,7 +42,12 @@ function register() {
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/auth/sellerregister", data).then((response) => {
       if (response.data.error) {
-        alert(response.data.error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.error,
+          
+          })
       } else {
         navigate("/verifyemail");
       }
@@ -134,7 +140,7 @@ function register() {
                                 />
                               </div>
                               <div id="passwordHelpBlock" class="form-text infotext">
-                                Your password must be 5-12 characters long, must
+                                Your password must be 5-20 characters long, must
                                 contain Uppercase and Lowercase letters ,numbers
                                 and Special Case characters.
                               </div>

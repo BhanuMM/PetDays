@@ -8,6 +8,7 @@ import signin from "../images/login.png";
 import Bgimage from "../images/bkimage.jpg";
 import name from "../images/name.png";
 import "../styles/login.css";
+import Swal from "sweetalert2";
 
 function login() {
   // const { setAuthState } = useContext(AuthContext);
@@ -28,7 +29,12 @@ function login() {
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
       if (response.data.error) {
-        alert(response.data.error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.error,
+          
+          })
       } else {
         localStorage.setItem('accessToken', response.data.token);
         setAuthState({

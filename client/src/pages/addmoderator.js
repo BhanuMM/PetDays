@@ -7,17 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 
 
 function addmoderator() {
 	const initialValues = {
 		username: "",
-		email: "",
-		password: "",
+		modemail: "",
 	};
 
 	const Schema = Yup.object().shape({
-		email: Yup.string()
+		modemail: Yup.string()
 			.email("Not a proper email address")
 			.required("Please enter email"),
 
@@ -30,15 +30,43 @@ function addmoderator() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/admin/addmoderator", data)
-			.then((response) => {
+		Swal.fire({
+			title: '',
+			html: '',
+			timer: 2000,
+			timerProgressBar: true,
+			didOpen: () => {
+			  Swal.showLoading()
+			  // const b = Swal.getHtmlContainer().querySelector('b')
+			  // timerInterval = setInterval(() => {
+			  //   b.textContent = Swal.getTimerLeft()
+			  // }, 100)
+			},
+			willClose: () => {
+			  clearInterval(timerInterval)
+			}
+		  }).then((result) => {
+			/* Read more about handling dismissals below */
+			if (result.dismiss === Swal.DismissReason.timer) {
+			  console.log('I was closed by the timer')
+			}
+		  })
+		axios.post("http://localhost:3001/admin/addmoderator", data).then((response) => {
 				if (response.data.error) {
-					alert(response.data.error);
+					// alert(response.data.error);
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: response.data.error,
+						
+					  })
 				} else {
+					
 					navigate("/viewmoderators");
 				}
 			});
+			let timerInterval
+
 	};
 	return (
 		<div class="container-fluid">
@@ -52,7 +80,7 @@ function addmoderator() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Add Moderators</h1>
+										<h1 class="h2 mb-0 ls-tight">Add New Moderator</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -105,46 +133,27 @@ function addmoderator() {
 													/>
 												</div>
 											</div>
-
 											<div class="row g-3">
 												<div class="col-8">
-													<label className="form-label">E-mail</label>
+													<label className="form-label">Username</label>
 													<div className="col">
 														<ErrorMessage
-															name="email"
+															name="modemail"
 															className="errormesage"
 															component="span"
 														/>
 													</div>
 													<Field
 														className="form-control"
-														id="email"
+														id="modemail"
 														autocomplete="off"
-														name="email"
+														name="modemail"
 														placeholder=""
 													/>
 												</div>
 											</div>
-											<div class="col-8">
-												<label className="form-label">Password</label>
-												<div className="col">
-													<ErrorMessage
-														name="password"
-														className="errormesage"
-														component="span"
-													/>
-												</div>
-												<Field
-													className="form-control"
-													id="password"
-													autocomplete="off"
-													name="password"
-													placeholder=""
-												/>
-											</div>
-
+											
 											<div className="row">
-												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
 													<button
 														className="register.loginbuttonsize btn btn-success "

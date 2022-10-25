@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import '../styles/nav.css';
 import '../styles/footer.css';
 import Signinimage from '../images/signin.png';
+import Swal from "sweetalert2";
 
 
 function signin() {
@@ -27,7 +28,12 @@ function signin() {
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
       alert(response.data.username);
       if (response.data.error) {
-        alert(response.data.error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.error,
+          
+          })
       } else {
         console.log(response.data.username);
         alert(response.data.username);
