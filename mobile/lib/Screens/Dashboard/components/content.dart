@@ -27,6 +27,8 @@ class DashboardContent extends StatefulWidget {
 
 class _DashboardContentState extends State<DashboardContent> {
 
+  String search = '';
+
   final getPetRoute = '/user/getpets';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -206,6 +208,12 @@ class _DashboardContentState extends State<DashboardContent> {
                     border: InputBorder.none,
                     hintText: "Search your pets"
                   ),
+                  onChanged: (value) {
+                   setState(() {
+                     search = value;
+                   });
+                   print(search);
+                  },
                 ),
               ),
             ),
@@ -266,7 +274,7 @@ class _DashboardContentState extends State<DashboardContent> {
                   itemCount: pets.length,
                   itemBuilder: (BuildContext context, int index) {
                     print(pets[index]);
-                    return Container(
+                    if(search == '') return Container(
                         child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
                             pets[index]['petName'],
                             pets[index]['DOB'] ,
@@ -280,6 +288,22 @@ class _DashboardContentState extends State<DashboardContent> {
                         ),
                             img: pets[index]['profileImage'])
                     );
+                    else if(pets[index]['petName'].toString().toLowerCase().contains(search.toLowerCase()) ){
+                      return Container(
+                          child: PetDashboardItemCard(label: pets[index]['petName'], ado: PetDashboard(new Pet.frompets(
+                            pets[index]['petName'],
+                            pets[index]['DOB'] ,
+                            pets[index]['weight'],
+                            pets[index]['breedid'].toString() ,
+                            pets[index]['UserID'].toString() ,
+                            pets[index]['catID'].toString(),
+                            pets[index]['profileImage'],
+                            pets[index]['petID'].toString(),
+                          )
+                          ),
+                              img: pets[index]['profileImage'])
+                      );
+                    } else return Container();
                   }
               )
               )
