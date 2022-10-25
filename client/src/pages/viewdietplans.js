@@ -144,15 +144,6 @@ function viewdietplans() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right">
-										<a href="\mdadddogdiet" className="header-topic">
-											<Button
-												variant="contained"
-												component="label"
-												style={{ backgroundColor: "#F66B0E" }}
-											>
-												Add Diet Plan
-											</Button>
-										</a>
 										<br />
 										<br />
 										<p class="fw-semibold " style={{ paddingRight: 40 }}>

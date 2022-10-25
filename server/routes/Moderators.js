@@ -245,7 +245,6 @@ router.get("/getpendingposts", async (req, res) => {
     {
       where: {
         postStatus: "pending",
-        userId:"1",
       },
     }
   );
@@ -290,7 +289,12 @@ router.post("/updatediet", async (req, res) => {
   res.json("SUCCESS"); 
 });
 
-
+router.post("/changestatus", async (req, res) => { 
+  const { id } = req.body;
+  await Forumposts.update({postStatus: "approved" } ,{ where: { postId: id }} );
+ 
+  res.json("SUCCESS"); 
+});
 
 
 
