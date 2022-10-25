@@ -80,7 +80,7 @@ router.post("/addpet", async (req, res) => {
         postStatus: "pending",
         postDate : year + "-" + month + "-" + date,
         postTime : hours + ":" + minutes,
-        userId: userId,
+        userId: "1",
         pcatId: pcatID,
     });
     if(forumposts){

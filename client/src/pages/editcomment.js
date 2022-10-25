@@ -7,21 +7,23 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 function editcomment() {
-    const [listOfComment, setlistOfComment] = useState([]);
 	const location = useLocation();
+    const [listOfComment, setlistOfComment] = useState([]);
+	
+	
 
+	console.log("http://localhost:3001/forum/getsinglecomment/"+location.state);
 	useEffect(() => {
-		axios
-			.get("http://localhost:3001/forum/getsinglecomment/" + location.state)
+		axios.get("http://localhost:3001/forum/getsinglecomment/"+location.state)
 			.then((response) => {
-				setlistOfComment(response.data);
+				setlistOfComment(response.data[0]);
 			});
 	}, []);
 
 	const navigate = useNavigate();
 
 	const initialValues = {
-		postId: listOfComment.postId,
+		commentId: listOfComment.id,
 		commentBody: listOfComment.commentBody,
 	};
 
@@ -32,8 +34,8 @@ function editcomment() {
 	});
 
 	const onSubmit = (data) => {
-		axios
-			.post("http://localhost:3001/forum/updatecomment", data)
+		alert(data);
+		axios.post("http://localhost:3001/forum/updatecomment", data)
 			.then((response) => {
 				if (response.data.error) {
 					alert(response.data.error);
@@ -49,6 +51,7 @@ function editcomment() {
 				<div className="">
 					<Navbar />
 				</div>
+				
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto pt-8" >
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid pt-6" >
@@ -78,6 +81,14 @@ function editcomment() {
 												name="commentBody"
 												
 											/>
+											<Field
+												className="form-control"
+												id="commentId"
+												type="hidden"
+												autocomplete="off"
+												name="commentId"
+												
+											/>
 											
 											<div className="row">
 												<div className="col-9"></div>
@@ -94,6 +105,7 @@ function editcomment() {
 										</Form>
 									</Formik>
 								</div>
+								
 							</div>
 						</div>
 					</main>

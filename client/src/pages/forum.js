@@ -12,12 +12,41 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function forum() {
+	const [authState, setAuthState] = useState({
+        username: "",
+        id: 0,
+        role : "",
+        status: false,
+      });
+    
+      useEffect(() => {
+        axios
+          .get("http://localhost:3001/auth/authuser", {
+            headers: {
+              accessToken: localStorage.getItem("accessToken"),
+            },
+          })
+          .then((response) => {
+            if (response.data.error) {
+              setAuthState({ ...authState, status: false });
+            } else {
+              setAuthState({
+                username: response.data.username,
+                id: response.data.id,
+                role: response.data.role,
+                status: true,
+              });
+            }
+          });
+      }, []);
+
 	const [searchTerm, setSearchTerm] = useState([]);
 	const location = useLocation();
 	const initialValues = {
 		postTitle: "",
 		postDescr: "",
-		pcatId: "",
+		pcatID: "1",
+		userId: authState.id
 	};
 
 	const navigate = useNavigate();
@@ -229,7 +258,7 @@ function forum() {
 								</button>
 							</div>
 							<div class="modal-body">
-								<Formik initialValues={initialValues} onSubmit={onSubmit}>
+								<Formik initialValues={initialValues} enableReinitialize={true} onSubmit={onSubmit}>
 									<Form>
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">
@@ -249,6 +278,13 @@ function forum() {
 											</label>
 											<Field
 												className="form-control"
+												type="hidden"
+												id="userId"
+												autocomplete="off"
+												name="userId"
+											/>
+											<Field
+												className="form-control"
 												id="postDescr"
 												autocomplete="off"
 												name="postDescr"
@@ -259,7 +295,7 @@ function forum() {
 											<label for="message-text" className="col-form-label">
 												Pet category
 											</label>
-											<Field as="select" name="pcatId" className="form-select">
+											<Field as="select" name="pcatID" className="form-select">
 												<option value="1">dogs </option>
 												<option value="2">cats</option>
 											</Field>
