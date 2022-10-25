@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 const { Petcatagories, Breeds, Moderators, Users } = require("../models");
 var us = require("./Auth");
 const bcrypt = require("bcrypt");
+
+const { sendmodConfirmationEmail } = require('../mailer');
+
 router.use(bodyParser.json());
 
 router.post("/addcategory", async (req, res) => {
@@ -38,20 +41,38 @@ router.post("/addbreed", async (req, res) => {
 	}
 });
 router.post("/addmoderator", async (req, res) => {
-	const { email, username, password } = req.body;
-	const chckq = Users.create({
+
+	const {username , modemail} = req.body;
+	const role = "moderator";
+	const epassword ="Petdays123"
+
+	// Users.create({
+	// 	username: username,
+	// 	email: modemail,
+	// 	password: epassword,
+	// 	userrole : role,
+	// 	isverified : "no"
+	//   });
+	const usemail =await Users.findOne({ where: { email: modemail } });
+	const uname =await Users.findOne({ where: { username: username} });
+  
+	if (usemail)
+	{res.json({ error: "Email is already registered" });} 
+	else if (uname)
+	 {res.json({ error: "Username is already taken" });}
+	else{
+	  await sendmodConfirmationEmail({hash: username , usermodemail:modemail})
+	bcrypt.hash(epassword, 10).then((hash) => {
+	  Users.create({
 		username: username,
-		email: email,
-		password: password,
-		userrole: "moderator",
-		isverified: "yes",
+		email: modemail,
+		password: hash,
+		userrole : role,
+		isverified : "no"
+	  });
+	  res.json("SUCCESS");
 	});
-	// const role = "moderator";
-	// const chck2 = us.registerUser(req, res, role);
-	if (chckq) {
-		res.json("Mod SUCCESS");
-	} else {
-		res.json("Not SUCCESS");
+
 	}
 });
 
@@ -142,14 +163,14 @@ router.delete("/deletebreed/:breedID", async (req, res) => {
 	res.json("DELETED SUCCESSFULLY");
 });
 
-router.delete("/deletemoderator/:userID", async (req, res) => {
+router.post("/deletemoderator/:userID", async (req, res) => {
 	const userID = req.params.userID;
 
-	await Users.destroy({
-		where: {
-			userID: userID,
-		},
-	});
+	await Users.update(
+		{ isverified: "deleted" },
+		{ where: { userID: userID } }
+		
+	);
 	res.json("DELETED SUCCESSFULLY");
 });
 

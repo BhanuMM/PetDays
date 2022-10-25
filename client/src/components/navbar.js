@@ -69,6 +69,22 @@ function navbar() {
            </li>
                 </>
               )}
+               {authState.status && authState.role=="admin" && (
+                <>
+                  <li className="nav-item active">
+                  
+                  <a className="nav-link" href="admindashboard"><h4>My Account</h4></a>
+           </li>
+                </>
+              )}
+               {authState.status && authState.role=="moderator" && (
+                <>
+                  <li className="nav-item active">
+                  
+                  <a className="nav-link" href="moderatordashboard"><h4>My Account</h4></a>
+           </li>
+                </>
+              )}
               
             
                 {authState.status && (

@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import '../styles/nav.css';
 import '../styles/footer.css';
 import Signupimage from '../images/signup.png';
+import Swal from "sweetalert2";
 
 function signup() {
 
@@ -19,7 +20,7 @@ function signup() {
 
   const Schema = Yup.object().shape({
     email: Yup.string().email('Not a proper email address'),
-    password: Yup.string().min(5).max(12).required("This field is required").matches(
+    password: Yup.string().min(5).max(20).required("This field is required").matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
       "Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character"
     ),
@@ -37,7 +38,12 @@ function signup() {
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/auth/register", data).then((response) => {
       if (response.data.error) {
-        alert(response.data.error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.error,
+          
+          })
       } else {
         navigate('/verifyemail');
       }
@@ -109,7 +115,7 @@ function signup() {
                 />
                   </div>
                   <div id="passwordHelpBlock" class="form-text">
-                    Your password must be 5-12 characters long, must contain Uppercase and Lowercase letters ,numbers and Special Case characters.
+                    Your password must be 5-20 characters long, must contain Uppercase and Lowercase letters ,numbers and Special Case characters.
                     </div>
                   {/* <div class="col">
                             <input type="text" className="form-control" placeholder="Confirm Password" aria-label="Last name"/>

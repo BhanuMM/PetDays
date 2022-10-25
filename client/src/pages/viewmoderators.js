@@ -178,7 +178,7 @@ function viewmoderators() {
 																						}).then((result) => {
 																							if (result.isConfirmed) {
 																								axios
-																									.delete(
+																									.post(
 																										"http://localhost:3001/admin/deletemoderator/" +
 																											value.userID
 																									)
