@@ -77,7 +77,7 @@ function mdsinglevitamin() {
 												Add Vitamin
 											</Button>
 										</a>
-										<div class="input-group" style={{ width: 575 }}>
+										{/* <div class="input-group" style={{ width: 575 }}>
 											<input
 												type="search"
 												class="form-control rounded"
@@ -100,6 +100,26 @@ function mdsinglevitamin() {
 											>
 												Search
 											</button>
+										</div> */}
+										<div class="" style={{ width: 575, display:"flex" ,paddingLeft:50}}>
+										<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10,width:200 }}
+											>
+												Search Vitamin
+											</p>
+											<input
+												type="search"
+												class="form-control rounded input-group"
+												placeholder="Search Vitamin"
+												aria-label="Search"
+												aria-describedby="search-addon"
+												style={{ height: 40 }}
+												onChange = {(event) => {
+													setSearchTerm(event.target.value);
+												}}
+											/>
+											
 										</div>
 									</div>
 									<br />

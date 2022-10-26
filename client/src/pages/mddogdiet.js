@@ -155,8 +155,7 @@ function mddogdiet() {
                           }}
                         >
                           <option value="All">All</option>
-                          {/* <option value="Dog">Dog</option>
-                          <option value="Cat">Cat</option> */}
+                          
                           {listOfCatagories.map((value, key) =>  {
                             return(
                               <option value={value.pcatID}>{value.pcatName}</option>
@@ -189,11 +188,11 @@ function mddogdiet() {
                         </select>
                       </p>
                       <div
-										style={{ width: 575, float: "right" ,display:"flex",paddingTop:10,paddingLeft:100}}
+										style={{  width: 575, float: "right" ,display:"flex",paddingTop:10,paddingLeft:100}}
 									>
                       <p
 											class="fw-semibold "
-											style={{ paddingRight: 10, paddingTop: 10,width:300}}
+											style={{ paddingRight: 10, paddingTop: 10,width:500 }}
 										>
 											Search Diet Plans
 										</p>
@@ -226,11 +225,11 @@ function mddogdiet() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Diet Plan ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Pet Category</strong>
@@ -268,7 +267,7 @@ function mddogdiet() {
 													{filterItems.map((value, key) => {
 														return (
 															<tr>
-																<td>{value.dietplanID}</td>
+																{/* <td>{value.dietplanID}</td> */}
 																<td>{value.Breed.Petcatagory.pcatName}</td>
 																<td>{value.planName}</td>
 																<td>{value.planDescr}</td>

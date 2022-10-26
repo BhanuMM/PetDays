@@ -159,7 +159,7 @@ function addmoderator() {
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{backgroundColor: "#205375", borderColor:"#205375"}}>
+														style={{backgroundColor: "#205375", borderColor:"#205375",width: 250,float: "right"}}>
 														Add Moderator
 													</button>
 												</div>

@@ -75,7 +75,7 @@ function forum() {
 			<br />
 			<br />
 			<br />
-			<br />
+			<br /><br />
 			<div className="container">
 				<div className="container-fluid forum">
 					<div className="row mt-3">
@@ -83,7 +83,7 @@ function forum() {
 							<main class="py-6 bg-surface-secondary">
 								<div class="container-fluid">
 									<div class="row g-6 mb-6">
-										<div style={{ paddingLeft: 20 }}>
+										<div>
 											<div style={{ paddingLeft: 950 }}>
 												<Button
 													variant="contained"
@@ -98,9 +98,9 @@ function forum() {
 											<br />
 											<br />
 
-											<div class="search-line" style={{ display: "flex" }}>
-												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:15 }}>
-													Filtery by :
+											<div class="search-line" style={{ display: "flex",paddingLeft:100}}>
+												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:20 }}>
+													Filter by :
 												</p>
 
 												<p class="fw-semibold ">
@@ -142,19 +142,18 @@ function forum() {
 
 												<div
 													
-													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
+													style={{ width: 690, float: "right",display:"flex",paddingTop:10,paddingLeft:100}}
 												>
 													<p
 														class="fw-semibold "
-														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
+														style={{ paddingRight: 10, paddingTop: 10,width:300 }}
 													>
-														Search Forum posts
+														Search Forum Posts
 													</p>
 													<input
 														type="search"
-														
 														class="form-control rounded input-group"
-														placeholder="Enter Forum posts"
+														placeholder="Enter Forum Posts"
 														aria-label="Search"
 														aria-describedby="search-addon"
 														style={{ height: 40 }}
@@ -201,11 +200,6 @@ function forum() {
 																		class="comment"
 																		style={{ paddingRight: 50, display:"flex", float:"right"}}
 																	>
-																		<p class="fw-semibold fs-7" style={{ paddingRight: 50,paddingTop:5}}>
-																			
-																				Comments
-																		
-																		</p>
 																		<Button
 																			variant="contained"
 																			component="label"
@@ -216,7 +210,7 @@ function forum() {
 																				});
 																			}}
 																		>
-																			View
+																			View Comments
 																		</Button>
 																	</div>
 																</div>

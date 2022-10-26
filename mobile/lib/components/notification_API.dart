@@ -7,7 +7,7 @@ class NotificationAPI{
   @override
   void initState() {
     print("objecsadft");
-    initTx();
+
     var initializationSettingsAndroid = AndroidInitializationSettings('app_icon'); // <- default icon name is @mipmap/ic_launcher
     var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
     _notifications.initialize(initializationSettings);
@@ -43,7 +43,7 @@ class NotificationAPI{
     );
   }
   static Future scheduleNotificationInit(int i,String? title, String? body,DateTime date) async{
-
+    initTx();
     scheduleNotificaton(
       id: i,
       title: title,

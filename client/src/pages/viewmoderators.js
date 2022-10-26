@@ -103,11 +103,11 @@ function viewmoderators() {
 											<table class="table table-striped table-bordered table-list responsive text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Moderator ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Moderator Name</strong>
@@ -142,7 +142,7 @@ function viewmoderators() {
 														.map((value, key) => {
 															return (
 																<tr>
-																	<td class="hidden-xs">{value.userID}</td>
+																	{/* <td class="hidden-xs">{value.userID}</td> */}
 																	<td>{value.username}</td>
 																	<td>{value.email}</td>
 																	<td class="text-end" >

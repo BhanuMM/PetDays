@@ -89,7 +89,7 @@ function mdsinglemed() {
 											<input
 												type="search"
 												class="form-control rounded input-group"
-												placeholder="Enter Medicine Name"
+												placeholder="Search Medicine"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
@@ -113,11 +113,11 @@ function mdsinglemed() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Medicine ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Medicine Name</strong>
@@ -147,7 +147,7 @@ function mdsinglemed() {
 														.map((value, key) => {
 															return (
 																<tr>
-																	<td>{value.medID}</td>
+																	{/* <td>{value.medID}</td> */}
 																	<td>{value.medName}</td>
 																	<td>{value.descr}</td>
 
