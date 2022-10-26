@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardMedia, Grid, Container } from "@mui/material";
 import Moderatorsidebar from "../components/moderatorsidebar";
 
-function mdnewverifyposts() {
+function mdnewrejectedposts() {
 	const [listOfverifyposts, setlistOfverifyposts] = useState([]);
 	const [searchTerm, setSearchTerm] = useState([]);
 	// let history = useHistory();
@@ -22,7 +22,7 @@ function mdnewverifyposts() {
 	const navigate = useNavigate();
 
 	return (
-		<div className="container-fluid">
+		<div>
 			<div className="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div classNameName="">
 					<Moderatorsidebar />
@@ -33,7 +33,7 @@ function mdnewverifyposts() {
 							<div className="mb-npx">
 								<div className="row align-items-center">
 									<div className="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 className="h2 mb-0 ls-tight">Verified Forum Posts</h1>
+										<h1 className="h2 mb-0 ls-tight">Rejected Forum Posts</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol className="breadcrumb">
@@ -45,10 +45,10 @@ function mdnewverifyposts() {
 														Moderator Dashboard/
 													</a>
 													<a
-														href="/mdnewverifyposts"
+														href="/mdrejectedposts"
 														classNameName="header-topic"
 													>
-														Verified Posts
+														Rejected Posts
 													</a>
 												</li>
 											</ol>
@@ -64,74 +64,23 @@ function mdnewverifyposts() {
 						<div className="container-fluid">
 							<div className="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<p className="fw-semibold " style={{ paddingRight: 40 }}>
-										Filtery by :
-									</p>
+									
 									<div className="search-line" style={{ display: "flex" }}>
-										<p className="fw-semibold ">
-											<div
-												className="dropdown"
-												style={{ paddingRight: 40, paddingLeft: 20 }}
-											>
-												<button
-													className="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 200,
-														borderColor: "#205375",
-													}}
-												>
-													Recently Published
-												</button>
-												<div
-													className="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a className="dropdown-item" href="#">
-														Recent Week
-													</a>
-													<a className="dropdown-item" href="#">
-														Last Month
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<div className="dropdown" style={{ paddingRight: 40 }}>
-											<button
-												className="btn btn-dark"
-												type="button"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													width: 150,
-													borderColor: "#205375",
-												}}
-											>
-												Filter
-											</button>
-										</div>
-
+										
 										<div
-											className="input-group"
-											style={{ width: 575, marginLeft: 270 }}
+											
+											style={{ width: 575, marginLeft: 270 , display: "flex",paddingLeft: 100 }}
 										>
 											<p
 												class="fw-semibold "
-												style={{ paddingRight: 10, paddingTop: 10 }}
+												style={{ paddingRight: 10, paddingTop: 10,width:200}}
 											>
 												Search Posts
 											</p>
 											<input
 												type="search"
-												class="form-control rounded"
-												placeholder="Enter Posts"
+												class="form-control rounded input-group"
+												placeholder="Search Posts"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
@@ -140,7 +89,7 @@ function mdnewverifyposts() {
 												}}
 											/>
 										</div>
-									</div>
+									</div><br/>
 									{listOfverifyposts
 										.filter((val) => {
 											if (searchTerm == "") {
@@ -155,19 +104,19 @@ function mdnewverifyposts() {
 										})
 										.map((value, key) => {
 											return (
-												<CardContent>
+												<div style={{paddingLeft:160 }}>
 													<Card
-														sx={{ minWidth: 250, maxWidth: 1500 }}
-														style={{ padding: 10, paddingLeft: 25 }}
+														sx={{ minWidth: 250, maxWidth: 1000 }}
+														style={{ padding: 10, paddingLeft: 100 }}
 													>
 														<div className="card-body">
 															<div className="content">
 																<div>
-																	<p className="fw-semibold fs-7">
+																	<p className="fw-semibold fs-7" style={{ fontSize:20}}>
 																		{value.postTitle}
 																	</p>
-																	<p className="font-italic text-success fs-7">
-																		{value.postDate}
+																	<p className="font-italic text-danger fs-7">
+																		Posted Date : {value.postDate}
 																	</p>
 																</div>
 																<div>{value.postDescr}</div>
@@ -186,8 +135,8 @@ function mdnewverifyposts() {
 																</div> */}
 															</div>
 														</div>
-													</Card>
-												</CardContent>
+													</Card><br/>
+												</div>
 											);
 										})}
 								</div>
@@ -200,4 +149,4 @@ function mdnewverifyposts() {
 	);
 }
 
-export default mdnewverifyposts;
+export default mdnewrejectedposts;

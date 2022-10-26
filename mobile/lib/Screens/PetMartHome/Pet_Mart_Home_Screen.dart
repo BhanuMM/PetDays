@@ -17,11 +17,6 @@ class PetMartHome extends StatelessWidget {
 
         child:Scaffold(
           body:SingleChildScrollView(
-
-            child: ConstrainedBox(
-                constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height *2-800,
-            ),
             child:Column(
             children: const [
               petMartTopBanner(),
@@ -35,8 +30,7 @@ class PetMartHome extends StatelessWidget {
           ),
 
         ),
-        ),
-            bottomNavigationBar: BottomNav(1),
+          bottomNavigationBar: BottomNav(1),
 
     )
     );

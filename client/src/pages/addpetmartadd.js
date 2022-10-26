@@ -75,7 +75,7 @@ function addpetmartadd() {
       .required("Please enter title"),
 
       adPrice: Yup.string()
-      .matches(/^[0-9]$/,"please enter valied price"),
+      .matches(/^[0-9]*$/,"please enter valied price"),
 
       adImage : "",
 
@@ -179,7 +179,7 @@ function addpetmartadd() {
           <main class="py-6 bg-surface-secondary">
             <div class="container-fluid">
               <h1 class="h2 mb-0 ls-tight">Post New Advertisment</h1>
-              <h5 class="h5 mb-0 ls-tight" style={{color:'gray'}}>( 1000LKR ($2.73) for post an Advertiesment )</h5>
+             
               
               <nav aria-label="breadcrumb">
 										<ol class="breadcrumb pt-3">
