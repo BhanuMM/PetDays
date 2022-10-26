@@ -141,13 +141,16 @@ class PetMartHomeContent extends StatelessWidget {
                       padding:EdgeInsets.only(left: 18),
                       child: Container(
                         width: MediaQuery.of(context).size.width-120,
-                        child: Expanded(
-                          child: Text("Similar services in the Catagory",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                        child: Flex(
+                          direction: Axis.vertical,
+                          children: [
+                            Text("Similar services in the Catagory",
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                          ]
                         ),
                       ),
                     )
