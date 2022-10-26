@@ -52,7 +52,7 @@ function editcomment() {
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid pt-6">
 							<div class="row g-6 mb-6">
-								<div className="col-6" style={{ paddingLeft: 20, paddingTop: 100 }}>
+								<div className="col-9" style={{ paddingLeft: 500, paddingTop: 100 }}>
 									<Formik
 										enableReinitialize={true}
 										initialValues={initialValues}
@@ -61,7 +61,7 @@ function editcomment() {
 										<Form>
 											<br />
 											<br />
-											<label className="form-label">Edit a comment</label>
+											<label className="form-label">Edit Your Comment here ! </label>
 											<div className="col">
 												<ErrorMessage
 													name="medName"
@@ -89,7 +89,7 @@ function editcomment() {
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E" }}
+														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E",width:200 }}
 													>
 														Update Comment
 													</button>

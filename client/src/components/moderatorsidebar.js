@@ -201,8 +201,8 @@ function moderatorsidebar() {
 													</a>
 												</div>
 												<div class="panel-body">
-													<a class="nav-link" href="/mdverifyads" style={{paddingLeft:70}}>
-														Verified Advertisments
+													<a class="nav-link" href="/mdrejectedads" style={{paddingLeft:70}}>
+														Rejected Advertisments
 													</a>
 												</div>
 											</div>

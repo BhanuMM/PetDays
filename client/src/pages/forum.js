@@ -99,7 +99,7 @@ function forum() {
 											<br />
 
 											<div class="search-line" style={{ display: "flex",paddingLeft:100}}>
-												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:20 }}>
+												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:10 }}>
 													Filter by :
 												</p>
 
