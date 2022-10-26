@@ -12,107 +12,75 @@ import { useNavigate } from "react-router-dom";
 
 function mddogdiet() {
 	// const [searchTerm, setSearchTerm] = useState([]);
-  const [filterItems, setFilterItems] = useState([]);
-  const [listOfDietplans, setListOfDietplans] = useState([]);
-  const [listOfCatagories, setListOfCatagories] = useState([]);
-  const [listOfBreeds, setListOfBreeds] = useState([]);
-  // const [catName, setCatName] = useState('All');
-  // const [breedName, setBreedName] = useState('All');
-  var catName = 'All';
-  var breedName = 'All';
-  
+	const [filterItems, setFilterItems] = useState([]);
+	const [listOfDietplans, setListOfDietplans] = useState([]);
+	const [listOfCatagories, setListOfCatagories] = useState([]);
+	const [listOfBreeds, setListOfBreeds] = useState([]);
+	// const [catName, setCatName] = useState('All');
+	// const [breedName, setBreedName] = useState('All');
+	var catName = "All";
+	var breedName = "All";
 
-  // let history = useHistory();
+	// let history = useHistory();
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
-	    setListOfDietplans(response.data);
-      setFilterItems(response.data);
-    });
-    axios.get("http://localhost:3001/admin/getpetcategories").then((response) => {
-      setListOfCatagories(response.data);
-      });
-  }, []);
+	useEffect(() => {
+		axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
+			setListOfDietplans(response.data);
+			setFilterItems(response.data);
+		});
+		axios
+			.get("http://localhost:3001/admin/getpetcategories")
+			.then((response) => {
+				setListOfCatagories(response.data);
+			});
+	}, []);
 
-//   Search Diet Plan by Name function
-  const searchResult = (searchName ) =>{
-	const result = listOfDietplans.filter((val) =>{
-		if (searchName == "") {
-			return val;
-		  } 
-		  else if (val.planName.toLowerCase().includes(searchName.toLowerCase())) 
-		  {
-			return val;
-		  }
-		 
-	} );
-	setFilterItems(result);
-	
-  }
-// //   Diet plan Filters pet categpry
-//   const filterResult = (catName) =>{
-// 	if (catName == "All"){
-// 		setFilterItems(listOfDietplans);
-// 	}
-// 	else{
-// 		const result = filterItems.filter((val) =>{
-// 			return val.Breed.Petcatagory.pcatName === catName;
-			
-// 		} );
-// 		setFilterItems(result);
-// 	}
-	
-//   }
+	//   Search Diet Plan by Name function
+	const searchResult = (searchName) => {
+		const result = listOfDietplans.filter((val) => {
+			if (searchName == "") {
+				return val;
+			} else if (
+				val.planName.toLowerCase().includes(searchName.toLowerCase())
+			) {
+				return val;
+			}
+		});
+		setFilterItems(result);
+	};
+	// //   Diet plan Filters pet categpry
+	//   const filterResult = (catName) =>{
+	// 	if (catName == "All"){
+	// 		setFilterItems(listOfDietplans);
+	// 	}
+	// 	else{
+	// 		const result = filterItems.filter((val) =>{
+	// 			return val.Breed.Petcatagory.pcatName === catName;
 
-//   //   Diet plan Filters pet breed
-//   const filterResult2 = (breedName) =>{
-// 	if (breedName == "All"){
-// 		setFilterItems(listOfDietplans);
-// 	}
-// 	else{
-// 		const result = filterItems.filter((val) =>{
-// 			return val.Breed.breedName === breedName;
-// 		} );
-// 		if(result == ""){
-// 			setFilterItems(listOfDietplans);
-// 		}
-// 		else{
-// 			setFilterItems(result);
-// 		}
-	
-// 	}
-	
-//   }
+	// 		} );
+	// 		setFilterItems(result);
+	// 	}
 
-    const filterResult = (catagory,breed) =>{
-      console.log("catagory " , catagory);
-      console.log("breed ", breed);
-        if (catagory == "All"){
-          setFilterItems(listOfDietplans);
-        }else if(breed == "All"){
-          const result = listOfDietplans.filter((val) =>{
-            return val.Breed.Petcatagory.pcatID === parseInt(catagory); 
-          } );
-          setFilterItems(result);
-        }
-        else{
-          console.log("ado ", breed);
-          console.log("ado ", catagory);
-          const result = listOfDietplans.filter((val) =>{
-            return val.Breed.Petcatagory.pcatID === parseInt(catagory); 
-          } );
-          
-          const result2 = result.filter((val) =>{
-            return val.Breed.breedName === breed; 
-          } );
-          
+	//   }
 
+	//   //   Diet plan Filters pet breed
+	//   const filterResult2 = (breedName) =>{
+	// 	if (breedName == "All"){
+	// 		setFilterItems(listOfDietplans);
+	// 	}
+	// 	else{
+	// 		const result = filterItems.filter((val) =>{
+	// 			return val.Breed.breedName === breedName;
+	// 		} );
+	// 		if(result == ""){
+	// 			setFilterItems(listOfDietplans);
+	// 		}
+	// 		else{
+	// 			setFilterItems(result);
+	// 		}
 
-          setFilterItems(result2);
-        } 
-    }
-    const navigate = useNavigate();
-  
+	// 	}
+
 
   return (
     <div>
@@ -250,154 +218,152 @@ function mddogdiet() {
                   <br />
                   <br />
 
-                  <div class="card shadow border-0 mb-7">
-                    <div class="card-header">
-                      <h5 class="mb-0">Available Diet Plans</h5>
-                    </div>
-                    <div class="table-responsive">
-                      <table class="table table-hover table-nowrap text-center">
-                        <thead class="thead-light">
-                          <tr>
-                            <th scope="col">
-                              <b>
-                                <strong>Diet Plan ID</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Pet Category</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Diet Plan Name</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Description</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Breed</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Age Range</strong>
-                              </b>
-                            </th>
-                            <th scope="col">
-                              <b>
-                                <strong>Weight Range</strong>
-                              </b>
-                            </th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filterItems.map((value, key) => {
-                              return (
-                                <tr>
-                                  <td>{value.dietplanID}</td>
-                                  <td>{value.Breed.Petcatagory.pcatName}</td>
-                                  <td>{value.planName}</td>
-                                  <td>{value.planDescr}</td>
-                                  <td>{value.Breed.breedName}</td>
-                                  <td>
-                                    {value.ageRangeFrom} -{value.ageRangeTo} Yrs
-                                  </td>
-                                  <td>
-                                    {value.weightRangeFrom} -
-                                    {value.weightRangeTo} kg
-                                  </td>
-                                  <td class="text-end">
-                                    <div style={{ display: "flex" }}>
-                                      <div style={{ paddingRight: 5 }}>
-                                      <button
-																					type="button"
-																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																					onClick={() => {
-																						navigate("/mdeditdiet", {
-																							state: value.dietplanID,
-																						});
-																					}}
-																				>
-																					<em class="fa fa-pencil"></em>
-																				</button>
-                                      </div>
-                                      <div>
-                                      <button
-																					type="button"
-																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																					onClick={() => {
-																						Swal.fire({
-																							title: "Are you sure?",
-																							text:
-																								"You won't be able to revert this!",
-																							icon: "warning",
-																							showCancelButton: true,
-																							confirmButtonColor: "#3085d6",
-																							cancelButtonColor: "#d33",
-																							confirmButtonText:
-																								"Yes, delete it!",
-																						}).then((result) => {
-																							if (result.isConfirmed) {
-																								axios
-																									.delete(
-																										"http://localhost:3001/mod/deletediet/" +
-																											value.dietplanID
-																									)
-																									.then((response) => {
-																										if (response.data.error) {
-																											alert(
-																												response.data.error
-																											);
-																										} else {
-																											axios
-																												.get(
-																													"http://localhost:3001/mod/getdietplans"
-																												)
-																												.then((response) => {
-																													setListOfDietplans(
-																														response.data
-																													);
-																												});
-																										}
-																									});
-																								Swal.fire(
-																									"Deleted!",
-																									"Medicine has been deleted.",
-																									"success"
-																								);
-																							}
-																						});
-																					}}
-																				>
-																					<i class="bi bi-trash"></i>
-																				</button>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              );
-                            })}
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="card-footer border-0 py-5">
-                      <span class="text-muted text-sm"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-    </div>
-  );
+									<div class="card shadow border-0 mb-7">
+										<div class="card-header">
+											<h5 class="mb-0">Available Diet Plans</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>Diet Plan ID</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Pet Category</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Diet Plan Name</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Description</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Breed</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Age Range</strong>
+															</b>
+														</th>
+														<th scope="col">
+															<b>
+																<strong>Weight Range</strong>
+															</b>
+														</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													{filterItems.map((value, key) => {
+														return (
+															<tr>
+																<td>{value.dietplanID}</td>
+																<td>{value.Breed.Petcatagory.pcatName}</td>
+																<td>{value.planName}</td>
+																<td>{value.planDescr}</td>
+																<td>{value.Breed.breedName}</td>
+																<td>
+																	{value.ageRangeFrom} -{value.ageRangeTo} Yrs
+																</td>
+																<td>
+																	{value.weightRangeFrom} -{value.weightRangeTo}{" "}
+																	kg
+																</td>
+																<td class="text-end">
+																	<div style={{ display: "flex" }}>
+																		<div style={{ paddingRight: 5 }}>
+																			<button
+																				type="button"
+																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																				onClick={() => {
+																					navigate("/mdeditdiet", {
+																						state: value.dietplanID,
+																					});
+																				}}
+																			>
+																				<em class="fa fa-pencil"></em>
+																			</button>
+																		</div>
+																		<div>
+																			<button
+																				type="button"
+																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																				onClick={() => {
+																					Swal.fire({
+																						title: "Are you sure?",
+																						text:
+																							"You won't be able to revert this!",
+																						icon: "warning",
+																						showCancelButton: true,
+																						confirmButtonColor: "#3085d6",
+																						cancelButtonColor: "#d33",
+																						confirmButtonText:
+																							"Yes, delete it!",
+																					}).then((result) => {
+																						if (result.isConfirmed) {
+																							axios
+																								.delete(
+																									"http://localhost:3001/mod/deletediet/" +
+																										value.dietplanID
+																								)
+																								.then((response) => {
+																									if (response.data.error) {
+																										alert(response.data.error);
+																									} else {
+																										axios
+																											.get(
+																												"http://localhost:3001/mod/getdietplans"
+																											)
+																											.then((response) => {
+																												setListOfDietplans(
+																													response.data
+																												);
+																											});
+																									}
+																								});
+																							Swal.fire(
+																								"Deleted!",
+																								"Medicine has been deleted.",
+																								"success"
+																							);
+																						}
+																					});
+																				}}
+																			>
+																				<i class="bi bi-trash"></i>
+																			</button>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+														);
+													})}
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default mddogdiet;

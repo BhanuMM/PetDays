@@ -15,7 +15,7 @@ import Moderatorsidebar from "../components/moderatorsidebar";
 function mdpendingads() {
 	const [listOfpendingads, setlistOfpendingads] = useState([]);
 	// let history = useHistory();
-
+	const [searchTerm, setSearchTerm] = useState([]);
 	useEffect(() => {
 		axios
 			.get("http://localhost:3001/service/getpendingads")
@@ -119,30 +119,44 @@ function mdpendingads() {
 											</button>
 										</div>
 
-										<div class="input-group" style={{ width: 517 }}>
-											<input
-												type="search"
-												class="form-control rounded"
-												placeholder="Search Advertisments"
-												aria-label="Search"
-												aria-describedby="search-addon"
-												style={{ height: 40 }}
-											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
-												}}
-											>
-												Search
-											</button>
-										</div>
+										<div
+													
+													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
+												>
+													<p
+														class="fw-semibold "
+														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
+													>
+														Search Pending Ads
+													</p>
+													<input
+														type="search"
+														
+														class="form-control rounded input-group"
+														placeholder="Enter Pending Ads"
+														aria-label="Search"
+														aria-describedby="search-addon"
+														style={{ height: 40 }}
+														onChange={(event) => {
+															setSearchTerm(event.target.value);
+														}}
+													/>
+												</div>
 									</div>
 									<CardContent>
-										{listOfpendingads.map((value, key) => {
+										{listOfpendingads
+										.filter((value) => {
+											if (searchTerm == "") {
+												return value;
+											} else if (
+												value.adTitle
+													.toLowerCase()
+													.includes(searchTerm.toLowerCase())
+											) {
+												return value;
+											}
+										})
+										.map((value, key) => {
 											return (
 												<div>
 													<Card
@@ -151,8 +165,8 @@ function mdpendingads() {
 														<CardMedia
 															component="img"
 															sx={{ width: 200 }}
-															image={Profilepic}
-															alt="Live from space album cover"
+															image ={`http://localhost:3001/service/static/${value.adImage}`}
+															alt="ad image"
 														/>
 														<Box
 															sx={{ display: "flex", flexDirection: "column" }}

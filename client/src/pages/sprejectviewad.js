@@ -30,12 +30,13 @@ function sprejectviewad() {
 	// let history = useHistory();
 	useEffect(() => {
 		axios
-		  .get("http://localhost:3001/service/getrejectedadview/" +location.state)
+		  .get("http://localhost:3001/service/getrejectedadview/"+location.state)
 		  .then((response) => {
 			setSingleAd(response.data);
 			
 			
 		  });
+		  
 	  }, []);
 
 	const navigate = useNavigate();
@@ -66,32 +67,34 @@ function sprejectviewad() {
 						<div class="row g-6 mb-6">
 						<div style={{paddingLeft:20}}>
 						<Card sx={{ minWidth: 275, maxWidth: 1500, width:1100, marginLeft: 15}} >
+						{SingleAd.map((value, key) => {
+									return (
 					<CardContent style={{paddingLeft:50}}>
 						<div>
-							<h3 className=''>{SingleAd.adTitle} </h3>
-							<p> Posted on {SingleAd.adDate} {SingleAd.adTime}</p>
+							<h3 className=''>{value.Publishedad.adTitle} </h3>
+							<p> Posted on {value.Publishedad.adDate} {value.Publishedad.adTime}</p>
 							<hr/>
 						</div>
 						<div className="row" style={{paddingLeft:250}}>
-							<img src={`http://localhost:3001/service/static/${SingleAd.adImage}`} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
+							<img src={`http://localhost:3001/service/static/${value.Publishedad.adImage}`} className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5" alt="dog"/>
 						</div><br/>
-						<div style={{display:"flex", paddingLeft:170 , color:'red'}}><p>xsfre{SingleAd.rejReason}</p></div>
+						<div style={{display:"flex", paddingLeft:170 , color:'red'}}><p>xsfre{value.rejReason}</p></div>
 						<div style={{display:"flex", paddingLeft:170}}>
 							
 							<div style={{width:400, paddingRight:100}}>
-								<h3>{SingleAd.adTitle}</h3>
-								<p><i class="fa fa-map-marker" aria-hidden="true"></i> {SingleAd.adDistrict},{SingleAd.adProvince}</p><br/>
-								<h4>Rs.{SingleAd.adPrice}/=</h4>
+								<h3>{value.Publishedad.adTitle}</h3>
+								<p><i class="fa fa-map-marker" aria-hidden="true"></i> {value.Publishedad.adDistrict},{value.Publishedad.adProvince}</p><br/>
+								<h4>Rs.{value.Publishedad.adPrice}/=</h4>
 								<p>
-								{SingleAd.adDescr}
+								{value.Publishedad.adDescr}
 								</p>
 							</div>
 							<div>
 							<p><h5>Contact Us</h5>
-								<p><i class="fa fa-envelope" aria-hidden="true"></i> {SingleAd.adEmail}</p>
-								<p><i class="fa fa-phone" aria-hidden="true"></i>{SingleAd.adContact} </p> 
+								<p><i class="fa fa-envelope" aria-hidden="true"></i> {value.Publishedad.adEmail}</p>
+								<p><i class="fa fa-phone" aria-hidden="true"></i>{value.Publishedad.adContact} </p> 
 								{/* <p><i class="fa fa-facebook-square" aria-hidden="true"></i> wwww.facebook.com/dogfriends</p> */}
-								<p><i class="fa fa-map-marker" aria-hidden="true"></i> {SingleAd.adAddress}</p>
+								<p><i class="fa fa-map-marker" aria-hidden="true"></i> {value.Publishedad.adAddress}</p>
 
 								</p>
 							</div>
@@ -120,7 +123,7 @@ function sprejectviewad() {
 																			width: 100,
 																		}}
 																		onClick={() => {
-																			navigate('/speditad',{state: SingleAd.adId});
+																			navigate('/speditad',{state: value.Publishedad.adId});
 																			  }}
 																	>
 																		Edit
@@ -154,7 +157,7 @@ function sprejectviewad() {
 																		if (result.isConfirmed) {
 
 																		
-																		axios.delete("http://localhost:3001/service/deletead/"+SingleAd. adId).then((response) => {
+																		axios.delete("http://localhost:3001/service/deletead/"+value. Publishedad.adId).then((response) => {
 																			if (response.data.error) {
 																			alert(response.data.error);
 																			} else {
@@ -186,6 +189,8 @@ function sprejectviewad() {
 					
 					   
 	</CardContent>
+	);
+})}
 				</Card>
 						</div>
 

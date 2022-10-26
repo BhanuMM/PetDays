@@ -2,23 +2,24 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import Profilepic from '../images/profile.jpg';
-import Button from '@mui/material/Button';
-import {Card,  CardContent,  CardMedia}  from '@mui/material';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Profilepic from "../images/profile.jpg";
+import Button from "@mui/material/Button";
+import { Card, CardContent, CardMedia } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 function mdverifyads() {
-  const [listOfverifiedads, setlistOfverifiedads] = useState([]);
+	const [searchTerm, setSearchTerm] = useState([]);
+	const [listOfverifiedads, setlistOfverifiedads] = useState([]);
 	// let history = useHistory();
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getacceptedadsuser")
+			.get("http://localhost:3001/mod/getrejectedadsuser")
 			.then((response) => {
 				setlistOfverifiedads(response.data);
 			});
@@ -28,8 +29,7 @@ function mdverifyads() {
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-				
-			<div className="">
+				<div className="">
 					<Moderatorsidebar />
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
@@ -38,16 +38,20 @@ function mdverifyads() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Verified Advertisments</h1>
+										<h1 class="h2 mb-0 ls-tight">Rejected Advertisments</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/moderatordashboard" className="header-topic">
+													<a
+														href="/moderatordashboard"
+														className="header-topic"
+													>
 														Moderator Dashboard/
 													</a>
 													<a href="/mdverifyads" className="header-topic">
-														 Verified Advertisments
+
+													Rejected Advertisments
 													</a>
 												</li>
 											</ol>
@@ -62,65 +66,108 @@ function mdverifyads() {
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
-							<div style={{paddingLeft:200}}>
-              <p class="fw-semibold " style={{paddingRight:40}}>Filtery by :</p>
-                  <div class="search-line"  style={{display: "flex"}}>
-									
+								<div style={{ paddingLeft: 200 }}>
+									<p class="fw-semibold " style={{ paddingRight: 40 }}>
+										Filtery by :
+									</p>
+									<div class="search-line" style={{ display: "flex" }}>
+										<p class="fw-semibold ">
+											<div
+												class="dropdown"
+												style={{ paddingRight: 40, paddingLeft: 20 }}
+											>
+												<button
+													class="btn btn-dark dropdown-toggle"
+													type="button"
+													id="dropdownMenuButton"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+													style={{
+														height: 40,
+														backgroundColor: "#205375",
+														width: 150,
+														borderColor: "#205375",
+													}}
+												>
+													Latest
+												</button>
+												<div
+													class="dropdown-menu"
+													aria-labelledby="dropdownMenuButton"
+												>
+													<a class="dropdown-item" href="#">
+														Recent Week
+													</a>
+													<a class="dropdown-item" href="#">
+														Last Month
+													</a>
+												</div>
+											</div>
+										</p>
 
-									<p class="fw-semibold ">  
-									<div class="dropdown" style={{paddingRight:40,paddingLeft:20}}>
-									<button
-										class="btn btn-dark dropdown-toggle"
-										type="button"
-										id="dropdownMenuButton"
-										data-toggle="dropdown"
-										aria-haspopup="true"
-										aria-expanded="false"
+										<div class="dropdown" style={{ paddingRight: 40 }}>
+											<button
+												class="btn btn-dark"
+												type="button"
+												style={{
+													height: 40,
+													backgroundColor: "#205375",
+													width: 150,
+													borderColor: "#205375",
+												}}
+											>
+												Filter
+											</button>
+										</div>
 
-										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
-									>
-										Latest
-									</button>
-									<div
-										class="dropdown-menu"
-										aria-labelledby="dropdownMenuButton"
-									>
-										<a class="dropdown-item" href="#">
-										Recent Week
-										</a>
-										<a class="dropdown-item" href="#">
-										Last Month
-										</a>
+										<div
+													
+													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
+												>
+													<p
+														class="fw-semibold "
+														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
+													>
+														Search Verified Ads
+													</p>
+													<input
+														type="search"
+														
+														class="form-control rounded input-group"
+														placeholder="Enter Verified Ads"
+														aria-label="Search"
+														aria-describedby="search-addon"
+														style={{ height: 40 }}
+														onChange={(event) => {
+															setSearchTerm(event.target.value);
+														}}
+													/>
+												</div>
 									</div>
-									</div></p>
 
-									
-									<div class="dropdown" style={{paddingRight:40}}>
-									<button
-										class="btn btn-dark"
-										type="button"
-										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
-									>
-										Filter
-									</button>
-									</div>
-									
-
-									<div class="input-group" style={{width:517}}>
-										<input type="search" class="form-control rounded" placeholder="Search Advertisments" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
-										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
-									</div>
-								</div>
-                       
-                    <CardContent>
-                    {listOfverifiedads.map((value, key) => {
+									<CardContent>
+										{listOfverifiedads
+										.filter((value) => {
+											if (searchTerm == "") {
+												return value;
+											} else if (
+												value.adTitle
+													.toLowerCase()
+													.includes(searchTerm.toLowerCase())
+											) {
+												return value;
+											}
+										})
+										.map((value, key) => {
 											return (
+
 										<div>
                     <Card sx={{ display: 'flex', width:900, height: 250 }}>
                     <CardMedia
                       component="img"
                       sx={{ width: 200 }}
-                      image={Profilepic}
+                      image={`http://localhost:3001/service/static/${value.adImage}`}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>
@@ -145,22 +192,16 @@ function mdverifyads() {
 																>
 																	View
 																</Button>
-                        
-                       
-                      </CardContent>
-                    </Box>
-                    
-                    </Card><br/>
-
-                    </div>
-                    );
+															</CardContent>
+														</Box>
+													</Card>
+													<br />
+												</div>
+											);
 										})}
-                  </CardContent>
-                            
-            				</div>
-	
+									</CardContent>
+								</div>
 							</div>
-							
 						</div>
 					</main>
 				</div>

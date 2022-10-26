@@ -213,12 +213,9 @@ function forum() {
 																		style={{ paddingRight: 50, display:"flex", float:"right"}}
 																	>
 																		<p class="fw-semibold fs-7" style={{ paddingRight: 50,paddingTop:5}}>
-																			<a
-																				href="\comments"
-																				class="link-success text-decoration-none"
-																			>
+																			
 																				Comments
-																			</a>
+																		
 																		</p>
 																		<Button
 																			variant="contained"

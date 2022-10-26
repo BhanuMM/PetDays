@@ -198,7 +198,7 @@ function moderatordashboard() {
 														</a>
 														<a href="\mdnewverifyposts" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Verified Posts
+															Rejected Posts
 															</button>
 														</a>
 													</div>
@@ -261,7 +261,7 @@ function moderatordashboard() {
 														</a>
 														<a href="\mdverifyads" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Verified Advertisements
+																Rejected Advertisements
 															</button>
 														</a>
 													</div>

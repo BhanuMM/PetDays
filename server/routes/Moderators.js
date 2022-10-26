@@ -142,7 +142,17 @@ router.get("/getvitamins", async (req, res) => {
   const listOfVitamins = await Vitamins.findAll();
   res.json(listOfVitamins);
 });
-
+router.get("/getrejectedadsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "rejected", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
 router.get("/getdietplans", async (req, res) => {
   const listOfDietplans = await Dietplans.findAll(
     {
@@ -204,11 +214,11 @@ router.get("/getdietplans/:id", async (req, res) => {
 
 router.get("/getverifyposts", async (req, res) => {
   const listOfverifyposts = await Forumposts.findAll(
-    // {
-    //   where: {
-    //     postStatus: "pending",
-    //   },
-    // }
+    {
+      where: {
+        postStatus: "approved",
+      },
+    }
     
   );
   res.json(listOfverifyposts);
@@ -296,8 +306,27 @@ router.post("/changestatus", async (req, res) => {
   res.json("SUCCESS"); 
 });
 
+router.post("/updaterejectepost", async (req, res) => {
+  const rejected = req.body;
+  const chckq = await Forumposts.create(rejected); 
+  if(chckq){
+    await Forumposts.update({postStatus :"rejected" } ,{ where: { postId: rejected.postId }} );
+    res.json("Mod SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+});
 
-
+router.post("/updateapprovedpost", async (req, res) => {
+  const approved = req.body;
+  const chckq = await Forumposts.create(approved);  
+  if(chckq){
+    await Forumposts.update({postStatus :"approved" } ,{ where: { postId: approved.postId }} );
+    res.json("Mod SUCCESS");
+  }else{
+    res.json("Not SUCCESS");
+  }
+});
 
 
 

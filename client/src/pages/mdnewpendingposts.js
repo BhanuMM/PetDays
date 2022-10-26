@@ -4,7 +4,8 @@ import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import Button from "@mui/material/Button";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {Card,CardContent,CardMedia,Grid,Container,Typography} from "@mui/material";
+import {Card,CardContent,CardMedia,Grid,Container,Typography} 
+from "@mui/material";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -20,19 +21,6 @@ function mdnewpendingposts() {
 			setlistOfpendingposts(response.data);
 		});
 	}, []);
-	const initialValues = {
-		id: listOfpendingposts.postId,
-	};
-	const onSubmit1 = (data) => {
-		console.log(data);
-		axios.post("http://localhost:3001/mod/changestatus", data).then((response) => {
-				if (response.data.error) {
-					alert(response.data.error);
-				} else {
-					navigate("/mdnewpendingposts");
-				}
-			});
-	};
 	const navigate = useNavigate();
 
 	return (
@@ -192,49 +180,18 @@ function mdnewpendingposts() {
 																		style={{ paddingRight: 50 }}
 																	>
 																		<br />
-																		<Formik
-																			onSubmit={onSubmit1}
-																			initialValues={initialValues}
+																		<Button
+																			variant="contained"
+																			component="label"
+																			style={{ backgroundColor: "#F66B0E" }}
+																			onClick={() => {
+																				navigate("/mdverifyposts", {
+																					state: value.postId,
+																				});
+																			}}
 																		>
-																			<Form
-																				class="row g-3"
-																				style={{ paddingLeft: 200 }}
-																			>
-																				<div className="row">
-																					<div className="col-3 mb-5 mt-5">
-																						<Field
-																							className="form-control"
-																							id="id"
-																							type="hidden"
-																							autocomplete="off"
-																							name="id"
-																						/>
-																						<button
-																							className="register.loginbuttonsize btn btn-success "
-																							type="submit"
-																							style={{
-																								backgroundColor: "#205375",
-																							}}
-																						>
-																							Approved
-																						</button>
-																					</div>
-																				</div>
-																			</Form>
-																		</Formik>
-																		<a
-																			href=""
-																			role="button"
-																			aria-pressed="true"
-																		>
-																			<button
-																				variant="contained"
-																				component="label"
-																				style={{ backgroundColor: "#F66B0E" }}
-																			>
-																				Reject
-																			</button>
-																		</a>
+																			View
+																		</Button>
 																	</div>
 																</div>
 															</div>
