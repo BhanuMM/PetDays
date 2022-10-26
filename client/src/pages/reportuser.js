@@ -8,15 +8,25 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 
 function viewmedications() {
-	const [searchTerm, setSearchTerm] = useState([]);
-	const [listOfMedicines, setListOfMedicines] = useState([]);
-	// let history = useHistory();
+
+	const [listOfUsers, setlistOfUsers] = useState([]);
+	const [listOfService, setlistOfService] = useState([]);
+	const [listOfTotaluser, setlistOfTotaluser] = useState([]);
+	const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
-			setListOfMedicines(response.data);
+		axios.get("http://localhost:3001/report/getuserreport").then((response) => {
+			setlistOfUsers(response.data);
+		});
+		axios.get("http://localhost:3001/report/getservicereport").then((response) => {
+			setlistOfService(response.data);
+		});
+		axios.get("http://localhost:3001/report/gettotaluserreport").then((response) => {
+			setlistOfTotaluser(response.data);
 		});
 	}, []);
+	
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -104,14 +114,111 @@ function viewmedications() {
 																<strong>Pet Owner Varience</strong>
 															</b>
 														</th>
+                                                       
+														
+													</tr>
+												</thead>
+												<tbody>
+													{listOfUsers
+													// .filter((val) => {
+													// 	if (searchTerm == "") {
+													// 		return val;
+													// 	} else if (
+													// 		val.medName
+													// 			.toLowerCase()
+													// 			.includes(searchTerm.toLowerCase())
+													// 	) {
+													// 		return val;
+													// 	}
+													// })
+													
+													.map((value, key) => {
+														return (
+															<tr>
+																<td>{month[value.umonth-1]}</td>
+																<td>{value.ucount}</td>
+                                                                <td></td>	
+																
+															</tr>
+														);
+													})}
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm"></span>
+										</div>
+									</div>
+									
+									<div class="card shadow border-0 mb-7">
+										<div class="card-header">
+											<h5 class="mb-0">Service provider Registration Report</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>Month</strong>
+															</b>
+														</th>
                                                         <th scope="col">
 															<b>
 																<strong>Service Provider Count</strong>
 															</b>
 														</th>
-														<th scope="col">
+                                                        <th scope="col">
 															<b>
 																<strong>Service Provider Varience</strong>
+															</b>
+														</th>
+                                                       
+														
+													</tr>
+												</thead>
+												<tbody>
+													{listOfService
+													// .filter((val) => {
+													// 	if (searchTerm == "") {
+													// 		return val;
+													// 	} else if (
+													// 		val.medName
+													// 			.toLowerCase()
+													// 			.includes(searchTerm.toLowerCase())
+													// 	) {
+													// 		return val;
+													// 	}
+													// })
+													
+													.map((value, key) => {
+														return (
+															<tr>
+																<td>{month[value.umonth-1]}</td>
+																<td>{value.ucount}</td>
+                                                                <td></td>	
+																
+															</tr>
+														);
+													})}
+												</tbody>
+											</table>
+										</div>
+										<div class="card-footer border-0 py-5">
+											<span class="text-muted text-sm"></span>
+										</div>
+									</div>
+									<div class="card shadow border-0 mb-7">
+										<div class="card-header">
+											<h5 class="mb-0">User Registration Report</h5>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-hover table-nowrap text-center">
+												<thead class="thead-light">
+													<tr>
+														<th scope="col">
+															<b>
+																<strong>Month</strong>
 															</b>
 														</th>
                                                         <th scope="col">
@@ -121,37 +228,25 @@ function viewmedications() {
 														</th>
                                                         <th scope="col">
 															<b>
-																<strong>Total user Varience</strong>
+																<strong>Total User Varience</strong>
 															</b>
 														</th>
+                                                       
 														
 													</tr>
 												</thead>
 												<tbody>
-													{listOfMedicines
-													.filter((val) => {
-														if (searchTerm == "") {
-															return val;
-														} else if (
-															val.medName
-																.toLowerCase()
-																.includes(searchTerm.toLowerCase())
-														) {
-															return val;
-														}
-													})
+													{
+													listOfTotaluser
 													
-													.map((value, key) => {
+													
+													.map((value, key) =>
+													 {
 														return (
 															<tr>
-																<td></td>
-																<td></td>
-                                                                <td></td>
-																<td></td>
-                                                                <td></td>
-																<td></td>
-                                                                <td></td>
-																
+																<td>{month[value.umonth-1]}</td>
+																<td>{value.ucount}</td>
+                                                                <td></td>	
 																
 															</tr>
 														);
