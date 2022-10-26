@@ -24,7 +24,7 @@ function mdnewpendingposts() {
 	const navigate = useNavigate();
 
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Moderatorsidebar />
@@ -63,78 +63,27 @@ function mdnewpendingposts() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<p class="fw-semibold " style={{ paddingRight: 40 }}>
-										Filtery by :
-									</p>
+									
 
 									<div class="search-line" style={{ display: "flex" }}>
-										<p class="fw-semibold ">
-											<div
-												class="dropdown"
-												style={{ paddingRight: 40, paddingLeft: 20 }}
-											>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Latest
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														Recent Week
-													</a>
-													<a class="dropdown-item" href="#">
-														Last Month
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<div class="dropdown" style={{ paddingRight: 40 }}>
-											<button
-												class="btn btn-dark"
-												type="button"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													width: 150,
-													borderColor: "#205375",
-												}}
-											>
-												Filter
-											</button>
-										</div>
 
 										<div
-											class="input-group"
-											style={{ width: 575, marginLeft: 420 }}
+											
+											style={{ width: 575, marginLeft: 420,display:"flex" }}
 										>
 											<p
 												class="fw-semibold "
-												style={{ paddingRight: 10, paddingTop: 10 }}
+												style={{ paddingRight: 10, paddingTop: 10}}
 											>
 												Search Posts
 											</p>
 											<input
 												type="search"
-												class="form-control rounded"
-												placeholder="Enter Posts"
+												class="form-control rounded input-group"
+												placeholder="Search Posts"
 												aria-label="Search"
 												aria-describedby="search-addon"
-												style={{ height: 40 }}
+												style={{ height: 40,width:300 }}
 												onChange={(event) => {
 													setSearchTerm(event.target.value);
 												}}
@@ -157,19 +106,19 @@ function mdnewpendingposts() {
 											})
 											.map((value, key) => {
 												return (
-													<div>
+													<div style={{paddingLeft:160 }}>
 														<Card
-															sx={{ minWidth: 250, maxWidth: 1500 }}
-															style={{ padding: 10, paddingLeft: 25 }}
+															sx={{ minWidth: 250, maxWidth: 1000 }}
+															style={{ padding: 10,paddingLeft:100}}
 														>
 															<div class="card-body">
-																<div class="content">
+																<div class="content" style={{ alignItems:"left"}}>
 																	<div>
-																		<Typography class="fw-semibold fs-7">
+																		<Typography class="fw-semibold fs-7" style={{ fontSize:20}}>
 																			{value.postTitle}
 																		</Typography>
 																		<Typography class="font-italic text-success fs-7">
-																			{value.postDate}
+																			Posted Date : {value.postDate}
 																		</Typography>
 																	</div>
 																	<div>
@@ -183,7 +132,7 @@ function mdnewpendingposts() {
 																		<Button
 																			variant="contained"
 																			component="label"
-																			style={{ backgroundColor: "#F66B0E" }}
+																			style={{ backgroundColor: "#F66B0E",width:100 }}
 																			onClick={() => {
 																				navigate("/mdverifyposts", {
 																					state: value.postId,
