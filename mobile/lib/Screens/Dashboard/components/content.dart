@@ -161,7 +161,7 @@ class _DashboardContentState extends State<DashboardContent> {
                                 ),
                                 child:  GestureDetector(
                                   onTap: (){
-                                    NotificationAPI.scheduleNotificationInit("testing notif", "bla bla bla bla bla bla bal",DateTime.now().add(Duration(seconds: 15)));
+                                    NotificationAPI.scheduleNotificationInit(0,"testing notif", "bla bla bla bla bla bla bal",DateTime.now().add(Duration(seconds: 15)));
 
                                     // Navigator.push(
                                     //   context,

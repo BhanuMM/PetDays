@@ -5,14 +5,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true
       },
-      petID: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      vacID: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       note: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/models/pet.dart';
 import '../../../constants.dart';
 import 'card.dart';
+import '../../PetMedications/Pet_Medication_Screen.dart';
 import '../../Dashboard/dashboard_screen.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import '../../ViewVaccination/View_Vaccinations_Screen.dart';
@@ -189,7 +190,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                       Spacer(),
                       PetDashboardItemCard(label: "Diet Plans",ado: PetDiaryScreen(pet),img: "petd"),
                       Spacer(),
-                      PetDashboardItemCard(label: "Medications",ado: PetDiaryScreen(pet),img: "medication"),
+                      PetDashboardItemCard(label: "Medications",ado: PetMedicationScreen(pet.petID.toString()),img: "medication"),
                       Spacer(),
                     ]
                 ),

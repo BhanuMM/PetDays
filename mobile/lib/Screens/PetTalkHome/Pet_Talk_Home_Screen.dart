@@ -26,7 +26,7 @@ class PetTalkHome extends StatefulWidget {
 }
 
 class _PetTalkHomeState extends State<PetTalkHome> {
-
+  String search = '';
   final getPetRoute = '/user/getpostswithuser';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
@@ -194,8 +194,14 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
                             border: InputBorder.none,
-                            hintText: "Search your pets"
+                            hintText: "Search forum posts"
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            search = value;
+                          });
+                          print(search);
+                        },
                       ),
                     ),
                   ),
@@ -317,9 +323,35 @@ class _PetTalkHomeState extends State<PetTalkHome> {
                       itemBuilder: (BuildContext context, int index) {
                         print(forumPosts[index]);
                         if(forumPosts[index]['postStatus'] == 'approved'){
-                          return Container(
-                              child: PetForumItemCard(forumPost:new ForumPost.fromPost(forumPosts[index]['postId'].toString(),forumPosts[index]['postTitle'], forumPosts[index]['postDescr'], forumPosts[index]['postStatus'], forumPosts[index]['postDate'], forumPosts[index]['postTime'], forumPosts[index]['userId'].toString(), forumPosts[index]['User']['username'], forumPosts[index]['pcatID'].toString()))
-                          );
+                          if(search == '') {
+                            return Container(
+                                child: PetForumItemCard(forumPost: new ForumPost
+                                    .fromPost(
+                                    forumPosts[index]['postId'].toString(),
+                                    forumPosts[index]['postTitle'],
+                                    forumPosts[index]['postDescr'],
+                                    forumPosts[index]['postStatus'],
+                                    forumPosts[index]['postDate'],
+                                    forumPosts[index]['postTime'],
+                                    forumPosts[index]['userId'].toString(),
+                                    forumPosts[index]['User']['username'],
+                                    forumPosts[index]['pcatID'].toString()))
+                            );
+                          }else if(forumPosts[index]['postTitle'].toString().toLowerCase().contains(search.toLowerCase())){
+                            return Container(
+                                child: PetForumItemCard(forumPost: new ForumPost
+                                    .fromPost(
+                                    forumPosts[index]['postId'].toString(),
+                                    forumPosts[index]['postTitle'],
+                                    forumPosts[index]['postDescr'],
+                                    forumPosts[index]['postStatus'],
+                                    forumPosts[index]['postDate'],
+                                    forumPosts[index]['postTime'],
+                                    forumPosts[index]['userId'].toString(),
+                                    forumPosts[index]['User']['username'],
+                                    forumPosts[index]['pcatID'].toString()))
+                            );
+                          }else return Container();
                         }else return Container();
                       }
                   ),

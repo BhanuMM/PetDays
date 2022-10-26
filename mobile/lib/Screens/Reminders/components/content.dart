@@ -22,6 +22,7 @@ class ReminderContent extends StatefulWidget {
 class _ReminderContentState extends State<ReminderContent> {
 
   final getPetReminderRoute = '/user/getpetreminders';
+  final deletePetReminderRoute = '/user/deletepetRem';
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   List reminderDetails = [];
@@ -99,6 +100,7 @@ class _ReminderContentState extends State<ReminderContent> {
                     DataColumn(label: Text("Reminder"), tooltip: "To Display name"),
                     DataColumn(label: Text("Next Date"), tooltip: "To Display Email"),
                     DataColumn(label: Text("Next Time"), tooltip: "Update data"),
+                    DataColumn(label: Text("options"), tooltip: "Update data"),
                   ],
                   rows: reminderDetails.map((vac) => DataRow(
                       cells: [
@@ -110,6 +112,27 @@ class _ReminderContentState extends State<ReminderContent> {
                         ),
                         DataCell(
                             Text(vac['nextRemTime'])
+                        ),
+                        DataCell(
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.edit,
+                                  color: Colors.black,
+                                  size: 24.0,
+                                  semanticLabel: 'Text to announce in accessibility modes',
+                                ),
+                                GestureDetector(
+                                  child: Icon(
+                                    Icons.delete,
+                                    color: Colors.black,
+                                    size: 24.0,
+                                    semanticLabel: 'Text to announce in accessibility modes',
+                                  ),
+                                  onTap: (){showDeleteConfirm(vac['petRemID']);},
+                                ),
+                              ],
+                            )
                         ),
                       ]
                   )
@@ -125,4 +148,53 @@ class _ReminderContentState extends State<ReminderContent> {
     );
 
   }
+
+  Future  deleteReminder(vac) async {
+// 10.0.2.2
+
+    final res = await http.delete(Uri.http(globals.url,deletePetReminderRoute+'/'+vac.toString()),
+    );
+    Navigator.pop(context);
+    setState(() {
+      getPetReminders();
+    });
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  void showDeleteConfirm(vac){
+    showDialog<void>(
+      context: this.context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirm Deletion"),
+          content: const Text('Are you sure you want to delete the reminder?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('okay'),
+              onPressed: () {
+                deleteReminder(vac);
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('cancel'),
+              onPressed: () {
+                Navigator.pop(context);
+              }
+            ),
+          ],
+        );
+      },
+    );
+  }
+
 }
