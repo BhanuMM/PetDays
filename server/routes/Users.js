@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery, Users } = require("../models");
+const { Pets , Forumposts ,PetVaccines,PetDiaries,PetReminders,PetGallery, Users, PetMedications, Medicines,Vaccines } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { sendConfirmationEmail } = require('../mailer');
@@ -54,6 +54,24 @@ router.post("/addpet", async (req, res) => {
     );
     res.json(listOfPosts);
   });
+
+  router.get("/getmedicines", async (req, res) => {
+    const listOfMedicines = await Medicines.findAll();
+    res.json(listOfMedicines);
+  });
+  router.get("/getpetmeds/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfMedicines = await PetMedications.findAll(
+      {where: {
+        PetID: id
+      },
+      include: {model:Medicines,required: true},
+    },
+      
+    );
+    res.json(listOfMedicines);
+  });
+
   router.get("/getpostsbyuser/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPosts = await Forumposts.findAll(
@@ -116,6 +134,21 @@ router.post("/addpet", async (req, res) => {
         nextRemTime: nextRemTime,
     });
     if(petReminders){
+        res.json("SUCCESS"); 
+    }else{
+        res.json("NOT SUCCESS"); 
+    }
+  });
+  router.post("/addpetmed", async (req, res) => {
+    const { petID,medID,startDate,timesADay,days} = req.body;
+    const PetMedication = PetMedications.create({
+      petID:petID,
+      medID:medID,
+      startDate:startDate,
+      timesADay:timesADay,
+      days:days,
+    });
+    if(PetMedication){
         res.json("SUCCESS"); 
     }else{
         res.json("NOT SUCCESS"); 
@@ -201,12 +234,34 @@ router.post("/addpet", async (req, res) => {
   router.get("/getpetvaccines/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPetVaccines = await PetVaccines.findAll(
-      {where: {
+      {include: {model:Vaccines,required: true},
+        where: {
         petId: id
-      }}
+      }},
+      
     );
     res.json(listOfPetVaccines);
   });
+
+  router.delete("/deletepetRem/:petRemId", async (req, res) => {
+    const Id = req.params.petRemId;
+    await PetReminders.destroy({
+      where: {
+        petRemID: Id,
+      },
+    });
+    res.json("DELETED SUCCESSFULLY");
+  });
+  router.delete("/deletepost/:postId", async (req, res) => {
+    const Id = req.params.postId;
+    await Forumposts.destroy({
+      where: {
+        postId: Id,
+      },
+    });
+    res.json("DELETED SUCCESSFULLY");
+  });
+
   router.get("/getpetreminders/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPetReminders = await PetReminders.findAll(

@@ -90,14 +90,14 @@ class _VaccineContentState extends State<VaccineContent> {
             SizedBox(height: defaultPadding,),
             DataTable(
                 columns:  <DataColumn>[
-                  DataColumn(label: Text("VaccineID"), tooltip: "To Display name"),
+                  DataColumn(label: Text("Vaccine Name"), tooltip: "To Display name"),
                   DataColumn(label: Text("Note"), tooltip: "To Display Email"),
                   DataColumn(label: Text("Next Date"), tooltip: "Update data"),
                 ],
                 rows: vaccineDtails.map((vac) => DataRow(
                     cells: [
                       DataCell(
-                          Text(vac['vacID'].toString())
+                          Text(vac['Vaccine']['vacName'].toString())
                       ),
                       DataCell(
                           Text(vac['note'])

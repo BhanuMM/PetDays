@@ -136,13 +136,18 @@ class PetMartHomeContent extends StatelessWidget {
                 ),
                 SizedBox(height: defaultPadding*2,),
                 Row(
-                  children: const [
+                  children: [
                     Padding(
                       padding:EdgeInsets.only(left: 18),
-                      child: Text("Similar services in the Catagory",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width-120,
+                        child: Expanded(
+                          child: Text("Similar services in the Catagory",
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     )

@@ -99,7 +99,7 @@ function forum() {
 											<br />
 
 											<div class="search-line" style={{ display: "flex" }}>
-												<p class="fw-semibold " style={{ paddingRight: 40, width:120, paddingTop:15 }}>
+												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:15 }}>
 													Filtery by :
 												</p>
 
@@ -177,7 +177,7 @@ function forum() {
 													/>
 												</div>
 											</div>
-											<CardContent>
+											<CardContent style={{paddingLeft: 100 }}>
 												{listOfPosts
 												.filter((value) => {
 													if (searchTerm == "") {
@@ -194,25 +194,25 @@ function forum() {
 													return (
 														<Card
 															sx={{ minWidth: 250, maxWidth: 1500 }}
-															style={{ padding: 10, paddingLeft: 25 }}
+															style={{ padding: 10, paddingLeft:150 }}
 														>
 															<div class="card-body">
 																<div class="content">
 																	<div>
-																		<p class="fw-semibold fs-7">
-																			Published date {value.postDate}
+																		<p class="fw-semibold fs-7" style={{ fontSize:20}}>
+																		{value.postTitle}
 																		</p>
 																		<p class="fw-semibold fs-7"></p>
 																		<p class="font-italic text-success fs-7">
-																			{value.postTitle}
+																		Published date {value.postDate}
 																		</p>
 																	</div>
 																	<div>{value.postDescr}</div>
 																	<div
 																		class="comment"
-																		style={{ paddingRight: 50 }}
+																		style={{ paddingRight: 50, display:"flex", float:"right"}}
 																	>
-																		<p class="fw-semibold fs-7">
+																		<p class="fw-semibold fs-7" style={{ paddingRight: 50,paddingTop:5}}>
 																			<a
 																				href="\comments"
 																				class="link-success text-decoration-none"
@@ -239,6 +239,7 @@ function forum() {
 													);
 												})}
 											</CardContent>
+															
 										</div>
 									</div>
 								</div>

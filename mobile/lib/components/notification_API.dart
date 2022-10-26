@@ -7,7 +7,7 @@ class NotificationAPI{
   @override
   void initState() {
     print("objecsadft");
-
+    initTx();
     var initializationSettingsAndroid = AndroidInitializationSettings('app_icon'); // <- default icon name is @mipmap/ic_launcher
     var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
     _notifications.initialize(initializationSettings);
@@ -42,16 +42,45 @@ class NotificationAPI{
       ),
     );
   }
-  static Future scheduleNotificationInit(String? title, String? body,DateTime date) async{
+  static Future scheduleNotificationInit(int i,String? title, String? body,DateTime date) async{
+
+    scheduleNotificaton(
+      id: i,
+      title: title,
+      body: body,
+      scheduleDate: date,
+    );
+
+
+  }
+  static Future scheduleNotificationDailyInit(int i,String? title, String? body,DateTime date,int days) async{
     initTx();
     scheduleNotificaton(
+      id: i,
       title: title,
       body: body,
       scheduleDate: date,
     );
 
   }
-
+  static Future scheduleNotificatonDaily({
+    int id =0,
+    String? title,
+    String? body,
+    String? payload,
+    required DateTime scheduleDate,
+    int? days,
+  }) async =>
+      _notifications.zonedSchedule(
+          id,
+          title,
+          body,
+          tz.TZDateTime.from(scheduleDate,tz.local),
+          await _scheduleDetails(),
+          payload: payload,
+          uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+          androidAllowWhileIdle: true,
+      matchDateTimeComponents: DateTimeComponents.dayOfMonthAndTime);
 
   static Future scheduleNotificaton({
     int id =0,
@@ -83,6 +112,14 @@ class NotificationAPI{
           importance: Importance.max
       ),
     );
+  }
+  static Future sheduledNotifDetails() async{
+    final List<PendingNotificationRequest> pendingNotificationRequests =
+    await _notifications.pendingNotificationRequests();
+    for(int i =0 ; i<pendingNotificationRequests.length;i++) {
+      print("lalala");
+      print(pendingNotificationRequests[i].payload);
+    }
   }
   
 }
