@@ -171,7 +171,7 @@ function mdnewverifyposts() {
 																	</p>
 																</div>
 																<div>{value.postDescr}</div>
-																<div
+																{/* <div
 																	className="comment"
 																	style={{ paddingRight: 50 }}
 																>
@@ -183,7 +183,7 @@ function mdnewverifyposts() {
 																			5 Comments
 																		</a>
 																	</p>
-																</div>
+																</div> */}
 															</div>
 														</div>
 													</Card>

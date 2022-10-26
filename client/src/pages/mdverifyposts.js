@@ -139,19 +139,17 @@ function mdverifyposts() {
 														style={{ backgroundColor: "#205375", width: 100 }}
 														onClick={() => {
 															Swal.fire({
-																title: "Are you sure?",
+																title: "Approve Post",
 																text: "Do you want to approve this Post?",
 																icon: "warning",
 																showCancelButton: true,
-																confirmButtonColor: "#3085d6",
+																confirmButtonColor: "#099103",
 																cancelButtonColor: "#d33",
 																confirmButtonText: "Approve Post",
 															}).then((result) => {
 																if (result.isConfirmed) {
-																	axios.post(
-																			"http://localhost:3001/mod/updateapprovedpost/", {
-                                        postId: SinglePosts.postId
-                                      }).then((response) => {
+																	alert(SinglePosts.postId );
+																	axios.post("http://localhost:3001/mod/updateapprovedpost/"+SinglePosts.postId ).then((response) => {
 																			if (response.data.error) {
 																				alert(response.data.error);
 																			} else {
@@ -178,21 +176,17 @@ function mdverifyposts() {
 														style={{ backgroundColor: "#F66B0E", width: 100 }}
 														onClick={() => {
 															Swal.fire({
-																title: "Are you sure?",
+																title: "Reject Post",
 																text: "Do you want to reject this Post?",
 																icon: "warning",
 																showCancelButton: true,
 																confirmButtonColor: "#3085d6",
 																cancelButtonColor: "#d33",
-																confirmButtonText: "Approve Post",
+																confirmButtonText: "Reject Post",
 															}).then((result) => {
 																if (result.isConfirmed) {
 																	axios.post(
-																			"http://localhost:3001/mod/updaterejectepost/",
-                                      {
-                                        postId: SinglePosts.postId
-                                      }
-																		)
+																			"http://localhost:3001/mod/updaterejectepost/"+SinglePosts.postId)
 																		.then((response) => {
 																			if (response.data.error) {
 																				alert(response.data.error);
