@@ -89,7 +89,7 @@ function editcomment() {
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{ backgroundColor: "#F66B0E" }}
+														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E" }}
 													>
 														Update Comment
 													</button>

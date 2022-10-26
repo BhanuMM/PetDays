@@ -21,7 +21,7 @@ function mdsinglevacc() {
 	}, []);
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Moderatorsidebar />
@@ -77,10 +77,16 @@ function mdsinglevacc() {
 												Add Vaccine
 											</Button>
 										</a>
-										<div class="input-group" style={{ width: 575 }}>
+										<div class="" style={{ width: 575, display:"flex" }}>
+										<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10,width:200 }}
+											>
+												Search Vaccine
+											</p>
 											<input
 												type="search"
-												class="form-control rounded"
+												class="form-control rounded input-group"
 												placeholder="Search Vaccine"
 												aria-label="Search"
 												aria-describedby="search-addon"
@@ -89,17 +95,7 @@ function mdsinglevacc() {
 													setSearchTerm(event.target.value);
 												}}
 											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
-												}}
-											>
-												Search
-											</button>
+											
 										</div>
 									</div>
 									<br />

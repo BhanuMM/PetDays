@@ -33,7 +33,7 @@ function moderatordashboard() {
 
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 			<div className="">
 					<Moderatorsidebar />
