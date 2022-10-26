@@ -165,8 +165,8 @@ function mdpendingads() {
 														<CardMedia
 															component="img"
 															sx={{ width: 200 }}
-															image={Profilepic}
-															alt="Live from space album cover"
+															image ={`http://localhost:3001/service/static/${value.adImage}`}
+															alt="ad image"
 														/>
 														<Box
 															sx={{ display: "flex", flexDirection: "column" }}

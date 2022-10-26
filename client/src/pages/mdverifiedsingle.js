@@ -37,7 +37,7 @@ const [SingleAd, setSingleAd] = useState([]);
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Verified Advertisment</h1>
+										<h1 class="h2 mb-0 ls-tight">Rejected Advertisment</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -45,8 +45,8 @@ const [SingleAd, setSingleAd] = useState([]);
 													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdverifiedsingle" className="header-topic">
-														 Verified Advertisment
+													<a href="/mdverifyads" className="header-topic">
+													Rejected Advertisment
 													</a>
 												</li>
 											</ol>

@@ -19,7 +19,7 @@ function mdverifyads() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getacceptedadsuser")
+			.get("http://localhost:3001/mod/getrejectedadsuser")
 			.then((response) => {
 				setlistOfverifiedads(response.data);
 			});
@@ -38,7 +38,7 @@ function mdverifyads() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Verified Advertisments</h1>
+										<h1 class="h2 mb-0 ls-tight">Rejected Advertisments</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -50,7 +50,8 @@ function mdverifyads() {
 														Moderator Dashboard/
 													</a>
 													<a href="/mdverifyads" className="header-topic">
-														Verified Advertisments
+
+													Rejected Advertisments
 													</a>
 												</li>
 											</ol>
@@ -160,45 +161,26 @@ function mdverifyads() {
 										})
 										.map((value, key) => {
 											return (
-												<div>
-													<Card
-														sx={{ display: "flex", width: 900, height: 250 }}
-													>
-														<CardMedia
-															component="img"
-															sx={{ width: 200 }}
-															image={Profilepic}
-															alt="Live from space album cover"
-														/>
-														<Box
-															sx={{ display: "flex", flexDirection: "column" }}
-														>
-															<CardContent
-																sx={{
-																	flex: "1 0 auto",
-																	paddingTop: 3,
-																	paddingLeft: 5,
-																}}
-															>
-																<Typography component="div" variant="h5">
-																	{value.adTitle}
-																</Typography>
-																<Typography
-																	variant="subtitle1"
-																	color="text.secondary"
-																	component="div"
-																	class="font-italic"
-																>
-																	<p class="font-italic text-success fs-7">
-																		Posted On : {value.adDate} at {value.adTime}
-																	</p>
-																</Typography>
-																<br />
 
-																{value.adDescr}
-																<br />
-																<br />
-																<Button
+										<div>
+                    <Card sx={{ display: 'flex', width:900, height: 250 }}>
+                    <CardMedia
+                      component="img"
+                      sx={{ width: 200 }}
+                      image={`http://localhost:3001/service/static/${value.adImage}`}
+                      alt="Live from space album cover"
+                    />
+                    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
+                      <CardContent sx={{ flex: '1 0 auto',paddingTop:3 , paddingLeft:5 }}>
+                        <Typography component="div" variant="h5">
+                        {value.adTitle}
+                        </Typography>
+                        <Typography variant="subtitle1" color="text.secondary" component="div" class="font-italic">
+                        <p class="font-italic text-success fs-7">Posted On : {value.adDate} at {value.adTime}</p>
+                        </Typography><br/>
+                        
+                        {value.adDescr}<br/><br/>
+						<Button
 																	variant="contained"
 																	component="label"
 																	style={{ backgroundColor: "#F66B0E" }}

@@ -142,7 +142,17 @@ router.get("/getvitamins", async (req, res) => {
   const listOfVitamins = await Vitamins.findAll();
   res.json(listOfVitamins);
 });
-
+router.get("/getrejectedadsuser", async (req, res) => {
+  const listOfpendingads = await Publishedads.findAll(
+    {
+      where: {
+        adStatus: "rejected", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
 router.get("/getdietplans", async (req, res) => {
   const listOfDietplans = await Dietplans.findAll(
     {
