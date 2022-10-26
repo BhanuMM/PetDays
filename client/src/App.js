@@ -234,9 +234,9 @@ function App() {
           <Route path="/editcomment" element={<Editcomment/>} />
 
           {/* petmart */}
-          <Route path="/petmart" element={<Petmart/>} />
+          <Route path="/petmart" element={<Petmartallads/>} />
           <Route path="/viewad" element={<Singlead/>}/>
-          <Route path="/Petmartallads" element={<Petmartallads/>}/>
+          <Route path="/Petmartallads" element={<Petmart/>}/>
 
 
         {/* Admin */}

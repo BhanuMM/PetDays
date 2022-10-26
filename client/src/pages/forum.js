@@ -138,20 +138,7 @@ function forum() {
 													</div>
 												</p>
 
-												<div class="dropdown" style={{ paddingRight: 50 }}>
-													<button
-														class="btn btn-dark"
-														type="button"
-														style={{
-															height: 40,
-															backgroundColor: "#205375",
-															width: 150,
-															borderColor: "#205375",
-														}}
-													>
-														Filter
-													</button>
-												</div>
+											
 
 												<div
 													
@@ -177,7 +164,7 @@ function forum() {
 													/>
 												</div>
 											</div>
-											<CardContent style={{paddingLeft: 100 }}>
+											
 												{listOfPosts
 												.filter((value) => {
 													if (searchTerm == "") {
@@ -192,6 +179,7 @@ function forum() {
 												})
 												.map((value, key) => {
 													return (
+														<CardContent style={{paddingLeft: 100 }}>
 														<Card
 															sx={{ minWidth: 250, maxWidth: 1500 }}
 															style={{ padding: 10, paddingLeft:150 }}
@@ -208,6 +196,7 @@ function forum() {
 																		</p>
 																	</div>
 																	<div>{value.postDescr}</div>
+																	<br/>
 																	<div
 																		class="comment"
 																		style={{ paddingRight: 50, display:"flex", float:"right"}}
@@ -233,9 +222,10 @@ function forum() {
 																</div>
 															</div>
 														</Card>
+														</CardContent>
 													);
 												})}
-											</CardContent>
+											
 															
 										</div>
 									</div>

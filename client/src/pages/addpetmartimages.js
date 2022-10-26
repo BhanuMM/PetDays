@@ -111,7 +111,7 @@ const cancelad = (event) => {
           <br />
           <main class="py-6 bg-surface-secondary">
             <div class="container-fluid">
-            <h1 class="h2 mb-0 ls-tight">Add Advertisment Image {location.state}</h1>
+            <h1 class="h2 mb-0 ls-tight">Add Advertisment Image </h1>
               <hr />
               <br />
               <div className="row">

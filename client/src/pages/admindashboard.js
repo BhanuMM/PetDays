@@ -44,7 +44,7 @@ function dashboard() {
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
 														Income for <br /> this month
 													</span>
-													<span class="h3 font-bold mb-0">$750.90</span>
+													<span class="h3 font-bold mb-0">Rs.7500.00</span>
 												</div>
 												<div class="col-auto " style={{paddingLeft:100}}>
 													<div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
