@@ -17,7 +17,7 @@ function mdverifyposts() {
 
 	useEffect((data) => {
 		axios
-			.get("http://localhost:3001/service/getpostview/" + location.state)
+			.get("http://localhost:3001/service/getpostview/"+location.state)
 			.then((response) => {
 				setSinglePosts(response.data);
 			});
@@ -148,12 +148,10 @@ function mdverifyposts() {
 																confirmButtonText: "Approve Post",
 															}).then((result) => {
 																if (result.isConfirmed) {
-																	axios
-																		.post(
-																			"http://localhost:3001/mod/updateapprovedpost/" +
-																				SinglePosts.postId
-																		)
-																		.then((response) => {
+																	axios.post(
+																			"http://localhost:3001/mod/updateapprovedpost/", {
+                                        postId: SinglePosts.postId
+                                      }).then((response) => {
 																			if (response.data.error) {
 																				alert(response.data.error);
 																			} else {
@@ -189,10 +187,11 @@ function mdverifyposts() {
 																confirmButtonText: "Approve Post",
 															}).then((result) => {
 																if (result.isConfirmed) {
-																	axios
-																		.post(
-																			"http://localhost:3001/mod/updaterejectepost/" +
-																				SinglePosts.postId
+																	axios.post(
+																			"http://localhost:3001/mod/updaterejectepost/",
+                                      {
+                                        postId: SinglePosts.postId
+                                      }
 																		)
 																		.then((response) => {
 																			if (response.data.error) {

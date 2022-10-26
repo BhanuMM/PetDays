@@ -308,8 +308,7 @@ router.post("/changestatus", async (req, res) => {
 
 router.post("/updaterejectepost", async (req, res) => {
   const rejected = req.body;
-  const chckq = await Forumposts.create(rejected);
-  
+  const chckq = await Forumposts.create(rejected); 
   if(chckq){
     await Forumposts.update({postStatus :"rejected" } ,{ where: { postId: rejected.postId }} );
     res.json("Mod SUCCESS");
@@ -320,8 +319,7 @@ router.post("/updaterejectepost", async (req, res) => {
 
 router.post("/updateapprovedpost", async (req, res) => {
   const approved = req.body;
-  const chckq = await Forumposts.create(approved);
-  
+  const chckq = await Forumposts.create(approved);  
   if(chckq){
     await Forumposts.update({postStatus :"approved" } ,{ where: { postId: approved.postId }} );
     res.json("Mod SUCCESS");
