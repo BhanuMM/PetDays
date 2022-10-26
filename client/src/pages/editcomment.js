@@ -52,7 +52,7 @@ function editcomment() {
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid pt-6">
 							<div class="row g-6 mb-6">
-								<div style={{ paddingLeft: 20, paddingTop: 100 }}>
+								<div className="col-6" style={{ paddingLeft: 20, paddingTop: 100 }}>
 									<Formik
 										enableReinitialize={true}
 										initialValues={initialValues}

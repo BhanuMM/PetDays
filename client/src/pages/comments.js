@@ -89,8 +89,8 @@ function comments() {
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
-										<div className="title"> {PostObject.postTitle}</div>
-										<div className="body">{PostObject.postDescr}</div>
+										<div className="title"><h3>{PostObject.postTitle}</h3></div>
+										<div className="body"><h4>{PostObject.postDescr}</h4></div>
 										<div classname="footer" style={{ display: "flex" }}>
 											<span class="be-comment-time">
 												<i className="fa fa-clock-o"></i>
