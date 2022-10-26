@@ -1,16 +1,30 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
-
+import 'package:http/http.dart' as http;
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 import '../../../models/forumPost.dart';
-
-class MyPostItemCard extends StatelessWidget {
+import '../../../models/globals.dart' as globals;
+import '../../PetTalkHome/Pet_Talk_Home_Screen.dart';
+class MyPostItemCard extends StatefulWidget {
   final ForumPost forumPost;
 
 
   MyPostItemCard({ required this.forumPost});
+
+  @override
+  State<MyPostItemCard> createState() => _MyPostItemCardState();
+}
+
+class _MyPostItemCardState extends State<MyPostItemCard> {
+  final getPetReminderRoute = '/user/getpetreminders';
+  final deletePostRoute = '/user/deletepost';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  int stateCounter = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,8 +58,13 @@ class MyPostItemCard extends StatelessWidget {
 
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text(forumPost.postTitle,
-                                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width-120,
+                                child: Expanded(
+                                  child: Text(widget.forumPost.postTitle,
+                                    style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
+                                  ),
+                                ),
                               ),
                             ),
                             Spacer(),
@@ -56,7 +75,7 @@ class MyPostItemCard extends StatelessWidget {
                           children: [
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: forumPost.postStatus == 'approved' ? Text( 'Approved',
+                              child: widget.forumPost.postStatus == 'approved' ? Text( 'Approved',
                                 style: TextStyle(fontSize: 12,
                                     fontWeight: FontWeight.normal,
                                     color: Colors.greenAccent),
@@ -80,7 +99,7 @@ class MyPostItemCard extends StatelessWidget {
                               ),
                             ),
                             Spacer(),
-                            Text(forumPost.postDate,
+                            Text(widget.forumPost.postDate,
                               style: TextStyle(
                                   color: Colors.black26,
                                   fontSize: 12
@@ -105,7 +124,7 @@ class MyPostItemCard extends StatelessWidget {
                           width: MediaQuery.of(context).size.width-80,
                           child: Expanded(
                               child: Text(
-                                forumPost.postDescr,
+                                widget.forumPost.postDescr,
                                 style: TextStyle(
 
                                 ),
@@ -155,7 +174,7 @@ class MyPostItemCard extends StatelessWidget {
                             backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
                           ),
                           onPressed: () {
-
+                            showDeleteConfirm(widget.forumPost.postId.toString());
                           },
                           child: Icon(
                             Icons.delete,
@@ -177,5 +196,50 @@ class MyPostItemCard extends StatelessWidget {
       ),
     );
   }
+  Future  deletePost(vac) async {
+// 10.0.2.2
 
+    final res = await http.delete(Uri.http(globals.url,deletePostRoute+'/'+vac.toString()),
+    );
+    Navigator.pop(context);
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => PetTalkHome()));
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  void showDeleteConfirm(vac){
+    showDialog<void>(
+      context: this.context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirm Deletion"),
+          content: const Text('Are you sure you want to delete the post?'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('okay'),
+              onPressed: () {
+                deletePost(vac);
+              },
+            ),
+            TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('cancel'),
+                onPressed: () {
+                  Navigator.pop(context);
+                }
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
