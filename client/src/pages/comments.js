@@ -6,34 +6,33 @@ import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar";
 function comments() {
-
 	const [authState, setAuthState] = useState({
-        username: "",
-        id: 0,
-        role : "",
-        status: false,
-      });
-    
-      useEffect(() => {
-        axios
-          .get("http://localhost:3001/auth/authuser", {
-            headers: {
-              accessToken: localStorage.getItem("accessToken"),
-            },
-          })
-          .then((response) => {
-            if (response.data.error) {
-              setAuthState({ ...authState, status: false });
-            } else {
-              setAuthState({
-                username: response.data.username,
-                id: response.data.id,
-                role: response.data.role,
-                status: true,
-              });
-            }
-          });
-      }, []);
+		username: "",
+		id: 0,
+		role: "",
+		status: false,
+	});
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/auth/authuser", {
+				headers: {
+					accessToken: localStorage.getItem("accessToken"),
+				},
+			})
+			.then((response) => {
+				if (response.data.error) {
+					setAuthState({ ...authState, status: false });
+				} else {
+					setAuthState({
+						username: response.data.username,
+						id: response.data.id,
+						role: response.data.role,
+						status: true,
+					});
+				}
+			});
+	}, []);
 
 	const [PostObject, SetpostObject] = useState([]);
 	const [CommentObject, SetCommentObject] = useState([]);
@@ -41,13 +40,15 @@ function comments() {
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	useEffect( () => {
-		 axios.get("http://localhost:3001/forum/getpost/"+location.state)
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/forum/getpost/" + location.state)
 			.then((response) => {
 				SetpostObject(response.data);
 				console.log(PostObject);
 			});
-		 axios.get("http://localhost:3001/forum/getcomment/"+location.state)
+		axios
+			.get("http://localhost:3001/forum/getcomment/" + location.state)
 			.then((response) => {
 				SetCommentObject(response.data);
 				console.log(CommentObject);
@@ -57,10 +58,11 @@ function comments() {
 	const id = PostObject.postId;
 
 	const addComment = () => {
-		axios.post("http://localhost:3001/forum", {
+		axios
+			.post("http://localhost:3001/forum", {
 				commentBody: newComment,
 				postId: id,
-				userId : authState.id
+				userId: authState.id,
 			})
 			.then((response) => {
 				const commentToAdd = { commentBody: newComment };
@@ -69,9 +71,9 @@ function comments() {
 			});
 	};
 
-console.log(PostObject);
-console.log(CommentObject);
-	
+	console.log(PostObject);
+	console.log(CommentObject);
+
 	return (
 		<div className="posts">
 			<div class="container-fluid bgimage">
@@ -83,39 +85,37 @@ console.log(CommentObject);
 						<br />
 						<br />
 						<br />
-						<main class="">
+						<main class="py-6 bg-surface-secondary">
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
 										<div className="title"> {PostObject.postTitle}</div>
 										<div className="body">{PostObject.postDescr}</div>
-										<div className="footer">
-											<div className="lefttext">
-												Posted date :{PostObject.postDate}
-											</div>
-											<div className="righttext">
-												Posted time: {PostObject.postTime}
-											</div>
+										<div classname="footer" style={{ display: "flex" }}>
+											<span class="be-comment-time">
+												<i className="fa fa-clock-o"></i>
+												 {PostObject.postDate}  at {PostObject.postTime}
+											</span>
+											
+										</div><br/>
+										<div
+											className="addCommentContainer"
+											style={{ display: "flex" }}
+										>
+											<input
+												type="text"
+												placeholder="Comment..."
+												autoComplete="off"
+												value={newComment}
+												onChange={(event) => {
+													setNewComment(event.target.value);
+												}}
+											/>
+											<button onClick={addComment}> Add Comment</button>
 										</div>
 									</div>
 								</div>
-
 								<div className="rightSide">
-									<div
-										className="addCommentContainer"
-										style={{ display: "flex", paddingLeft: 250 }}
-									>
-										<input
-											type="text"
-											placeholder="Comment..."
-											autoComplete="off"
-											value={newComment}
-											onChange={(event) => {
-												setNewComment(event.target.value);
-											}}
-										/>
-										<button onClick={addComment}> Add Comment</button>
-									</div>
 									<div className="listOfComments">
 										{CommentObject.map((CommentObject, key) => {
 											return (
@@ -143,7 +143,8 @@ console.log(CommentObject);
 																	if (result.isConfirmed) {
 																		axios
 																			.delete(
-																				"http://localhost:3001/forum/deletecom/"+CommentObject.id
+																				"http://localhost:3001/forum/deletecom/" +
+																					CommentObject.id
 																			)
 																			.then((response) => {
 																				if (response.data.error) {
@@ -172,8 +173,8 @@ console.log(CommentObject);
 															type="button"
 															class="btn btn-sm btn-square btn-neutral text-danger-hover"
 															onClick={() => {
-																
-																navigate("/editcomment", {state: CommentObject.id,
+																navigate("/editcomment", {
+																	state: CommentObject.id,
 																});
 															}}
 														>
