@@ -159,7 +159,7 @@ function petmart() {
 						</div>
 					</div>
 				</div><br/><br/>
-				<div className="d-flex button-group-me">
+				{/* <div className="d-flex button-group-me">
 					<a href="#" role="button" aria-pressed="true">
 						<button type="submit" class="btn-tra" style={{ width: 340 }}>
 							Pet Grooming
@@ -180,7 +180,7 @@ function petmart() {
 							Other
 						</button>
 					</a>
-				</div><br/><br/>
+				</div><br/><br/> */}
 				<main class="py-6 bg-surface-secondary">
 					<div class="petmart-container-fluid">
 						<div className="adtitles">
@@ -212,7 +212,7 @@ function petmart() {
 												</div>
 												<div class="px-2 mt-3">
 													{" "}
-													<button class="btn btn-primary px-3 butn-color">
+													<button class=""style={{ backgroundColor: "#F66B0E" }}>
 														View Ad
 													</button>{" "}
 												</div>
