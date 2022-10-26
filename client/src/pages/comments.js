@@ -87,9 +87,9 @@ console.log(CommentObject);
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
-										<div className="title"> {PostObject.postTitle}</div>
+										<div className="title" > {PostObject.postTitle}</div>
 										<div className="body">{PostObject.postDescr}</div>
-										<div className="footer">
+										<div className="footer" >
 											<div className="lefttext">
 												Posted date :{PostObject.postDate}
 											</div>

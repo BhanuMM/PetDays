@@ -115,7 +115,7 @@ function mddogdiet() {
   
 
   return (
-    <div class="container-fluid">
+    <div>
       <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <div className="">
           <Moderatorsidebar />
@@ -166,10 +166,11 @@ function mddogdiet() {
                     </a>
                     <br />
                     <br />
-                    <p class="fw-semibold " style={{ paddingRight: 40 }}>
+                    <div  style={{ display:"flex" }}>
+                    <p class="fw-semibold " style={{ paddingRight: 40, paddingTop:10 }}>
                       Filtery by :
                     </p>
-                    <div class="search-line" style={{ display: "flex" }}>
+                    <div class="search-line" style={{ display: "flex", width:200 }}>
                       <p class="fw-semibold ">
                         <select
                           id="select"
@@ -219,25 +220,30 @@ function mddogdiet() {
                         
                         </select>
                       </p>
-
-                      
-
-                    
-                     
-
-                      <div class="input-group" style={{ width: 430 }}>
+                      <div
+										style={{ width: 575, float: "right" ,display:"flex",paddingTop:10,paddingLeft:100}}
+									>
+                      <p
+											class="fw-semibold "
+											style={{ paddingRight: 10, paddingTop: 10,width:300}}
+										>
+											Search Diet Plans
+										</p>
+                      <div style={{ width: 430 }}>
                         <input
                           type="search"
-                          class="form-control rounded"
+                          class="form-control rounded input-group"
                           placeholder="Search Diet Plans"
                           aria-label="Search"
                           aria-describedby="search-addon"
-                          style={{ height: 40 }}
+                          style={{ height: 40,width:300 }}
                               onChange = {(event) => {
                               searchResult(event.target.value);
                               }}
                         />
                         
+                      </div>
+                      </div>
                       </div>
                     </div>
                   </div>

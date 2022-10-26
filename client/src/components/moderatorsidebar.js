@@ -213,16 +213,12 @@ function moderatorsidebar() {
 							<hr class="navbar-divider my-5 opacity-20" />
 							<div class="mt-auto"></div>
 							<ul class="navbar-nav">
+								
 								<li class="nav-item">
-									<a class="nav-link" href="\myprofile">
-										<i class="bi bi-person-square"></i> Account
-									</a>
-								</li>
-								<li class="nav-item">
-								<button type="submit" onClick={logout} >
-								 <i class="bi bi-box-arrow-left"></i>   logout
-               </button>
-								</li>
+						<button type="submit" onClick={logout} style={{ width: 245,backgroundColor:'#F66B0E' }} >
+							<i class="bi bi-box-arrow-left"></i>   logout
+               			</button>
+						</li>
 							</ul>
 						</div>
 					</div>
