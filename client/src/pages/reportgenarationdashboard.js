@@ -5,7 +5,7 @@ import "../styles/dashboard.css";
 import Sidebar from "../components/sidebar";
 function dashboard() {
 	return (
-		<div class="container-fluid">
+		<div >
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -22,7 +22,10 @@ function dashboard() {
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
 													<a href="/admindashboard" className="header-topic">
-														Admin Dashboard
+														Admin Dashboard / 
+													</a>
+													<a href="/reportgenarationdashboard" className="header-topic">
+														Report Generation
 													</a>
 												</li>
 											</ol>

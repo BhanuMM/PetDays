@@ -20,7 +20,7 @@ function viewmoderators() {
 		});
 	}, []);
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -39,7 +39,7 @@ function viewmoderators() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Dashboard/
 													</a>
-													<a href="/viewmoderator" className="header-topic">
+													<a href="/viewmoderators" className="header-topic">
 														Moderators
 													</a>
 												</li>
@@ -72,16 +72,16 @@ function viewmoderators() {
 												Add Moderator
 											</Button>
 										</div>
-										<div class="input-group" style={{ width: 575 }}>
+										<div style={{ width: 575, float: "right" ,display:"flex",paddingTop:10 }}>
 											<p
 												class="fw-semibold "
-												style={{ paddingRight: 10, paddingTop: 10 }}
+												style={{ paddingRight: 10, paddingTop: 10 ,width:250 }}
 											>
 												Search Moderator
 											</p>
 											<input
 												type="search"
-												class="form-control rounded"
+												class="form-control rounded input-group"
 												placeholder="Enter Moderator Name"
 												aria-label="Search"
 												aria-describedby="search-addon"
@@ -145,10 +145,12 @@ function viewmoderators() {
 																	<td class="hidden-xs">{value.userID}</td>
 																	<td>{value.username}</td>
 																	<td>{value.email}</td>
-																	<td class="text-end">
+																	<td class="text-end" >
 																		<div style={{ display: "flex" }}>
+
 																			<div style={{ display: "flex" }}>
 																			<div style={{ paddingRight: 5 }}>
+
 																		</div>
 																			<button
 																					type="button"

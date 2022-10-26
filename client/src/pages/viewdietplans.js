@@ -46,40 +46,7 @@ function viewdietplans() {
 		});
 		setFilterItems(result);
 	};
-	// //   Diet plan Filters pet categpry
-	//   const filterResult = (catName) =>{
-	// 	if (catName == "All"){
-	// 		setFilterItems(listOfDietplans);
-	// 	}
-	// 	else{
-	// 		const result = filterItems.filter((val) =>{
-	// 			return val.Breed.Petcatagory.pcatName === catName;
 
-	// 		} );
-	// 		setFilterItems(result);
-	// 	}
-
-	//   }
-
-	//   //   Diet plan Filters pet breed
-	//   const filterResult2 = (breedName) =>{
-	// 	if (breedName == "All"){
-	// 		setFilterItems(listOfDietplans);
-	// 	}
-	// 	else{
-	// 		const result = filterItems.filter((val) =>{
-	// 			return val.Breed.breedName === breedName;
-	// 		} );
-	// 		if(result == ""){
-	// 			setFilterItems(listOfDietplans);
-	// 		}
-	// 		else{
-	// 			setFilterItems(result);
-	// 		}
-
-	// 	}
-
-	//   }
 
 	const filterResult = (catagory, breed) => {
 		console.log("catagory ", catagory);
@@ -107,7 +74,7 @@ function viewdietplans() {
 	};
 
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -144,9 +111,11 @@ function viewdietplans() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right">
+
 										<br />
 										<br />
-										<p class="fw-semibold " style={{ paddingRight: 40 }}>
+										<div style={{ display: "flex" }}>
+										<p class="fw-semibold " style={{ paddingRight: 40,width:150, paddingTop:10 }}>
 											Filtery by :
 										</p>
 										<div class="search-line" style={{ display: "flex" }}>
@@ -154,7 +123,7 @@ function viewdietplans() {
 												<select
 													id="select"
 													class="btn btn-dark dropdown-toggle"
-													style={{ paddingRight: 40, marginRight: 20 }}
+													style={{ paddingRight: 40, marginRight: 20,width:160 }}
 													onChange={(event) => {
 														document.getElementById("select1").value = "All";
 
@@ -173,8 +142,7 @@ function viewdietplans() {
 													}}
 												>
 													<option value="All">All</option>
-													{/* <option value="Dog">Dog</option>
-                          <option value="Cat">Cat</option> */}
+													
 													{listOfCatagories.map((value, key) => {
 														return (
 															<option value={value.pcatID}>
@@ -189,7 +157,7 @@ function viewdietplans() {
 												<select
 													id="select1"
 													class="btn btn-dark dropdown-toggle"
-													style={{ paddingRight: 40, marginRight: 20 }}
+													style={{ paddingRight: 40, marginRight: 20,width:160 }}
 													onChange={(event) => {
 														filterResult(
 															document.getElementById("select").value,
@@ -207,20 +175,20 @@ function viewdietplans() {
 													})}
 												</select>
 											</p>
-
+											</div>
 											<div
-												class="input-group"
-												style={{ width: 575, marginLeft: 420 }}
+												
+												style={{ width: 575, marginLeft: 420 ,display:"flex",paddingTop:10}}
 											>
 												<p
 													class="fw-semibold "
-													style={{ paddingRight: 10, paddingTop: 10 }}
+													style={{ paddingRight: 10, paddingTop: 10,width:250 }}
 												>
 													Search Dietplans
 												</p>
 												<input
 													type="search"
-													class="form-control rounded"
+													class="form-control rounded input-group"
 													placeholder="Enter Dietplan Name"
 													aria-label="Search"
 													aria-describedby="search-addon"

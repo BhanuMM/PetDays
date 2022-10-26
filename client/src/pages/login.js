@@ -57,6 +57,7 @@ function login() {
       className="Login login-bgimagesize"
       style={{
         backgroundImage: `url(${Bgimage})`,
+        
       }}
     >
       <section className="vh-100 ">
@@ -66,9 +67,10 @@ function login() {
               <div
                 className="card login-cardsize flex-center login-cardmargins"
                 border-radius="2rem; "
+                style={{ paddingLeft: 100}}
               >
                 <div className="row g-0">
-                  <div className="col-md-6 col-lg-5 d-none d-md-block text-center">
+                  <div className="col-md-6 col-lg-5 d-none d-md-block text-center" style={{ paddingTop: 25}}>
                   <a  href="index"> <img
                       src={signin}
                       alt="login form"
@@ -81,18 +83,19 @@ function login() {
                         src={name}
                         className="rounded float-start img-fluid login-nameimg"
                         alt="dog"
+                        
                       />
-                      {/* <h2 className='text-center login.caption'>PET DAYS</h2> */}
+                     
                     </div>
                   </div>
-                  <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div className="col-md-6 col-lg-7 d-flex align-items-center" style={{ paddingLeft: 100,paddingTop:45}}>
                     <div className="card-body p-4 p-lg-5 text-black">
                       <Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={Schema}
                       >
-                        <Form>
+                        <Form >
                           <h3
                             className="fw-normal mb-3 pb-3 text-center text-bold login.caption"
                             letter-spacing="1px;"
@@ -130,15 +133,9 @@ function login() {
                               </div>
                             </div>
                           </div>
-                          {/* 
-                                        <div class="pt-1 mb-4">
-                                            <button className ="btn btn-success btn-lg btn-block text-center" type="button">Login</button>
-                                        </div> */}
+                         
                           <div className="row">
-                            {/* <div className='col'>
-                                            <input type="checkbox" id="topping" name="topping" value="" />Remembr Me
-                                           
-                                            </div> */}
+                            
 
                             <div className="col">
                               <a className="small text-muted  ml-5" href="#!">
@@ -150,7 +147,7 @@ function login() {
                                 letter-spacing="#393f81;"
                               >
                                 Don't have an account?{" "}
-                                <a href="registertype" color="#393f81;">
+                                <a href="registertype" style={{color:'#205375'}}>
                                   Sign Up
                                 </a>
                               </p>
@@ -163,10 +160,9 @@ function login() {
                             >
                               LOGIN{" "}
                             </button>
+                            <a href="\index" role="button" aria-pressed="true" style={{color:'#205375'}} ><p>Back To Home</p></a>
                           </div>
 
-                          {/* <a href="#!" className="small text-muted">Terms of use.</a>
-                                        <a href="#!" className="small text-muted">Privacy policy</a> */}
                         </Form>
                       </Formik>
                     </div>

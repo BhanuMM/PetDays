@@ -107,7 +107,7 @@ function sidebar() {
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="\viewadvertisements">
+							<a class="nav-link" href="\petmart">
 								<i class="fa fa-file" aria-hidden="true"></i> Advertisements
 							</a>
 						</li>
@@ -279,15 +279,11 @@ function sidebar() {
 					<hr class="navbar-divider my-5 opacity-20" />
 					<div class="mt-auto"></div>
 					<ul class="navbar-nav">
+
 						<li class="nav-item">
-							<a class="nav-link" href="/myprofileadmin">
-								<i class="bi bi-person-square"></i> Account
-							</a>
-						</li>
-						<li class="nav-item">
-						<button type="submit" onClick={logout} >
-								 <i class="bi bi-box-arrow-left"></i>   logout
-               </button>
+						<button type="submit" onClick={logout} style={{ width: 245,backgroundColor:'#F66B0E' }} >
+							<i class="bi bi-box-arrow-left"></i>   logout
+               			</button>
 						</li>
 					</ul>
 				</div>

@@ -99,7 +99,7 @@ function forum() {
 											<br />
 
 											<div class="search-line" style={{ display: "flex" }}>
-												<p class="fw-semibold " style={{ paddingRight: 40 }}>
+												<p class="fw-semibold " style={{ paddingRight: 40, width:120, paddingTop:15 }}>
 													Filtery by :
 												</p>
 
@@ -154,18 +154,19 @@ function forum() {
 												</div>
 
 												<div
-													class="input-group"
-													style={{ width: 575, float: "right" }}
+													
+													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
 												>
 													<p
 														class="fw-semibold "
-														style={{ paddingRight: 10, paddingTop: 10 }}
+														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
 													>
 														Search Forum posts
 													</p>
 													<input
 														type="search"
-														class="form-control rounded"
+														
+														class="form-control rounded input-group"
 														placeholder="Enter Forum posts"
 														aria-label="Search"
 														aria-describedby="search-addon"
@@ -257,17 +258,10 @@ function forum() {
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">
+								<h3 class="modal-title" id="exampleModalLongTitle" style={{paddingLeft:100}}>
 									Start New Disscussion
-								</h5>
-								<button
-									type="button"
-									class="close"
-									data-dismiss="modal"
-									aria-label="Close"
-								>
-									<span aria-hidden="true">&times;</span>
-								</button>
+								</h3>
+								
 							</div>
 							<div class="modal-body">
 								<Formik initialValues={initialValues} enableReinitialize={true} onSubmit={onSubmit}>
@@ -305,28 +299,30 @@ function forum() {
 										</div>
 										<div className="form-group">
 											<label for="message-text" className="col-form-label">
-												Pet category
+												Pet Category
 											</label>
 											<Field as="select" name="pcatID" className="form-select">
-												<option value="1">dogs </option>
-												<option value="2">cats</option>
+												<option value="1">Dogs </option>
+												<option value="2">Cats</option>
 											</Field>
-										</div>
-										<div class="modal-footer">
-											<div style={{ paddingRight: 15 }}>
+										</div><br/>
+										<div >
+											<div style={{ paddingRight: 15, display:"flex",paddingLeft:100 }}>
 												<button
 													variant="contained"
 													type="submit"
 													component="label"
-													style={{ backgroundColor: "#205375" }}
+													style={{ backgroundColor: "#205375", width:100}}
+													
 												>
 													Submit
 												</button>
 												<button
 													variant="contained"
 													component="label"
-													style={{ backgroundColor: "#F66B0E" }}
+													style={{ backgroundColor: "#F66B0E", width:100 }}
 													data-dismiss="modal"
+													width="50"
 												>
 													Close
 												</button>

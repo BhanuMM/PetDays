@@ -66,7 +66,7 @@ function navbar() {
                   <li className="nav-item active">
                   
                   <a className="nav-link" href="spdashboard"><h4>My Account</h4></a>
-           </li>
+                </li>
                 </>
               )}
                {authState.status && authState.role=="admin" && (

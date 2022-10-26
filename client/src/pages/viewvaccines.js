@@ -33,7 +33,7 @@ function viewvaccines() {
 	}, []);
 
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -52,7 +52,7 @@ function viewvaccines() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Dashboard/
 													</a>
-													<a href="/mdpostsection" className="header-topic">
+													<a href="/viewvaccines" className="header-topic">
 														Vaccines
 													</a>
 												</li>
@@ -71,18 +71,17 @@ function viewvaccines() {
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right"></div>
 									<div
-										class="input-group"
-										style={{ width: 575, float: "right" }}
+										style={{ width: 575, float: "right" ,display:"flex",paddingTop:10}}
 									>
 										<p
 											class="fw-semibold "
-											style={{ paddingRight: 10, paddingTop: 10 }}
+											style={{ paddingRight: 10, paddingTop: 10,width:250}}
 										>
 											Search Vaccine
 										</p>
 										<input
 											type="search"
-											class="form-control rounded"
+											class="form-control rounded input-group"
 											placeholder="Enter Vaccine Name"
 											aria-label="Search"
 											aria-describedby="search-addon"

@@ -58,7 +58,7 @@ function addpetcategories() {
 		});
 	  };
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Sidebar />
@@ -94,16 +94,7 @@ function addpetcategories() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									{/* <Card
-										sx={{
-											minWidth: 275,
-											maxWidth: 1500,
-											width: 1100,
-											marginLeft: 15,
-										}}
-										style={{ height: 450, padding: 10, paddingLeft: 75 }}
-									>
-										<CardContent> */}
+									
 										<Formik
 									initialValues={initialValues}
 									onSubmit={onSubmit}
@@ -114,24 +105,6 @@ function addpetcategories() {
 												<br />
 												<br />
 												<br />
-												{/* <Box
-													component="form"
-													sx={{
-														"& .MuiTextField-root": { m: 1, width: "100ch" },
-													}}
-													noValidate
-													autoComplete="off"
-												> */}
-													{/* <TextField
-														id="med-name"
-														label="Name of the Category"
-													/>
-													<br />
-													<TextField
-														id="med-desc"
-														label="Description about the Category"
-													/> */}
-
 													<div class="col-10">
 														<label className="form-label">Name of the Category</label>
 														<div className="col">
@@ -156,42 +129,17 @@ function addpetcategories() {
 															component="textarea"
 															/>
 													</div>
-													{/* <div className="row"> */}
-														{/* <div className="col-9"></div> */}
+													
 														<div className="col-10 mb-5 mt-5 text-right">
 															{" "}
 															<button
 																className="register.loginbuttonsize btn btn-success "
 																type="submit"
-																style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
+																style={{ backgroundColor: "#205375", borderColor:"#205375"}}
 															>
 																Add Pet Category
 															</button>
 														</div>
-													{/* </div> */}
-												{/* </Box> */}
-
-												{/* <div className="row">
-													<div className="col-9"></div>
-													<div className="col-3 mb-5 mt-5">
-														{" "} */}
-														{/* <Button
-															variant="contained"
-															component="label"
-															style={{ backgroundColor: "#F66B0E" }}
-														>
-															Add Pet Category
-														</Button> */}
-														 {/* <button
-                              className="register.loginbuttonsize btn btn-success "
-                              type="submit"
-							  style={{backgroundColor: '#F66B0E',borderColor:"#F66B0E"}} 
-                            >
-                             Add Pet Category
-                            </button>
-													</div>
-													
-												</div> */}
 											</Form>
 											</Formik>
 											
