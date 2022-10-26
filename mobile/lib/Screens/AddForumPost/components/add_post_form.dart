@@ -26,7 +26,7 @@ class _AddPostFormState extends State<AddPostForm>{
   List data = [];
   final petCatRoute = '/admin/getpetcategories';
   var Catagories = [];
-  String _SelectedCatID = '';
+  String _SelectedCatID = '1';
   String _SelectedCat = '';
   PetReminder petReminder = new PetReminder('', 'note', 'nextRemDate', 'nextRemTime');
   ForumPost forumPost = new ForumPost('postTitle', 'postDescr', 'pending', 'postDate', 'postTime', uid, 'username', 'pcatID');

@@ -25,7 +25,7 @@ class _PetMedicationContentState extends State<PetMedicationContent> {
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   List medicineDetails = [];
-  Future getPetReminders() async {
+  Future getPetMedications() async {
 
     // 10.0.2.2
     final res = await http.get(Uri.http(globals.url,getPetMedsRoute+'/'+ widget.petID),
@@ -45,6 +45,10 @@ class _PetMedicationContentState extends State<PetMedicationContent> {
     // return list;
     // return list.map((e) => PetCatagory.fromJson(e)).toList();
 
+  }
+  void initState() {
+    super.initState();
+    this.getPetMedications();
   }
   @override
   Widget build(BuildContext context) {
@@ -104,16 +108,16 @@ class _PetMedicationContentState extends State<PetMedicationContent> {
                               rows: medicineDetails.map((vac) => DataRow(
                                   cells: [
                                     DataCell(
-                                        Text(vac['note'].toString())
+                                        Text(vac['Medicine']['medName'].toString())
                                     ),
                                     DataCell(
-                                        Text(vac['note'].toString())
+                                        Text(vac['startDate'].toString())
                                     ),
                                     DataCell(
-                                        Text(vac['nextRemDate'])
+                                        Text(vac['timesADay'].toString())
                                     ),
                                     DataCell(
-                                        Text(vac['nextRemTime'])
+                                        Text(vac['days'].toString())
                                     ),
                                   ]
                               )

@@ -59,10 +59,11 @@ router.post("/addpet", async (req, res) => {
   router.get("/getpetmeds/:id", async (req, res) => {
     const id = req.params.id;
     const listOfMedicines = await PetMedications.findAll(
-      {include: {model:Medicines,required: true}},
       {where: {
         PetID: id
-      }},
+      },
+      include: {model:Medicines,required: true},
+    },
       
     );
     res.json(listOfMedicines);
@@ -231,14 +232,34 @@ router.post("/addpet", async (req, res) => {
   router.get("/getpetvaccines/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPetVaccines = await PetVaccines.findAll(
-      {include: {model:Vaccines,required: true}},
-      {where: {
+      {include: {model:Vaccines,required: true},
+        where: {
         petId: id
       }},
       
     );
     res.json(listOfPetVaccines);
   });
+
+  router.delete("/deletepetRem/:petRemId", async (req, res) => {
+    const Id = req.params.petRemId;
+    await PetReminders.destroy({
+      where: {
+        petRemID: Id,
+      },
+    });
+    res.json("DELETED SUCCESSFULLY");
+  });
+  router.delete("/deletepost/:postId", async (req, res) => {
+    const Id = req.params.postId;
+    await Forumposts.destroy({
+      where: {
+        postId: Id,
+      },
+    });
+    res.json("DELETED SUCCESSFULLY");
+  });
+
   router.get("/getpetreminders/:id", async (req, res) => {
     const id = req.params.id;
     const listOfPetReminders = await PetReminders.findAll(

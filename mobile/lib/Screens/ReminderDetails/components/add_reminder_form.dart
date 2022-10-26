@@ -13,6 +13,7 @@ import '../../../models/reminder.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
 import '../../../models/globals.dart' as globals;
+import '../../Reminders/Reminders_Screen.dart';
 
 class AddReminderForm extends StatefulWidget {
   String petID = '';
@@ -83,14 +84,14 @@ class _AddReminderFormState extends State<AddReminderForm>{
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit("Reminder", petReminder.note + "for Date: " + petReminder.nextRemDate.toString(),DateTime.now().add(Duration(seconds: 15)));
+      NotificationAPI.scheduleNotificationInit(0,"Reminder", petReminder.note + "for Date: " + petReminder.nextRemDate.toString(),DateTime.now().add(Duration(seconds: 15)));
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Vaccine added"),
-            content: const Text('Vaccine detail successfully added'),
+            title: const Text("Reminder added"),
+            content: const Text('Reminder details successfully added'),
             actions: <Widget>[
               TextButton(
                 style: TextButton.styleFrom(
@@ -99,7 +100,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
                 child: const Text('okay'),
                 onPressed: () {
                   Navigator.push(
-                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+                      context, new MaterialPageRoute(builder: (context) => RemindersScreen(petID)));
                 },
               ),
             ],

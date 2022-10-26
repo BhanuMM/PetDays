@@ -13,6 +13,7 @@ import '../../../models/petVaccination.dart';
 import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
 import '../../../models/globals.dart' as globals;
+import '../../ViewVaccination/View_Vaccinations_Screen.dart';
 
 class AddVaccinationtForm extends StatefulWidget {
   String petID = '';
@@ -93,7 +94,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit("Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
+      NotificationAPI.scheduleNotificationInit(0,"Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
@@ -109,7 +110,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                 child: const Text('okay'),
                 onPressed: () {
                   Navigator.push(
-                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+                      context, new MaterialPageRoute(builder: (context) => ViewVaccinationsScreen(petID)));
                 },
               ),
             ],

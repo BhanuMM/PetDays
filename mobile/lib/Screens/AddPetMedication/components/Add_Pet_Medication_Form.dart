@@ -14,6 +14,7 @@ import '../../../components/notification_API.dart';
 import '../../../models/petdiary.dart';
 import '../../../models/globals.dart' as globals;
 import '../../../models/petMedication.dart';
+import '../../PetMedications/Pet_Medication_Screen.dart';
 
 class AddMedicationForm extends StatefulWidget {
   String petID = '';
@@ -81,8 +82,31 @@ class _AddMedicationFormState extends State<AddMedicationForm>{
     );
 
     print(json.decode(res.body));
+
+
+
+
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit("Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(seconds: 15)));
+      // NotificationAPI.scheduleNotificationInit("Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(days: 0,seconds: 15)));
+
+
+
+      for(int i = 0; i< int.parse(petMedication.days);i++){
+        print(i.toString() + "we in");
+        if(int.parse(petMedication.timesADay)== 1 ||  int.parse(petMedication.timesADay)== 2 || int.parse(petMedication.timesADay)== 3){
+          print(i.toString() + "1st time");
+          NotificationAPI.scheduleNotificationInit(i,"Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(days: i,seconds: 15)));
+          print(DateTime.now().add(Duration(days: i,seconds: 15)));
+        }
+        if(int.parse(petMedication.timesADay)== 2){
+          print(i.toString() + "2nd time");
+          NotificationAPI.scheduleNotificationInit(i+5,"Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(days: i,hours: 12,seconds: 15)));
+        }else if(int.parse(petMedication.timesADay)== 3){
+          print(i.toString() + "3 time3");
+          NotificationAPI.scheduleNotificationInit(i+10,"Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(days: i,hours: 8,seconds: 15)));
+          NotificationAPI.scheduleNotificationInit(i+15,"Reminder", "Remember to give your pet the medicine",DateTime.now().add(Duration(days: i,hours: 16,seconds: 15)));
+        }
+      }
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
@@ -98,7 +122,7 @@ class _AddMedicationFormState extends State<AddMedicationForm>{
                 child: const Text('okay'),
                 onPressed: () {
                   Navigator.push(
-                      context, new MaterialPageRoute(builder: (context) => DashboardScreen()));
+                      context, new MaterialPageRoute(builder: (context) => PetMedicationScreen(petID)));
                 },
               ),
             ],
