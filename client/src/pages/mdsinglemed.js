@@ -89,7 +89,7 @@ function mdsinglemed() {
 											<input
 												type="search"
 												class="form-control rounded input-group"
-												placeholder="Enter Medicine Name"
+												placeholder="Search Medicine"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}

@@ -174,8 +174,8 @@ function moderatorsidebar() {
 													</a>
 												</div>
 												<div class="panel-body">
-													<a class="nav-link" href="/mdnewverifyposts" style={{paddingLeft:70}}>
-														Verified Posts
+													<a class="nav-link" href="/mdrejectedposts" style={{paddingLeft:70}}>
+														Rejected Posts
 													</a>
 												</div>
 											</div>
