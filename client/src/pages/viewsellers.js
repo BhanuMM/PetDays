@@ -66,11 +66,11 @@ function viewsellers() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>User ID </strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>User Name</strong>
@@ -93,7 +93,7 @@ function viewsellers() {
 													{listOfServiceproviders.map((value, key) => {
 														return (
 															<tr>
-																<td class="hidden-xs">{value.userID}</td>
+																{/* <td class="hidden-xs">{value.userID}</td> */}
 
 																<td>{value.username}</td>
 																<td>{value.email}</td>

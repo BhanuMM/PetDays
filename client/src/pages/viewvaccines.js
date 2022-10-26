@@ -101,11 +101,11 @@ function viewvaccines() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Vaccine ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Vaccine Name</strong>
@@ -139,7 +139,7 @@ function viewvaccines() {
 													.map((value, key) => {
 														return (
 															<tr>
-																<td>{value.vacID}</td>
+																{/* <td>{value.vacID}</td> */}
 																<td>{value.vacName}</td>
 																<td>{value.descr}</td>
 																<td>{value.vacNextIter} Months</td>
