@@ -67,11 +67,11 @@ function viewcategories() {
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
-													<th scope="col">
+													{/* <th scope="col">
 														<b>
 															<strong>Category ID</strong>
 														</b>
-													</th>
+													</th> */}
 													<th scope="col">
 														<b>
 															<strong>Category Name</strong>
@@ -92,7 +92,7 @@ function viewcategories() {
 													{listOfPetcatagories.map((value, key) => {
 														return (
 															<tr>
-																<td class="hidden-xs">{value.pcatID}</td>
+																{/* <td class="hidden-xs">{value.pcatID}</td> */}
 
 																<td>{value.pcatName}</td>
 																<td>{value.descr}</td>

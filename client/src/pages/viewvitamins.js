@@ -62,7 +62,7 @@ function viewvitamins() {
 											class="fw-semibold "
 											style={{ paddingRight: 10, paddingTop: 10,width:250 }}
 										>
-											Search Viatamin
+											Search Vitamin
 										</p>
 										<input
 											type="search"
@@ -88,11 +88,11 @@ function viewvitamins() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Vitamin ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Vitamin Name</strong>
@@ -126,7 +126,7 @@ function viewvitamins() {
 														.map((value, key) => {
 															return (
 																<tr>
-																	<td>{value.vitID}</td>
+																	{/* <td>{value.vitID}</td> */}
 																	<td>{value.vitName}</td>
 																	<td>{value.vitType}</td>
 																	<td>{value.descr}</td>

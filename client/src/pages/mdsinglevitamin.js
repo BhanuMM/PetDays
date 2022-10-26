@@ -112,11 +112,11 @@ function mdsinglevitamin() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Vitamin ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Vitamin Name</strong>
@@ -145,7 +145,7 @@ function mdsinglevitamin() {
 													}).map((value, key) => {
 														return (
 															<tr>
-																<td>{value.vitID}</td>
+																{/* <td>{value.vitID}</td> */}
 																<td>{value.vitName}</td>
 																<td>{value.vitType}</td>
 																<td>{value.descr}</td>
