@@ -9,23 +9,22 @@ import Navbar from "../components/navbar";
 import "../styles/petcategories.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate  } from "react-router-dom";
-import Button from '@mui/material/Button';
-
-
+import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function petmart() {
-
 	const [listOfpendingads, setlistOfpendingads] = useState([]);
-  // let history = useHistory();
+	// let history = useHistory();
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/service/getpetmartads").then((response) => {
-      setlistOfpendingads(response.data);
-    });
-  }, []);
+	useEffect(() => {
+		axios
+			.get("http://localhost:3001/service/getpetmartads")
+			.then((response) => {
+				setlistOfpendingads(response.data);
+			});
+	}, []);
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	return (
 		<div className="Petmart">
@@ -56,7 +55,6 @@ function petmart() {
 						<div className="row mt-5">
 							<div className="col-3 "></div>
 							<div className="col-1 pt-2">
-								{" "}
 								<h5> Filter By:</h5>
 							</div>
 							<div className="col-2 text-center">
@@ -154,46 +152,48 @@ function petmart() {
 				<main class="py-6 bg-surface-secondary">
 					<div class="petmart-container-fluid">
 						<div className="row">
-						{listOfpendingads.map((value, key) => {
-                            return (
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img
-											src="https://www.acs.edu.au/database/images/course_4335051.jpg"
-											class="img-fluid rounded"
-										/>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>{value.adTitle}</h4>
-											<small>{value.adDate}</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-											{value.adDescr}
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>{value.adPrice}</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
+							{listOfpendingads.map((value, key) => {
+								return (
+									<div className="col-3">
+										<div class="petmart-card">
+											<div class="petmart-inner-card">
+												<img
+													src="https://www.acs.edu.au/database/images/course_4335051.jpg"
+													class="img-fluid rounded"
+												/>
+												<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+													<h4>{value.adTitle}</h4>
+													<small>{value.adDate}</small>
+												</div>
+												<div class="mt-2 px-2">
+													<small>{value.adDescr}</small>
+												</div>
+												<div class="px-2">
+													<h3> Rs.{value.adPrice}</h3>
+												</div>
+												<div class="px-2 mt-3">
+													<a href="#" className="header-topic">
+														<button class="btn btn-primary px-3 btn-color">
+															View Advertisment
+														</button>
+													</a>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							);
-						})}
+								);
+							})}
 						</div>
 					</div>
 					<a href="\petmartallads" className="header-topic">
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
-                    View All Advertisment
-                  </Button></a>
+						<Button
+							variant="contained"
+							component="label"
+							style={{ backgroundColor: "#F66B0E", height: 40, width: 275 }}
+						>
+							View All Advertisment
+						</Button>
+					</a>
 				</main>
 			</div>
 			<Footer />

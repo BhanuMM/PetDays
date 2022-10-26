@@ -47,7 +47,6 @@ function viewdietplans() {
 		setFilterItems(result);
 	};
 
-
 	const filterResult = (catagory, breed) => {
 		console.log("catagory ", catagory);
 		console.log("breed ", breed);
@@ -111,78 +110,96 @@ function viewdietplans() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right">
-
 										<br />
 										<br />
 										<div style={{ display: "flex" }}>
-										<p class="fw-semibold " style={{ paddingRight: 40,width:150, paddingTop:10 }}>
-											Filtery by :
-										</p>
-										<div class="search-line" style={{ display: "flex" }}>
-											<p class="fw-semibold ">
-												<select
-													id="select"
-													class="btn btn-dark dropdown-toggle"
-													style={{ paddingRight: 40, marginRight: 20,width:160 }}
-													onChange={(event) => {
-														document.getElementById("select1").value = "All";
-
-														axios
-															.get(
-																"http://localhost:3001/admin/getpetbreeds/" +
-																	event.target.value
-															)
-															.then((response) => {
-																setListOfBreeds(response.data);
-															});
-														filterResult(
-															event.target.value,
-															document.getElementById("select1").value
-														);
-													}}
-												>
-													<option value="All">All</option>
-													
-													{listOfCatagories.map((value, key) => {
-														return (
-															<option value={value.pcatID}>
-																{value.pcatName}
-															</option>
-														);
-													})}
-												</select>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 40, width: 150, paddingTop: 10 }}
+											>
+												Filtery by :
 											</p>
+											<div class="search-line" style={{ display: "flex" }}>
+												<p class="fw-semibold ">
+													<select
+														id="select"
+														class="btn btn-dark dropdown-toggle"
+														style={{
+															paddingRight: 40,
+															marginRight: 20,
+															width: 160,
+														}}
+														onChange={(event) => {
+															document.getElementById("select1").value = "All";
 
-											<p class="fw-semibold ">
-												<select
-													id="select1"
-													class="btn btn-dark dropdown-toggle"
-													style={{ paddingRight: 40, marginRight: 20,width:160 }}
-													onChange={(event) => {
-														filterResult(
-															document.getElementById("select").value,
-															event.target.value
-														);
-													}}
-												>
-													<option value="All">All Breeds</option>
-													{listOfBreeds.map((value, key) => {
-														return (
-															<option value={value.breedName}>
-																{value.breedName}
-															</option>
-														);
-													})}
-												</select>
-											</p>
+															axios
+																.get(
+																	"http://localhost:3001/admin/getpetbreeds/" +
+																		event.target.value
+																)
+																.then((response) => {
+																	setListOfBreeds(response.data);
+																});
+															filterResult(
+																event.target.value,
+																document.getElementById("select1").value
+															);
+														}}
+													>
+														<option value="All">All</option>
+
+														{listOfCatagories.map((value, key) => {
+															return (
+																<option value={value.pcatID}>
+																	{value.pcatName}
+																</option>
+															);
+														})}
+													</select>
+												</p>
+
+												<p class="fw-semibold ">
+													<select
+														id="select1"
+														class="btn btn-dark dropdown-toggle"
+														style={{
+															paddingRight: 40,
+															marginRight: 20,
+															width: 160,
+														}}
+														onChange={(event) => {
+															filterResult(
+																document.getElementById("select").value,
+																event.target.value
+															);
+														}}
+													>
+														<option value="All">All Breeds</option>
+														{listOfBreeds.map((value, key) => {
+															return (
+																<option value={value.breedName}>
+																	{value.breedName}
+																</option>
+															);
+														})}
+													</select>
+												</p>
 											</div>
 											<div
-												
-												style={{ width: 575, marginLeft: 420 ,display:"flex",paddingTop:10}}
+												style={{
+													width: 575,
+													marginLeft: 420,
+													display: "flex",
+													paddingTop: 10,
+												}}
 											>
 												<p
 													class="fw-semibold "
-													style={{ paddingRight: 10, paddingTop: 10,width:250 }}
+													style={{
+														paddingRight: 10,
+														paddingTop: 10,
+														width: 250,
+													}}
 												>
 													Search Dietplans
 												</p>

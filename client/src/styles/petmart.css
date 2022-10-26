@@ -81,7 +81,18 @@
 /* .petmart .details{
     padding-right:300px;
 } */
-
+.button-group-me{
+    align-items: center;
+    text-align: center;
+    
+}
+.adtitles{
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    background-color:  #d6d6d8 ;
+    padding: 15px;
+}
 .petmart-container{
     
     height:100vh;
