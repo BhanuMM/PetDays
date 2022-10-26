@@ -172,7 +172,7 @@ console.log(CommentObject);
 															type="button"
 															class="btn btn-sm btn-square btn-neutral text-danger-hover"
 															onClick={() => {
-																alert(CommentObject.id);
+																
 																navigate("/editcomment", {state: CommentObject.id,
 																});
 															}}

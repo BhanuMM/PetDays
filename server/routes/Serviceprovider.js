@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const {Publishedads,Rejectedads} = require("../models");
+const {Publishedads,Rejectedads, Forumposts, Users } = require("../models");
 const vitamins = require('../models/vitamins');
 const cors = require("cors");
 const multer = require("multer");
@@ -260,7 +260,13 @@ router.get("/getrejectedadview/:id", async (req, res) => {
   res.json(listOfAds);
 });
 
-
+//display single posts
+router.get("/getpostview/:id", async (req, res) => {
+  const id = req.params.id;
+  const listOfPosts= await Forumposts.findByPk(id);
+  
+  res.json(listOfPosts);
+});
 // DISPLAY ADD COUNT
 router.get("/getpublishedadcount", async (req, res) => {
   const listOfpendingads = await Publishedads.count(
