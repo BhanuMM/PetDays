@@ -6,6 +6,7 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
+import { saveAs } from 'file-saver';
 
 function viewmedications() {
 	
@@ -18,6 +19,25 @@ function viewmedications() {
 			setvaccinereport(response.data);
 		});
 	}, []);
+
+	
+	   function createAndDownloadPdf (){
+		axios.get('http://localhost:3001/report/createvacpdf')
+		  .then(() => axios.get('http://localhost:3001/report/fetchvacpdf', { responseType: 'blob' }))
+		  .then((res) => {
+			const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+	
+			saveAs(pdfBlob, 'PetDays-Report.pdf');
+		  })
+		// axios.post("http://localhost:3001/report/createpdf").then((response) => {
+			//   if (response.data.error) {
+			// 	alert(response.data.error);
+			//   } else {
+			// 	// navigate("/admindashboard");
+			//   }
+			// });
+	  }
+	
 	return (
 		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -85,6 +105,7 @@ function viewmedications() {
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Vaccine Usage Report</h5>
+											<button onClick={createAndDownloadPdf}>Download PDF</button>
 										</div>
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
