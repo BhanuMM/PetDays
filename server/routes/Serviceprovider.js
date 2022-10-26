@@ -224,6 +224,18 @@ router.get("/getrejectedadsuser", async (req, res) => {
   res.json(listOfpendingads);
 });
 
+router.get("/getrejected", async (req, res) => {
+  const listOfpendingads = await Rejectedads.findAll(
+    {
+      include:{ 
+
+        model:Publishedads,
+        required: true,
+      },
+    }
+  );
+  res.json(listOfpendingads);
+});
 //DISPLAY APPROVED ADS CARDS
 router.get("/getacceptedadsuser", async (req, res) => {
   const listOfpendingads = await Publishedads.findAll(
@@ -231,6 +243,7 @@ router.get("/getacceptedadsuser", async (req, res) => {
       where: {
         adStatus: "verified",
       },
+      
     }
   );
   res.json(listOfpendingads);
@@ -247,8 +260,9 @@ router.get("/getadview/:id", async (req, res) => {
 //Display Reject View Ad
 router.get("/getrejectedadview/:id", async (req, res) => {
   const id = req.params.id;
-  const listOfAds= await Rejectedads.findOne((id),
+  const listOfAds= await Rejectedads.findAll(
     {
+       where :{ adId: id },
         include:{ 
 
           model:Publishedads,

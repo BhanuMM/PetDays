@@ -18,7 +18,7 @@ function mdverifyads() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getacceptedadsuser")
+			.get("http://localhost:3001/mod/getrejectedadsuser")
 			.then((response) => {
 				setlistOfverifiedads(response.data);
 			});
@@ -38,7 +38,7 @@ function mdverifyads() {
 							<div class="mb-npx">
 								<div class="row align-items-center">
 									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
-										<h1 class="h2 mb-0 ls-tight">Verified Advertisments</h1>
+										<h1 class="h2 mb-0 ls-tight">Rejected Advertisments</h1>
 										<hr />
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
@@ -47,7 +47,7 @@ function mdverifyads() {
 														Moderator Dashboard/
 													</a>
 													<a href="/mdverifyads" className="header-topic">
-														 Verified Advertisments
+													Rejected Advertisments
 													</a>
 												</li>
 											</ol>
@@ -120,7 +120,7 @@ function mdverifyads() {
                     <CardMedia
                       component="img"
                       sx={{ width: 200 }}
-                      image={Profilepic}
+                      image={`http://localhost:3001/service/static/${value.adImage}`}
                       alt="Live from space album cover"
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column'}}>

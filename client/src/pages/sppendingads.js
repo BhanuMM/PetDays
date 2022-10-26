@@ -56,6 +56,7 @@ function pendingads() {
 										</ol>
 									</nav>
 							<hr />
+							<p>Just hold on a moment ! your ads will be reviewed and published</p>
 							<br />
 							<div className="row">
 								{listOfpendingads.map((value, key) => {

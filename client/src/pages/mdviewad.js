@@ -50,7 +50,7 @@ function mdviewad() {
 													<a href="/moderatordashboard" className="header-topic">
 														Moderator Dashboard/
 													</a>
-													<a href="/mdviewad" className="header-topic">
+													<a href="/mdpendingads" className="header-topic">
 														 Pending Advertisment
 													</a>
 												</li>

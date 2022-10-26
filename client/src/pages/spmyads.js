@@ -56,6 +56,7 @@ function Allads() {
 										</ol>
 									</nav>
 							<hr />
+							<p>Please complete the payment to publish your ad!</p>
 							<br />
 							<div className="row">
 								{listOfallads.map((value, key) => {
