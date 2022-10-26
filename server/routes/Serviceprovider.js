@@ -96,7 +96,7 @@ router.post("/publishad", async (req, res) => {
   adEmail : adEmail,
   adAddress : adAddress,
   adType : adType,
-  adProvince : adProvince,
+  adProvince : "Central",
   adDistrict : adDistrict,
   adStatus : "pending",
   paymentStatus : "unpaid",
@@ -303,6 +303,59 @@ router.get("/getserviceprovider", async (req, res) => {
     }
   );
   res.json(listOfServiceproviders);
+});
+
+// PETMART VIEWS
+
+//DISPLAY GROOMING ADS CARDS
+router.get("/getgrooming", async (req, res) => {
+  const grroming = await Publishedads.findAll(
+    {
+      where: {
+        adType: "Grooming", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(grroming);
+});
+
+//DISPLAY WALKING ADS CARDS
+router.get("/getwalking", async (req, res) => {
+  const grroming = await Publishedads.findAll(
+    {
+      where: {
+        adType: "Walking", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(grroming);
+});
+
+//DISPLAY DAYCARE ADS CARDS
+router.get("/getdaycare", async (req, res) => {
+  const grroming = await Publishedads.findAll(
+    {
+      where: {
+        adType: "Day Care", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(grroming);
+});
+//DISPLAY OTHER ADS CARDS
+router.get("/getother", async (req, res) => {
+  const grroming = await Publishedads.findAll(
+    {
+      where: {
+        adType: "Other", 
+        // userId: "1",
+      },
+    }
+  );
+  res.json(grroming);
 });
 
   //UPDATE ADVERTIESMENTNT
