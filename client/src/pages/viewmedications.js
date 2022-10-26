@@ -87,11 +87,11 @@ function viewmedications() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Medicine ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Medicine Name</strong>
@@ -121,7 +121,7 @@ function viewmedications() {
 													.map((value, key) => {
 														return (
 															<tr>
-																<td>{value.medID}</td>
+																{/* <td>{value.medID}</td> */}
 																<td>{value.medName}</td>
 																<td>{value.descr}</td>
 															</tr>

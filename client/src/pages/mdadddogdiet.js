@@ -209,18 +209,7 @@ function mdadddogdiet() {
 
 										<div class="row g-3">
 											<div class="col-5">
-												<label className="form-label">Breed id</label>
-												<div className="col">
-                             				 <ErrorMessage name="breedId" className="errormesage" component="span" />
-                            				</div>
-												<Field as="select" name="breedId" className="form-select">
-													<option value="0">select breed</option>
-													<option value="1">german shephard</option>
-													<option value="2">lion shephard</option>
-												</Field>
-											</div>
-											<div class="col-5">
-												<label className="form-label">Cat id</label>
+												<label className="form-label">Category</label>
 												<div className="col">
                              				 <ErrorMessage name="catId" className="errormesage" component="span" />
                             				</div>
@@ -228,6 +217,17 @@ function mdadddogdiet() {
 													<option value="0">select category</option>
 													<option value="1">dogs</option>
 													<option value="2">cats</option>
+												</Field>
+											</div>
+											<div class="col-5">
+												<label className="form-label">Breed</label>
+												<div className="col">
+                             				 <ErrorMessage name="breedId" className="errormesage" component="span" />
+                            				</div>
+												<Field as="select" name="breedId" className="form-select">
+													<option value="0">select breed</option>
+													<option value="1">german shephard</option>
+													<option value="2">lion shephard</option>
 												</Field>
 											</div>
 										</div>

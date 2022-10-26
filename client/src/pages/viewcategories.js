@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 
 function viewcategories() {
 	const [listOfPetcatagories, setListOfPetcatagories] = useState([]);
+	const [searchTerm, setSearchTerm] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -57,21 +58,50 @@ function viewcategories() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
-									<div class="col col-xs-6 text-right"></div>
-									<br />
+									<div
+										style={{
+											width: 575,
+											float: "right",
+											display: "flex",
+											paddingTop: 10,
+										}}
+									>
+										<p
+											class="fw-semibold "
+											style={{
+												paddingRight: 10,
+												paddingTop: 10,
+												width: 250,
+											}}
+										>
+											Search categories
+										</p>
+										<input
+											type="search"
+											class="form-control rounded input-group"
+											placeholder="Enter available categories"
+											aria-label="Search"
+											aria-describedby="search-addon"
+											style={{ height: 40 }}
+											onChange={(event) => {
+												setSearchTerm(event.target.value);
+											}}
+										/>
+									</div><br/><br/><br/>
 
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Available Categories</h5>
 										</div>
+
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
-													<th scope="col">
+													{/* <th scope="col">
 														<b>
 															<strong>Category ID</strong>
 														</b>
-													</th>
+													</th> */}
 													<th scope="col">
 														<b>
 															<strong>Category Name</strong>
@@ -89,94 +119,108 @@ function viewcategories() {
 													</th>
 												</thead>
 												<tbody id="myTable">
-													{listOfPetcatagories.map((value, key) => {
-														return (
-															<tr>
-																<td class="hidden-xs">{value.pcatID}</td>
+													{listOfPetcatagories
+														.filter((val) => {
+															if (searchTerm == "") {
+																return val;
+															} else if (
+																val.pcatName
+																	.toLowerCase()
+																	.includes(searchTerm.toLowerCase())
+															) {
+																return val;
+															}
+														})
+														.map((value, key) => {
+															return (
+																<tr>
+																	{/* <td class="hidden-xs">{value.pcatID}</td> */}
 
-																<td>{value.pcatName}</td>
-																<td>{value.descr}</td>
-																<td class="text-end">
-																	<div style={{ display: "flex" }}>
-																		<div style={{ paddingRight: 5 }}>
+																	<td>{value.pcatName}</td>
+																	<td>{value.descr}</td>
+																	<td class="text-end">
+																		<div style={{ display: "flex" }}>
+																			<div style={{ paddingRight: 5 }}>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						navigate("/editpetcategory", {
+																							state: value.pcatID,
+																						});
+																					}}
+																				>
+																					<em class="fa fa-pencil"></em>
+																				</button>
+																			</div>
+																			<div>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						Swal.fire({
+																							title: "Are you sure?",
+																							text:
+																								"You won't be able to revert this!",
+																							icon: "warning",
+																							showCancelButton: true,
+																							confirmButtonColor: "#3085d6",
+																							cancelButtonColor: "#d33",
+																							confirmButtonText:
+																								"Yes, delete it!",
+																						}).then((result) => {
+																							if (result.isConfirmed) {
+																								axios
+																									.delete(
+																										"http://localhost:3001/admin/deletecategory/" +
+																											value.pcatID
+																									)
+																									.then((response) => {
+																										if (response.data.error) {
+																											alert(
+																												response.data.error
+																											);
+																										} else {
+																											axios
+																												.get(
+																													"http://localhost:3001/admin/getpetcategories"
+																												)
+																												.then((response) => {
+																													setListOfPetcatagories(
+																														response.data
+																													);
+																												});
+																										}
+																									});
+																								Swal.fire(
+																									"Deleted!",
+																									"Category has been removed.",
+																									"success"
+																								);
+																							}
+																						});
+																					}}
+																				>
+																					<i class="bi bi-trash"></i>
+																				</button>
+																			</div>
+
 																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																				type="submit"
+																				class="btn-view"
 																				onClick={() => {
-																					navigate("/editpetcategory", {
+																					navigate("/viewbreedscats", {
 																						state: value.pcatID,
 																					});
 																				}}
 																			>
-																				<em class="fa fa-pencil"></em>
+																				View Breeds
 																			</button>
 																		</div>
-																		<div>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					Swal.fire({
-																						title: "Are you sure?",
-																						text:
-																							"You won't be able to revert this!",
-																						icon: "warning",
-																						showCancelButton: true,
-																						confirmButtonColor: "#3085d6",
-																						cancelButtonColor: "#d33",
-																						confirmButtonText:
-																							"Yes, delete it!",
-																					}).then((result) => {
-																						if (result.isConfirmed) {
-																							axios
-																								.delete(
-																									"http://localhost:3001/admin/deletecategory/" +
-																										value.pcatID
-																								)
-																								.then((response) => {
-																									if (response.data.error) {
-																										alert(response.data.error);
-																									} else {
-																										axios
-																											.get(
-																												"http://localhost:3001/admin/getpetcategories"
-																											)
-																											.then((response) => {
-																												setListOfPetcatagories(
-																													response.data
-																												);
-																											});
-																									}
-																								});
-																							Swal.fire(
-																								"Deleted!",
-																								"Category has been removed.",
-																								"success"
-																							);
-																						}
-																					});
-																				}}
-																			>
-																				<i class="bi bi-trash"></i>
-																			</button>
-																		</div>
-
-																		<button
-																			type="submit"
-																			class="btn-view"
-																			onClick={() => {
-																				navigate("/viewbreedscats", {
-																					state: value.pcatID,
-																				});
-																			}}
-																		>
-																			View Breeds
-																		</button>
-																	</div>
-																</td>
-															</tr>
-														);
-													})}
+																	</td>
+																</tr>
+															);
+														})}
 												</tbody>
 											</table>
 										</div>

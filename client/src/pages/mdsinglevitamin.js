@@ -77,29 +77,31 @@ function mdsinglevitamin() {
 												Add Vitamin
 											</Button>
 										</a>
-										<div class="input-group" style={{ width: 575 }}>
+										<div
+											style={{
+												width: 575,
+												float: "right",
+												display: "flex",
+												paddingTop: 10,
+											}}
+										>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10, width: 250 }}
+											>
+												Search Forum posts
+											</p>
 											<input
 												type="search"
-												class="form-control rounded"
-												placeholder="Search Vitamin"
+												class="form-control rounded input-group"
+												placeholder="Enter Forum posts"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
-												onChange = {(event) => {
+												onChange={(event) => {
 													setSearchTerm(event.target.value);
 												}}
 											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
-												}}
-											>
-												Search
-											</button>
 										</div>
 									</div>
 									<br />
@@ -112,11 +114,11 @@ function mdsinglevitamin() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>Vitamin ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>Vitamin Name</strong>
@@ -136,89 +138,97 @@ function mdsinglevitamin() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfVitamins.filter((val) => {
-														if(searchTerm == ""){
-														return val
-														}else if (val.vitName.toLowerCase().includes(searchTerm.toLowerCase())){
-														return val
-														}
-													}).map((value, key) => {
-														return (
-															<tr>
-																<td>{value.vitID}</td>
-																<td>{value.vitName}</td>
-																<td>{value.vitType}</td>
-																<td>{value.descr}</td>
+													{listOfVitamins
+														.filter((val) => {
+															if (searchTerm == "") {
+																return val;
+															} else if (
+																val.vitName
+																	.toLowerCase()
+																	.includes(searchTerm.toLowerCase())
+															) {
+																return val;
+															}
+														})
+														.map((value, key) => {
+															return (
+																<tr>
+																	{/* <td>{value.vitID}</td> */}
+																	<td>{value.vitName}</td>
+																	<td>{value.vitType}</td>
+																	<td>{value.descr}</td>
 
-																<td class="text-end">
-																	<div style={{ display: "flex" }}>
-																		<div style={{ paddingRight: 5 }}>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					navigate("/mdeditvitamin", {
-																						state: value.vitID,
-																					});
-																				}}
-																			>
-																				<em class="fa fa-pencil"></em>
-																			</button>
+																	<td class="text-end">
+																		<div style={{ display: "flex" }}>
+																			<div style={{ paddingRight: 5 }}>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						navigate("/mdeditvitamin", {
+																							state: value.vitID,
+																						});
+																					}}
+																				>
+																					<em class="fa fa-pencil"></em>
+																				</button>
+																			</div>
+																			<div>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						Swal.fire({
+																							title: "Are you sure?",
+																							text:
+																								"You won't be able to revert this!",
+																							icon: "warning",
+																							showCancelButton: true,
+																							confirmButtonColor: "#3085d6",
+																							cancelButtonColor: "#d33",
+																							confirmButtonText:
+																								"Yes, delete it!",
+																						}).then((result) => {
+																							if (result.isConfirmed) {
+																								axios
+																									.delete(
+																										"http://localhost:3001/mod/deletevit/" +
+																											value.vitID
+																									)
+																									.then((response) => {
+																										if (response.data.error) {
+																											alert(
+																												response.data.error
+																											);
+																										} else {
+																											axios
+																												.get(
+																													"http://localhost:3001/mod/getvitamins"
+																												)
+																												.then((response) => {
+																													setListOfVitamins(
+																														response.data
+																													);
+																												});
+																										}
+																									});
+																								Swal.fire(
+																									"Deleted!",
+																									"Vitamin has been deleted.",
+																									"success"
+																								);
+																							}
+																						});
+																					}}
+																				>
+																					<i class="bi bi-trash"></i>
+																				</button>
+																			</div>
 																		</div>
-																		<div>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					Swal.fire({
-																						title: "Are you sure?",
-																						text:
-																							"You won't be able to revert this!",
-																						icon: "warning",
-																						showCancelButton: true,
-																						confirmButtonColor: "#3085d6",
-																						cancelButtonColor: "#d33",
-																						confirmButtonText:
-																							"Yes, delete it!",
-																					}).then((result) => {
-																						if (result.isConfirmed) {
-																							axios
-																								.delete(
-																									"http://localhost:3001/mod/deletevit/" +
-																										value.vitID
-																								)
-																								.then((response) => {
-																									if (response.data.error) {
-																										alert(response.data.error);
-																									} else {
-																										axios
-																											.get(
-																												"http://localhost:3001/mod/getvitamins"
-																											)
-																											.then((response) => {
-																												setListOfVitamins(
-																													response.data
-																												);
-																											});
-																									}
-																								});
-																							Swal.fire(
-																								"Deleted!",
-																								"Vitamin has been deleted.",
-																								"success"
-																							);
-																						}
-																					});
-																				}}
-																			>
-																				<i class="bi bi-trash"></i>
-																			</button>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-														);
-													})}
+																	</td>
+																</tr>
+															);
+														})}
 												</tbody>
 											</table>
 										</div>
