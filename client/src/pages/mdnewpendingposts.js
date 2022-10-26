@@ -2,29 +2,43 @@ import React from "react";
 import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
-import Button from '@mui/material/Button';
-import {Card,  CardContent,  CardMedia, Grid, Container, Typography}  from '@mui/material';
+import Button from "@mui/material/Button";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import {Card,CardContent,CardMedia,Grid,Container,Typography} from "@mui/material";
 import Moderatorsidebar from "../components/moderatorsidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-function mdnewpendingposts() {
 
+function mdnewpendingposts() {
+	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfpendingposts, setlistOfpendingposts] = useState([]);
 	// let history = useHistory();
-  
+
 	useEffect(() => {
-	  axios.get("http://localhost:3001/mod/getpendingposts").then((response) => {
-		setlistOfpendingposts(response.data);
-	  });
+		axios.get("http://localhost:3001/mod/getpendingposts").then((response) => {
+			setlistOfpendingposts(response.data);
+		});
 	}, []);
-  
+	const initialValues = {
+		id: listOfpendingposts.postId,
+	};
+	const onSubmit1 = (data) => {
+		console.log(data);
+		axios.post("http://localhost:3001/mod/changestatus", data).then((response) => {
+				if (response.data.error) {
+					alert(response.data.error);
+				} else {
+					navigate("/mdnewpendingposts");
+				}
+			});
+	};
 	const navigate = useNavigate();
 
 	return (
 		<div class="container-fluid">
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-			<div className="">
+				<div className="">
 					<Moderatorsidebar />
 				</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
@@ -38,11 +52,14 @@ function mdnewpendingposts() {
 										<nav aria-label="breadcrumb">
 											<ol class="breadcrumb">
 												<li class="breadcrumb-item">
-													<a href="/moderatordashboard" className="header-topic">
+													<a
+														href="/moderatordashboard"
+														className="header-topic"
+													>
 														Moderator Dashboard/
 													</a>
 													<a href="/mdnewpendingposts" className="header-topic">
-														 Pending Posts
+														Pending Posts
 													</a>
 												</li>
 											</ol>
@@ -55,99 +72,180 @@ function mdnewpendingposts() {
 						</div>
 					</header>
 					<main class="py-6 bg-surface-secondary">
-						<div class="container-fluid" >
+						<div class="container-fluid">
 							<div class="row g-6 mb-6">
-							<div style={{paddingLeft:20}}>
-                            <p class="fw-semibold " style={{paddingRight:40}}>Filtery by :</p>
+								<div style={{ paddingLeft: 20 }}>
+									<p class="fw-semibold " style={{ paddingRight: 40 }}>
+										Filtery by :
+									</p>
 
-                            <div class="search-line"  style={{display: "flex"}}>
-									
+									<div class="search-line" style={{ display: "flex" }}>
+										<p class="fw-semibold ">
+											<div
+												class="dropdown"
+												style={{ paddingRight: 40, paddingLeft: 20 }}
+											>
+												<button
+													class="btn btn-dark dropdown-toggle"
+													type="button"
+													id="dropdownMenuButton"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+													style={{
+														height: 40,
+														backgroundColor: "#205375",
+														width: 150,
+														borderColor: "#205375",
+													}}
+												>
+													Latest
+												</button>
+												<div
+													class="dropdown-menu"
+													aria-labelledby="dropdownMenuButton"
+												>
+													<a class="dropdown-item" href="#">
+														Recent Week
+													</a>
+													<a class="dropdown-item" href="#">
+														Last Month
+													</a>
+												</div>
+											</div>
+										</p>
 
-									<p class="fw-semibold ">  
-									<div class="dropdown" style={{paddingRight:40,paddingLeft:20}}>
-									<button
-										class="btn btn-dark dropdown-toggle"
-										type="button"
-										id="dropdownMenuButton"
-										data-toggle="dropdown"
-										aria-haspopup="true"
-										aria-expanded="false"
+										<div class="dropdown" style={{ paddingRight: 40 }}>
+											<button
+												class="btn btn-dark"
+												type="button"
+												style={{
+													height: 40,
+													backgroundColor: "#205375",
+													width: 150,
+													borderColor: "#205375",
+												}}
+											>
+												Filter
+											</button>
+										</div>
 
-										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
-									>
-										Latest
-									</button>
-									<div
-										class="dropdown-menu"
-										aria-labelledby="dropdownMenuButton"
-									>
-										<a class="dropdown-item" href="#">
-										Recent Week
-										</a>
-										<a class="dropdown-item" href="#">
-										Last Month
-										</a>
+										<div
+											class="input-group"
+											style={{ width: 575, marginLeft: 420 }}
+										>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10 }}
+											>
+												Search Posts
+											</p>
+											<input
+												type="search"
+												class="form-control rounded"
+												placeholder="Enter Posts"
+												aria-label="Search"
+												aria-describedby="search-addon"
+												style={{ height: 40 }}
+												onChange={(event) => {
+													setSearchTerm(event.target.value);
+												}}
+											/>
+										</div>
 									</div>
-									</div></p>
 
-									
-									<div class="dropdown" style={{paddingRight:40}}>
-									<button
-										class="btn btn-dark"
-										type="button"
-										style={{height:40 , backgroundColor: '#205375', width:150, borderColor:'#205375'}}
-									>
-										Filter
-									</button>
-									</div>
-									
-
-									<div class="input-group" style={{width:575,marginLeft:320}}>
-										<input type="search" class="form-control rounded" placeholder="Search Forum Posts" aria-label="Search" aria-describedby="search-addon" style={{height:40}}/>
-										<button type="button" class="btn" style={{height:40,backgroundColor: '#205375',color:'white'}} >Search</button>
-									</div>
+									<CardContent>
+										{listOfpendingposts
+											.filter((val) => {
+												if (searchTerm == "") {
+													return val;
+												} else if (
+													val.postTitle
+														.toLowerCase()
+														.includes(searchTerm.toLowerCase())
+												) {
+													return val;
+												}
+											})
+											.map((value, key) => {
+												return (
+													<div>
+														<Card
+															sx={{ minWidth: 250, maxWidth: 1500 }}
+															style={{ padding: 10, paddingLeft: 25 }}
+														>
+															<div class="card-body">
+																<div class="content">
+																	<div>
+																		<Typography class="fw-semibold fs-7">
+																			{value.postTitle}
+																		</Typography>
+																		<Typography class="font-italic text-success fs-7">
+																			{value.postDate}
+																		</Typography>
+																	</div>
+																	<div>
+																		<Typography>{value.postDescr}</Typography>
+																	</div>
+																	<div
+																		class="comment"
+																		style={{ paddingRight: 50 }}
+																	>
+																		<br />
+																		<Formik
+																			onSubmit={onSubmit1}
+																			initialValues={initialValues}
+																		>
+																			<Form
+																				class="row g-3"
+																				style={{ paddingLeft: 200 }}
+																			>
+																				<div className="row">
+																					<div className="col-3 mb-5 mt-5">
+																						<Field
+																							className="form-control"
+																							id="id"
+																							type="hidden"
+																							autocomplete="off"
+																							name="id"
+																						/>
+																						<button
+																							className="register.loginbuttonsize btn btn-success "
+																							type="submit"
+																							style={{
+																								backgroundColor: "#205375",
+																							}}
+																						>
+																							Approved
+																						</button>
+																					</div>
+																				</div>
+																			</Form>
+																		</Formik>
+																		<a
+																			href=""
+																			role="button"
+																			aria-pressed="true"
+																		>
+																			<button
+																				variant="contained"
+																				component="label"
+																				style={{ backgroundColor: "#F66B0E" }}
+																			>
+																				Reject
+																			</button>
+																		</a>
+																	</div>
+																</div>
+															</div>
+														</Card>
+														<br />
+													</div>
+												);
+											})}
+									</CardContent>
 								</div>
-
-								
-                                <CardContent>
-								{listOfpendingposts.map((value, key) => {
-                            return (
-								<div>
-                                <Card sx={{ minWidth: 250, maxWidth: 1500}} style={{ padding: 10, paddingLeft:25}}>
-                                <div class="card-body">
-                                <div class="content">
-                                    <div>
-                                        <Typography class="fw-semibold fs-7">{value.postTitle}</Typography>
-                                        <Typography class="font-italic text-success fs-7">{value.postDate}</Typography>
-                                    </div>  
-                                    <div>
-										<Typography>{value.postDescr}</Typography>
-                                    </div>
-                                    <div class='comment' style={{paddingRight:50}}><br/>
-                                            <a href="" role="button" aria-pressed="true">  
-                                                <button variant="contained" component="label"  style={{backgroundColor: '#205375'}}>
-                                                    Approve
-                                                </button>
-                                            </a>
-                                            <a href="" role="button" aria-pressed="true"> 
-												<button variant="contained" component="label"  style={{backgroundColor: '#F66B0E'}}>
-														Reject
-												</button></a>
-                                    </div>
-                            </div>
-
-                                </div>
-                                </Card><br/>
-                                
-								</div>	
-								);
-							})}
-                                </CardContent>
-                            	
-            				</div>
-	
 							</div>
-							
 						</div>
 					</main>
 				</div>

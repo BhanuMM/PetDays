@@ -111,7 +111,7 @@ function viewdietplans() {
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 20 }}>
 									<div class="col col-xs-6 text-right">
-										
+
 										<br />
 										<br />
 										<div style={{ display: "flex" }}>

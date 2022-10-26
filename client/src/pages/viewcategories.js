@@ -150,7 +150,7 @@ function viewcategories() {
 																								});
 																							Swal.fire(
 																								"Deleted!",
-																								"Medicine has been deleted.",
+																								"Category has been removed.",
 																								"success"
 																							);
 																						}

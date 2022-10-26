@@ -147,20 +147,10 @@ function viewmoderators() {
 																	<td>{value.email}</td>
 																	<td class="text-end" >
 																		<div style={{ display: "flex" }}>
-																			<div style={{ display: "flex",paddingRight: 5 }}>
-																			<div>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				
-																				onClick={() => {
-																					navigate("/editmoderator", {
-																						state: value.userID,
-																					});
-																				}}
-																			>
-																				<em class="fa fa-pencil"></em>
-																			</button>
+
+																			<div style={{ display: "flex" }}>
+																			<div style={{ paddingRight: 5 }}>
+
 																		</div>
 																			<button
 																					type="button"
