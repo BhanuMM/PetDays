@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import * as Yup from "yup";
 import "../styles/footerspecial.css";
@@ -19,19 +20,35 @@ import Avatar from "@mui/material/Avatar";
 
 
 function addpetmartadd() {
+  const [authState, setAuthState] = useState({
+    username: "",
+    id: 0,
+    role : "",
+    status: false,
+  });
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/auth/authuser", {
+        headers: {
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      })
+      .then((response) => {
+        if (response.data.error) {
+          setAuthState({ ...authState, status: false });
+        } else {
+          setAuthState({
+            username: response.data.username,
+            id: response.data.id,
+            role: response.data.role,
+            status: true,
+          });
+          console.log(response.data.role);
+        }
+      });
+  }, []);
   const [selected, setSelected] = React.useState("");
-  // const [initialValues, setinit] = React.useState({
-  //   adTitle : "",
-  //   adDescr : "",
-  //   adImage : "",
-  //   adPrice : "",
-  //   adContact : "",
-  //   adEmail : "",
-  //   adAddress : "",
-  //   adProvince :"",
-  //   adDistrict : ""
-    
-  //   });
+  
 
   const initialValues = {
     adTitle : "",
@@ -43,7 +60,8 @@ function addpetmartadd() {
     adAddress : "",
     adType:"",
     adProvince :"",
-    adDistrict : ""
+    adDistrict : "",
+    userId : authState.id
     
     }
     
@@ -82,6 +100,7 @@ function addpetmartadd() {
      
     const changeSelectOptionHandler = (event) => {
       setSelected(event.target.value);
+      // setprovinceselected(event.target.value);
       
       
     };
@@ -101,6 +120,7 @@ function addpetmartadd() {
     
     
     let options = null;
+    // let optionsprovince = null;
  
     if (selected === "Central") {
       type = central;
@@ -125,13 +145,13 @@ function addpetmartadd() {
    
     if (type) {
       options = type.map((el) => <option key={el} value={el}>{el}</option>);
+      // optionsprovince =  <option value= {selected}>{selected}</option>;
     }
     
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
     axios.post("http://localhost:3001/service/publishad", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
@@ -285,34 +305,25 @@ function addpetmartadd() {
                           name="adAddress"
                           placeholder=""
                         />
+                        
 										</div>
 										<div class="row g-3">
                     <div class="col-5">
-                    <Field
-												className="form-control"
-												id="adProvince"
-												autocomplete="off"
-                        name="adProvince"
-												type="hidden"
-                        value={selected}
-                        placeholder={selected}
-
-												
-											/>
+                   
                       <label className="form-label">Province</label>
                       <div className="col">
                         <ErrorMessage name="adProvince" className="errormesage" component="span" />
                       </div>
                      
                        <select onChange={changeSelectOptionHandler}  className="form-select" >
-          
-            <option>Central</option>
-            <option>North Central</option>
-            <option>Eastern</option>
-            <option>Northern</option>
-            <option>North Western</option>
-            <option>Southern</option>
-            <option>Uva</option>
+                       <option>Select a Province</option>
+                        <option>Central</option>
+                       <option>North Central</option>
+                       <option>Eastern</option>
+                        <option>Northern</option>
+                         <option>North Western</option>
+                        <option>Southern</option>
+                        <option>Uva</option>
           </select>
 											</div>
 											<div class="col-5">
@@ -320,7 +331,10 @@ function addpetmartadd() {
                       <div className="col">
                              				 <ErrorMessage name="adDistrict" className="errormesage" component="span" />
                             				</div>
+
+                           
                       <Field as ="select" name="adDistrict" className="form-select" onchange="byprovince">
+                      <option>Select a District</option>
                       {
               
               options

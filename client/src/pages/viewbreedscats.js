@@ -19,7 +19,7 @@ function viewbreedscats() {
 	const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/admin/getpetbreeds/' +location.state).then((response) => {
+    axios.get('http://localhost:3001/admin/getpetbreeds/'+location.state).then((response) => {
       setListOfBreeds(response.data);
     });
   }, []);

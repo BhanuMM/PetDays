@@ -96,13 +96,13 @@ router.post("/publishad", async (req, res) => {
   adEmail : adEmail,
   adAddress : adAddress,
   adType : adType,
-  adProvince : "Southern",
+  adProvince : adProvince,
   adDistrict : adDistrict,
   adStatus : "pending",
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "3"
+  userId : userId
 
   },
   { isNewRecord: true });
