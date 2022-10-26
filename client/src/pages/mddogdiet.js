@@ -22,7 +22,7 @@ function mddogdiet() {
 	var breedName = "All";
 
 	// let history = useHistory();
-
+	const navigate = useNavigate();
 	useEffect(() => {
 		axios.get("http://localhost:3001/mod/getdietplans").then((response) => {
 			setListOfDietplans(response.data);
@@ -48,39 +48,39 @@ function mddogdiet() {
 		});
 		setFilterItems(result);
 	};
-	// //   Diet plan Filters pet categpry
-	//   const filterResult = (catName) =>{
-	// 	if (catName == "All"){
-	// 		setFilterItems(listOfDietplans);
-	// 	}
-	// 	else{
-	// 		const result = filterItems.filter((val) =>{
-	// 			return val.Breed.Petcatagory.pcatName === catName;
+	//   Diet plan Filters pet categpry
+	  const filterResult = (catName) =>{
+		if (catName == "All"){
+			setFilterItems(listOfDietplans);
+		}
+		else{
+			const result = filterItems.filter((val) =>{
+				return val.Breed.Petcatagory.pcatName === catName;
 
-	// 		} );
-	// 		setFilterItems(result);
-	// 	}
+			} );
+			setFilterItems(result);
+		}
 
-	//   }
+	  }
 
-	//   //   Diet plan Filters pet breed
-	//   const filterResult2 = (breedName) =>{
-	// 	if (breedName == "All"){
-	// 		setFilterItems(listOfDietplans);
-	// 	}
-	// 	else{
-	// 		const result = filterItems.filter((val) =>{
-	// 			return val.Breed.breedName === breedName;
-	// 		} );
-	// 		if(result == ""){
-	// 			setFilterItems(listOfDietplans);
-	// 		}
-	// 		else{
-	// 			setFilterItems(result);
-	// 		}
+	  //   Diet plan Filters pet breed
+	  const filterResult2 = (breedName) =>{
+		if (breedName == "All"){
+			setFilterItems(listOfDietplans);
+		}
+		else{
+			const result = filterItems.filter((val) =>{
+				return val.Breed.breedName === breedName;
+			} );
+			if(result == ""){
+				setFilterItems(listOfDietplans);
+			}
+			else{
+				setFilterItems(result);
+			}
 
-	// 	}
-
+		}
+	}
 
   return (
     <div>

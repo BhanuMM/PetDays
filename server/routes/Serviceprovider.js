@@ -96,7 +96,7 @@ router.post("/publishad", async (req, res) => {
   adEmail : adEmail,
   adAddress : adAddress,
   adType : adType,
-  adProvince : "Central",
+  adProvince : "Southern",
   adDistrict : adDistrict,
   adStatus : "pending",
   paymentStatus : "unpaid",
