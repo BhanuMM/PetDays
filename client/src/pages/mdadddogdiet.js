@@ -231,7 +231,7 @@ function mdadddogdiet() {
 												</Field>
 											</div>
 										</div>
-											<div className="row">
+											<div className="row" style={{ paddingRight:200}}>
 												<div className="col-9"></div>
 												<div className="col-3 mb-5 mt-5">
 													{" "}

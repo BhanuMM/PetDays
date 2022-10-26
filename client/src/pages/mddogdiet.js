@@ -155,8 +155,7 @@ function mddogdiet() {
                           }}
                         >
                           <option value="All">All</option>
-                          {/* <option value="Dog">Dog</option>
-                          <option value="Cat">Cat</option> */}
+                          
                           {listOfCatagories.map((value, key) =>  {
                             return(
                               <option value={value.pcatID}>{value.pcatName}</option>
@@ -189,11 +188,11 @@ function mddogdiet() {
                         </select>
                       </p>
                       <div
-										style={{ width: 575, float: "right" ,display:"flex",paddingTop:10,paddingLeft:100}}
+										style={{  width: 575, float: "right" ,display:"flex",paddingTop:10,paddingLeft:100}}
 									>
                       <p
 											class="fw-semibold "
-											style={{ paddingRight: 10, paddingTop: 10,width:300}}
+											style={{ paddingRight: 10, paddingTop: 10,width:500 }}
 										>
 											Search Diet Plans
 										</p>
