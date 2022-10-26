@@ -77,29 +77,31 @@ function mdsinglevacc() {
 												Add Vaccine
 											</Button>
 										</a>
-										<div class="input-group" style={{ width: 575 }}>
+										<div
+											style={{
+												width: 575,
+												float: "right",
+												display: "flex",
+												paddingTop: 10,
+											}}
+										>
+											<p
+												class="fw-semibold "
+												style={{ paddingRight: 10, paddingTop: 10, width: 250 }}
+											>
+												Search Forum posts
+											</p>
 											<input
 												type="search"
-												class="form-control rounded"
-												placeholder="Search Vaccine"
+												class="form-control rounded input-group"
+												placeholder="Enter Forum posts"
 												aria-label="Search"
 												aria-describedby="search-addon"
 												style={{ height: 40 }}
-												onChange = {(event) => {
+												onChange={(event) => {
 													setSearchTerm(event.target.value);
 												}}
 											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
-												}}
-											>
-												Search
-											</button>
 										</div>
 									</div>
 									<br />
@@ -136,89 +138,97 @@ function mdsinglevacc() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfVaccines.filter((val) => {
-															if(searchTerm == ""){
-															return val
-															}else if (val.vacName.toLowerCase().includes(searchTerm.toLowerCase())){
-															return val
+													{listOfVaccines
+														.filter((val) => {
+															if (searchTerm == "") {
+																return val;
+															} else if (
+																val.vacName
+																	.toLowerCase()
+																	.includes(searchTerm.toLowerCase())
+															) {
+																return val;
 															}
-														}).map((value, key) => {
-														return (
-															<tr>
-																{/* <td>{value.vacID}</td> */}
-																<td>{value.vacName}</td>
-																<td>{value.descr}</td>
-																<td>{value.vacNextIter} Months</td>
+														})
+														.map((value, key) => {
+															return (
+																<tr>
+																	{/* <td>{value.vacID}</td> */}
+																	<td>{value.vacName}</td>
+																	<td>{value.descr}</td>
+																	<td>{value.vacNextIter} Months</td>
 
-																<td class="text-end">
-																	<div style={{ display: "flex" }}>
-																		<div style={{ paddingRight: 5 }}>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					navigate("/mdeditvacc", {
-																						state: value.vacID,
-																					});
-																				}}
-																			>
-																				<em class="fa fa-pencil"></em>
-																			</button>
+																	<td class="text-end">
+																		<div style={{ display: "flex" }}>
+																			<div style={{ paddingRight: 5 }}>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						navigate("/mdeditvacc", {
+																							state: value.vacID,
+																						});
+																					}}
+																				>
+																					<em class="fa fa-pencil"></em>
+																				</button>
+																			</div>
+																			<div>
+																				<button
+																					type="button"
+																					class="btn btn-sm btn-square btn-neutral text-danger-hover"
+																					onClick={() => {
+																						Swal.fire({
+																							title: "Are you sure?",
+																							text:
+																								"You won't be able to revert this!",
+																							icon: "warning",
+																							showCancelButton: true,
+																							confirmButtonColor: "#3085d6",
+																							cancelButtonColor: "#d33",
+																							confirmButtonText:
+																								"Yes, delete it!",
+																						}).then((result) => {
+																							if (result.isConfirmed) {
+																								axios
+																									.delete(
+																										"http://localhost:3001/mod/deletevacc/" +
+																											value.vacID
+																									)
+																									.then((response) => {
+																										if (response.data.error) {
+																											alert(
+																												response.data.error
+																											);
+																										} else {
+																											axios
+																												.get(
+																													"http://localhost:3001/mod/getvaccines"
+																												)
+																												.then((response) => {
+																													setListOfVaccines(
+																														response.data
+																													);
+																												});
+																										}
+																									});
+																								Swal.fire(
+																									"Deleted!",
+																									"Vaccine has been deleted.",
+																									"success"
+																								);
+																							}
+																						});
+																					}}
+																				>
+																					<i class="bi bi-trash"></i>
+																				</button>
+																			</div>
 																		</div>
-																		<div>
-																			<button
-																				type="button"
-																				class="btn btn-sm btn-square btn-neutral text-danger-hover"
-																				onClick={() => {
-																					Swal.fire({
-																						title: "Are you sure?",
-																						text:
-																							"You won't be able to revert this!",
-																						icon: "warning",
-																						showCancelButton: true,
-																						confirmButtonColor: "#3085d6",
-																						cancelButtonColor: "#d33",
-																						confirmButtonText:
-																							"Yes, delete it!",
-																					}).then((result) => {
-																						if (result.isConfirmed) {
-																							axios
-																								.delete(
-																									"http://localhost:3001/mod/deletevacc/" +
-																										value.vacID
-																								)
-																								.then((response) => {
-																									if (response.data.error) {
-																										alert(response.data.error);
-																									} else {
-																										axios
-																											.get(
-																												"http://localhost:3001/mod/getvaccines"
-																											)
-																											.then((response) => {
-																												setListOfVaccines(
-																													response.data
-																												);
-																											});
-																									}
-																								});
-																							Swal.fire(
-																								"Deleted!",
-																								"Vaccine has been deleted.",
-																								"success"
-																							);
-																						}
-																					});
-																				}}
-																			>
-																				<i class="bi bi-trash"></i>
-																			</button>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-														);
-													})}
+																	</td>
+																</tr>
+															);
+														})}
 												</tbody>
 											</table>
 										</div>
