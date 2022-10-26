@@ -61,7 +61,7 @@ function editcomment() {
 										<Form>
 											<br />
 											<br />
-											<label className="form-label">Edit Your Comment here ! </label>
+											<label className="form-label fw-semibold fs-7" style={{ fontSize:20}}>Edit Your Comment here ! </label><br />
 											<div className="col">
 												<ErrorMessage
 													name="medName"
@@ -85,11 +85,11 @@ function editcomment() {
 
 											<div className="row">
 												<div className="col-9"></div>
-												<div className="col-3 mb-5 mt-5">
+												<div className="col-3 mb-5 mt-5" style={{width:200}}>
 													<button
 														className="register.loginbuttonsize btn btn-success "
 														type="submit"
-														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E",width:200 }}
+														style={{ backgroundColor: "#F66B0E", borderColor:"#F66B0E",width:200}}
 													>
 														Update Comment
 													</button>

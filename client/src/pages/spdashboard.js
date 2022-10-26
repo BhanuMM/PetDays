@@ -31,7 +31,7 @@ function dashboard() {
 	return (
 		
 		
-		<div class="container-fluid">
+		<div>
 			
 			<Navbarsp/>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary ">
@@ -58,7 +58,7 @@ function dashboard() {
 											<div class="row">
 												<div class="col-6">
 													<span class="h6 font-semibold text-muted text-sm d-block mb-2">
-														Published Advertiesments
+														Published Advertisments
 													</span>
 												
 												</div>

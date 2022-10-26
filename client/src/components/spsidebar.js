@@ -173,11 +173,7 @@ function spsidebar() {
 					<hr class="navbar-divider my-5 opacity-20" />
 					<div class="mt-auto"></div>
 					<ul class="navbar-nav">
-						<li class="nav-item">
-						<a class="nav-link" href="\myprofile">
-								<i class="bi bi-person-square"></i> Account
-							</a>
-						</li>
+						
 						<li class="nav-item">
 						<a class="nav-link"  >
 								 <button type="submit" onClick={logout} >
