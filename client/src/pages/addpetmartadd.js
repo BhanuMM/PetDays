@@ -57,7 +57,7 @@ function addpetmartadd() {
       .required("Please enter title"),
 
       adPrice: Yup.string()
-      .matches(/^[0-9]$/,"please enter valied price"),
+      .matches(/^[0-9]*$/,"please enter valied price"),
 
       adImage : "",
 
