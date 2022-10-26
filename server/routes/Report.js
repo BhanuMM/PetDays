@@ -95,16 +95,30 @@ res.json("SUCCESS");
     res.json(postreport);
   });
 
-  //DISPLAY FORUMPOST REPORT
+  //DISPLAY USERPOST REPORT
   router.get("/getuserreport", async (req, res) => {
-    const userreport = await sequelize.query("SELECT users.userrole,COUNT(users.userID) as ucount FROM users GROUP by users.userrole,users.createdAt;", { type: QueryTypes.SELECT });
+    const userreport = await sequelize.query("SELECT users.userrole,COUNT(users.userID) as ucount,Month(users.createdAt) as umonth FROM users where users.userrole like 'user' GROUP by users.userrole, EXTRACT(MONTH FROM users.createdAt);", { type: QueryTypes.SELECT });
   
     res.json(userreport);
   });
 
+  //DISPLAY SERVICERPOST REPORT
+  router.get("/getservicereport", async (req, res) => {
+    const servicereport = await sequelize.query("SELECT users.userrole,COUNT(users.userID) as ucount,Month(users.createdAt) as umonth FROM users where users.userrole like 'SERVICE' GROUP by users.userrole, EXTRACT(MONTH FROM users.createdAt);", { type: QueryTypes.SELECT });
+  
+    res.json(servicereport);
+  });
+  
+  //DISPLAY TOTALUSERPOST REPORT
+  router.get("/gettotaluserreport", async (req, res) => {
+    const servicereport = await sequelize.query("SELECT COUNT(users.userID) as ucount,Month(users.createdAt) as umonth FROM users where users.userrole like 'SERVICE' or users.userrole like 'user' GROUP by EXTRACT(MONTH FROM users.createdAt);", { type: QueryTypes.SELECT });
+  
+    res.json(servicereport);
+  });
+
   //DISPLAY INCOME STATEMENT
   router.get("/getincomereport", async (req, res) => {
-    const incomereport = await sequelize.query("", { type: QueryTypes.SELECT });
+    const incomereport = await sequelize.query("SELECT Month(publishedads.adDate) as umonth, COUNT(publishedads.adId) as adcount FROM publishedads where publishedads.paymentStatus like 'paid' GROUP by EXTRACT(MONTH FROM publishedads.adDate);", { type: QueryTypes.SELECT });
   
     res.json(incomereport);
   });

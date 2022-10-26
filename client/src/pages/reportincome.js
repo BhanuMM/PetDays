@@ -8,15 +8,17 @@ import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
 
 function viewmedications() {
-	const [searchTerm, setSearchTerm] = useState([]);
-	const [listOfMedicines, setListOfMedicines] = useState([]);
-	// let history = useHistory();
+	
+	const [ListOfIncome, setListOfIncome] = useState([]);
+	const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/mod/getmedicines").then((response) => {
-			setListOfMedicines(response.data);
+		axios.get("http://localhost:3001/report/getincomereport").then((response) => {
+			setListOfIncome(response.data);
 		});
 	}, []);
+	
 	return (
 		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -96,7 +98,7 @@ function viewmedications() {
 														</th>
 														<th scope="col">
 															<b>
-																<strong>Total Income (Rs.)</strong>
+																<strong>Total Income ($.)</strong>
 															</b>
 														</th>
 														<th scope="col">
@@ -107,24 +109,14 @@ function viewmedications() {
 													</tr>
 												</thead>
 												<tbody>
-													{listOfMedicines
-													.filter((val) => {
-														if (searchTerm == "") {
-															return val;
-														} else if (
-															val.medName
-																.toLowerCase()
-																.includes(searchTerm.toLowerCase())
-														) {
-															return val;
-														}
-													})
+													{ListOfIncome
+													
 													
 													.map((value, key) => {
 														return (
 															<tr>
-																<td></td>
-																<td></td>
+																<td>{month[value.umonth-1]}</td>
+																<td>{value.adcount*50}</td>
 																<td></td>
 															</tr>
 														);
