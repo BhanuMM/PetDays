@@ -33,7 +33,7 @@ function moderatordashboard() {
 
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 			<div className="">
 					<Moderatorsidebar />
@@ -198,7 +198,7 @@ function moderatordashboard() {
 														</a>
 														<a href="\mdnewverifyposts" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Verified Posts
+															Rejected Posts
 															</button>
 														</a>
 													</div>
@@ -261,7 +261,7 @@ function moderatordashboard() {
 														</a>
 														<a href="\mdverifyads" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
-																Verified Advertisements
+																Rejected Advertisements
 															</button>
 														</a>
 													</div>

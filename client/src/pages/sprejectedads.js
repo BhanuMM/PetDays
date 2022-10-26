@@ -20,7 +20,7 @@ function pendingads() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3001/service/getrejectedadsuser")
+			.get("http://localhost:3001/service/getrejected")
 			.then((response) => {
 				setlistOfrejectedads(response.data);
 			});
@@ -64,22 +64,26 @@ function pendingads() {
 											<div class="petmart-card" style={{ width: 400 }}>
 												<div class="petmart-inner-card">
 													{" "}
-													<img src={`http://localhost:3001/service/static/${value.adImage}`}
+													<h4 style={{color: "red"}}>Rejected Reason</h4>
+														<small>{value.rejReason}</small> 
+														<hr/>
+													<img src={`http://localhost:3001/service/static/${value.Publishedad.adImage}`}
 														
 														class="img-fluid rounded"
 													/>
 													<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-														<h4>{value.adTitle}</h4>
+													
+														<h4>{value.Publishedad.adTitle}</h4>
 														<small>
-															{value.adDate} at {value.adTime}{" "}
+															{value.Publishedad.adDate} at {value.Publishedad.adTime}{" "}
 														</small>
 													</div>
 													<div class="mt-2 px-2">
 														{" "}
-														<small><i class="fa fa-map-marker" aria-hidden="true"></i> {value. adDistrict},Sri Lanka</small>{" "}
+														<small><i class="fa fa-map-marker" aria-hidden="true"></i> {value. Publishedad.adDistrict},Sri Lanka</small>{" "}
 													</div>
 													<div class="px-2">
-														<h3>Rs.{value.adPrice}/=</h3>
+														<h3>Rs.{value.Publishedad.adPrice}/=</h3>
 													</div>
 													<div class="px-2 mt-3">
 														<div
@@ -154,7 +158,7 @@ function pendingads() {
 																			if (result.isConfirmed) {
 	
 																			
-																			axios.delete("http://localhost:3001/service/deletead/"+value. adId).then((response) => {
+																			axios.delete("http://localhost:3001/service/deletead/"+value.adId).then((response) => {
 																				if (response.data.error) {
 																				alert(response.data.error);
 																				} else {

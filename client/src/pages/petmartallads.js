@@ -10,19 +10,30 @@ import "../styles/petcategories.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate  } from "react-router-dom";
-import Button from '@mui/material/Button';
 
 
 
 function petmart() {
 
-	const [listOfpendingads, setlistOfpendingads] = useState([]);
+	const [listOfgrooming, setlistOfgrooming] = useState([]);
+    const [listOfwalking, setlistOfwalking] = useState([]);
+    const [listOfdaycare, setlistOfdaycare] = useState([]);
+    const [listOfother, setlistOfother] = useState([]);
   // let history = useHistory();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/service/getpetmartads").then((response) => {
-      setlistOfpendingads(response.data);
+    axios.get("http://localhost:3001/service/getgrooming").then((response) => {
+        setlistOfgrooming(response.data);
     });
+    axios.get("http://localhost:3001/service/getwalking").then((response) => {
+        setlistOfwalking(response.data);
+      });
+      axios.get("http://localhost:3001/service/getdaycare").then((response) => {
+        setlistOfdaycare(response.data);
+      });
+      axios.get("http://localhost:3001/service/getother").then((response) => {
+        setlistOfother(response.data);
+      });
   }, []);
 
   const navigate = useNavigate();
@@ -153,17 +164,17 @@ function petmart() {
 				</div>
 				<main class="py-6 bg-surface-secondary">
 					<div class="petmart-container-fluid">
+                        <h3>Pet Grooming</h3>
+                        <hr></hr>
 						<div className="row">
-						{listOfpendingads.map((value, key) => {
+						{listOfgrooming.map((value, key) => {
                             return (
 							<div className="col-3">
 								<div class="petmart-card">
 									<div class="petmart-inner-card">
 										{" "}
-										<img
-											src="https://www.acs.edu.au/database/images/course_4335051.jpg"
-											class="img-fluid rounded"
-										/>
+										<img src={`http://localhost:3001/service/static/${value.adImage}`}
+											class="img-fluid rounded" ></img>
 										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
 											<h4>{value.adTitle}</h4>
 											<small>{value.adDate}</small>
@@ -190,10 +201,122 @@ function petmart() {
 						})}
 						</div>
 					</div>
-					<a href="\petmartallads" className="header-topic">
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
-                    View All Advertisment
-                  </Button></a>
+                    <div class="petmart-container-fluid">
+                        <h3>Pet Day Care</h3>
+                        <hr></hr>
+						<div className="row">
+						{listOfdaycare.map((value, key) => {
+                            return (
+							<div className="col-3">
+								<div class="petmart-card">
+									<div class="petmart-inner-card">
+										{" "}
+										<img src={`http://localhost:3001/service/static/${value.adImage}`}
+											class="img-fluid rounded" ></img>
+
+										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+											<h4>{value.adTitle}</h4>
+											<small>{value.adDate}</small>
+										</div>
+										<div class="mt-2 px-2">
+											{" "}
+											<small>
+											{value.adDescr}
+											</small>{" "}
+										</div>
+										<div class="px-2">
+											<h3>{value.adPrice}</h3>
+										</div>
+										<div class="px-2 mt-3">
+											{" "}
+											<button class="btn btn-primary px-3 butn-color">
+												View Ad
+											</button>{" "}
+										</div>
+									</div>
+								</div>
+							</div>
+							);
+						})}
+						</div>
+					</div>
+                    <div class="petmart-container-fluid">
+                        <h3>Pet Walking</h3>
+                        <hr></hr>
+						<div className="row">
+						{listOfwalking.map((value, key) => {
+                            return (
+							<div className="col-3">
+								<div class="petmart-card">
+									<div class="petmart-inner-card">
+										{" "}
+										<img src={`http://localhost:3001/service/static/${value.adImage}`}
+											class="img-fluid rounded" ></img>
+										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+											<h4>{value.adTitle}</h4>
+											<small>{value.adDate}</small>
+										</div>
+										<div class="mt-2 px-2">
+											{" "}
+											<small>
+											{value.adDescr}
+											</small>{" "}
+										</div>
+										<div class="px-2">
+											<h3>{value.adPrice}</h3>
+										</div>
+										<div class="px-2 mt-3">
+											{" "}
+											<button class="btn btn-primary px-3 butn-color">
+												View Ad
+											</button>{" "}
+										</div>
+									</div>
+								</div>
+							</div>
+							);
+						})}
+						</div>
+					</div>
+                    <div class="petmart-container-fluid">
+                        <h3>Other</h3>
+                        <hr></hr>
+						<div className="row">
+						{listOfother.map((value, key) => {
+                            return (
+							<div className="col-3">
+								<div class="petmart-card">
+									<div class="petmart-inner-card">
+										{" "}
+										<img src={`http://localhost:3001/service/static/${value.adImage}`}
+											class="img-fluid rounded" ></img>
+										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+											<h4>{value.adTitle}</h4>
+											<small>{value.adDate}</small>
+										</div>
+										<div class="mt-2 px-2">
+											{" "}
+											<small>
+											{value.adDescr}
+											</small>{" "}
+										</div>
+										<div class="px-2">
+											<h3>{value.adPrice}</h3>
+										</div>
+										<div class="px-2 mt-3">
+											{" "}
+											<button class="btn btn-primary px-3 butn-color">
+												View Ad
+											</button>{" "}
+										</div>
+									</div>
+								</div>
+							</div>
+							);
+						})}
+						</div>
+					</div>
+                   
 				</main>
 			</div>
 			<Footer />

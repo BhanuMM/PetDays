@@ -145,6 +145,7 @@ import Reportincome from './pages/reportincome';
 import Reportvaccine from './pages/reportvaccineusage';
 import Reportuser from './pages/reportuser';
 import Reportpost from './pages/reportpost';
+import Petmartallads from './pages/petmartallads';
 
 
 
@@ -233,8 +234,9 @@ function App() {
           <Route path="/editcomment" element={<Editcomment/>} />
 
           {/* petmart */}
-          <Route path="/petmart" element={<Petmart/>} />
+          <Route path="/petmart" element={<Petmartallads/>} />
           <Route path="/viewad" element={<Singlead/>}/>
+          <Route path="/Petmartallads" element={<Petmart/>}/>
 
 
         {/* Admin */}

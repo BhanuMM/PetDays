@@ -16,7 +16,7 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
  'petdays',
  'root',
- '',
+ 'root',
   {
     host: '127.0.0.1',
     dialect: 'mysql'
@@ -87,6 +87,49 @@ res.json("SUCCESS");
   
     res.json(vacreport);
   });
+
+  router.get('/fetchvacpdf', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'reports', 'vacineeusage.pdf'))
+  })
+
+  router.get('/createvacpdf', async (req, res) => {
+
+    const compile = async function (templateName, data) {
+      const filePath = path.join(process.cwd(), 'templates', `${templateName}.hbs`);
+      const html = await fs.readFile(filePath, 'utf8');
+      return hbs.compile(html)(data);
+    }; 
+      try {
+  
+        // const data = await Breeds.findOne({
+        //   where: { breedID: "1" },
+        //    raw : true,
+        // });
+          const data = await sequelize.query("SELECT vaccines.vacName,COUNT(petvaccines.petVacID) as vaccount FROM petvaccines JOIN vaccines on petvaccines.vacID=vaccines.vacID GROUP by petvaccines.vacID;", { type: QueryTypes.SELECT });
+          
+          const browser = await puppeteer.launch();
+          const page = await browser.newPage();
+          // console.log(data);
+          const content = await compile('vacineeusage', data);
+          // console.log(content)
+          await page.setContent(content);
+          await page.pdf({
+              path: path.join(process.cwd(), 'reports', 'vacineeusage.pdf'),
+              format: 'A4',
+              printBackground: true
+          })
+          console.log("done creating pdf");
+          await browser.close();
+          // process.exit();
+          
+      } catch (e) {
+          console.log(e);
+      }
+   
+  
+  res.json("SUCCESS");
+    });
+  
 
   //DISPLAY FORUMPOST REPORT
   router.get("/getpostreport", async (req, res) => {

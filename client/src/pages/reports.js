@@ -10,7 +10,7 @@ class App extends Component {
     receiptId: 0,
     price1: 0,
     price2: 0,
-  }
+  } 
 
   handleChange = ({ target: { value, name }}) => this.setState({ [name]: value })
 
