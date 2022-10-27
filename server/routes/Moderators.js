@@ -127,6 +127,13 @@ router.post("/updaterejectedad", async (req, res) => {
     res.json("Not SUCCESS");
   }
 });
+router.post("/updatependingad/:adid", async (req, res) => {
+  const adid = req.params.adid;
+  await Publishedads.update({adStatus :"approved" } ,{ where: { adId: adid }} );
+  
+    res.json("Mod SUCCESS");
+ 
+});
 
 
 router.get("/getmedicines", async (req, res) => {
