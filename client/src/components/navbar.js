@@ -55,18 +55,18 @@ function navbar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li className="nav-item active"  style={{ paddingTop:15}}>
+                <li className="nav-item active"  style={{ paddingTop:5}}>
                     <a className="nav-link" href="index"><h4>Home</h4></a>
                 </li>
-                <li className="nav-item active" style={{ paddingTop:15}}>
+                <li className="nav-item active" style={{ paddingTop:5}}>
                     <a className="nav-link" href="petmart"><h4>Pet Mart</h4></a>
                 </li>
-                <li className="nav-item active" style={{ paddingTop:15}}>
+                <li className="nav-item active" style={{ paddingTop:5}}>
                     <a className="nav-link" href="forum"><h4>Pet Talk</h4></a>
                 </li>
                 {authState.status && authState.role=="service" && (
                 <>
-                  <li className="nav-item active" style={{ paddingTop:15}}>
+                  <li className="nav-item active" style={{ paddingTop:5}}>
                   
                   <a className="nav-link" href="spdashboard"><h4>My Account</h4></a>
                 </li>
@@ -74,7 +74,7 @@ function navbar() {
               )}
                {authState.status && authState.role=="admin" && (
                 <>
-                  <li className="nav-item active" style={{ paddingTop:15}}>
+                  <li className="nav-item active" style={{ paddingTop:5}}>
                   
                   <a className="nav-link" href="admindashboard"><h4>My Account</h4></a>
            </li>
@@ -82,7 +82,7 @@ function navbar() {
               )}
                {authState.status && authState.role=="moderator" && (
                 <>
-                  <li className="nav-item active" style={{ paddingTop:15}}>
+                  <li className="nav-item active" style={{ paddingTop:5}}>
                   
                   <a className="nav-link" href="moderatordashboard"><h4>My Account</h4></a>
            </li>
@@ -103,7 +103,7 @@ function navbar() {
               
               {!authState.status && (
                 <>
-                <li className="nav-item active" style={{ paddingTop:15}}>
+                <li className="nav-item active" style={{ paddingTop:5}}>
                     <a className="nav-link" href="registertype"><h4>Register</h4></a>
                 </li>
                 <li className="nav-item active">

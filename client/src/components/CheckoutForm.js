@@ -57,7 +57,7 @@ export default function CheckoutForm() {
 
     setIsLoading(true);
     Swal.fire(
-      'Approved!',
+      'Posted!',
       'Advertiement Has been Saved.',
       'success'
       );

@@ -55,7 +55,7 @@ function dashboard() {
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra">
+															<button type="submit" class="btn-tra" style={{width: 300}}>
 																Advertiesment Income Report
 															</button>
 														</a>
@@ -64,7 +64,7 @@ function dashboard() {
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra">
+															<button type="submit" class="btn-tra"  style={{width: 300}}>
 																User Analysis Report
 															</button>
 														</a>
@@ -73,7 +73,7 @@ function dashboard() {
 															role="button"
 															aria-pressed="true"
 														>
-															<button type="submit" class="btn-tra">
+															<button type="submit" class="btn-tra"  style={{width: 300}}>
 																Vaccinated Pet Analysis Report
 															</button>
 														</a>
@@ -84,7 +84,7 @@ function dashboard() {
 									</div>
 									
 								</div>
-								<div className="col-6">
+								{/* <div className="col-6">
 									<div class="card shadow border-0 mb-7 bg-white">
 										<div class="card-header">
 											<h5 class="mb-0 ">DETAIL REPORT</h5>
@@ -119,7 +119,7 @@ function dashboard() {
 									</div>
                                     
 									
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</main>
