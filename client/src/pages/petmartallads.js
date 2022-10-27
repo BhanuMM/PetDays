@@ -158,7 +158,9 @@ function petmart() {
 							<div className="col-2"></div>
 						</div>
 					</div>
-				</div><br/><br/>
+				</div>
+				<br />
+				<br />
 				{/* <div className="d-flex button-group-me">
 					<a href="#" role="button" aria-pressed="true">
 						<button type="submit" class="btn-tra" style={{ width: 340 }}>
@@ -212,7 +214,15 @@ function petmart() {
 												</div>
 												<div class="px-2 mt-3">
 													{" "}
-													<button class=""style={{ backgroundColor: "#F66B0E" }}>
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
 														View Ad
 													</button>{" "}
 												</div>
@@ -249,12 +259,20 @@ function petmart() {
 													<small>{value.adDescr}</small>{" "}
 												</div>
 												<div class="px-2">
-													<h3>{value.adPrice}</h3>
+													<h3>Rs. {value.adPrice}</h3>
 												</div>
 												<div class="px-2 mt-3">
 													{" "}
-													<button class="btn btn-primary px-3 butn-color">
-														View Ad
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
 													</button>{" "}
 												</div>
 											</div>
@@ -290,12 +308,20 @@ function petmart() {
 													<small>{value.adDescr}</small>{" "}
 												</div>
 												<div class="px-2">
-													<h3>{value.adPrice}</h3>
+													<h3>Rs. {value.adPrice}</h3>
 												</div>
 												<div class="px-2 mt-3">
 													{" "}
-													<button class="btn btn-primary px-3 butn-color">
-														View Ad
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
 													</button>{" "}
 												</div>
 											</div>
@@ -330,12 +356,20 @@ function petmart() {
 													<small>{value.adDescr}</small>{" "}
 												</div>
 												<div class="px-2">
-													<h3>{value.adPrice}</h3>
+													<h3>Rs. {value.adPrice}</h3>
 												</div>
 												<div class="px-2 mt-3">
 													{" "}
-													<button class="btn btn-primary px-3 butn-color">
-														View Ad
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
 													</button>{" "}
 												</div>
 											</div>

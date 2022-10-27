@@ -402,6 +402,15 @@ router.delete("/deletead/:adId", async (req, res) => {
   res.json("DELETED SUCCESSFULLY");
 });
 
+router.get("/getpost/:id", async (req, res) => {
+  const id = req.params.id;
+  const SinglePost = await Publishedads.findOne(
+    {where: {
+      adId: id,
+    }}
+  );
+  res.json(SinglePost);
+});
 
 
 

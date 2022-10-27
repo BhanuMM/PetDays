@@ -79,7 +79,7 @@ import Addnewadd from './pages/addpetmartadd';
 import Addnewadimage from './pages/addpetmartimages';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
-import Viewadd from './pages/viewpetmartadd';
+import Viewpetmartadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
 import Adddogbreed from './pages/adddogbreed';
 import Addcatbreed from './pages/addcatbreed';
@@ -357,7 +357,7 @@ function App() {
           {/* <Route path="/addseller" element={<Addseller/>} /> */}
           {/* <Route path="/newadd" element={<Newadd/>} />  */}
           {/* <Route path="/editpetmartadd" element={<Editadd/>} />  */}
-          {/* <Route path="/viewpetmartadd" element={<Viewadd/>} />   */}
+          {<Route path="/viewpetmartadd" element={<Viewpetmartadd/>} /> }
           {/* <Route path="/serviceprovideralladds" element={<Allads/>} />  */}
           {/* <Route path="/pendingads" element={<Pending/>} />   */}
           {/* <Route path="/petcategories" element={<Petcategories/>} /> */}
