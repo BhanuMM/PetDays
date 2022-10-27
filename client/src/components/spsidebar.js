@@ -173,14 +173,15 @@ function spsidebar() {
 					<hr class="navbar-divider my-5 opacity-20" />
 					<div class="mt-auto"></div>
 					<ul class="navbar-nav">
+
+						
 						<li class="nav-item">
-							<button
-								type="submit"
-								onClick={logout}
-								style={{ width: 220, backgroundColor: "#F66B0E", margin: 20 }}
-							>
-								<i class="bi bi-box-arrow-left"></i> logout
-							</button>
+						<a class="nav-link"  >
+								 <button type="submit" onClick={logout} >
+								 <i class="bi bi-box-arrow-left"></i>   logout
+               </button>
+							</a>
+
 						</li>
 					</ul>
 				</div>

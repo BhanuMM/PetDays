@@ -170,24 +170,34 @@ function moderatorsidebar() {
 												Medicines
 											</a>
 										</div>
-										<div class="panel-body">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
-												href="/mdsinglevacc"
-											>
-												Vaccines
-											</a>
 
-										</div>
-										<div class="panel-footer">
-											<a
-												class="nav-link"
-												style={{ paddingLeft: 70 }}
-												href="/mdsinglevitamin"
-											>
-												Vitamins
-											</a>
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a
+														data-toggle="collapse"
+														data-parent="#accordion"
+														href="#collapse4"
+													>
+														<a class="nav-link" href="#">
+															<i class="bi bi-people"></i>Advertisments<i class="fa fa-caret-down" aria-hidden="true" style={{paddingLeft:97}}></i>
+														</a>
+													</a>
+												</h4>
+											</div>
+											<div id="collapse4" class="panel-collapse collapse">
+												<div class="panel-body">
+													<a class="nav-link" href="/mdpendingads" style={{paddingLeft:70}}>
+														Pending Advertisments
+													</a>
+												</div>
+												<div class="panel-body">
+													<a class="nav-link" href="/mdrejectedads" style={{paddingLeft:70}}>
+														Rejected Advertisments
+													</a>
+												</div>
+											</div>
+
 										</div>
 									</div>
 								</div>

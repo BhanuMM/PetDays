@@ -87,11 +87,12 @@ import Addseller from './pages/addseller';
 
 import Dashcheckup from './pages/dashcheckup';
 import Mdpendingads from './pages/mdpendingads';
-import Mdverifyads from './pages/mdverifyads';
+import Mdrejectedads from './pages/mdrejectedads';
 import Mdadssection from './pages/mdadssection';
 import Mdpostsection from './pages/mdpostsection';
 import Mdnewpendingposts from './pages/mdnewpendingposts';
 import Mdrejectedposts from './pages/mdrejectedposts';
+// import Mdverifyposts from './pages/mdverifyposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
 import Mdsinglevitamin from './pages/mdsinglevitamin';
@@ -298,7 +299,7 @@ function App() {
           <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
           <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
-          <Route path="/mdverifyads" element={<Mdverifyads/>}/>
+          <Route path="/mdrejectedads" element={<Mdrejectedads/>}/>
           <Route path="/Mdadssection" element={<Mdadssection/>}/>
           <Route path="/Mdpostsection" element={<Mdpostsection/>}/>
           <Route path="/Mdnewpendingposts" element={<Mdnewpendingposts/>}/>

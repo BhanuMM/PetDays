@@ -26,7 +26,7 @@ function mdpendingads() {
 
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Moderatorsidebar />
@@ -65,67 +65,16 @@ function mdpendingads() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 200 }}>
-									<p class="fw-semibold " style={{ paddingRight: 40 }}>
-										Filtery by :
-									</p>
+									
 									<div class="search-line" style={{ display: "flex" }}>
-										<p class="fw-semibold ">
-											<div
-												class="dropdown"
-												style={{ paddingRight: 40, paddingLeft: 20 }}
-											>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Latest
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														Recent Week
-													</a>
-													<a class="dropdown-item" href="#">
-														Last Month
-													</a>
-												</div>
-											</div>
-										</p>
-
-										<div class="dropdown" style={{ paddingRight: 40 }}>
-											<button
-												class="btn btn-dark"
-												type="button"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													width: 150,
-													borderColor: "#205375",
-												}}
-											>
-												Filter
-											</button>
-										</div>
 
 										<div
 													
-													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
+													style={{ width: 700, float: "right",display:"flex",paddingTop:10,paddingLeft:230}}
 												>
 													<p
 														class="fw-semibold "
-														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
+														style={{ paddingRight: 10, paddingTop: 10,width:300  }}
 													>
 														Search Pending Ads
 													</p>
@@ -133,10 +82,10 @@ function mdpendingads() {
 														type="search"
 														
 														class="form-control rounded input-group"
-														placeholder="Enter Pending Ads"
+														placeholder="Search Pending Ads"
 														aria-label="Search"
 														aria-describedby="search-addon"
-														style={{ height: 40 }}
+														style={{ height: 40}}
 														onChange={(event) => {
 															setSearchTerm(event.target.value);
 														}}
@@ -160,6 +109,7 @@ function mdpendingads() {
 											return (
 												<div>
 													<Card
+														style={{ paddingLeft:150,paddingTop:20 }}
 														sx={{ display: "flex", width: 900, height: 250 }}
 													>
 														<CardMedia
@@ -201,7 +151,7 @@ function mdpendingads() {
 																<Button
 																	variant="contained"
 																	component="label"
-																	style={{ backgroundColor: "#F66B0E" }}
+																	style={{ backgroundColor: "#F66B0E" ,width:100}}
 																	onClick={() => {
 																		navigate("/mdviewad", {
 																			state: value.adId,
