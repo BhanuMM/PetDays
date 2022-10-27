@@ -45,12 +45,13 @@ function forum() {
 	const initialValues = {
 		postTitle: "",
 		postDescr: "",
-		pcatID: "1",
+		pcatID: "",
 		userId: authState.id
 	};
 
 	const navigate = useNavigate();
 	const onSubmit = (data) => {
+		// alert(data);
 		console.log(data);
 
 		axios.post("http://localhost:3001/user/addpost",data).then((response) => {
@@ -63,9 +64,13 @@ function forum() {
 	};
 
 	const [listOfPosts, setListOfPosts] = useState([]);
+	const [listOfcategories, setlistOfcategories] = useState([]);
 	useEffect(() => {
 		axios.get("http://localhost:3001/user/getposts").then((response) => {
 			setListOfPosts(response.data);
+		});
+		axios.get("http://localhost:3001/admin/getpetcategories").then((response) => {
+			setlistOfcategories(response.data);
 		});
 	}, []);
 
@@ -99,7 +104,7 @@ function forum() {
 											<br />
 
 											<div class="search-line" style={{ display: "flex",paddingLeft:100}}>
-												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:20 }}>
+												<p class="fw-semibold " style={{ paddingRight: 20, width:100, paddingTop:10 }}>
 													Filter by :
 												</p>
 
@@ -284,8 +289,12 @@ function forum() {
 												Pet Category
 											</label>
 											<Field as="select" name="pcatID" className="form-select">
-												<option value="1">Dogs </option>
-												<option value="2">Cats</option>
+											<option value="">Select Pet Category</option>
+											{listOfcategories.map((value, key) => {
+													return (
+												<option value={value.pcatID}>{value.pcatName}</option>
+												);
+												})}
 											</Field>
 										</div><br/>
 										<div >

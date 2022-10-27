@@ -31,7 +31,7 @@ function mdviewad() {
 
   
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 			<div className="">
 					<Moderatorsidebar />
@@ -108,25 +108,26 @@ function mdviewad() {
 											  text: "Do you want to approve this Advertiesment?",
 											  icon: 'warning',
 											  showCancelButton: true,
-											  confirmButtonColor: '#3085d6',
+											  confirmButtonColor: '#019031',
 											  cancelButtonColor: '#d33',
 											  confirmButtonText: 'Approve Ad'
 											}).then((result) => {
 											  if (result.isConfirmed) {
 					  
 												
-												axios.post("http://localhost:3001/service/updatependingad/"+SingleAd.adId).then((response) => {
+												axios.post("http://localhost:3001/mod/updatependingad/"+SingleAd.adId).then((response) => {
 												  if (response.data.error) {
 													alert(response.data.error);
 												  } else {
+													Swal.fire(
+														'Approved!',
+														'Advertiement Has been Approved.',
+														'success'
+													  )
 													navigate('/mdpendingads')
 												  } 
 												});
-												  Swal.fire(
-													'Approved!',
-													'Advertiement Has been Approved.',
-													'success'
-												  )
+												  
 												 
 												
 											  }

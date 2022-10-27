@@ -196,7 +196,7 @@ function moderatordashboard() {
 																Pending Posts
 															</button>
 														</a>
-														<a href="\mdnewverifyposts" role="button" aria-pressed="true">
+														<a href="\mdrejectedposts" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
 															Rejected Posts
 															</button>
@@ -259,7 +259,7 @@ function moderatordashboard() {
 																Pending Advertisments
 															</button>
 														</a>
-														<a href="\mdverifyads" role="button" aria-pressed="true">
+														<a href="\mdrejectedads" role="button" aria-pressed="true">
 															<button type="submit" class="btn-tra">
 																Rejected Advertisements
 															</button>

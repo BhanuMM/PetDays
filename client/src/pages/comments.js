@@ -89,6 +89,7 @@ function comments() {
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
+                  
 										<div className="title" > {PostObject.postTitle}</div>
  										<div className="body">{PostObject.postDescr}</div>
  										<div className="footer" >
@@ -98,6 +99,7 @@ function comments() {
  											<div className="righttext">
  												Posted time: {PostObject.postTime}
 											</div>
+
 
 
 										<div className="title"><h3>{PostObject.postTitle}</h3></div>

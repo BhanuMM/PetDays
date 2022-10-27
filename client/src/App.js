@@ -79,7 +79,7 @@ import Addnewadd from './pages/addpetmartadd';
 import Addnewadimage from './pages/addpetmartimages';
 import Newadd from './pages/newadd';
 import Editadd from './pages/editpetmartadd';
-import Viewadd from './pages/viewpetmartadd';
+import Viewpetmartadd from './pages/viewpetmartadd';
 import Addservices from './pages/addservices';
 import Adddogbreed from './pages/adddogbreed';
 import Addcatbreed from './pages/addcatbreed';
@@ -87,11 +87,12 @@ import Addseller from './pages/addseller';
 
 import Dashcheckup from './pages/dashcheckup';
 import Mdpendingads from './pages/mdpendingads';
-import Mdverifyads from './pages/mdverifyads';
+import Mdrejectedads from './pages/mdrejectedads';
 import Mdadssection from './pages/mdadssection';
 import Mdpostsection from './pages/mdpostsection';
 import Mdnewpendingposts from './pages/mdnewpendingposts';
 import Mdrejectedposts from './pages/mdrejectedposts';
+// import Mdverifyposts from './pages/mdverifyposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
 import Mdsinglevitamin from './pages/mdsinglevitamin';
@@ -298,7 +299,7 @@ function App() {
           <Route path="/mdeditvacc" element={<Mdeditvacc/>}/>
           <Route path="/mdeditvitamin" element={<Mdeditvitamin/>}/>
           <Route path="/mdpendingads" element={<Mdpendingads/>}/>
-          <Route path="/mdverifyads" element={<Mdverifyads/>}/>
+          <Route path="/mdrejectedads" element={<Mdrejectedads/>}/>
           <Route path="/Mdadssection" element={<Mdadssection/>}/>
           <Route path="/Mdpostsection" element={<Mdpostsection/>}/>
           <Route path="/Mdnewpendingposts" element={<Mdnewpendingposts/>}/>
@@ -357,7 +358,7 @@ function App() {
           {/* <Route path="/addseller" element={<Addseller/>} /> */}
           {/* <Route path="/newadd" element={<Newadd/>} />  */}
           {/* <Route path="/editpetmartadd" element={<Editadd/>} />  */}
-          {/* <Route path="/viewpetmartadd" element={<Viewadd/>} />   */}
+          {<Route path="/viewpetmartadd" element={<Viewpetmartadd/>} /> }
           {/* <Route path="/serviceprovideralladds" element={<Allads/>} />  */}
           {/* <Route path="/pendingads" element={<Pending/>} />   */}
           {/* <Route path="/petcategories" element={<Petcategories/>} /> */}

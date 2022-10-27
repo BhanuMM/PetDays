@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import * as Yup from "yup";
 import "../styles/footerspecial.css";
@@ -19,19 +20,34 @@ import Avatar from "@mui/material/Avatar";
 
 
 function addpetmartadd() {
+  const [authState, setAuthState] = useState({
+    username: "",
+    id: 0,
+    role : "",
+    status: false,
+  });
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/auth/authuser", {
+        headers: {
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      })
+      .then((response) => {
+        if (response.data.error) {
+          setAuthState({ ...authState, status: false });
+        } else {
+          setAuthState({
+            username: response.data.username,
+            id: response.data.id,
+            role: response.data.role,
+            status: true,
+          });
+          console.log(response.data.role);
+        }
+      });
+  }, []);
   const [selected, setSelected] = React.useState("");
-  // const [initialValues, setinit] = React.useState({
-  //   adTitle : "",
-  //   adDescr : "",
-  //   adImage : "",
-  //   adPrice : "",
-  //   adContact : "",
-  //   adEmail : "",
-  //   adAddress : "",
-  //   adProvince :"",
-  //   adDistrict : ""
-    
-  //   });
 
   const initialValues = {
     adTitle : "",
@@ -43,12 +59,10 @@ function addpetmartadd() {
     adAddress : "",
     adType:"",
     adProvince :"",
-    adDistrict : ""
+    adDistrict : "",
+    userId : authState.id
     
     }
-    
-  
-   
 
     const Schema = Yup.object().shape({
 
@@ -61,8 +75,6 @@ function addpetmartadd() {
 
       adImage : "",
 
-      // adProvince :Yup.string()
-      //                .required("please select province"),
       adDistrict :Yup.string()
       .required("please select district"),
                   
@@ -75,13 +87,10 @@ function addpetmartadd() {
   
   	
     });
-   
-    
-  
-  
-     
+ 
     const changeSelectOptionHandler = (event) => {
       setSelected(event.target.value);
+      // setprovinceselected(event.target.value);
       
       
     };
@@ -99,8 +108,8 @@ function addpetmartadd() {
     
     let type = null;
     
-    
     let options = null;
+    // let optionsprovince = null;
  
     if (selected === "Central") {
       type = central;
@@ -122,16 +131,15 @@ function addpetmartadd() {
     type = uva;
   }
     
-   
     if (type) {
       options = type.map((el) => <option key={el} value={el}>{el}</option>);
+      // optionsprovince =  <option value= {selected}>{selected}</option>;
     }
     
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
     axios.post("http://localhost:3001/service/publishad", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
@@ -144,7 +152,7 @@ function addpetmartadd() {
   };
 
   return (
-    <div class="container-fluid">
+    <div>
       <Navbarsp />
       <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <div className="">
@@ -168,7 +176,7 @@ function addpetmartadd() {
 													Dashboard /
 												</a>
 												<a href="/addpetmartadd" className="header-topic">
-												Create New Advertisment
+												Add New Advertisment
 												</a>
 											</li>
 										</ol>
@@ -184,14 +192,11 @@ function addpetmartadd() {
                   initialValues={initialValues} 
                   onSubmit={onSubmit}
                   validationSchema={Schema}
-                  
-                
-                  
                   >
                     <Form class="row g-3" style={{ paddingLeft: 200 }}>
 										<div class="col-10">
                       <label className="form-label">
-                          Advertiesment Title
+                          Advertisment Title
                         </label>
                         <div className="col">
                              				 <ErrorMessage name="adTitle" className="errormesage" component="span" />
@@ -206,7 +211,7 @@ function addpetmartadd() {
 										</div>
                     
 										<div class="col-10">
-                      <label className="form-label">Advertiesment Description</label>
+                      <label className="form-label">Advertisment Description</label>
                       <div className="col">
                              				 <ErrorMessage name="adDescr" className="errormesage" component="span" />
                             				</div>
@@ -221,7 +226,7 @@ function addpetmartadd() {
 										</div>
 
                     <div class="col-10">
-                      <label className="form-label">Price</label>
+                      <label className="form-label">Price (In Sri Lankan ruppee)</label>
                       <div className="col">
                              				 <ErrorMessage name="adPrice" className="errormesage" component="span" />
                             				</div>
@@ -234,7 +239,7 @@ function addpetmartadd() {
                         />
 										</div>
                     <div class="col-10">
-                      <label className="form-label">Ad Type</label>
+                      <label className="form-label">Advertisment Type</label>
                       
                       <Field as="select" name="adType" id="adType" className="form-select">
 												<option value="Grooming">Grooming</option>
@@ -285,61 +290,55 @@ function addpetmartadd() {
                           name="adAddress"
                           placeholder=""
                         />
+                        
 										</div>
 										<div class="row g-3">
                     <div class="col-5">
-                    <Field
-												className="form-control"
-												id="adProvince"
-												autocomplete="off"
-                        name="adProvince"
-												type="hidden"
-                        value={selected}
-                        placeholder={selected}
-
-												
-											/>
+                   
                       <label className="form-label">Province</label>
                       <div className="col">
                         <ErrorMessage name="adProvince" className="errormesage" component="span" />
                       </div>
                      
                        <select onChange={changeSelectOptionHandler}  className="form-select" >
+
           
-            <option>Central</option>
-            <option>North Central</option>
-            <option>Eastern</option>
-            <option>Northern</option>
-            <option>North Western</option>
-            <option>Southern</option>
-            <option>Uva</option>
-          </select>
+                        <option>Central</option>
+                        <option>North Central</option>
+                        <option>Eastern</option>
+                        <option>Northern</option>
+                        <option>North Western</option>
+                        <option>Southern</option>
+                        <option>Uva</option>
+                      </select>
+
 											</div>
 											<div class="col-5">
-                      <label className="form-label">district</label>
+                      <label className="form-label">District</label>
                       <div className="col">
                              				 <ErrorMessage name="adDistrict" className="errormesage" component="span" />
                             				</div>
+
+                           
                       <Field as ="select" name="adDistrict" className="form-select" onchange="byprovince">
+                      <option>Select a District</option>
                       {
               
-              options
-            }
-                        
-
+                    options
+                  }
                       </Field>
                     
 											</div>
 										</div>
 											<div className="row">
-												<div className="col-9"></div>
-												<div className="col-3 mb-5 mt-5">
+												
+												<div className="col mb-5 mt-5" style={{display:"flex",paddingRight:50}}>
 													{" "}
 
                           <button
-                            className="register.loginbuttonsize btn btn-success "
+                            className="register.loginbuttonsize btn btn-success"
                             type="submit"
-                            style={{ backgroundColor: "#205375", borderColor:"#205375"}}
+                            style={{ backgroundColor: "#205375", borderColor:"#205375", width:100,height:45}}
                           >
                             Next
                           </button>
@@ -348,7 +347,7 @@ function addpetmartadd() {
                             variant="contained"
                             component="label"
                             sx={{ margin: 1 }}
-                            style={{backgroundColor: "#F66B0E", borderColor:"#F66B0E"}}
+                            style={{backgroundColor: "#F66B0E", borderColor:"#F66B0E", width:100,height:45}}
                           >
                             Cancel
                           </Button>

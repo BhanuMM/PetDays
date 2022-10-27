@@ -69,7 +69,7 @@ function mdnewpendingposts() {
 
 										<div
 											
-											style={{ width: 575, marginLeft: 420,display:"flex" }}
+											style={{ width: 700, marginLeft: 420,display:"flex" }}
 										>
 											<p
 												class="fw-semibold "

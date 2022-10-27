@@ -120,7 +120,19 @@ function mdnewrejectedposts() {
 																	</p>
 																</div>
 																<div>{value.postDescr}</div>
-																
+																{/* <div
+																	className="comment"
+																	style={{ paddingRight: 50 }}
+																>
+																	<p className="fw-semibold fs-7">
+																		<a
+																			href="#"
+																			className="link-success text-decoration-none"
+																		>
+																			5 Comments
+																		</a>
+																	</p>
+																</div> */}
 															</div>
 														</div>
 													</Card><br/>

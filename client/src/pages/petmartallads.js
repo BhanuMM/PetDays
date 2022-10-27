@@ -9,34 +9,31 @@ import Navbar from "../components/navbar";
 import "../styles/petcategories.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate  } from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
 
 function petmart() {
-
 	const [listOfgrooming, setlistOfgrooming] = useState([]);
-    const [listOfwalking, setlistOfwalking] = useState([]);
-    const [listOfdaycare, setlistOfdaycare] = useState([]);
-    const [listOfother, setlistOfother] = useState([]);
-  // let history = useHistory();
+	const [listOfwalking, setlistOfwalking] = useState([]);
+	const [listOfdaycare, setlistOfdaycare] = useState([]);
+	const [listOfother, setlistOfother] = useState([]);
+	// let history = useHistory();
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/service/getgrooming").then((response) => {
-        setlistOfgrooming(response.data);
-    });
-    axios.get("http://localhost:3001/service/getwalking").then((response) => {
-        setlistOfwalking(response.data);
-      });
-      axios.get("http://localhost:3001/service/getdaycare").then((response) => {
-        setlistOfdaycare(response.data);
-      });
-      axios.get("http://localhost:3001/service/getother").then((response) => {
-        setlistOfother(response.data);
-      });
-  }, []);
+	useEffect(() => {
+		axios.get("http://localhost:3001/service/getgrooming").then((response) => {
+			setlistOfgrooming(response.data);
+		});
+		axios.get("http://localhost:3001/service/getwalking").then((response) => {
+			setlistOfwalking(response.data);
+		});
+		axios.get("http://localhost:3001/service/getdaycare").then((response) => {
+			setlistOfdaycare(response.data);
+		});
+		axios.get("http://localhost:3001/service/getother").then((response) => {
+			setlistOfother(response.data);
+		});
+	}, []);
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	return (
 		<div className="Petmart">
@@ -162,161 +159,226 @@ function petmart() {
 						</div>
 					</div>
 				</div>
+				<br />
+				<br />
+				{/* <div className="d-flex button-group-me">
+					<a href="#" role="button" aria-pressed="true">
+						<button type="submit" class="btn-tra" style={{ width: 340 }}>
+							Pet Grooming
+						</button>
+					</a>
+					<a href="#" role="button" aria-pressed="true">
+						<button type="submit" class="btn-tra" style={{ width: 340 }}>
+							Pet Day Care
+						</button>
+					</a>
+					<a href="#" role="button" aria-pressed="true">
+						<button type="submit" class="btn-tra" style={{ width: 340 }}>
+							Pet Walking
+						</button>
+					</a>
+					<a href="#" role="button" aria-pressed="true">
+						<button type="submit" class="btn-tra" style={{ width: 340 }}>
+							Other
+						</button>
+					</a>
+				</div><br/><br/> */}
 				<main class="py-6 bg-surface-secondary">
 					<div class="petmart-container-fluid">
-                        <h3>Pet Grooming</h3>
-                        <hr></hr>
-						<div className="row">
-						{listOfgrooming.map((value, key) => {
-                            return (
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img src={`http://localhost:3001/service/static/${value.adImage}`}
-											class="img-fluid rounded" ></img>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>{value.adTitle}</h4>
-											<small>{value.adDate}</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-											{value.adDescr}
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>{value.adPrice}</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
-										</div>
-									</div>
-								</div>
-							</div>
-							);
-						})}
+						<div className="adtitles">
+							<h3>Pet Grooming</h3>
 						</div>
-					</div>
-                    <div class="petmart-container-fluid">
-                        <h3>Pet Day Care</h3>
-                        <hr></hr>
-						<div className="row">
-						{listOfdaycare.map((value, key) => {
-                            return (
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img src={`http://localhost:3001/service/static/${value.adImage}`}
-											class="img-fluid rounded" ></img>
 
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>{value.adTitle}</h4>
-											<small>{value.adDate}</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-											{value.adDescr}
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>{value.adPrice}</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
-										</div>
-									</div>
-								</div>
-							</div>
-							);
-						})}
-						</div>
-					</div>
-                    <div class="petmart-container-fluid">
-                        <h3>Pet Walking</h3>
-                        <hr></hr>
+						<hr></hr>
 						<div className="row">
-						{listOfwalking.map((value, key) => {
-                            return (
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img src={`http://localhost:3001/service/static/${value.adImage}`}
-											class="img-fluid rounded" ></img>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>{value.adTitle}</h4>
-											<small>{value.adDate}</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-											{value.adDescr}
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>{value.adPrice}</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
+							{listOfgrooming.map((value, key) => {
+								return (
+									<div className="col-3">
+										<div class="petmart-card">
+											<div class="petmart-inner-card">
+												{" "}
+												<img
+													src={`http://localhost:3001/service/static/${value.adImage}`}
+													class="img-fluid rounded"
+												></img>
+												<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+													<h4>{value.adTitle}</h4>
+													<small>{value.adDate}</small>
+												</div>
+												<div class="mt-2 px-2">
+													{" "}
+													<small>{value.adDescr}</small>{" "}
+												</div>
+												<div class="px-2">
+													<h3>Rs. {value.adPrice}</h3>
+												</div>
+												<div class="px-2 mt-3">
+													{" "}
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Ad
+													</button>{" "}
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							);
-						})}
+								);
+							})}
 						</div>
 					</div>
-                    <div class="petmart-container-fluid">
-                        <h3>Other</h3>
-                        <hr></hr>
+					<div class="petmart-container-fluid">
+						<div className="adtitles">
+							<h3>Pet Day Care</h3>
+						</div>
+
+						<hr></hr>
 						<div className="row">
-						{listOfother.map((value, key) => {
-                            return (
-							<div className="col-3">
-								<div class="petmart-card">
-									<div class="petmart-inner-card">
-										{" "}
-										<img src={`http://localhost:3001/service/static/${value.adImage}`}
-											class="img-fluid rounded" ></img>
-										<div class="d-flex justify-content-between align-items-center mt-3 px-2">
-											<h4>{value.adTitle}</h4>
-											<small>{value.adDate}</small>
-										</div>
-										<div class="mt-2 px-2">
-											{" "}
-											<small>
-											{value.adDescr}
-											</small>{" "}
-										</div>
-										<div class="px-2">
-											<h3>{value.adPrice}</h3>
-										</div>
-										<div class="px-2 mt-3">
-											{" "}
-											<button class="btn btn-primary px-3 butn-color">
-												View Ad
-											</button>{" "}
+							{listOfdaycare.map((value, key) => {
+								return (
+									<div className="col-3">
+										<div class="petmart-card">
+											<div class="petmart-inner-card">
+												{" "}
+												<img
+													src={`http://localhost:3001/service/static/${value.adImage}`}
+													class="img-fluid rounded"
+												></img>
+												<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+													<h4>{value.adTitle}</h4>
+													<small>{value.adDate}</small>
+												</div>
+												<div class="mt-2 px-2">
+													{" "}
+													<small>{value.adDescr}</small>{" "}
+												</div>
+												<div class="px-2">
+													<h3>Rs. {value.adPrice}</h3>
+												</div>
+												<div class="px-2 mt-3">
+													{" "}
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
+													</button>{" "}
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							);
-						})}
+								);
+							})}
 						</div>
 					</div>
-                   
+					<div class="petmart-container-fluid">
+						<div className="adtitles">
+							<h3>Pet Walking</h3>
+						</div>
+
+						<hr></hr>
+						<div className="row">
+							{listOfwalking.map((value, key) => {
+								return (
+									<div className="col-3">
+										<div class="petmart-card">
+											<div class="petmart-inner-card">
+												{" "}
+												<img
+													src={`http://localhost:3001/service/static/${value.adImage}`}
+													class="img-fluid rounded"
+												></img>
+												<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+													<h4>{value.adTitle}</h4>
+													<small>{value.adDate}</small>
+												</div>
+												<div class="mt-2 px-2">
+													{" "}
+													<small>{value.adDescr}</small>{" "}
+												</div>
+												<div class="px-2">
+													<h3>Rs. {value.adPrice}</h3>
+												</div>
+												<div class="px-2 mt-3">
+													{" "}
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
+													</button>{" "}
+												</div>
+											</div>
+										</div>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+					<div class="petmart-container-fluid">
+						<div className="adtitles">
+							<h3>Other</h3>
+						</div>
+						<hr></hr>
+						<div className="row">
+							{listOfother.map((value, key) => {
+								return (
+									<div className="col-3">
+										<div class="petmart-card">
+											<div class="petmart-inner-card">
+												{" "}
+												<img
+													src={`http://localhost:3001/service/static/${value.adImage}`}
+													class="img-fluid rounded"
+												></img>
+												<div class="d-flex justify-content-between align-items-center mt-3 px-2">
+													<h4>{value.adTitle}</h4>
+													<small>{value.adDate}</small>
+												</div>
+												<div class="mt-2 px-2">
+													{" "}
+													<small>{value.adDescr}</small>{" "}
+												</div>
+												<div class="px-2">
+													<h3>Rs. {value.adPrice}</h3>
+												</div>
+												<div class="px-2 mt-3">
+													{" "}
+													<button
+														type="submit"
+														class="btn-view"
+														onClick={() => {
+															navigate("/viewpetmartadd", {
+																state: value.adId,
+															});
+														}}
+													>
+														View Advertisement
+													</button>{" "}
+												</div>
+											</div>
+										</div>
+									</div>
+								);
+							})}
+						</div>
+					</div>
 				</main>
 			</div>
 			<Footer />

@@ -96,13 +96,13 @@ router.post("/publishad", async (req, res) => {
   adEmail : adEmail,
   adAddress : adAddress,
   adType : adType,
-  adProvince : "Southern",
+  adProvince : adProvince,
   adDistrict : adDistrict,
   adStatus : "pending",
   paymentStatus : "unpaid",
   adDate : year + "-" + month + "-" + date,
   adTime : hours + ":" + minutes,
-  userId : "3"
+  userId : userId
 
   },
   { isNewRecord: true });
@@ -402,6 +402,15 @@ router.delete("/deletead/:adId", async (req, res) => {
   res.json("DELETED SUCCESSFULLY");
 });
 
+router.get("/getpost/:id", async (req, res) => {
+  const id = req.params.id;
+  const SinglePost = await Publishedads.findOne(
+    {where: {
+      adId: id,
+    }}
+  );
+  res.json(SinglePost);
+});
 
 
 

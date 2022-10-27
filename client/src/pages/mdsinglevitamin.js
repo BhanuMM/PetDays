@@ -21,7 +21,7 @@ function mdsinglevitamin() {
 	}, []);
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Moderatorsidebar />
@@ -77,30 +77,7 @@ function mdsinglevitamin() {
 												Add Vitamin
 											</Button>
 										</a>
-										{/* <div class="input-group" style={{ width: 575 }}>
-											<input
-												type="search"
-												class="form-control rounded"
-												placeholder="Search Vitamin"
-												aria-label="Search"
-												aria-describedby="search-addon"
-												style={{ height: 40 }}
-												onChange = {(event) => {
-													setSearchTerm(event.target.value);
-												}}
-											/>
-											<button
-												type="button"
-												class="btn"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													color: "white",
-												}}
-											>
-												Search
-											</button>
-										</div> */}
+										
 										<div class="" style={{ width: 575, display:"flex" ,paddingLeft:50}}>
 										<p
 												class="fw-semibold "

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function mdverifyads() {
+function mdrejectedads() {
 	const [searchTerm, setSearchTerm] = useState([]);
 	const [listOfverifiedads, setlistOfverifiedads] = useState([]);
 	// let history = useHistory();
@@ -27,7 +27,7 @@ function mdverifyads() {
 
 	const navigate = useNavigate();
 	return (
-		<div class="container-fluid">
+		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 				<div className="">
 					<Moderatorsidebar />
@@ -49,7 +49,7 @@ function mdverifyads() {
 													>
 														Moderator Dashboard/
 													</a>
-													<a href="/mdverifyads" className="header-topic">
+													<a href="/mdrejectedads" className="header-topic">
 
 													Rejected Advertisments
 													</a>
@@ -67,67 +67,18 @@ function mdverifyads() {
 						<div class="container-fluid">
 							<div class="row g-6 mb-6">
 								<div style={{ paddingLeft: 200 }}>
-									<p class="fw-semibold " style={{ paddingRight: 40 }}>
-										Filtery by :
-									</p>
+									
 									<div class="search-line" style={{ display: "flex" }}>
-										<p class="fw-semibold ">
-											<div
-												class="dropdown"
-												style={{ paddingRight: 40, paddingLeft: 20 }}
-											>
-												<button
-													class="btn btn-dark dropdown-toggle"
-													type="button"
-													id="dropdownMenuButton"
-													data-toggle="dropdown"
-													aria-haspopup="true"
-													aria-expanded="false"
-													style={{
-														height: 40,
-														backgroundColor: "#205375",
-														width: 150,
-														borderColor: "#205375",
-													}}
-												>
-													Latest
-												</button>
-												<div
-													class="dropdown-menu"
-													aria-labelledby="dropdownMenuButton"
-												>
-													<a class="dropdown-item" href="#">
-														Recent Week
-													</a>
-													<a class="dropdown-item" href="#">
-														Last Month
-													</a>
-												</div>
-											</div>
-										</p>
+										
 
-										<div class="dropdown" style={{ paddingRight: 40 }}>
-											<button
-												class="btn btn-dark"
-												type="button"
-												style={{
-													height: 40,
-													backgroundColor: "#205375",
-													width: 150,
-													borderColor: "#205375",
-												}}
-											>
-												Filter
-											</button>
-										</div>
 
 										<div
 													
-													style={{ width: 575, float: "right",display:"flex",paddingTop:10}}
+													style={{ width: 700, float: "right",display:"flex",paddingTop:10,paddingLeft:230}}
 												>
 													<p
 														class="fw-semibold "
-														style={{ paddingRight: 10, paddingTop: 10,width:250  }}
+														style={{ paddingRight: 10, paddingTop: 10,width:300   }}
 													>
 														Search Verified Ads
 													</p>
@@ -163,7 +114,7 @@ function mdverifyads() {
 											return (
 
 										<div>
-                    <Card sx={{ display: 'flex', width:900, height: 250 }}>
+                    <Card sx={{ display: 'flex', width:900, height: 250 }} style={{ paddingLeft:150,paddingTop:20 }}>
                     <CardMedia
                       component="img"
                       sx={{ width: 200 }}
@@ -210,4 +161,4 @@ function mdverifyads() {
 	);
 }
 
-export default mdverifyads;
+export default mdrejectedads;
