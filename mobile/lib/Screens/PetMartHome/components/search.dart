@@ -11,51 +11,45 @@ class PetMartSearch extends StatefulWidget {
   const PetMartSearch({
     Key? key,
   }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _PetMartSearchState();
 }
-class _PetMartSearchState extends State<PetMartSearch>{
+
+class _PetMartSearchState extends State<PetMartSearch> {
+  String search = '';
+
   @override
   Widget build(BuildContext context) {
-    return  Form(
-        child:Container (
-          width: MediaQuery.of(context).size.width -80,
-          child: Row(
-          children: [
-            Expanded(
-                child: TextFormField(
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(
-
-                    border: OutlineInputBorder(),
-
-                    labelStyle: TextStyle(
-                      color: Color(0xFFD6D6D6),
-                    ),
-                    hintText: "search in petmart",
-                    // prefixIcon: Padding(
-                    //   padding: const EdgeInsets.all(defaultPadding),
-                    //   child: Icon(Icons.search),
-                    // ),
-                    fillColor: Colors.white,
-                  ),
-                )
+    return Form(
+        child: Container(
+      width: MediaQuery.of(context).size.width - 80,
+      child: Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.deepPurple[200],
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      border: InputBorder.none,
+                      hintText: "Search your pets"),
+                  onChanged: (value) {
+                    setState(() {
+                      search = value;
+                    });
+                    print(search);
+                  },
+                ),
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.search),
-              tooltip: 'Increase volume by 10',
-              onPressed: () {
-                setState(() {
-
-                });
-              },
-            ),
-
-          ],
-        ),
-        )
-      );
+          )
+        ],
+      ),
+    ));
   }
-
-  }
+}

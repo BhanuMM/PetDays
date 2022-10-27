@@ -56,10 +56,16 @@ export default function CheckoutForm() {
     }
 
     setIsLoading(true);
-
+    Swal.fire(
+      'Approved!',
+      'Advertiement Has been Saved.',
+      'success'
+      );
     const { error } = await stripe.confirmPayment({
       elements,
+      
       confirmParams: {
+
         // Make sure to change this to your payment completion page
         return_url: "http://localhost:3000/spdashboard",
         receipt_email: email,
@@ -67,7 +73,7 @@ export default function CheckoutForm() {
       },
      
     });
-
+    
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
     // your `return_url`. For some payment methods like iDEAL, your customer will

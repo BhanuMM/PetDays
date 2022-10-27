@@ -91,7 +91,7 @@ import Mdverifyads from './pages/mdverifyads';
 import Mdadssection from './pages/mdadssection';
 import Mdpostsection from './pages/mdpostsection';
 import Mdnewpendingposts from './pages/mdnewpendingposts';
-import Mdnewverifyposts from './pages/mdnewverifyposts';
+import Mdrejectedposts from './pages/mdrejectedposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
 import Mdsinglevitamin from './pages/mdsinglevitamin';
@@ -284,7 +284,7 @@ function App() {
           <Route path="/moderatordashboard" element={<Moderatordashboard/>} /> 
           <Route path="/mdposts" element={<Mdposts />} />
           <Route path="/mdpendingposts" element={<Mdpendingposts />} />
-          <Route path="/mdverifyposts" element={<Mdverifyposts />} />
+          <Route path="/mdrejectedposts" element={<Mdrejectedposts />} />
           <Route path="/mdadvertisments" element={<Mdadvertisments />} />
           <Route path="/mdpendingadvertisments" element={<Mdpendingadvertisments />} />
           <Route path="/mdverifyadvertisments" element={<Mdverifyadvertisments />} />
@@ -302,7 +302,7 @@ function App() {
           <Route path="/Mdadssection" element={<Mdadssection/>}/>
           <Route path="/Mdpostsection" element={<Mdpostsection/>}/>
           <Route path="/Mdnewpendingposts" element={<Mdnewpendingposts/>}/>
-          <Route path="/Mdnewverifyposts" element={<Mdnewverifyposts/>}/>
+          <Route path="/mdrejectedposts" element={<Mdrejectedposts/>}/>
           <Route path="/Mdsinglemed" element={<Mdsinglemed/>}/>
           <Route path="/Mdsinglevacc" element={<Mdsinglevacc/>}/>
           <Route path="/Mdsinglevitamin" element={<Mdsinglevitamin/>}/>
