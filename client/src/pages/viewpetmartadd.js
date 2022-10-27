@@ -12,7 +12,7 @@ import "../styles/spdashboard.css";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import Navbar from "../components/navbar";
 function viewpetmartadd() {
   const [SinglePost, setSinglePost] = useState([]);
   const location = useLocation();
@@ -25,14 +25,15 @@ axios.get("http://localhost:3001/service/getpost/"+location.state).then((respons
 	}, []);
 	return (
 		<div class="container-fluid">
-			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <Navbar />
+			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary p-6 g-6">
 				<div className="">{/* <Sellersidebar /> */}</div>
 				<div class="h-screen flex-grow-1 overflow-y-lg-auto">
 					<header class="bg-surface-primary border-bottom pt-6">
 						<div class="container-fluid">
 							<div class="mb-npx">
 								<div class="row align-items-center">
-									<div class="col-sm-6 col-12 mb-4 mb-sm-0">
+									<div class="col-sm-6 col-12 mb-4 mb-sm-0"style={{ paddingTop: 70 }}>
 										<h1 class="h2 mb-0 ls-tight">Petmart Advertisement</h1>
 										{/* <p> 22 August 2022</p> */}
 										<hr />
