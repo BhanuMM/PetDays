@@ -4,13 +4,14 @@ import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../../models/globals.dart';
 
-class PetDashboardItemCard extends StatelessWidget {
+class PetMartItemCard extends StatelessWidget {
   final String label;
   final String price;
   final StatelessWidget ado;
   final String img;
-  PetDashboardItemCard({ required this.label, required this.ado, required this.img, required this.price});
+  PetMartItemCard({ required this.label, required this.ado, required this.img, required this.price});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,25 +47,42 @@ class PetDashboardItemCard extends StatelessWidget {
 
             child: Column(
               children: [
-
-                Image.asset(
-                  "assets/images/$img.png",
-                  height: 110,
+                Container(
+                  height: 90,
                   width: 200,
-                ),
-                Row(
-                  children: [
-                    const Spacer(
-                      flex: 1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    image: DecorationImage(
+                      image: NetworkImage("http://$url/service/static/$img"),
+                      fit: BoxFit.cover,
                     ),
-                    Text(label,
-                    style: TextStyle(fontSize: 14,fontWeight: FontWeight.normal),
-                     textAlign: TextAlign.center,
                   ),
-                    const Spacer(
-                      flex: 6,
-                    )
-                ]
+                ),
+
+                // ConstrainedBox(
+                //   constraints: BoxConstraints(
+                //     maxWidth: 200,
+                //     maxHeight: 110,
+                //   ),
+                //   child: Image.network(
+                //     "http://$url/service/static/$img",
+                //     width: 200,
+                //   ),
+                // ),
+                SizedBox(height: 5,),
+                Row(
+                    children: [
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Text(label,
+                        style: TextStyle(fontSize: 14,fontWeight: FontWeight.normal),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Spacer(
+                        flex: 6,
+                      )
+                    ]
                 ),
                 SizedBox(height: 5,),
                 Row(

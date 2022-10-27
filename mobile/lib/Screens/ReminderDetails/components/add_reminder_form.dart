@@ -73,6 +73,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
     print(petReminder.note);
     print(petReminder.nextRemDate);
     print(petReminder.nextRemTime);
+
     // 10.0.2.2
     var res = await http.post(Uri.http(globals.url, addRemRoute),
         headers: headers,
@@ -84,7 +85,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit(0,"Reminder", petReminder.note + "for Date: " + petReminder.nextRemDate.toString(),DateTime.now().add(Duration(seconds: 15)));
+      NotificationAPI.scheduleNotificationInit(8,"Reminder", petReminder.note + "for Date: " + petReminder.nextRemDate.toString(),DateTime.parse(petReminder.nextRemDate.toString() + ' ' + petReminder.nextRemTime.toString()));
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
@@ -211,6 +212,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
                                   setState(() {
                                     _dateTime = date;
                                     nextDate = date;
+
                                   });
                                 });
                               },
@@ -256,6 +258,7 @@ class _AddReminderFormState extends State<AddReminderForm>{
                                 setState(() {
                                   _time = time;
                                   nextTime = time;
+                                  print(nextTime.toString());
                                 });
                               });
                             },

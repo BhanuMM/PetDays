@@ -4,6 +4,7 @@ import '../styles/nav.css';
 import { AuthContext } from "../helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function navbar() {
     const [authState, setAuthState] = useState({
@@ -12,7 +13,8 @@ function navbar() {
         role : "",
         status: false,
       });
-    
+      
+      const navigate = useNavigate();
       useEffect(() => {
         axios
           .get("http://localhost:3001/auth/authuser", {
@@ -34,10 +36,11 @@ function navbar() {
             }
           });
       }, []);
- 
+      
       const logout = () => {
         localStorage.removeItem("accessToken");
         setAuthState({ username: "", role: "",id: 0, status: false });
+        navigate("/index");
       };
 
   return (

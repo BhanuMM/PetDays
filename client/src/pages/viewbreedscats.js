@@ -107,11 +107,11 @@ function viewbreedscats() {
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
 													<tr>
-														<th scope="col">
+														{/* <th scope="col">
 															<b>
 																<strong>BREED ID</strong>
 															</b>
-														</th>
+														</th> */}
 														<th scope="col">
 															<b>
 																<strong>BREED NAME</strong>
@@ -141,7 +141,7 @@ function viewbreedscats() {
 														.map((value, key) => {
 															return (
 																<tr>
-																	<td>{value.breedID}</td>
+																	{/* <td>{value.breedID}</td> */}
 																	<td>{value.breedName}</td>
 																	<td>{value.descr}</td>
 

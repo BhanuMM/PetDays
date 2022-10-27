@@ -1,18 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile/models/pet.dart';
+import 'package:mobile/models/petMartAd.dart';
 import '../../../constants.dart';
 import 'card.dart';
 import '../../Dashboard/dashboard_screen.dart';
 import '../../VaccinationDetails/add_Vaccination_Details_Screen.dart';
 import '../../PetDiary/Pet_DIary_Screen.dart';
 import '../../viewSingleAd/View_Single_Add_Screen.dart';
+import '../../../models/globals.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../../../models/petMartAd.dart';
 
 
-class PetMartHomeContent extends StatelessWidget {
-  const PetMartHomeContent({
+
+class PetMartHomeContent extends StatefulWidget {
+  PetMartAd petMartAd = new PetMartAd('adTitle', 'adDescr', 'adImage', 'adPrice', 'adContact', 'adEmail', 'adAddress', 'adProvince', 'adDistrict', 'adStatus', 'paymentStatus', 'adDate', 'adTime', 'userId','none');
+  PetMartHomeContent(this.petMartAd,{
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<PetMartHomeContent> createState() => _PetMartHomeContentState();
+}
+
+class _PetMartHomeContentState extends State<PetMartHomeContent> {
+  final getPetMartAdsRoute = '/service/getpetmartads';
+  final headers = {'Content-Type': 'application/json'};
+  final encoding = Encoding.getByName('utf-8');
+  List adDetails = [];
+  Future getPetMartAds() async {
+
+    // 10.0.2.2
+    final res = await http.get(Uri.http(url,getPetMartAdsRoute),
+    );
+    final list = json.decode(res.body) as List<dynamic>;
+    print(list);
+    setState(() {
+      adDetails = list ;
+    });
+    print(adDetails);
+    print('ela');
+
+    return "Sucess";
+    //map json and initialize using DataModel
+    // return list;
+    // return list.map((e) => PetCatagory.fromJson(e)).toList();
+
+  }
+  void initState() {
+    super.initState();
+    this.getPetMartAds();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,20 +63,18 @@ class PetMartHomeContent extends StatelessWidget {
                 SizedBox(height: defaultPadding*2,),
                 Row(
                   children: [
-                    Spacer(),
                     Container(
-                        child: Image.asset(
-                        "assets/images/mart5.png",
-                        height: 300
+                        child: Image.network(
+                            "http://$url/service/static/" + widget.petMartAd.adImage,
+                        width: MediaQuery.of(context).size.width,
                       ),
                     ),
-                    Spacer(),
                   ],
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Spacer(flex: 1,),
-                    Text("Grooming Services",
+                    Text(widget.petMartAd.adTitle,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -53,7 +92,7 @@ class PetMartHomeContent extends StatelessWidget {
                         size: 24.0,
                         semanticLabel: 'Text to announce in accessibility modes',
                       ),
-                      Text("Galle,Sri Lanka",style: TextStyle(fontSize: 16),),
+                      Text(widget.petMartAd.adAddress,style: TextStyle(fontSize: 16),),
 
                     ],
                     )
@@ -63,7 +102,7 @@ class PetMartHomeContent extends StatelessWidget {
                     padding: EdgeInsets.only(left: 18),
                     child: Row(
                       children: [
-                        Text("RS. 2000",style: TextStyle(fontSize: 24),),
+                        Text("RS." + widget.petMartAd.adPrice.toString(),style: TextStyle(fontSize: 24),),
                       ],
                     )
                 ),
@@ -73,7 +112,7 @@ class PetMartHomeContent extends StatelessWidget {
                     padding: EdgeInsets.only(left: 18),
                     child: Row(
                       children: [
-                        Text("Get your Dog groomed by proffesionals at Galle.",style: TextStyle(fontSize:14),),
+                        Text(widget.petMartAd.adDescr,style: TextStyle(fontSize:14),),
                       ],
                     )
                 )
@@ -101,7 +140,7 @@ class PetMartHomeContent extends StatelessWidget {
                           size: 24.0,
                           semanticLabel: 'Text to announce in accessibility modes',
                         ),
-                        Text("+94 77 123 76 89",style: TextStyle(fontSize: 16),),
+                        Text("0"+widget.petMartAd.adContact.toString(),style: TextStyle(fontSize: 16),),
 
                       ],
                     )
@@ -115,21 +154,7 @@ class PetMartHomeContent extends StatelessWidget {
                           size: 24.0,
                           semanticLabel: 'pet.groom@gmail.com',
                         ),
-                        Text("pet.groom@gmail.com",style: TextStyle(fontSize: 16),),
-
-                      ],
-                    )
-                ),
-                Padding(
-                    padding: EdgeInsets.only(left: 15),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.facebook,
-                          size: 24.0,
-                          semanticLabel: 'Text to announce in accessibility modes',
-                        ),
-                        Text("www.facebook.com/petgroomers",style: TextStyle(fontSize: 16),),
+                        Text(widget.petMartAd.adEmail,style: TextStyle(fontSize: 16),),
 
                       ],
                     )
@@ -159,20 +184,21 @@ class PetMartHomeContent extends StatelessWidget {
                 SizedBox(height: defaultPadding,),
                 Container(
                     height: 180,
-                    child:ListView(
-                        scrollDirection: Axis.horizontal,
-
-                        children: [
-                          SizedBox(width: defaultPadding,),
-                          PetDashboardItemCard(label: 'Pet grooming',ado: ViewSingleAd(),img: "mart1",price: "2000"),
-                          SizedBox(width: defaultPadding,),
-                          PetDashboardItemCard(label: 'Pet grooming',ado: ViewSingleAd(),img: "mart2",price: "2000"),
-                          SizedBox(width: defaultPadding,),
-                          PetDashboardItemCard(label: 'Pet grooming',ado: ViewSingleAd(),img: "mart3",price: "2000"),
-                          SizedBox(width: defaultPadding,),
-                          PetDashboardItemCard(label: 'Pet grooming',ado: ViewSingleAd(),img: "mart6",price: "2000"),
-                        ]
-                    )
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.all(8),
+                      itemCount: adDetails.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        print(adDetails[index]['adType']);
+                        if(adDetails[index]['adType'] == widget.petMartAd.adType ){
+                          return Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: PetMartItemCard(label: adDetails[index]['adTitle'],ado: ViewSingleAd(new PetMartAd(adDetails[index]['adTitle'], adDetails[index]['adDescr'], adDetails[index]['adImage'], adDetails[index]['adPrice'].toString(), adDetails[index]['adContact'].toString(), adDetails[index]['adEmail'], adDetails[index]['adAddress'], adDetails[index]['adProvince'], adDetails[index]['adDistrict'], adDetails[index]['adStatus'], adDetails[index]['paymentStatus'], adDetails[index]['adDate'], adDetails[index]['adTime'], adDetails[index]['userId'].toString(),adDetails[index]['adType'])),img: adDetails[index]['adImage'],price: adDetails[index]['adPrice'].toString())
+                          );
+                        }else
+                          return Container();
+                      }
+                  ),
                 ),
 
 

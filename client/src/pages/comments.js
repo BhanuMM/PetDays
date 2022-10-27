@@ -89,57 +89,56 @@ function comments() {
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
-
-// 										<div className="title" > {PostObject.postTitle}</div>
-// 										<div className="body">{PostObject.postDescr}</div>
-// 										<div className="footer" >
-// 											<div className="lefttext">
-// 												Posted date :{PostObject.postDate}
-// 											</div>
-// 											<div className="righttext">
-// 												Posted time: {PostObject.postTime}
-// 											</div>
-
-
-										<div className="title"><h3>{PostObject.postTitle}</h3></div>
-										<div className="body"><h4>{PostObject.postDescr}</h4></div>
-										<div classname="footer" style={{ display: "flex" }}>
+                  
+										<div className="title" > {PostObject.postTitle}</div>
+ 										<div className="body">{PostObject.postDescr}</div>
+ 										<div className="footer" >										
 											<span class="be-comment-time">
 												<i className="fa fa-clock-o"></i>
 												 {PostObject.postDate}  at {PostObject.postTime}
 											</span>
-											
-										</div><br/>
-										<div
-											className="addCommentContainer"
-											style={{ display: "flex" }}
-										>
-											<input
-												type="text"
-												placeholder="Comment..."
-												autoComplete="off"
-												value={newComment}
-												onChange={(event) => {
-													setNewComment(event.target.value);
-												}}
-											/>
-											<button onClick={addComment}> Add Comment</button>
-
-
+										<br/>
 										</div>
+										{authState.status && authState.role=="user" && (
+												<div
+												className="addCommentContainer"
+												style={{ display: "flex" }}
+											>
+												<input
+													type="text"
+													placeholder="Comment..."
+													autoComplete="off"
+													value={newComment}
+													onChange={(event) => {
+														setNewComment(event.target.value);
+													}}
+												/>
+												<button onClick={addComment}> Add Comment</button>
+	
+	
+											</div>
+										)}
+										
+									
 									</div>
 								</div>
 								<div className="rightSide">
 									<div className="listOfComments">
 										{CommentObject.map((CommentObject, key) => {
+											console.log(CommentObject);
 											return (
 												<div key={key} className="comment">
 													<div className="lefttext">
-														<h4>Posted at :{CommentObject.createdAt}</h4>
+														<h4>Posted on :{CommentObject.createdAt.split('T')[0]} </h4>
+														{/* at : {CommentObject.createdAt.split('T')[1].split('Z')[0].split(':')[0]}.{CommentObject.createdAt.split('T')[1].split('Z')[0].split(':')[1]} Hrs */}
 													</div>
+													
+													<h4>By :{CommentObject.User.username}</h4>
 													<br />
 													<p>{CommentObject.commentBody}</p>
-													<div style={{ display: "flex" }}>
+													
+													{authState.status && authState.role=="user" && authState.id == CommentObject.userId && (
+														<div style={{ display: "flex" }}>
 														<button
 															type="button"
 															class="btn  btn-sm btn-square btn-neutral text-danger-hover float-right"
@@ -195,13 +194,19 @@ function comments() {
 															<em class="fa fa-pencil"></em>
 														</button>
 													</div>
+													)}
+													
 												</div>
 											);
 										})}
 									</div>
 								</div>
+
+								
 							</div>
+
 							</div>
+
 						</main>
 					</div>
 				</div>

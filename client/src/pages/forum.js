@@ -90,15 +90,19 @@ function forum() {
 									<div class="row g-6 mb-6">
 										<div>
 											<div style={{ paddingLeft: 950 }}>
+											{authState.status && authState.role=="user" && (
 												<Button
-													variant="contained"
-													component="label"
-													style={{ backgroundColor: "#F66B0E" }}
-													data-toggle="modal"
-													data-target="#exampleModalCenter"
+												variant="contained"
+												component="label"
+												style={{ backgroundColor: "#F66B0E" }}
+												data-toggle="modal"
+												data-target="#exampleModalCenter"
 												>
 													Start New Disscussion
-												</Button>
+												</Button>	
+											)}
+											
+												
 											</div>
 											<br />
 											<br />

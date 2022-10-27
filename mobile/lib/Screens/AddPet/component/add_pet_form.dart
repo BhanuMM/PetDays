@@ -127,8 +127,10 @@ class _AddPetFormState extends State<AddPetForm>{
     final list = json.decode(res.body) as List<dynamic>;
     setState(() {
       data = list;
+      initialCat =data[0]['pcatName'];
     });
     print(list);
+
 
     return "Sucess";
     //map json and initialize using DataModel
@@ -146,10 +148,12 @@ class _AddPetFormState extends State<AddPetForm>{
 
     final list = json.decode(res.body) as List<dynamic>;
     print(list);
+    List temp = list;
+    _SelectedBreed = temp[0]['breedName'];
     setState(() {
       breeds = list ;
-
     });
+
 
 
     return "Sucess";
@@ -250,7 +254,7 @@ class _AddPetFormState extends State<AddPetForm>{
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: 10),
                         child: Text(
-                            _dateTime == null? "Select Date" : _dateTime.toString(),
+                            _dateTime == null? "Select Date" : _dateTime.toString().split(' ')[0],
                           style:  TextStyle(
                             color: _dateTime == null? formHintColor : Colors.black,
                           ),
@@ -325,7 +329,6 @@ class _AddPetFormState extends State<AddPetForm>{
                     // change button value to selected value
                     onChanged: (newValue) {
                       setState(() {
-                        _SelectedBreed = 'select';
                         _SelectedCat = newValue.toString();
                         getSelectedCatID();
                         getPetBreeds();
@@ -382,7 +385,6 @@ class _AddPetFormState extends State<AddPetForm>{
                     // change button value to selected value
                     onChanged: (newValue) {
                       setState(() {
-                        getPetBreeds();
                         _SelectedBreed = newValue.toString();
                         getSelectedBreedID();
                       }
