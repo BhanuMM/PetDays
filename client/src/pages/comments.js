@@ -125,11 +125,15 @@ function comments() {
 								<div className="rightSide">
 									<div className="listOfComments">
 										{CommentObject.map((CommentObject, key) => {
+											console.log(CommentObject);
 											return (
 												<div key={key} className="comment">
 													<div className="lefttext">
-														<h4>Posted at :{CommentObject.createdAt}</h4>
+														<h4>Posted on :{CommentObject.createdAt.split('T')[0]} </h4>
+														{/* at : {CommentObject.createdAt.split('T')[1].split('Z')[0].split(':')[0]}.{CommentObject.createdAt.split('T')[1].split('Z')[0].split(':')[1]} Hrs */}
 													</div>
+													
+													<h4>By :{CommentObject.User.username}</h4>
 													<br />
 													<p>{CommentObject.commentBody}</p>
 													
