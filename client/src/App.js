@@ -92,6 +92,7 @@ import Mdadssection from './pages/mdadssection';
 import Mdpostsection from './pages/mdpostsection';
 import Mdnewpendingposts from './pages/mdnewpendingposts';
 import Mdrejectedposts from './pages/mdrejectedposts';
+// import Mdverifyposts from './pages/mdverifyposts';
 import Mdsinglemed from './pages/mdsinglemed';
 import Mdsinglevacc from './pages/mdsinglevacc';
 import Mdsinglevitamin from './pages/mdsinglevitamin';
