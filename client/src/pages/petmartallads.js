@@ -61,7 +61,7 @@ function petmart() {
 							</div>
 							<div className="col-4"></div>
 						</div>
-						<div className="row mt-5">
+						{/* <div className="row mt-5">
 							<div className="col-3 "></div>
 							<div className="col-1 pt-2">
 								{" "}
@@ -156,7 +156,7 @@ function petmart() {
 							</div>
 
 							<div className="col-2"></div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<br />
