@@ -133,33 +133,7 @@ class DietPlanCard extends StatelessWidget {
                       Spacer(),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Spacer(),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
 
-                              ),
-                            ),
-                            foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                            backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
-                          ),
-                          onPressed: () {
-
-                          },
-                          child: Text(
-                            "Add a comment",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
 
                 ],
               ),

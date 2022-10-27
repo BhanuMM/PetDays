@@ -32,6 +32,7 @@ class _DietPlanViewState extends State<DietPlanView> {
   final headers = {'Content-Type': 'application/json'};
   final encoding = Encoding.getByName('utf-8');
   List dietPlans = [];
+  String filter = 'All';
 
   Future getForumPosts() async {
 
@@ -42,7 +43,7 @@ class _DietPlanViewState extends State<DietPlanView> {
 
 
     final list = json.decode(res.body) as List<dynamic>;
-    print(list);
+
     setState(() {
       dietPlans = list ;
     });
@@ -106,7 +107,9 @@ class _DietPlanViewState extends State<DietPlanView> {
                             backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
                           ),
                           onPressed: () {
-
+                            setState(() {
+                              filter = 'All';
+                            });
                           },
                           child: Text(
                             "All",
@@ -126,7 +129,9 @@ class _DietPlanViewState extends State<DietPlanView> {
                             backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
                           ),
                           onPressed: () {
-
+                            setState(() {
+                              filter = 'Rec';
+                            });
                           },
                           child: Text(
                             "Recommended",
@@ -145,9 +150,40 @@ class _DietPlanViewState extends State<DietPlanView> {
                     itemCount: dietPlans.length,
                     itemBuilder: (BuildContext context, int index) {
                       print(dietPlans[index]);
+                      if (filter == 'All') {
+                        if (search == '') {
+                          return DietPlanCard(dietPlans[index]['planName'],
+                              dietPlans[index]['planDescr'],
+                              dietPlans[index]['Breed']['Petcatagory']['pcatName'],
+                              dietPlans[index]['Breed']['breedName'],
+                              dietPlans[index]['ageRangeFrom'],
+                              dietPlans[index]['ageRangeTo']);
+                        } else if (dietPlans[index]['planName'].toString()
+                            .toLowerCase()
+                            .contains(search.toLowerCase())) {
+                          return DietPlanCard(dietPlans[index]['planName'],
+                              dietPlans[index]['planDescr'],
+                              dietPlans[index]['Breed']['Petcatagory']['pcatName'],
+                              dietPlans[index]['Breed']['breedName'],
+                              dietPlans[index]['ageRangeFrom'],
+                              dietPlans[index]['ageRangeTo']);
+                        }
+                        print(widget.pet.catID ==  dietPlans[index]['catId']);
+                        print(filter == 'Rec');
+                        print(widget.pet.breedid == dietPlans[index]['breedId']);
 
-                      return DietPlanCard(dietPlans[index]['planName'],dietPlans[index]['planDescr'],dietPlans[index]['Breed']['Petcatagory']['pcatName'],dietPlans[index]['Breed']['breedName'],dietPlans[index]['ageRangeFrom'],dietPlans[index]['ageRangeTo']);
+                      }else if(filter == 'Rec' && dietPlans[index]['breedId'].toString() == "34" ){
+                        return DietPlanCard(dietPlans[index]['planName'],
+                            dietPlans[index]['planDescr'],
+                            dietPlans[index]['Breed']['Petcatagory']['pcatName'],
+                            dietPlans[index]['Breed']['breedName'],
+                            dietPlans[index]['ageRangeFrom'],
+                            dietPlans[index]['ageRangeTo']);
+                      }
+                      return Container();
                     }
+
+
                 ),
               ],
             )
