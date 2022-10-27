@@ -90,7 +90,7 @@ class _VaccineContentState extends State<VaccineContent> {
             SizedBox(height: defaultPadding,),
             DataTable(
                 columns:  <DataColumn>[
-                  DataColumn(label: Text("Vaccine Name"), tooltip: "To Display name"),
+                  DataColumn(label: Text("Vaccine"), tooltip: "To Display name"),
                   DataColumn(label: Text("Note"), tooltip: "To Display Email"),
                   DataColumn(label: Text("Next Date"), tooltip: "Update data"),
                 ],

@@ -41,7 +41,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
   String _SelectedVac = '';
   String _SelectedVacID = '';
   String predNextVac = '';
-  DateTime? nextDate = new DateTime(1);
+  DateTime nextDate = new DateTime(1);
   var Catagories = [];
   PetVaccination petVaccination = new PetVaccination('', '', 'note', 'nextVacDate');
   String petID = '';
@@ -94,7 +94,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
 
     print(json.decode(res.body));
     if(json.decode(res.body)=="SUCCESS"){
-      NotificationAPI.scheduleNotificationInit(0,"Upcoming Vaccination", "vaccinacion for parvo is due today",DateTime.now().add(Duration(seconds: 15)));
+      NotificationAPI.scheduleNotificationInit(0,"Upcoming Vaccination", "vaccinacion for parvo is due today",nextDate);
       addDiaryEntry();
       showDialog<void>(
         context: this.context,
@@ -308,7 +308,7 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: 10),
                               child: Text(
-                                _dateTime == null? "Select Date" : _dateTime.toString(),
+                                _dateTime == null? "Select Date" : _dateTime.toString().split(' ')[0],
                                 style:  TextStyle(
                                   color: _dateTime == null? formHintColor : Colors.black,
                                 ),
@@ -320,12 +320,13 @@ class _AddVaccinationFormState extends State<AddVaccinationtForm>{
                                   showDatePicker(
                                       context: context,
                                       initialDate: DateTime.now(),
-                                      firstDate: DateTime(2000),
-                                      lastDate:  DateTime.now()
+                                      firstDate: DateTime.now(),
+                                      lastDate:  DateTime(2200)
                                   ).then((date){
                                     setState(() {
                                       _dateTime = date;
-                                      nextDate = date;
+                                      nextDate = DateTime.parse(date.toString());
+                                      print(nextDate);
                                     });
                                   });
                                 },
