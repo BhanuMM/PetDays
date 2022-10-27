@@ -45,7 +45,7 @@ class _PetTalkHomeState extends State<PetTalkHome> {
     setState(() {
       forumPosts = list ;
     });
-    print(forumPosts);
+
 
     return "Sucess";
   }

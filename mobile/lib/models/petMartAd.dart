@@ -13,12 +13,13 @@ class PetMartAd{
   String paymentStatus;
   String adDate;
   String adTime;
+  String adType;
   String userId;
 
 
 
 
-  PetMartAd(this.adTitle,this.adDescr,this.adImage,this.adPrice,this.adContact,this.adEmail,this.adAddress,this.adProvince,this.adDistrict,this.adStatus,this.paymentStatus,this.adDate,this.adTime,this.userId);
+  PetMartAd(this.adTitle,this.adDescr,this.adImage,this.adPrice,this.adContact,this.adEmail,this.adAddress,this.adProvince,this.adDistrict,this.adStatus,this.paymentStatus,this.adDate,this.adTime,this.userId,this.adType);
 
 
   PetMartAd.fromJson(Map<String, dynamic> json)
@@ -36,7 +37,8 @@ class PetMartAd{
         paymentStatus =json['paymentStatus'].toString(),
         adDate =json['adDate'].toString(),
         adTime =json['adTime'].toString(),
-        userId =json['userId'].toString();
+        userId =json['userId'].toString(),
+        adType =json['adType'].toString();
 
 
 

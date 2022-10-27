@@ -8,9 +8,11 @@ import '../../../constants.dart';
 import 'components/top_bar.dart';
 import '../PetDiary/Pet_DIary_Screen.dart';
 import 'components/search.dart';
+import '../../models/petMartAd.dart';
 
 class ViewSingleAd extends StatelessWidget {
-  const ViewSingleAd({Key? key}) : super(key: key);
+  PetMartAd petMartAd = new PetMartAd('adTitle', 'adDescr', 'adImage', 'adPrice', 'adContact', 'adEmail', 'adAddress', 'adProvince', 'adDistrict', 'adStatus', 'paymentStatus', 'adDate', 'adTime', 'userId','none');
+  ViewSingleAd(this.petMartAd,{Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -23,9 +25,9 @@ class ViewSingleAd extends StatelessWidget {
                 maxHeight: MediaQuery.of(context).size.height *2-500,
               ),
               child:Column(
-                children: const [
+                children: [
                   petMartTopBanner(),
-                  PetMartHomeContent(),
+                  PetMartHomeContent(petMartAd),
 
                 ],
               ),

@@ -41,15 +41,23 @@ class PetForumItemCard extends StatelessWidget {
                     child: Column(
                       children: [
                         Row(
+
                             children: [
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.of(context).size.width-120,
-                                  child: Expanded(
-                                    child: Text(forumPost.postTitle,
-                                      style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),
+                                  width: 250,
+                                  child: Flex(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    direction: Axis.vertical,
+                                    children: [
+                                      Text(forumPost.postTitle,
+                                      style: TextStyle(
+                                          fontSize: 16,fontWeight: FontWeight.w600
+                                      ),
+                                        textAlign: TextAlign.left,
                                     ),
+                                    ]
                                   ),
                                 ),
                               ),
@@ -103,14 +111,17 @@ class PetForumItemCard extends StatelessWidget {
                           Spacer(),
                           Container(
                               width: MediaQuery.of(context).size.width-80,
-                              child: Expanded(
-                                  child: Text(
+                              child: Flex(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                  direction: Axis.vertical,
+                                  children: [
+                                    Text(
                                     forumPost.postDescr,
                                     style: TextStyle(
 
                                     ),
                                     textAlign: TextAlign.justify,
-                                  )
+                                  )]
                               )
                           ),
                           Spacer(),
