@@ -89,18 +89,18 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <h1 >Pet Days</h1>
+    <form id="payment-form" onSubmit={handleSubmit} style={{ padding:100 }}>
+      <center><h1 >Pet Days</h1>
       <h3 >Advertiesment Payment</h3>
-      <p >You will be charged Rs.1000 for this Advertiesment</p>
+      <p >You will be charged Rs.1000 for this Advertiesment</p></center>
       <br/>
-      <input
+      {/* <input
         id="email"
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter email address"
-      />
+      /> */}
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
@@ -109,6 +109,10 @@ export default function CheckoutForm() {
       </button>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
+
+      <br/>
+      <a href="\spdashboard" role="button" aria-pressed="true" style={{color:'#205375'}} ><p>Back To Dashboard</p></a>
     </form>
+
   );
 }
