@@ -66,36 +66,35 @@ axios.get("http://localhost:3001/service/getpost/"+location.state).then((respons
 							<div className="row pb-5  viewadd-body">
 								<div className="col-1"></div>
 								<div className="col-5">
-									<img
-										src={G1}
-										className="rounded float-start img-fluid viewadd-imagesize mr-5 pr-5"
-										alt="dog"
-									/>
+                <img
+													src={`http://localhost:3001/service/static/${SinglePost.adImage}`}
+													class="img-fluid rounded"
+												></img>
 								</div>
 								<div className="col-5 mt-5">
 									<p>
 										<h2 className="mb-3">{SinglePost.adTitle}</h2>
 										<p className="fs-4 mb-3">
 											<i class="fa fa-envelope text-5" aria-hidden="true"></i>{" "}
-											www.dogfriends.lk
+                      {SinglePost.adEmail}
 										</p>
 										<p className="fs-4 mb-3">
 											<i class="fa fa-phone  text-5" aria-hidden="true"></i>+94
-											718 956 953{" "}
+                      {SinglePost.adContact}{" "}
 										</p>
-										<p className="fs-4 mb-3">
+										{/* <p className="fs-4 mb-3">
 											<i
 												class="fa fa-facebook-square  text-5"
 												aria-hidden="true"
 											></i>{" "}
 											wwww.facebook.com/dogfriends
-										</p>
+										</p> */}
 										<p className="fs-4 mb-3">
 											<i
 												class="fa fa-map-marker  text-5"
 												aria-hidden="true"
 											></i>{" "}
-											Temple Road,Gampaha,Sri Lanka
+											 {SinglePost.adAddress}
 										</p>
 									</p>
 								</div>
@@ -107,14 +106,13 @@ axios.get("http://localhost:3001/service/getpost/"+location.state).then((respons
 										<h3>{SinglePost.adTitle}</h3>
 										<p className="fs-4 mb-3">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-											Gampaha,Sri Lanka
+											{SinglePost.adDistrict}
 										</p>
 
-										<h2>Rs 2000.00 only</h2>
+										<h2>Rs {SinglePost.adPrice} only</h2>
 									</p>
 									<p className="fs-4 mb-3 mt-3">
-										Keep your dog happy and in greate space with our help. Let
-										we take care of your pet while you are away.
+                  {SinglePost.adDescr}
 									</p>
 								</div>
 								<div className="col-2"></div>
