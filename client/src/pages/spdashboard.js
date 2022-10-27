@@ -10,18 +10,28 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 function dashboard() {
 	
-	const [x, setx] = useState([]);
-	const [y, sety] = useState([]);
-	const [z, setz] = useState([]);
+	const [x, setx] = useState(0);
+	const [y, sety] = useState(0);
+	const [z, setz] = useState(0);
 
 
 	useEffect(() => {
 		axios.get("http://localhost:3001/service/getpublishedadcount").then((response) => {
+			console.log(response.data[0]);
+			if(response.data[0] != undefined){
+				setx(response.data[0].count);
+				
+			}
+			if(response.data[1] != undefined){
+				
+				sety(response.data[1].count);
+				
+			}
+			if(response.data[2] != undefined){
+				
+				setz(response.data[2].count);
+			}
 			
-			
-			// setx(response.data[0].count);
-			// sety(response.data[1].count);
-			// setz(response.data[2].count);
 			
 
 			

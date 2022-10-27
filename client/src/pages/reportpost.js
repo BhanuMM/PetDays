@@ -37,7 +37,9 @@ function viewmedications() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Report Dashboard /
 													</a>
-                                                    
+                                                    <a href="/reportgenarationdashboard" className="header-topic">
+														Report generation/
+													</a>
 													<a href="/reportpost" className="header-topic">
                                                     Forum Post Report
 													</a>

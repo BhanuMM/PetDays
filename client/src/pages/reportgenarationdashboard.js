@@ -40,7 +40,7 @@ function dashboard() {
 						<div class="container-fluid">
 							
 							<div className="row">
-								<div className="col-6">
+								<div className="col-12">
 									<div class="card shadow border-0 mb-6 bg-white">
 										<div class="card-header">
 											<h5 class="mb-0 ">ANALYTICAL REPORTS</h5>
@@ -56,7 +56,7 @@ function dashboard() {
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-																INCOME REPORT
+																Advertiesment Income Report
 															</button>
 														</a>
 														<a
@@ -65,7 +65,16 @@ function dashboard() {
 															aria-pressed="true"
 														>
 															<button type="submit" class="btn-tra">
-																USER REPORT
+																User Analysis Report
+															</button>
+														</a>
+														<a
+															href="\reportuser"
+															role="button"
+															aria-pressed="true"
+														>
+															<button type="submit" class="btn-tra">
+																Vaccinated Pet Analysis Report
 															</button>
 														</a>
 													</div>

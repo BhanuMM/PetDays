@@ -6,7 +6,9 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
-
+import BarChart from "../components/BarChart";
+  
+ 
 function viewmedications() {
 	
 	const [ListOfIncome, setListOfIncome] = useState([]);
@@ -18,6 +20,22 @@ function viewmedications() {
 			setListOfIncome(response.data);
 		});
 	}, []);
+	let x ={
+		labels: ListOfIncome.map((data) => month[data.umonth-1]),
+		datasets: [
+		  {
+			label: "Total Income (Rs.)",
+			data: ListOfIncome.map((data) => (data.adcount)*1000),
+			backgroundColor: ["#d0c8c8","#fff5c7"],
+			borderColor: "black",
+			borderWidth: 1,
+		  },
+		],
+	  };
+	  console.log(x);
+	// const [userData, setUserData] = useState([]);
+	// setUserData(x);
+	let i =1;
 	
 	return (
 		<div>
@@ -39,7 +57,9 @@ function viewmedications() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Report Dashboard /
 													</a>
-                                                    
+													<a href="/reportgenarationdashboard" className="header-topic">
+														Report generation/
+													</a>
 													<a href="/Reportincome" className="header-topic">
 														Income Statement
 													</a>
@@ -82,11 +102,12 @@ function viewmedications() {
 									<br />
 									<br />
 									<br />
-
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
-											<h5 class="mb-0">Income Statement</h5>
+											<h5 class="mb-0">Advertiesment Income Report</h5>
 										</div>
+										<BarChart chartData={x} />
+										<br/>
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">
@@ -103,23 +124,31 @@ function viewmedications() {
 														</th>
 														<th scope="col">
 															<b>
-																<strong>Variation Percentage</strong>
+																<strong>Month to Month growth</strong>
 															</b>
 														</th>
 													</tr>
 												</thead>
 												<tbody>
-													{ListOfIncome
-													
-													
-													.map((value, key) => {
+													{ListOfIncome.map((value, key , arr ) => {
+														
+														let j = 0;
+														if(i==1){
+
+														}else{
+														j= 	((value.adcount*1000)-i)/i *100
+														}
+														
+														{i=value.adcount*1000}
 														return (
 															<tr>
-																<td>{month[value.umonth-1]}</td>
-																<td>{value.adcount*50}</td>
-																<td></td>
+																<td>{month[value.umonth-1]} 2022</td>
+																<td>{value.adcount*1000}</td>
+																<td> {j} % </td>
+																
 															</tr>
 														);
+														
 													})}
 												</tbody>
 											</table>

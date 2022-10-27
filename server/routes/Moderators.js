@@ -127,6 +127,13 @@ router.post("/updaterejectedad", async (req, res) => {
     res.json("Not SUCCESS");
   }
 });
+router.post("/updatependingad/:adid", async (req, res) => {
+  const adid = req.params.adid;
+  await Publishedads.update({adStatus :"approved" } ,{ where: { adId: adid }} );
+  
+    res.json("Mod SUCCESS");
+ 
+});
 
 
 router.get("/getmedicines", async (req, res) => {
@@ -216,7 +223,7 @@ router.get("/getverifyposts", async (req, res) => {
   const listOfverifyposts = await Forumposts.findAll(
     {
       where: {
-        postStatus: "approved",
+        postStatus: "rejected",
       },
     }
     
@@ -306,26 +313,17 @@ router.post("/changestatus", async (req, res) => {
   res.json("SUCCESS"); 
 });
 
-router.post("/updaterejectepost", async (req, res) => {
-  const rejected = req.body;
-  const chckq = await Forumposts.create(rejected); 
-  if(chckq){
-    await Forumposts.update({postStatus :"rejected" } ,{ where: { postId: rejected.postId }} );
-    res.json("Mod SUCCESS");
-  }else{
-    res.json("Not SUCCESS");
-  }
+router.post("/updaterejectepost/:postId", async (req, res) => {
+  const postId = req.params.postId;
+  await Forumposts.update({ postStatus :"rejected" } ,{ where: { postId: postId }} );
+  res.json("Mod SUCCESS");
 });
 
-router.post("/updateapprovedpost", async (req, res) => {
-  const approved = req.body;
-  const chckq = await Forumposts.create(approved);  
-  if(chckq){
-    await Forumposts.update({postStatus :"approved" } ,{ where: { postId: approved.postId }} );
-    res.json("Mod SUCCESS");
-  }else{
-    res.json("Not SUCCESS");
-  }
+router.post("/updateapprovedpost/:postId", async (req, res) => {
+  const postId = req.params.postId;
+  await Forumposts.update({ postStatus :"approved" } ,{ where: { postId: postId }} );
+  res.json("Mod SUCCESS");
+ 
 });
 
 

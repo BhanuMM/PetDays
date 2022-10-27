@@ -89,15 +89,43 @@ function comments() {
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
-										<div className="title" > {PostObject.postTitle}</div>
-										<div className="body">{PostObject.postDescr}</div>
-										<div className="footer" >
-											<div className="lefttext">
-												Posted date :{PostObject.postDate}
-											</div>
-											<div className="righttext">
-												Posted time: {PostObject.postTime}
-											</div>
+
+// 										<div className="title" > {PostObject.postTitle}</div>
+// 										<div className="body">{PostObject.postDescr}</div>
+// 										<div className="footer" >
+// 											<div className="lefttext">
+// 												Posted date :{PostObject.postDate}
+// 											</div>
+// 											<div className="righttext">
+// 												Posted time: {PostObject.postTime}
+// 											</div>
+
+
+										<div className="title"><h3>{PostObject.postTitle}</h3></div>
+										<div className="body"><h4>{PostObject.postDescr}</h4></div>
+										<div classname="footer" style={{ display: "flex" }}>
+											<span class="be-comment-time">
+												<i className="fa fa-clock-o"></i>
+												 {PostObject.postDate}  at {PostObject.postTime}
+											</span>
+											
+										</div><br/>
+										<div
+											className="addCommentContainer"
+											style={{ display: "flex" }}
+										>
+											<input
+												type="text"
+												placeholder="Comment..."
+												autoComplete="off"
+												value={newComment}
+												onChange={(event) => {
+													setNewComment(event.target.value);
+												}}
+											/>
+											<button onClick={addComment}> Add Comment</button>
+
+
 										</div>
 									</div>
 								</div>
