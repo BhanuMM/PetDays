@@ -97,7 +97,7 @@ const cancelad = (event) => {
 }
 
   return (
-    <div class="container-fluid">
+    <div>
       <Navbarsp />
       <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
         <div className="">
@@ -126,7 +126,7 @@ const cancelad = (event) => {
         <button
                             className="register.loginbuttonsize btn btn-success "
                             type="submit"
-                            style={{ backgroundColor: "#266305" }}
+                            style={{ backgroundColor: "#266305",borderColor: "#266305", width:300}}
                             onClick ={sendImage}
                           >
                             Proceed to Payment
@@ -138,7 +138,7 @@ const cancelad = (event) => {
                             className="register.loginbuttonsize btn btn-success "
                             type="submit"
                             onClick ={sendImageonly}
-                            style={{ backgroundColor: "#dd7313" }}
+                            style={{ backgroundColor: "#dd7313",borderColor: "#dd7313", width:300 }}
                           >
                             Pay Later
                           </button>
@@ -147,7 +147,7 @@ const cancelad = (event) => {
                             className="register.loginbuttonsize btn btn-success ml-3"
                             type="submit"
                             onClick ={cancelad}
-                            style={{ backgroundColor: "#a10000" }}
+                            style={{ backgroundColor: "#a10000" ,borderColor: "#a10000", width:300  }}
                           >
                             Cancel
                           </button>

@@ -6,9 +6,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 import "../styles/ad.css";
 
-// Make sure to call loadStripe outside of a component’s render to avoid
-// recreating the Stripe object on every render.
-// This is your test publishable API key.
 const stripePromise = loadStripe("pk_test_51LwBrDCeYmYZru3ySMwHiZCiS6CaQIvBYbnIoqqt0r7xbd7eVzXvAPIT6vU9CbuLJBUqDBh2baE80H9RKPeH9jTI00rv0Bff04");
 
 export default function App() {

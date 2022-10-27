@@ -205,6 +205,8 @@ function comments() {
 								
 							</div>
 
+							</div>
+
 						</main>
 					</div>
 				</div>
