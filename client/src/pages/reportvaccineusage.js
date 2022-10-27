@@ -58,7 +58,9 @@ function viewmedications() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Report Dashboard /
 													</a>
-                                                    
+													<a href="/reportgenarationdashboard" className="header-topic">
+														Report generation/
+													</a>
 													<a href="/reportvaccine" className="header-topic">
 														Vaccine Usage Report
 													</a>
@@ -105,8 +107,9 @@ function viewmedications() {
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">Vaccine Usage Report</h5>
-											<button onClick={createAndDownloadPdf}>Download PDF</button>
+											
 										</div>
+										<button onClick={createAndDownloadPdf}>Download PDF</button>
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
 												<thead class="thead-light">

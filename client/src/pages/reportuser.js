@@ -6,6 +6,7 @@ import "../styles/footerspecial.css";
 import "../styles/sellerdashboard.css";
 import "../styles/dashboard.css";
 import dog from "../images/PetDays.png";
+import LineChart from "../components/LineChart";
 
 function viewmedications() {
 
@@ -26,7 +27,28 @@ function viewmedications() {
 			setlistOfTotaluser(response.data);
 		});
 	}, []);
-	
+
+	let y ={
+		labels: listOfUsers.map((data) => month[data.umonth-1]),
+		datasets: [
+		  {
+			label: "Pet Owners",
+			data: listOfUsers.map((data) => (data.ucount)),
+			backgroundColor: ["#d0c8c8","#fff5c7"],
+			borderColor: "black",
+			borderWidth: 1,
+		  },
+		  {
+			label: "Service Providers",
+			data: listOfService.map((data) => (data.ucount)),
+			backgroundColor: ["#d0c8c8","#fff5c7"],
+			borderColor: "black",
+			borderWidth: 1,
+		  },
+		],
+	  };
+	let i =1;
+	let x =1;
 	return (
 		<div>
 			<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -47,7 +69,9 @@ function viewmedications() {
 													<a href="/admindashboard" className="header-topic">
 														Admin Report Dashboard /
 													</a>
-                                                    
+													<a href="/reportgenarationdashboard" className="header-topic">
+														Report generation/
+													</a>
 													<a href="/reportuser" className="header-topic">
                                                     User Registration Report
 													</a>
@@ -90,10 +114,15 @@ function viewmedications() {
 									<br />
 									<br />
 									<br />
-
+									<div class="card shadow border-0 mb-7">
+									<LineChart chartData={y} />
+									</div>
+									
 									<div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">User Registration Report</h5>
+											
+										<br/>
 										</div>
 										<div class="table-responsive">
 											<table class="table table-hover table-nowrap text-center">
@@ -111,7 +140,7 @@ function viewmedications() {
 														</th>
                                                         <th scope="col">
 															<b>
-																<strong>Pet Owner Varience</strong>
+																<strong>User Growth Precentage</strong>
 															</b>
 														</th>
                                                        
@@ -133,11 +162,19 @@ function viewmedications() {
 													// })
 													
 													.map((value, key) => {
+														let j = 0;
+														if(i==1){
+
+														}else{
+														j= 	((value.ucount*1000)-i)/i *100
+														}
+														
+														{i=value.ucount*1000}
 														return (
 															<tr>
-																<td>{month[value.umonth-1]}</td>
+																<td>{month[value.umonth-1]} 2022</td>
 																<td>{value.ucount}</td>
-                                                                <td></td>	
+                                                                <td>{j} %</td>	
 																
 															</tr>
 														);
@@ -170,7 +207,7 @@ function viewmedications() {
 														</th>
                                                         <th scope="col">
 															<b>
-																<strong>Service Provider Varience</strong>
+																<strong>Service Growth Precentage</strong>
 															</b>
 														</th>
                                                        
@@ -192,11 +229,19 @@ function viewmedications() {
 													// })
 													
 													.map((value, key) => {
+														let j = 0;
+														if(x==1){
+
+														}else{
+														j= 	((value.ucount*1000)-x)/x *100
+														}
+														
+														{i=value.ucount*1000}
 														return (
 															<tr>
-																<td>{month[value.umonth-1]}</td>
+																<td>{month[value.umonth-1]} 2022</td>
 																<td>{value.ucount}</td>
-                                                                <td></td>	
+                                                                <td>{j} %</td>	
 																
 															</tr>
 														);
@@ -208,7 +253,7 @@ function viewmedications() {
 											<span class="text-muted text-sm"></span>
 										</div>
 									</div>
-									<div class="card shadow border-0 mb-7">
+									{/* <div class="card shadow border-0 mb-7">
 										<div class="card-header">
 											<h5 class="mb-0">User Registration Report</h5>
 										</div>
@@ -257,7 +302,7 @@ function viewmedications() {
 										<div class="card-footer border-0 py-5">
 											<span class="text-muted text-sm"></span>
 										</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>

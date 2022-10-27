@@ -89,6 +89,7 @@ function comments() {
 							<div className="postPage">
 								<div className="leftSide">
 									<div className="post" id="individual">
+
 										<div className="title"><h3>{PostObject.postTitle}</h3></div>
 										<div className="body"><h4>{PostObject.postDescr}</h4></div>
 										<div classname="footer" style={{ display: "flex" }}>
@@ -112,6 +113,7 @@ function comments() {
 												}}
 											/>
 											<button onClick={addComment}> Add Comment</button>
+
 										</div>
 									</div>
 								</div>
