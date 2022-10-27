@@ -5,12 +5,12 @@ import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
 
-class PetDashboardItemCard extends StatelessWidget {
+class PetMartItemCard extends StatelessWidget {
   final String label;
   final String price;
   final StatelessWidget ado;
   final String img;
-  PetDashboardItemCard({ required this.label, required this.ado, required this.img, required this.price});
+  PetMartItemCard({ required this.label, required this.ado, required this.img, required this.price});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

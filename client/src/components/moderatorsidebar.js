@@ -138,6 +138,7 @@ function moderatorsidebar() {
 												Add Diet Plans
 											</a>
 										</div>
+
 									</div>
 								</div>
 								<div class="panel panel-default">
@@ -177,6 +178,7 @@ function moderatorsidebar() {
 											>
 												Vaccines
 											</a>
+
 										</div>
 										<div class="panel-footer">
 											<a

@@ -80,6 +80,7 @@ class _PetDiaryContentState extends State<PetDiaryContent> {
                                     child:  GestureDetector(
                                       onTap: (){
 
+
                                       },
                                       child: const Text("Add a reminder", textAlign: TextAlign.center,
                                         style: TextStyle(

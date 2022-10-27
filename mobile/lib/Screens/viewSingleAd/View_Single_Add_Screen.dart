@@ -25,10 +25,6 @@ class ViewSingleAd extends StatelessWidget {
               child:Column(
                 children: const [
                   petMartTopBanner(),
-                  Padding(
-                    child:PetMartSearch(),
-                    padding: EdgeInsets.only(top: 20),
-                  ),
                   PetMartHomeContent(),
 
                 ],

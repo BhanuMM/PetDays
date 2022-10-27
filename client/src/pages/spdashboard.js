@@ -10,18 +10,28 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 function dashboard() {
 	
-	const [x, setx] = useState([]);
-	const [y, sety] = useState([]);
-	const [z, setz] = useState([]);
+	const [x, setx] = useState(0);
+	const [y, sety] = useState(0);
+	const [z, setz] = useState(0);
 
 
 	useEffect(() => {
 		axios.get("http://localhost:3001/service/getpublishedadcount").then((response) => {
+			console.log(response.data[0]);
+			if(response.data[0] != undefined){
+				setx(response.data[0].count);
+				
+			}
+			if(response.data[1] != undefined){
+				
+				sety(response.data[1].count);
+				
+			}
+			if(response.data[2] != undefined){
+				
+				setz(response.data[2].count);
+			}
 			
-			
-			setx(response.data[0].count);
-			sety(response.data[1].count);
-			setz(response.data[2].count);
 			
 
 			
@@ -47,11 +57,7 @@ function dashboard() {
                     Add New Advertisment
                   </Button>
 								</a>
-								{/* <a href="\adpayment" className="header-topic">
-									<Button variant="contained" component="label"  style={{backgroundColor: '#F66B0E', height:40, width:275}}>
-                    payment
-                  </Button>
-								</a> */}
+								
               </div><br />
 					<main class="py-6 bg-surface-secondary">
 						<div class="container-fluid">
@@ -99,14 +105,7 @@ function dashboard() {
 													</div>
 												</div>
 											</div>
-											{/* <div class="mt-2 mb-0 text-sm">
-												<span class="badge badge-pill bg-soft-success text-success me-2">
-													<i class="bi bi-arrow-up me-1"></i>13%
-												</span>
-												<span class="text-nowrap text-xs text-muted">
-													Since last month
-												</span>
-											</div> */}
+											
 										</div>
 									</div>
 								</div>
