@@ -17,6 +17,7 @@ import '../../PetGallery/PetGallery.dart';
 import 'package:http/http.dart' as http;
 import '../../../models/petImage.dart';
 import '../../../models/globals.dart' as globals;
+import '../../DietPlans/ViewDietPlanScreen.dart';
 class PetDashboardContent extends StatefulWidget{
   Pet pet = new Pet('petName', 'DOB', 0, 'breedid', 'UserID', 'catID', 'profileImage');
   PetDashboardContent(Pet pet) {
@@ -188,7 +189,7 @@ class _PetDashboardContentState extends State<PetDashboardContent> {
                 Row(
                     children: [
                       Spacer(),
-                      PetDashboardItemCard(label: "Diet Plans",ado: PetDiaryScreen(pet),img: "petd"),
+                      PetDashboardItemCard(label: "Diet Plans",ado: DietPlanViewScreen(pet),img: "petd"),
                       Spacer(),
                       PetDashboardItemCard(label: "Medications",ado: PetMedicationScreen(pet.petID.toString()),img: "medication"),
                       Spacer(),

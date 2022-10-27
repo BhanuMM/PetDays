@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const router = express.Router();
-const { Forumposts,Comments } = require("../models");
+const { Forumposts,Comments,Users } = require("../models");
 
 router.get("/getpost/:id", async (req, res) => {
     const id = req.params.id;
@@ -34,13 +34,28 @@ router.get("/getpost/:id", async (req, res) => {
   
 router.get("/getcomment/:postId", async (req, res) => {
   const postId = req.params.postId;
-  const listOfComments= await Comments.findAll({ where: { postId: postId } });
+  const listOfComments= await Comments.findAll({ 
+   
+       where: { postId: postId },
+       include: { 
+        model:Users ,
+         required: true,
+       }
+    
+    
+    
+  });
   res.json(listOfComments);
 });
 
 router.get("/getsinglecomment/:id", async (req, res) => {
   const id = req.params.id;
-  const listOfComments= await Comments.findOne({ where: { id: id } });
+  const listOfComments= await Comments.findOne(
+    { 
+      where: { id: id} 
+      
+    }  
+    );
   res.json(listOfComments);
 });
 

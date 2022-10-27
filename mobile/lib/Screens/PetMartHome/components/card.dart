@@ -4,6 +4,7 @@ import 'package:mobile/Screens/Dashboard/dashboard_screen.dart';
 
 import '../../../constants.dart';
 import '../../PetDashboard/Pet_Dashboard_Screen.dart';
+import '../../../models/globals.dart';
 
 class PetMartItemCard extends StatelessWidget {
   final String label;
@@ -46,12 +47,29 @@ class PetMartItemCard extends StatelessWidget {
 
             child: Column(
               children: [
-
-                Image.asset(
-                  "assets/images/$img.png",
-                  height: 110,
+                Container(
+                  height: 90,
                   width: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    image: DecorationImage(
+                      image: NetworkImage("http://$url/service/static/$img"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
+
+                // ConstrainedBox(
+                //   constraints: BoxConstraints(
+                //     maxWidth: 200,
+                //     maxHeight: 110,
+                //   ),
+                //   child: Image.network(
+                //     "http://$url/service/static/$img",
+                //     width: 200,
+                //   ),
+                // ),
+                SizedBox(height: 5,),
                 Row(
                   children: [
                     const Spacer(
